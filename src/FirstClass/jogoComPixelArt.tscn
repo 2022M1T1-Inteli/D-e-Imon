@@ -99,6 +99,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id=6]
 resource_name = "correndo_para_baixo"
+length = 0.55
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -138,6 +139,7 @@ tracks/2/keys = {
 
 [sub_resource type="Animation" id=7]
 resource_name = "correndo_para_cima"
+length = 0.55
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -177,7 +179,7 @@ tracks/2/keys = {
 
 [sub_resource type="Animation" id=5]
 resource_name = "correndo_para_direita"
-length = 0.7
+length = 0.65
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -217,7 +219,7 @@ tracks/2/keys = {
 
 [sub_resource type="Animation" id=8]
 resource_name = "correndo_para_esquerda"
-length = 0.5
+length = 0.55
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -598,12 +600,12 @@ __meta__ = {
 }
 
 [node name="Pontos" type="Label" parent="."]
-margin_left = 286.0
+margin_left = 279.0
 margin_top = 2.0
-margin_right = 311.0
+margin_right = 316.0
 margin_bottom = 23.0
 text = "0"
-align = 1
+align = 2
 valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
