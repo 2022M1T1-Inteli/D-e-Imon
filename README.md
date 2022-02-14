@@ -131,6 +131,12 @@ Coloque código do prompt de comnando se for necessário
 ```
 
 ## 🗃 Histórico de lançamentos
+* 0.0.3 - 14/02/2022
+  * Ampliação de cenário
+  * Adicionado sombra do personagem
+  * Adicionado sitema de pontuação
+  * Código refatorado
+
 * 0.0.2 - 10/02/2022
   * Edições no GitHub
   * Explicação sobre o projeto
