@@ -131,6 +131,9 @@ Coloque código do prompt de comnando se for necessário
 ```
 
 ## 🗃 Histórico de lançamentos
+* 0.0.4 - 16/02/2022
+  * Mudanças e atualizações no GDD
+
 * 0.0.3 - 14/02/2022
   * Ampliação de cenário
   * Adicionado sombra do personagem
