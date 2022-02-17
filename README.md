@@ -131,6 +131,12 @@ Coloque código do prompt de comnando se for necessário
 ```
 
 ## 🗃 Histórico de lançamentos
+* 0.0.5 - 17/02/2022
+  * Adicionado camêra junto dos PopUps
+  * Adcionado minigame de Atari
+  * Criado sistema para Quiz interativo quando entra em uma determinada área
+
+
 * 0.0.4 - 16/02/2022
   * Mudanças e atualizações no GDD
 
