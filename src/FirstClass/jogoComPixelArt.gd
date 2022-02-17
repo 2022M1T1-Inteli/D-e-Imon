@@ -120,9 +120,9 @@ func _on_Area2D_body_entered(body):
 		MensagemPressM(true)
 		setPopUpContent('Quando entro na area selecionada', 'Teste2324234234', 'Teste432423423', 'Louco4324234234')
 		anc = 2
-		if Input.is_action_pressed("ui_m"):
-			beVisible(true)
-			get_tree().paused = true
+#		if Input.is_action_pressed("ui_m"):
+#			beVisible(true)
+#			get_tree().paused = true
 	else:
 		get_tree().paused = false # Replace with function body
 
@@ -136,4 +136,22 @@ func _on_Area2D_body_exited(body):
 func _on_Area2D2_body_entered(body):
 	if body.name == 'Personagem':
 		get_tree().change_scene("res://pong.tscn")
+	pass # Replace with function body.
+
+
+func _pergunta2Enter(body):
+	if body.name == 'Personagem':
+		liberadoAbrir = true
+		MensagemPressM(true)
+		setPopUpContent('Essa é a pergunta 2', 'Resposta 1', 'Resposta2', 'Resposta3')
+		anc = 3
+	else:
+		get_tree().paused = false
+	pass # Replace with function body.
+
+
+func _exitedPergunta2(body):
+	if body.name == 'Personagem':
+		liberadoAbrir = false
+		MensagemPressM(false)
 	pass # Replace with function body.
