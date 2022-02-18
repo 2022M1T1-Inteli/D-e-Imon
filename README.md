@@ -131,6 +131,14 @@ Coloque código do prompt de comnando se for necessário
 ```
 
 ## 🗃 Histórico de lançamentos
+* 0.0.6 - 18/02/2022
+  * |Camera centralizada no personagem
+  * Personagem com nova posição de start
+  * Cenário recraido com tilemap
+  * Tiles do cenário com cores alteradas
+  * Adicionada novas colisões
+  * Adicionado EasterEgg
+
 * 0.0.5 - 17/02/2022
   * Adicionado camêra junto dos PopUps
   * Adcionado minigame de Atari
