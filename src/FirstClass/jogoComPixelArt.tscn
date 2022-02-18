@@ -709,10 +709,9 @@ anims/correndo_para_direita = SubResource( 5 )
 anims/correndo_para_esquerda = SubResource( 8 )
 
 [node name="Camera" type="Camera2D" parent="Personagem"]
-position = Vector2( 159, 90 )
+position = Vector2( 38, 37 )
 current = true
 limit_smoothed = true
-smoothing_enabled = true
 script = SubResource( 17 )
 
 [node name="Pontos" type="Label" parent="Personagem/Camera"]
