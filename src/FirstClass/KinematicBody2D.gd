@@ -32,6 +32,17 @@ func _physics_process(_delta):
 	resultante.y = Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")
 	resultante = resultante.normalized()
 	
+	if Input.get_action_strength("ui_right"):
+		animacaoJogador.play("correndo_para_direita")
+	elif Input.get_action_strength("ui_left"):
+		animacaoJogador.play("correndo_para_esquerda")
+	elif Input.get_action_strength("ui_up"):
+		animacaoJogador.play("correndo_para_cima")
+	elif Input.get_action_strength("ui_down"):
+		animacaoJogador.play("correndo_para_baixo")
+	else:
+		return
+	
 	if resultante != Vector2.ZERO:
 		velocity = resultante * rapidez
 	else:
