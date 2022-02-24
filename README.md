@@ -173,3 +173,5 @@ Aqui estão as referências usadas no projeto.
 1. <https://github.com/iuricode/readme-template>
 2. <https://github.com/gabrieldejesus/readme-model>
 3. <https://creativecommons.org/share-your-work/>
+4. https://docs.godotengine.org/en/2.1/learning/step_by_step/simple_2d_game.html
+5. https://www.youtube.com/c/uheartbeast
