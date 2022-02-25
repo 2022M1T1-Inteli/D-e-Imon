@@ -144,6 +144,8 @@ Coloque código do prompt de comnando se for necessário
   * Adicionado novo cenário do mapa principal
   * Personagem com nova posição de start
   * Adicionada novas colisões
+  * Adicionado sistema de mercado
+
 * 0.0.6 - 18/02/2022
   * Camera centralizada no personagem
   * Personagem com nova posição de start

@@ -11,15 +11,22 @@ var anc = 0
 var levelPassed = false
 var liberadoAbrir = false
 var liberadoAbrirE = false
+var liberadoAbrirG = false
 
 func beVisible(visible): 
 	$Personagem/Camera/CanvasLayer/Popups/Popup.visible = visible  #Abre o PopUp do quiz
+	
+func beVisibleMarket(visible):
+	$Personagem/Camera/CanvasLayer/Popups/Mercado.visible = visible
 	
 func MensagemPressM(visible):
 	$Personagem/Camera/CanvasLayer/Popups/Popup3.visible = visible # Aparece para apertar M.
 
 func MensagemPressE(visible):
 	$Personagem/Camera/CanvasLayer/Popups/Popup4.visible = visible # Aparece para apertar M.
+
+func MensagemPressG(visible):
+	$Personagem/Camera/CanvasLayer/Popups/Popup5.visible = visible # Aparece para apertar M.
 
 func messageFinal(text):
 	$Personagem/Camera/CanvasLayer/Popups/Popup2.visible = true
@@ -40,7 +47,7 @@ func addCoins(qnt):
 	
 func deleteCoins(qnt):
 	var pontosAtualRed = int($Personagem/Camera/Pontos.text) #Pega os pontos atuais e tranforma em Número
-	var pontosAdicionadosRed = pontosAtualRed ++ qnt #Retira o incremento passado pelo parametro da função
+	var pontosAdicionadosRed = pontosAtualRed - qnt #Retira o incremento passado pelo parametro da função
 	var pontosInStringRed = str(pontosAdicionadosRed) #Retorna o total para o formato String
 	$Personagem/Camera/Pontos.text = pontosInStringRed #Substitui o valor dos pontos pelo valor retirado
 
@@ -62,6 +69,11 @@ func _process(delta):
 	elif liberadoAbrirE:
 		if Input.is_action_pressed("ui_e"):
 			get_tree().change_scene("res://pong.tscn")
+	elif liberadoAbrirG:
+		if Input.is_action_pressed("ui_g"):
+			beVisibleMarket(true)
+			get_tree().paused = true
+			MensagemPressG(false)
 	else:
 		pass
 
@@ -185,4 +197,45 @@ func _on_Pergunta3_body_exited(body):
 	if body.name == 'Personagem':
 		liberadoAbrir = false
 		MensagemPressM(false)
+	pass # Replace with function body.
+
+
+func marketOpenMessage(body):
+	if body.name == 'Personagem':
+		liberadoAbrirG = true
+		MensagemPressG(true)
+	pass # Replace with function body.
+
+
+func marketExited(body):
+	if body.name == 'Personagem':
+		liberadoAbrirG = false
+		MensagemPressG(false)
+	pass # Replace with function body.
+
+
+func fecharMarket():
+	beVisibleMarket(false)
+	get_tree().paused = false
+	pass # Replace with function body.
+
+
+func compraVida():
+	deleteCoins(100)
+	beVisibleMarket(false)
+	get_tree().paused = false
+	pass # Replace with function body.
+
+
+func comprarFase2():
+	deleteCoins(200)
+	beVisibleMarket(false)
+	get_tree().paused = false
+	pass # Replace with function body.
+
+
+func comprarFase3():
+	deleteCoins(300)
+	beVisibleMarket(false)
+	get_tree().paused = false
 	pass # Replace with function body.

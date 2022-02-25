@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
 var velocity = Vector2.ZERO
-var rapidez = 140
+var rapidez = 180
 onready var animacaoJogador = $AnimationPlayer
 
 func direita():
