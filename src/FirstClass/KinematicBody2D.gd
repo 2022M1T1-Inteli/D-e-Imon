@@ -26,6 +26,8 @@ func _physics_process(_delta):
 	#Retira o bug de vetores quando se somam vetor nos sentidos x e y
 	resultante = resultante.normalized()
 	
+
+	
 	#Chama a animação correta, referente ao lado que o personagem está se deslocando
 	if Input.get_action_strength("ui_right"):
 		direita()
@@ -36,6 +38,7 @@ func _physics_process(_delta):
 	elif Input.get_action_strength("ui_down"):
 		baixo()
 	else:
+		animacaoJogador.seek(1, true)
 		return
 	
 	if resultante != Vector2.ZERO:

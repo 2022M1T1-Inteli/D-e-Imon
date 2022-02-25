@@ -723,7 +723,6 @@ polygon = PoolVector2Array( -3.75958, 76.7302, -4.80606, 76.7302, -4.80605, 47.0
 
 [node name="CollisionShape2D11" type="CollisionShape2D" parent="Collisions"]
 position = Vector2( -6.96689, 240.401 )
-scale = Vector2( 1, 1 )
 shape = SubResource( 50 )
 
 [node name="CollisionPolygon2D12" type="CollisionPolygon2D" parent="Collisions"]
