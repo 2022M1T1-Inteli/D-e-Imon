@@ -131,8 +131,12 @@ Coloque código do prompt de comnando se for necessário
 ```
 
 ## 🗃 Histórico de lançamentos
+* 0.0.7 - 25/02/2022
+  * Adicionado novo cenário do mapa principal
+  * Personagem com nova posição de start
+  * Adicionada novas colisões
 * 0.0.6 - 18/02/2022
-  * |Camera centralizada no personagem
+  * Camera centralizada no personagem
   * Personagem com nova posição de start
   * Cenário recraido com tilemap
   * Tiles do cenário com cores alteradas
