@@ -12,6 +12,8 @@ var levelPassed = false
 var liberadoAbrir = false
 var liberadoAbrirE = false
 var liberadoAbrirG = false
+var pontosToBuy
+#var pontosToBuy = $Personagem/Camera/Pontos.Text #Pega os pontos atuais e tranforma em Número
 
 func beVisible(visible): 
 	$Personagem/Camera/CanvasLayer/Popups/Popup.visible = visible  #Abre o PopUp do quiz
@@ -51,12 +53,15 @@ func deleteCoins(qnt):
 	var pontosInStringRed = str(pontosAdicionadosRed) #Retorna o total para o formato String
 	$Personagem/Camera/Pontos.text = pontosInStringRed #Substitui o valor dos pontos pelo valor retirado
 
-# Called when the node enters the scene tree for the first time.
-#func _ready(): 
-#	pass# Replace with function body.
+func messageMarket(message):
+	$Personagem/Camera/CanvasLayer/Popups/marketMessage/Label.text = message
+	$Personagem/Camera/CanvasLayer/Popups/marketMessage.visible = true
+	yield(get_tree().create_timer(3.0), "timeout")
+	$Personagem/Camera/CanvasLayer/Popups/marketMessage.visible = false
 
+func _ready(): 
+	pontosToBuy = int($Personagem/Camera/Pontos.text)
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if liberadoAbrir:
 		if Input.is_action_pressed('ui_m'):
@@ -219,23 +224,40 @@ func fecharMarket():
 	get_tree().paused = false
 	pass # Replace with function body.
 
-
 func compraVida():
-	deleteCoins(100)
-	beVisibleMarket(false)
-	get_tree().paused = false
+	if(pontosToBuy > 100):
+		deleteCoins(100)
+		beVisibleMarket(false)
+		get_tree().paused = false
+		messageMarket('Item comprado com sucesso')
+	else:
+		beVisibleMarket(false)
+		get_tree().paused = false
+		messageMarket('Você não possui dinheiro suficiente')
 	pass # Replace with function body.
 
 
 func comprarFase2():
-	deleteCoins(200)
-	beVisibleMarket(false)
-	get_tree().paused = false
+	if(pontosToBuy > 200):
+		deleteCoins(200)
+		beVisibleMarket(false)
+		get_tree().paused = false
+		messageMarket('Item comprado com sucesso')
+	else:
+		beVisibleMarket(false)
+		get_tree().paused = false
+		messageMarket('Você não possui dinheiro suficiente')
 	pass # Replace with function body.
 
 
 func comprarFase3():
-	deleteCoins(300)
-	beVisibleMarket(false)
-	get_tree().paused = false
+	if (pontosToBuy > 300):
+		deleteCoins(300)
+		beVisibleMarket(false)
+		get_tree().paused = false
+		messageMarket('Item comprado com sucesso')
+	else:
+		beVisibleMarket(false)
+		get_tree().paused = false
+		messageMarket('Você não possui dinheiro suficiente')
 	pass # Replace with function body.

@@ -1,4 +1,4 @@
-[gd_scene load_steps=83 format=2]
+[gd_scene load_steps=84 format=2]
 
 [ext_resource path="res://Action RPG Resources/World/Bush.png" type="Texture" id=1]
 [ext_resource path="res://Action RPG Resources/World/Grass.png" type="Texture" id=2]
@@ -724,6 +724,10 @@ corner_radius_top_right = 12
 corner_radius_bottom_right = 12
 corner_radius_bottom_left = 12
 
+[sub_resource type="DynamicFont" id=70]
+size = 20
+font_data = ExtResource( 17 )
+
 [sub_resource type="RectangleShape2D" id=15]
 extents = Vector2( 28.25, 16.5 )
 
@@ -894,7 +898,7 @@ margin_top = -142.0
 margin_right = 255.0
 margin_bottom = -107.0
 custom_fonts/font = SubResource( 51 )
-text = "1000"
+text = "10000"
 valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1268,6 +1272,22 @@ valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="marketMessage" type="Popup" parent="Personagem/Camera/CanvasLayer/Popups"]
+margin_left = 56.0
+margin_top = 72.0
+margin_right = 196.0
+margin_bottom = 97.0
+
+[node name="Label" type="Label" parent="Personagem/Camera/CanvasLayer/Popups/marketMessage"]
+margin_left = 1.0
+margin_top = 5.0
+margin_right = 122.0
+margin_bottom = 25.0
+custom_fonts/font = SubResource( 70 )
+text = "Mensagem AQUI"
+align = 1
+valign = 1
 
 [node name="Area2D" type="Area2D" parent="."]
 position = Vector2( -450, -12 )
