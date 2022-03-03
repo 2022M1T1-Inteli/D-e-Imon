@@ -140,6 +140,12 @@ Coloque código do prompt de comnando se for necessário
 ```
 
 ## 🗃 Histórico de lançamentos
+* 0.0.8 - 03/03/2022
+  * Adicionado novo Menu para o game
+  * Personagem novo adicionado
+  * Corrigido sistema de pontos com relação ao mercado -- Se menor do que o mínimo = compra cancelada
+  * Sistema de portal com animação inovadora
+
 * 0.0.7 - 25/02/2022
   * Adicionado novo cenário do mapa principal
   * Personagem com nova posição de start

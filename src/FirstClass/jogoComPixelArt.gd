@@ -58,11 +58,12 @@ func messageMarket(message):
 	$Personagem/Camera/CanvasLayer/Popups/marketMessage.visible = true
 	yield(get_tree().create_timer(3.0), "timeout")
 	$Personagem/Camera/CanvasLayer/Popups/marketMessage.visible = false
-
-func _ready(): 
-	pontosToBuy = int($Personagem/Camera/Pontos.text)
+#
+#func _ready(): 
+ 
 
 func _process(delta):
+	pontosToBuy = float($Personagem/Camera/Pontos.text)
 	if liberadoAbrir:
 		if Input.is_action_pressed('ui_m'):
 			beVisible(true)
@@ -225,8 +226,8 @@ func fecharMarket():
 	pass # Replace with function body.
 
 func compraVida():
-	if(pontosToBuy > 100):
-		deleteCoins(100)
+	if(pontosToBuy >= 1000):
+		deleteCoins(1000)
 		beVisibleMarket(false)
 		get_tree().paused = false
 		messageMarket('Item comprado com sucesso')
@@ -238,8 +239,8 @@ func compraVida():
 
 
 func comprarFase2():
-	if(pontosToBuy > 200):
-		deleteCoins(200)
+	if(pontosToBuy >= 2000):
+		deleteCoins(2000)
 		beVisibleMarket(false)
 		get_tree().paused = false
 		messageMarket('Item comprado com sucesso')
@@ -251,8 +252,9 @@ func comprarFase2():
 
 
 func comprarFase3():
-	if (pontosToBuy > 300):
-		deleteCoins(300)
+	print(pontosToBuy)
+	if (pontosToBuy >= 3000):
+		deleteCoins(3000)
 		beVisibleMarket(false)
 		get_tree().paused = false
 		messageMarket('Item comprado com sucesso')
