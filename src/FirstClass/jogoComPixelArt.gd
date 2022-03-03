@@ -13,6 +13,9 @@ var liberadoAbrir = false
 var liberadoAbrirE = false
 var liberadoAbrirG = false
 var pontosToBuy
+var destination
+var destination2
+
 #var pontosToBuy = $Personagem/Camera/Pontos.Text #Pega os pontos atuais e tranforma em Número
 
 func beVisible(visible): 
@@ -59,7 +62,10 @@ func messageMarket(message):
 	yield(get_tree().create_timer(3.0), "timeout")
 	$Personagem/Camera/CanvasLayer/Popups/marketMessage.visible = false
 #
-#func _ready(): 
+func _ready():
+	destination = get_node("Portaldestination").get_global_position()
+	destination2 = get_node("Portaldestination2").get_global_position()
+	pass
  
 
 func _process(delta):
@@ -262,4 +268,17 @@ func comprarFase3():
 		beVisibleMarket(false)
 		get_tree().paused = false
 		messageMarket('Você não possui dinheiro suficiente')
+	pass # Replace with function body.
+
+
+func _on_Area2D3_body_entered(body):
+	if body.name == "Personagem":
+		body.set_position(destination)
+
+
+	pass # Replace with function body.
+
+
+func _on_Area2D4_body_entered(body):
+	body.set_position(destination2)
 	pass # Replace with function body.
