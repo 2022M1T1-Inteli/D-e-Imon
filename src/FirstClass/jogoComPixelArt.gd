@@ -12,11 +12,56 @@ var levelPassed = false
 var liberadoAbrir = false
 var liberadoAbrirE = false
 var liberadoAbrirG = false
+var qntVidas = 0
 var pontosToBuy
 var destination
 var destination2
 
 #var pontosToBuy = $Personagem/Camera/Pontos.Text #Pega os pontos atuais e tranforma em Número
+
+func checkVidas():
+	if (qntVidas == 1):
+		$Personagem/Camera/Vidas/Vida1.visible = true
+		$Personagem/Camera/Vidas/Vida2.visible = false
+		$Personagem/Camera/Vidas/Vida3.visible = false
+		$Personagem/Camera/Vidas/Vida4.visible = false
+		$Personagem/Camera/Vidas/Vida5.visible = false
+		$Personagem/Camera/Vidas/VidaVazia.visible = false
+	elif (qntVidas == 2):
+		$Personagem/Camera/Vidas/Vida1.visible = true
+		$Personagem/Camera/Vidas/Vida2.visible = true
+		$Personagem/Camera/Vidas/Vida3.visible = false
+		$Personagem/Camera/Vidas/Vida4.visible = false
+		$Personagem/Camera/Vidas/Vida5.visible = false
+		$Personagem/Camera/Vidas/VidaVazia.visible = false
+	elif (qntVidas == 3):
+		$Personagem/Camera/Vidas/Vida1.visible = true
+		$Personagem/Camera/Vidas/Vida2.visible = true
+		$Personagem/Camera/Vidas/Vida3.visible = true
+		$Personagem/Camera/Vidas/Vida4.visible = false
+		$Personagem/Camera/Vidas/Vida5.visible = false
+		$Personagem/Camera/Vidas/VidaVazia.visible = false
+	elif (qntVidas == 4):
+		$Personagem/Camera/Vidas/Vida1.visible = true
+		$Personagem/Camera/Vidas/Vida2.visible = true
+		$Personagem/Camera/Vidas/Vida3.visible = true
+		$Personagem/Camera/Vidas/Vida4.visible = true
+		$Personagem/Camera/Vidas/Vida5.visible = false
+		$Personagem/Camera/Vidas/VidaVazia.visible = false
+	elif (qntVidas == 5):
+		$Personagem/Camera/Vidas/Vida1.visible = true
+		$Personagem/Camera/Vidas/Vida2.visible = true
+		$Personagem/Camera/Vidas/Vida3.visible = true
+		$Personagem/Camera/Vidas/Vida4.visible = true
+		$Personagem/Camera/Vidas/Vida5.visible = true
+		$Personagem/Camera/Vidas/VidaVazia.visible = false
+	elif (qntVidas == 0):
+		$Personagem/Camera/Vidas/Vida1.visible = false
+		$Personagem/Camera/Vidas/Vida2.visible = false
+		$Personagem/Camera/Vidas/Vida3.visible = false
+		$Personagem/Camera/Vidas/Vida4.visible = false
+		$Personagem/Camera/Vidas/Vida5.visible = false
+		$Personagem/Camera/Vidas/VidaVazia.visible = true
 
 func beVisible(visible): 
 	$Personagem/Camera/CanvasLayer/Popups/Popup.visible = visible  #Abre o PopUp do quiz
@@ -69,6 +114,7 @@ func _ready():
  
 
 func _process(delta):
+	checkVidas()
 	pontosToBuy = float($Personagem/Camera/Pontos.text)
 	if liberadoAbrir:
 		if Input.is_action_pressed('ui_m'):
@@ -233,10 +279,16 @@ func fecharMarket():
 
 func compraVida():
 	if(pontosToBuy >= 1000):
-		deleteCoins(1000)
-		beVisibleMarket(false)
-		get_tree().paused = false
-		messageMarket('Item comprado com sucesso')
+		if (qntVidas < 5):
+			deleteCoins(1000)
+			beVisibleMarket(false)
+			get_tree().paused = false
+			messageMarket('Item comprado com sucesso')
+			qntVidas += 1
+		else:
+			beVisibleMarket(false)
+			get_tree().paused = false
+			messageMarket('Você já possui o máximo vidas')
 	else:
 		beVisibleMarket(false)
 		get_tree().paused = false

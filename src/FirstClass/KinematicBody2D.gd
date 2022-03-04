@@ -5,10 +5,10 @@ var rapidez = 180
 onready var animacaoJogador = $AnimationPlayer
 
 func direita():
-	animacaoJogador.play("correndo_para_direita") #Começa a animação para direita -- AnimationPlayer
+	animacaoJogador.play("correndo_para_esquerda") #Começa a animação para direita -- AnimationPlayer
 	
 func esquerda():
-	animacaoJogador.play("correndo_para_esquerda") #Começa a animação para esquerda -- AnimationPlayer
+	animacaoJogador.play("correndo_para_direita") #Começa a animação para esquerda -- AnimationPlayer
 
 func baixo():
 	animacaoJogador.play("correndo_para_baixo") #Começa a animação para baixo -- AnimationPlayer
