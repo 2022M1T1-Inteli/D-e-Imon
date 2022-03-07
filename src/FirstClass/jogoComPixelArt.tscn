@@ -1,4 +1,4 @@
-[gd_scene load_steps=93 format=2]
+[gd_scene load_steps=96 format=2]
 
 [ext_resource path="res://Action RPG Resources/World/Bush.png" type="Texture" id=1]
 [ext_resource path="res://Action RPG Resources/World/Grass.png" type="Texture" id=2]
@@ -254,7 +254,7 @@
 extents = Vector2( 0.833304, 3.60772 )
 
 [sub_resource type="RectangleShape2D" id=21]
-extents = Vector2( 26.0845, 10 )
+extents = Vector2( 17.2281, 5.77322 )
 
 [sub_resource type="RectangleShape2D" id=22]
 extents = Vector2( 19.3018, 5.10503 )
@@ -282,6 +282,13 @@ extents = Vector2( 2.98439, 4.95034 )
 
 [sub_resource type="RectangleShape2D" id=50]
 extents = Vector2( 44.1361, 4.69022 )
+
+[sub_resource type="RectangleShape2D" id=74]
+extents = Vector2( 16.7436, 4.64078 )
+
+[sub_resource type="RectangleShape2D" id=75]
+
+[sub_resource type="RectangleShape2D" id=76]
 
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 23.5, 12.5 )
@@ -802,7 +809,8 @@ position = Vector2( -6.085, -170.478 )
 shape = SubResource( 21 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Collisions"]
-position = Vector2( -4.88341, 106.433 )
+position = Vector2( 21.1425, 637.561 )
+scale = Vector2( 1, 1 )
 shape = SubResource( 21 )
 
 [node name="CollisionPolygon2D7" type="CollisionPolygon2D" parent="Collisions"]
@@ -892,6 +900,20 @@ polygon = PoolVector2Array( -50.8124, 631.168, -50.8511, 621.576, -52.0139, 621.
 
 [node name="CollisionPolygon2D17" type="CollisionPolygon2D" parent="Collisions"]
 polygon = PoolVector2Array( -6.20152, 572.383, -9.8448, 572.383, -9.88356, 581.355, -11.1238, 581.665, -11.1626, 591.256, -12.3641, 591.566, -12.3641, 601.466, -11.1626, 601.776, -11.1626, 611.367, -9.96109, 611.676, -9.92233, 621.577, -6.16277, 621.577, -6.16277, 611.676, -4.88375, 611.676, -4.88374, 601.466, -3.68223, 601.157, -3.68223, 591.566, -4.88374, 591.256, -4.88374, 582.593, -6.16276, 581.665 )
+
+[node name="CollisionShape2D12" type="CollisionShape2D" parent="Collisions"]
+position = Vector2( 20.5417, 547.632 )
+scale = Vector2( 1, 1 )
+shape = SubResource( 74 )
+
+[node name="CollisionShape2D13" type="CollisionShape2D" parent="Collisions"]
+shape = SubResource( 75 )
+
+[node name="CollisionShape2D14" type="CollisionShape2D" parent="Collisions"]
+shape = SubResource( 76 )
+
+[node name="CollisionPolygon2D18" type="CollisionPolygon2D" parent="Collisions"]
+polygon = PoolVector2Array( 3.83687, 642.616, 2.44157, 642.616, 2.40281, 651.279, 1.27882, 651.279, 1.27882, 660.871, 0.0773065, 661.799, 0.0773039, 669.534, -1.04669, 670.771, -1.24048, 680.672, -2.51951, 681.291, -2.40324, 691.501, -3.72102, 690.573, -3.75984, 887.658, -4.69004, 887.039, -4.92259, 897.249, -6.31789, 897.559, -6.20162, 909.006, -7.36437, 909.625, -7.44189, 918.598, -8.52713, 918.598, -8.75967, 909.625, -9.80615, 909.625, -9.92242, 898.796, -10.8914, 898.487, -10.9689, 889.205, -12.4805, 888.895, -12.4029, 702.02, -13.4881, 701.711, -13.5269, 889.824, -7.94576, 929.736, -2.32578, 885.183, -2.40324, 699.854 )
 
 [node name="Personagem" type="KinematicBody2D" parent="."]
 position = Vector2( 268, -768 )
