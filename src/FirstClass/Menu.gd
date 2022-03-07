@@ -1,18 +1,12 @@
 extends Node2D
 
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
 func goToGame():
-		get_tree().change_scene("res://jogoComPixelArt.tscn")
+		get_tree().change_scene("res://jogoComPixelArt.tscn") #Altera a cena para a principal
 func quitGame(): 
-		get_tree().quit()
+		get_tree().quit() #Faz o quit do jogo.
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	
-	pass # Replace with function body.
+	pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -21,10 +15,10 @@ func _ready():
 
 
 func iniciarPressed():
-	goToGame()
-	pass # Replace with function body.
+	goToGame()#Chama a função acima.
+	pass
 
 
 func sairDoJogo():
-	quitGame()
-	pass # Replace with function body.
+	quitGame()#Chama a função acima.
+	pass

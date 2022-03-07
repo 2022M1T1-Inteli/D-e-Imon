@@ -38,7 +38,7 @@ func _physics_process(_delta):
 	elif Input.get_action_strength("ui_down"):
 		baixo()
 	else:
-		animacaoJogador.seek(1, true)
+#		animacaoJogador.seek(0, true)
 		return
 	
 	if resultante != Vector2.ZERO:
