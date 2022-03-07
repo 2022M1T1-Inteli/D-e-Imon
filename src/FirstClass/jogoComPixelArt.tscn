@@ -291,7 +291,7 @@ extents = Vector2( 16.7436, 4.64078 )
 [sub_resource type="RectangleShape2D" id=76]
 
 [sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 23.5, 12.5 )
+extents = Vector2( 5.5, 12.5 )
 
 [sub_resource type="Animation" id=4]
 length = 0.001
@@ -751,7 +751,7 @@ extents = Vector2( 17, 12.5 )
 extents = Vector2( 13.5, 14 )
 
 [sub_resource type="RectangleShape2D" id=49]
-extents = Vector2( 32.5, 20 )
+extents = Vector2( 103.5, 33 )
 
 [sub_resource type="RectangleShape2D" id=55]
 extents = Vector2( 111, 79 )
@@ -810,7 +810,6 @@ shape = SubResource( 21 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Collisions"]
 position = Vector2( 21.1425, 637.561 )
-scale = Vector2( 1, 1 )
 shape = SubResource( 21 )
 
 [node name="CollisionPolygon2D7" type="CollisionPolygon2D" parent="Collisions"]
@@ -903,7 +902,6 @@ polygon = PoolVector2Array( -6.20152, 572.383, -9.8448, 572.383, -9.88356, 581.3
 
 [node name="CollisionShape2D12" type="CollisionShape2D" parent="Collisions"]
 position = Vector2( 20.5417, 547.632 )
-scale = Vector2( 1, 1 )
 shape = SubResource( 74 )
 
 [node name="CollisionShape2D13" type="CollisionShape2D" parent="Collisions"]
@@ -931,7 +929,7 @@ hframes = 12
 frame = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Personagem"]
-position = Vector2( 36.5, 33.5 )
+position = Vector2( 36.4999, 51.5 )
 rotation = 1.5708
 shape = SubResource( 3 )
 
@@ -985,7 +983,6 @@ __meta__ = {
 
 [node name="Popups" type="Popup" parent="Personagem/Camera/CanvasLayer"]
 pause_mode = 2
-visible = true
 margin_right = 40.0
 margin_bottom = 40.0
 __meta__ = {
@@ -1445,7 +1442,7 @@ shape = SubResource( 19 )
 position = Vector2( 240, -797 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pergunta3"]
-position = Vector2( 34, -141 )
+position = Vector2( 61.5, -154 )
 shape = SubResource( 49 )
 
 [node name="Market" type="Area2D" parent="."]
