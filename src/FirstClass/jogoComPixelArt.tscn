@@ -1,4 +1,4 @@
-[gd_scene load_steps=96 format=2]
+[gd_scene load_steps=94 format=2]
 
 [ext_resource path="res://Action RPG Resources/World/Bush.png" type="Texture" id=1]
 [ext_resource path="res://Action RPG Resources/World/Grass.png" type="Texture" id=2]
@@ -20,7 +20,6 @@
 [ext_resource path="res://fundoMarket.png" type="Texture" id=18]
 [ext_resource path="res://portal texture.png" type="Texture" id=19]
 [ext_resource path="res://Portaldestination.tscn" type="PackedScene" id=20]
-[ext_resource path="res://Portaldestination2.tscn" type="PackedScene" id=21]
 [ext_resource path="res://Action RPG Resources/Texture/ambev.png" type="Texture" id=22]
 [ext_resource path="res://Action RPG Resources/UI/HeartUIFull.png" type="Texture" id=23]
 [ext_resource path="res://Action RPG Resources/UI/HeartUIEmpty.png" type="Texture" id=24]
@@ -776,8 +775,6 @@ tracks/0/keys = {
 "values": [ Vector2( 0, 0 ), Vector2( 1, 0 ), Vector2( 2, 0 ), Vector2( 3, 0 ) ]
 }
 
-[sub_resource type="CapsuleShape2D" id=73]
-
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 3 )
 
@@ -1473,20 +1470,6 @@ autoplay = "New Anim"
 [node name="Portaldestination" parent="." instance=ExtResource( 20 )]
 position = Vector2( 143, 17 )
 
-[node name="Portaldestination2" parent="." instance=ExtResource( 21 )]
-visible = false
-position = Vector2( 201, -809 )
-
-[node name="Area2D4" type="Area2D" parent="."]
-position = Vector2( 625, 17 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D4"]
-shape = SubResource( 73 )
-
-[node name="Sprite" type="Sprite" parent="Area2D4"]
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Area2D4/Sprite"]
-
 [connection signal="pressed" from="Personagem/Camera/CanvasLayer/Popups/Mercado/Button" to="." method="compraVida"]
 [connection signal="pressed" from="Personagem/Camera/CanvasLayer/Popups/Mercado/Button2" to="." method="comprarFase2"]
 [connection signal="pressed" from="Personagem/Camera/CanvasLayer/Popups/Mercado/Button3" to="." method="comprarFase3"]
@@ -1507,4 +1490,3 @@ shape = SubResource( 73 )
 [connection signal="body_entered" from="Market" to="." method="marketOpenMessage"]
 [connection signal="body_exited" from="Market" to="." method="marketExited"]
 [connection signal="body_entered" from="Area2D3" to="." method="_on_Area2D3_body_entered"]
-[connection signal="body_entered" from="Area2D4" to="." method="_on_Area2D4_body_entered"]

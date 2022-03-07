@@ -132,7 +132,7 @@ func messageMarket(message):
 #
 func _ready():
 	destination = get_node("Portaldestination").get_global_position()
-	destination2 = get_node("Portaldestination2").get_global_position()
+#	destination2 = get_node("Portaldestination2").get_global_position()
 	loadInfos() #Carrega as infos
 	qntVidas = player.vidas #Atualiza a qntDeVidas quando o jogo inicia
 	setPoints(player.xp) #Atualiza os pontos quando o jogo inicia
@@ -364,7 +364,7 @@ func comprarFase3(): #Quando a opção de FASE2 é selecionada
 
 func _on_Area2D3_body_entered(body): #Quando o personagem entra na PORTAL
 	if body.name == "Personagem":
-		body.set_position(destination)
+		get_tree().change_scene("res://D&IMental.tscn")
 
 
 	pass # Replace with function body.
