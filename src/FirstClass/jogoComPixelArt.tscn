@@ -1,4 +1,4 @@
-[gd_scene load_steps=94 format=2]
+[gd_scene load_steps=96 format=2]
 
 [ext_resource path="res://Action RPG Resources/World/Bush.png" type="Texture" id=1]
 [ext_resource path="res://Action RPG Resources/World/Grass.png" type="Texture" id=2]
@@ -20,6 +20,7 @@
 [ext_resource path="res://fundoMarket.png" type="Texture" id=18]
 [ext_resource path="res://portal texture.png" type="Texture" id=19]
 [ext_resource path="res://Portaldestination.tscn" type="PackedScene" id=20]
+[ext_resource path="res://Portaldestination2.tscn" type="PackedScene" id=21]
 [ext_resource path="res://Action RPG Resources/Texture/ambev.png" type="Texture" id=22]
 [ext_resource path="res://Action RPG Resources/UI/HeartUIFull.png" type="Texture" id=23]
 [ext_resource path="res://Action RPG Resources/UI/HeartUIEmpty.png" type="Texture" id=24]
@@ -775,6 +776,8 @@ tracks/0/keys = {
 "values": [ Vector2( 0, 0 ), Vector2( 1, 0 ), Vector2( 2, 0 ), Vector2( 3, 0 ) ]
 }
 
+[sub_resource type="CapsuleShape2D" id=73]
+
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 3 )
 
@@ -911,7 +914,7 @@ shape = SubResource( 76 )
 polygon = PoolVector2Array( 3.83687, 642.616, 2.44157, 642.616, 2.40281, 651.279, 1.27882, 651.279, 1.27882, 660.871, 0.0773065, 661.799, 0.0773039, 669.534, -1.04669, 670.771, -1.24048, 680.672, -2.51951, 681.291, -2.40324, 691.501, -3.72102, 690.573, -3.75984, 887.658, -4.69004, 887.039, -4.92259, 897.249, -6.31789, 897.559, -6.20162, 909.006, -7.36437, 909.625, -7.44189, 918.598, -8.52713, 918.598, -8.75967, 909.625, -9.80615, 909.625, -9.92242, 898.796, -10.8914, 898.487, -10.9689, 889.205, -12.4805, 888.895, -12.4029, 702.02, -13.4881, 701.711, -13.5269, 889.824, -7.94576, 929.736, -2.32578, 885.183, -2.40324, 699.854 )
 
 [node name="Personagem" type="KinematicBody2D" parent="."]
-position = Vector2( 268, -768 )
+position = Vector2( 267, -806 )
 script = ExtResource( 5 )
 
 [node name="Sombra" type="Sprite" parent="Personagem"]
@@ -1470,6 +1473,20 @@ autoplay = "New Anim"
 [node name="Portaldestination" parent="." instance=ExtResource( 20 )]
 position = Vector2( 143, 17 )
 
+[node name="Portaldestination2" parent="." instance=ExtResource( 21 )]
+visible = false
+position = Vector2( 201, -809 )
+
+[node name="Area2D4" type="Area2D" parent="."]
+position = Vector2( 625, 17 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D4"]
+shape = SubResource( 73 )
+
+[node name="Sprite" type="Sprite" parent="Area2D4"]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Area2D4/Sprite"]
+
 [connection signal="pressed" from="Personagem/Camera/CanvasLayer/Popups/Mercado/Button" to="." method="compraVida"]
 [connection signal="pressed" from="Personagem/Camera/CanvasLayer/Popups/Mercado/Button2" to="." method="comprarFase2"]
 [connection signal="pressed" from="Personagem/Camera/CanvasLayer/Popups/Mercado/Button3" to="." method="comprarFase3"]
@@ -1490,3 +1507,4 @@ position = Vector2( 143, 17 )
 [connection signal="body_entered" from="Market" to="." method="marketOpenMessage"]
 [connection signal="body_exited" from="Market" to="." method="marketExited"]
 [connection signal="body_entered" from="Area2D3" to="." method="_on_Area2D3_body_entered"]
+[connection signal="body_entered" from="Area2D4" to="." method="_on_Area2D4_body_entered"]

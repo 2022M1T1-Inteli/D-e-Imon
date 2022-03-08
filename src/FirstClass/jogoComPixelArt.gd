@@ -1,6 +1,6 @@
 extends Node2D
 
-var FILE_NAME = "user://infos.json"
+var FILE_NAME = "user://infos.json" #--Arquivo Local
 var isVisible = true
 var anc = 0
 var levelPassed = false
@@ -12,32 +12,32 @@ var pontosToBuy
 var destination
 var destination2
 
-var player = {
+var player = { #Local database
 	'xp': 0,
 	'vidas': 0
-}
+} 
 
-func setPoints(points): #Colca os pontos na HUD do jogo.
+func setPoints(points): #Coloca os pontos na HUD do jogo.
 	$Personagem/Camera/Pontos.text = str(points) 
 
 func save(): #Salva novas informações no arquivo .JSON
 	var file = File.new()
-	file.open(FILE_NAME, File.WRITE)
-	file.store_string(to_json(player))
+	file.open(FILE_NAME, File.WRITE) #Acessa o arquivo local para escrita
+	file.store_string(to_json(player)) #Guarda a var Player em formato JSON dentro do arquivo local
 	file.close()
 
 func loadInfos(): #Carrega as informações que o arquivo .JSON possui
 	var file = File.new()
-	if file.file_exists(FILE_NAME):
-		file.open(FILE_NAME, File.READ)
-		var data = parse_json(file.get_as_text())
+	if file.file_exists(FILE_NAME): #Verifica se o arquivo já havia sido criado antes
+		file.open(FILE_NAME, File.READ) #Le o arquivo local, com infos de vida e XP
+		var data = parse_json(file.get_as_text()) #Torna o JSON em objeto para o GODOT
 		file.close()
 		if typeof(data) == TYPE_DICTIONARY:
-			player = data
+			player = data #Define player com as informações do arquivo local
 		else:
-			printerr("Corrupted data!")
+			printerr("Arquivo Corrompido!")
 	else:
-		printerr("No saved data!")
+		printerr("Não existe arquivo!")
 
 func checkVidas():
 	if (qntVidas == 1): #Se tiver somente uma vida
@@ -87,16 +87,16 @@ func beVisible(visible):
 	$Personagem/Camera/CanvasLayer/Popups/Popup.visible = visible  #Abre o PopUp do quiz
 	
 func beVisibleMarket(visible):
-	$Personagem/Camera/CanvasLayer/Popups/Mercado.visible = visible
+	$Personagem/Camera/CanvasLayer/Popups/Mercado.visible = visible #Abre o PopUp do mercado
 	
 func MensagemPressM(visible):
 	$Personagem/Camera/CanvasLayer/Popups/Popup3.visible = visible # Aparece para apertar M.
 
 func MensagemPressE(visible):
-	$Personagem/Camera/CanvasLayer/Popups/Popup4.visible = visible # Aparece para apertar M.
+	$Personagem/Camera/CanvasLayer/Popups/Popup4.visible = visible # Aparece para apertar E.
 
 func MensagemPressG(visible):
-	$Personagem/Camera/CanvasLayer/Popups/Popup5.visible = visible # Aparece para apertar M.
+	$Personagem/Camera/CanvasLayer/Popups/Popup5.visible = visible # Aparece para apertar G.
 
 func messageFinal(text):
 	$Personagem/Camera/CanvasLayer/Popups/Popup2.visible = true
@@ -122,7 +122,7 @@ func deleteCoins(qnt):
 	$Personagem/Camera/Pontos.text = pontosInStringRed #Substitui o valor dos pontos pelo valor retirado
 
 func getPoints():
-	return int($Personagem/Camera/Pontos.text)
+	return int($Personagem/Camera/Pontos.text) #Retorna em forma de número quantos pontos o player possui
 
 func messageMarket(message):
 	$Personagem/Camera/CanvasLayer/Popups/marketMessage/Label.text = message
@@ -132,11 +132,13 @@ func messageMarket(message):
 #
 func _ready():
 	destination = get_node("Portaldestination").get_global_position()
-#	destination2 = get_node("Portaldestination2").get_global_position()
-	loadInfos() #Carrega as infos
+	destination2 = get_node("Portaldestination2").get_global_position()
+	loadInfos() #Carrega as informações
 	qntVidas = player.vidas #Atualiza a qntDeVidas quando o jogo inicia
 	setPoints(player.xp) #Atualiza os pontos quando o jogo inicia
 	print(player)
+	var dialog = Dialogic.start("Teste") #Roda o dialogo -- POR ENQUANTO SOMENTE TESTE --
+	add_child(dialog)
 	pass
 
 func _process(delta):
@@ -144,20 +146,20 @@ func _process(delta):
 	pontosToBuy = float($Personagem/Camera/Pontos.text) #Verifica os pontos recorrentemente para que sejam usados no --MERCADO--
 	if liberadoAbrir: #Verifica se o pesonagem está dentro da AREA de Pergunta
 		if Input.is_action_pressed('ui_m'):
-			beVisible(true)
+			beVisible(true) #Torna vísivel o quiz
 			get_tree().paused = true
-	#		if (levelPassed == true):
-	#			$Collisions/mecanicaTeste.disabled = true
-	#		else:                                           #Sistema para bloquear as fases
-	#			$Collisions/mecanicaTeste.disabled = false
+	##		if (levelPassed == true):
+	##			$Collisions/mecanicaTeste.disabled = true
+	##		else:                                           #Sistema para bloquear as fases
+	##			$Collisions/mecanicaTeste.disabled = false
 	elif liberadoAbrirE: #Verifica se o pesonagem está dentro da AREA de Minigame
 		if Input.is_action_pressed("ui_e"):
-			get_tree().change_scene("res://pong.tscn")
+			get_tree().change_scene("res://pong.tscn") #Envia para o Minigame
 	elif liberadoAbrirG:
 		if Input.is_action_pressed("ui_g"): #Verifica se o pesonagem está dentro da AREA de Mercado
-			beVisibleMarket(true) 
+			beVisibleMarket(true) #Torna o mercado vísivel
 			get_tree().paused = true
-			MensagemPressG(false)
+			MensagemPressG(false) #Fecha a mensagem 'Pressione G'
 	else:
 		pass
 
@@ -166,55 +168,55 @@ func _on_Button_pressed_close(): #Botão para fechar as perguntas
 	get_tree().paused = false #Pausa o jogo
 	
 func _on_Button2_pressed(): #Quando a alternativa A é selecionada
-	if (anc == 1):
-		beVisible(false)
+	if (anc == 1): #Resposta correta
+		beVisible(false) #Torna o Quiz invisivel
 		get_tree().paused = false
-		messageFinal('Acertou')
-		addCoins(100)
-		yield(get_tree().create_timer(3.0), "timeout")
+		messageFinal('Acertou') #Define a mensagem de acerto ou erro
+		addCoins(100) #Adiciona pontos
+		yield(get_tree().create_timer(3.0), "timeout") #Aguarda 3 segundo
 		$Personagem/Camera/CanvasLayer/Popups/Popup2.visible = false
-		player.xp = getPoints()
-		save()
-	else:
-		beVisible(false)
-		get_tree().paused = false
-		messageFinal('Errou')
-		yield(get_tree().create_timer(3.0), "timeout")
-		$Personagem/Camera/CanvasLayer/Popups/Popup2.visible = false
+		player.xp = getPoints() #Captura a quantidade atual de pontos
+		save() #Salva no arquivo local
+	else: #Resposta errada
+		beVisible(false) #Torna o quiz invisivel
+		get_tree().paused = false 
+		messageFinal('Errou') #Define o conteudo da mensagem final
+		yield(get_tree().create_timer(3.0), "timeout") #Aguarda 3 segundos
+		$Personagem/Camera/CanvasLayer/Popups/Popup2.visible = false #Some a mensagem final
 
 func _on_Button3_pressed(): #Quado a alternativa B é selecionada
-	if (anc == 2):
-		beVisible(false)
-		get_tree().paused = false
-		messageFinal('Acertou')
-		addCoins(100)
-		yield(get_tree().create_timer(3.0), "timeout")
+	if (anc == 2): #Resposta está correta
+		beVisible(false) #Torna o quiz invisivel
+		get_tree().paused = false #Despausa o jogo
+		messageFinal('Acertou') #Define a mensagem que o player receberá
+		addCoins(100) #Adiciona os pontos
+		yield(get_tree().create_timer(3.0), "timeout") #Aguarda 3 segundos
 		$Personagem/Camera/CanvasLayer/Popups/Popup2.visible = false
-		player.xp = getPoints()
-		save()
-	else:
-		beVisible(false)
-		get_tree().paused = false
-		messageFinal('Errou')
+		player.xp = getPoints() #Captura a quantidade atual de pontos
+		save() #Salva no arquivo local
+	else: #Resposta errada
+		beVisible(false) #Torna o quiz invisivel
+		get_tree().paused = false #Despausa o jogo
+		messageFinal('Errou') #Define a mensagem que o player receberá
 		yield(get_tree().create_timer(3.0), "timeout")
 		$Personagem/Camera/CanvasLayer/Popups/Popup2.visible = false
 
 func _on_Button4_pressed(): #Quando a alternativa C é selecionada
-	if (anc == 3):
-		beVisible(false)
+	if (anc == 3): #Resposta está correta
+		beVisible(false) #Torna o quiz invisivel
 		get_tree().paused = false
-		messageFinal('Acertou')
-		addCoins(100)
-		yield(get_tree().create_timer(3.0), "timeout")
-		$Personagem/Camera/CanvasLayer/Popups/Popup2.visible = false
-		player.xp = getPoints()
-		save()
-	else:
-		beVisible(false)
+		messageFinal('Acertou') #Define a mensagem final
+		addCoins(100) #Adiciona pontos
+		yield(get_tree().create_timer(3.0), "timeout") #Aguarda 3 segundos
+		$Personagem/Camera/CanvasLayer/Popups/Popup2.visible = false #Some a mensagem final
+		player.xp = getPoints() #Captura a quantidade atual de pontos
+		save() #Salva no arquivo local
+	else: #Resposta errada
+		beVisible(false) #Torna o quiz invisivel
 		get_tree().paused = false
-		messageFinal('Errou')
-		yield(get_tree().create_timer(3.0), "timeout")
-		$Personagem/Camera/CanvasLayer/Popups/Popup2.visible = false# Replace with function body.
+		messageFinal('Errou') #Define a mensagem final
+		yield(get_tree().create_timer(3.0), "timeout") #Aguarda 3 segundos
+		$Personagem/Camera/CanvasLayer/Popups/Popup2.visible = false #Some a mensagem final
 	
 
 ## Fechar o jogo quando o ESC e apertado
@@ -223,153 +225,146 @@ func _unhandled_input(event):
 		if event.pressed and event.scancode == KEY_ESCAPE:
 			get_tree().quit()
 
-func _on_Area2D_body_entered(body): #Quando o personagem entra na AREA
+func _on_Area2D_body_entered(body):
 	if body.name == "Personagem": # Aparece somente com a colisao DO PERSONAGEM
-		liberadoAbrir = true
-		MensagemPressM(true)
-		setPopUpContent('Quando entro na area selecionada', 'Teste2324234234', 'Teste432423423', 'Louco4324234234')
+		liberadoAbrir = true #Libera a tecla M para funcionar
+		MensagemPressM(true) #Torna o aviso de "Pressione M" visivel
+		setPopUpContent('Quando entro na area selecionada', 'Teste2324234234', 'Teste432423423', 'Louco4324234234') #Define o conteudo da pergunta
 		anc = 2
-#		if Input.is_action_pressed("ui_m"):
-#			beVisible(true)
-#			get_tree().paused = true
 	else:
-		get_tree().paused = false # Replace with function body
+		get_tree().paused = false #Despausa o jogo
 
 
-func _on_Area2D_body_exited(body): #Quando o personagem entra na AREA
-	if body.name == "Personagem": # Aparece somente com a colisao DO PERSONAGEM
-		liberadoAbrir = false
-		MensagemPressM(false)
-	pass # Replace with function body.
+func _on_Area2D_body_exited(body): 
+	if body.name == "Personagem": 
+		liberadoAbrir = false #Bloqueia a tecla M para funcionar
+		MensagemPressM(false) #Torna o aviso de "Pressione M" invisivel
+	pass
 
-func _on_Area2D2_body_entered(body): #Quando o personagem entra na AREA
-	if body.name == 'Personagem':
-		#get_tree().change_scene("res://pong.tscn")
-		liberadoAbrirE = true
-		MensagemPressE(true)
-	pass # Replace with function body.
+func _on_Area2D2_body_entered(body): 
+	if body.name == 'Personagem': # Aparece somente com a colisao DO PERSONAGEM
+		liberadoAbrirE = true #Libera a tecla E (NPC - História) para funcionar
+		MensagemPressE(true) #Torna o aviso de "Pressione E" visivel
+	pass
 
-func _on_Area2D2_body_exited(body): #Quando o personagem entra na AREA
-	if body.name == 'Personagem':
-		liberadoAbrirE = false
-		MensagemPressE(false)
-	pass # Replace with function body.
+func _on_Area2D2_body_exited(body):
+	if body.name == 'Personagem': 
+		liberadoAbrirE = false #Bloqueia a tecla E (NPC - História) para funcionar
+		MensagemPressE(false) #Torna o aviso de "Pressione E" invisivel
+	pass
 
 
-func _pergunta2Enter(body): #Quando o personagem entra na AREA
-	if body.name == 'Personagem':
-		liberadoAbrir = true
-		MensagemPressM(true)
-		setPopUpContent('Essa é a pergunta 2', 'Resposta 1', 'Resposta2', 'Resposta3')
+func _pergunta2Enter(body): 
+	if body.name == 'Personagem': # Aparece somente com a colisao DO PERSONAGEM
+		liberadoAbrir = true #Libera a tecla M (NPC - Pergunta) para funcionar
+		MensagemPressM(true) #Torna o aviso de "Pressione M" visivel
+		setPopUpContent('Essa é a pergunta 2', 'Resposta 1', 'Resposta2', 'Resposta3') 
 		anc = 3
 	else:
 		get_tree().paused = false
-	pass # Replace with function body.
+	pass 
 
 
-func _exitedPergunta2(body): #Quando o personagem entra na AREA
-	if body.name == 'Personagem':
-		liberadoAbrir = false
-		MensagemPressM(false)
-	pass # Replace with function body.
+func _exitedPergunta2(body):
+	if body.name == 'Personagem': 
+		liberadoAbrir = false #Bloqueia a tecla M para funcionar
+		MensagemPressM(false) #Torna o aviso de "Pressione M" invisivel
+	pass 
 
 
-func _on_Pergunta3_body_entered(body): #Quando o personagem entra na AREA
-	if body.name == 'Personagem':
-		liberadoAbrir = true
-		MensagemPressM(true)
-		setPopUpContent('Quem descobriu o Brasil', 'Pedro Alvares Cabral', 'Frei Henrique de Coimbra', 'Pero vaz de Caminha')
-		anc = 1
-	pass # Replace with function body.
+func _on_Pergunta3_body_entered(body): 
+	if body.name == 'Personagem': # Aparece somente com a colisao DO PERSONAGEM
+		liberadoAbrir = true #Libera a tecla M para funcionar 
+		MensagemPressM(true) #Torna o aviso de "Pressione M" visivel
+		setPopUpContent('Quem descobriu o Brasil', 'Pedro Alvares Cabral', 'Frei Henrique de Coimbra', 'Pero vaz de Caminha') #Define o assunto do quiz
+		anc = 1 #Define a resposta correta
+	pass 
 
 
-func _on_Pergunta3_body_exited(body): #Quando o personagem entra na AREA
-	if body.name == 'Personagem':
-		liberadoAbrir = false
-		MensagemPressM(false)
-	pass # Replace with function body.
+func _on_Pergunta3_body_exited(body): 
+	if body.name == 'Personagem': 
+		liberadoAbrir = false #Bloqueia a tecla M para funcionar
+		MensagemPressM(false) #Torna o aviso de "Pressione M" invisivel
+	pass 
 
 
-func marketOpenMessage(body): #Quando o personagem entra na AREA
-	if body.name == 'Personagem':
-		liberadoAbrirG = true
-		MensagemPressG(true)
-	pass # Replace with function body.
+func marketOpenMessage(body):
+	if body.name == 'Personagem': # Aparece somente com a colisao DO PERSONAGEM
+		liberadoAbrirG = true #Libera a tecla G para funcionar 
+		MensagemPressG(true) #Torna o aviso de "Pressione G" visivel
+	pass 
 
 
-func marketExited(body): #Quando o personagem entra na AREA
-	if body.name == 'Personagem':
-		liberadoAbrirG = false
-		MensagemPressG(false)
-	pass # Replace with function body.
+func marketExited(body):
+	if body.name == 'Personagem': 
+		liberadoAbrirG = false #Bloqueia a tecla G para funcionar
+		MensagemPressG(false) #Torna o aviso de "Pressione G" invisivel
+	pass
 
 
 func fecharMarket(): #Torna tudo do MERCADO invisivel para que esse seja "FECHADO"
 	beVisibleMarket(false)
-	get_tree().paused = false
-	pass # Replace with function body.
+	get_tree().paused = false #Sai do estado de pausa
+	pass
 
 func compraVida(): #Quando a opção de vida é selecionada
-	if(pontosToBuy >= 1000):
-		if (qntVidas < 5):
-			deleteCoins(1000)
-			beVisibleMarket(false)
-			get_tree().paused = false
-			messageMarket('Item comprado com sucesso')
-			qntVidas += 1
-			player.xp = getPoints()
-			player.vidas = qntVidas
-			save()
-		else:
-			beVisibleMarket(false)
-			get_tree().paused = false
-			messageMarket('Você já possui o máximo vidas')
-	else:
-		beVisibleMarket(false)
-		get_tree().paused = false
-		messageMarket('Você não possui dinheiro suficiente')
-	pass # Replace with function body.
+	if(pontosToBuy >= 1000): #Se os pontos forem maiores ou iguais a 1000
+		if (qntVidas < 5): #Se a quantidade de vidas for menor que 5
+			deleteCoins(1000) # Retira 1000 pontos do jogador
+			beVisibleMarket(false) # Mercado fica invisivel
+			get_tree().paused = false #Sai do estado de pausa
+			messageMarket('Item comprado com sucesso') #Mostra a mensagem escrita "Item comprado com sucesso"
+			qntVidas += 1 #Adiciona mais uma quantidade na vida 
+			player.xp = getPoints() #Pega os pontos de Xp atuais do jogador
+			player.vidas = qntVidas #Pega a quantidade de vidas atuais do jogador
+			save() #Salvas as informações 
+		else: #Se a quantidade de vidas for maior que 5
+			beVisibleMarket(false) #Mercado fica invisivel
+			get_tree().paused = false #Sai do estado de pausa
+			messageMarket('Você já possui o máximo vidas') #Mostra a mensagem "Você já possui o máximo de vidas"
+	else: #Se os pontos forem menores que 1000
+		beVisibleMarket(false) #Mercado fica invisivel
+		get_tree().paused = false #Sai do estado de pausa
+		messageMarket('Você não possui dinheiro suficiente') #Mostra a mensagem "Você não possui dinheiro surficiente"
+	pass 
 
 
 func comprarFase2(): #Quando a opção de FASE1 é selecionada
-	if(pontosToBuy >= 2000):
-		deleteCoins(2000)
-		beVisibleMarket(false)
+	if(pontosToBuy >= 2000): #Verifica se os pontos são suficientes
+		deleteCoins(2000) #Retira a quantidade de pontos do player
+		beVisibleMarket(false) #Torna o mercado invisivel
 		get_tree().paused = false
-		messageMarket('Item comprado com sucesso')
-		player.xp = getPoints()
-		save()
-	else:
-		beVisibleMarket(false)
+		messageMarket('Item comprado com sucesso') #Define a mensagem final do mercado
+		player.xp = getPoints() #Captura os pontos atuais do player
+		save() #Salva as informações em arquivo local
+	else: #Pontos não suficientes
+		beVisibleMarket(false) #Torna o mercado invisivel
 		get_tree().paused = false
-		messageMarket('Você não possui dinheiro suficiente')
-	pass # Replace with function body.
+		messageMarket('Você não possui experiência suficiente') #Usuário não tem experiência necessária
+	pass 
 
 
 func comprarFase3(): #Quando a opção de FASE2 é selecionada
-	print(pontosToBuy)
-	if (pontosToBuy >= 3000):
-		deleteCoins(3000)
-		beVisibleMarket(false)
-		get_tree().paused = false
-		messageMarket('Item comprado com sucesso')
-		player.xp = getPoints()
-		save()
-	else:
-		beVisibleMarket(false)
-		get_tree().paused = false
-		messageMarket('Você não possui dinheiro suficiente')
-	pass # Replace with function body.
+	if (pontosToBuy >= 3000): #Se os pontos forem maiores ou iguais a 3000
+		deleteCoins(3000) #Retira 3000 dos pontos atuais 
+		beVisibleMarket(false) #Mercado fica invisivel
+		get_tree().paused = false #Sai do estado de pausa
+		messageMarket('Item comprado com sucesso') #Mostra a mensagem "Item comprado com sucesso"
+		player.xp = getPoints() #Pega a quantidade de pontos atuais do player
+		save() #Salva as informações
+	else: #Se os pontos forem menores que 3000
+		beVisibleMarket(false) #Mercado fica invisivel
+		get_tree().paused = false #Sai do estado de pausa
+		messageMarket('Você não possui dinheiro suficiente') #Mostra a seguinte mensagem "Você não possui dinheiro suficiente"
+	pass 
 
 
 func _on_Area2D3_body_entered(body): #Quando o personagem entra na PORTAL
 	if body.name == "Personagem":
-		get_tree().change_scene("res://D&IMental.tscn")
-
-
-	pass # Replace with function body.
+		get_tree().change_scene('res://D&IMental.tscn')
+	pass 
 
 
 func _on_Area2D4_body_entered(body): #Quando o personagem entra no PORTAL
 	body.set_position(destination2)
-	pass # Replace with function body.
+	pass
