@@ -140,6 +140,13 @@ Coloque código do prompt de comnando se for necessário
 ```
 
 ## 🗃 Histórico de lançamentos
+* 0.0.9 - 09/03/2022
+  * Adicionado novo sistema de perguntas - Aleatório
+  * Adicionado sistema de conversa com NPC
+  * Adicionada novas colisões
+  * Novo mapa - D&IMental
+  * Adicionado Banco de Dados local para o game
+
 * 0.0.8 - 03/03/2022
   * Adicionado novo Menu para o game
   * Personagem novo adicionado
