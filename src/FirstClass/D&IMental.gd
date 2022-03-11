@@ -2,6 +2,7 @@ extends Node2D
 
 var qntVidas = 0 
 var FILE_NAME = "user://infos.json"
+var FILE_PERGUNTAS = "res://Perguntas/Fase1/Perguntas.json"
 var randomNumberForDelete = 0
 const Perguntas = [
 	{'question': 'Quem descobrio o Brasil?', 'an1': 'teste', 'an2': 'teste2', 'an3': 'teste3', 'anc': 1,}, 
@@ -12,6 +13,25 @@ const Perguntas = [
 	{'question': 'Pergunta 6', 'an1': 'Resposta61', 'an2': 'Resposta62', 'an3': 'Resposta63', 'anc': 1,},
 	{'question': 'Pergunta 7', 'an1': 'Resposta71', 'an2': 'Resposta72', 'an3': 'Resposta73', 'anc': 1,},
 ]
+
+var perguntasFromDB = []
+
+func savePerguntas():
+	var file = File.new()
+	file.open(FILE_PERGUNTAS, File.WRITE)
+	file.store_string(to_json(perguntasFromDB))
+	file.close()
+
+func loadPerguntas():
+	var file = File.new()
+	if file.file_exists(FILE_PERGUNTAS):
+		file.open(FILE_PERGUNTAS, File.READ)
+		var data = parse_json(file.get_as_text())
+		file.close()
+		perguntasFromDB = data
+		return data
+	else:
+		printerr("No saved data!")
 
 var anc = 1
 var liberadoAbrir = false
@@ -36,18 +56,18 @@ func setPopUpContent(question, an1, an2, an3):
 	$Personagem/Camera/CanvasLayer/Popups/Popup/Button4/Label.text = an3
 
 func selectQuestion():
-	var lenght = float(len(justOneTime)) - 1
+	var lenght = float(len(perguntasFromDB)) - 1
 #	print(lenght)
-	var teste = RandomNumberGenerator.new()
-	teste.randomize()
-	var randomNumber = teste.randi_range(0, lenght)
+	var NumberGenerator = RandomNumberGenerator.new()
+	NumberGenerator.randomize()
+	var randomNumber = NumberGenerator.randi_range(0, lenght)
 #    var randomNumeber = randi()%60+1
 	
 #    var randomNumber = Math.floor(Math.random() * justOneTime.length)
 
 #	print(randomNumber)
 
-	var selectedQuestion = [justOneTime[randomNumber].question, justOneTime[randomNumber].an1, justOneTime[randomNumber].an2, justOneTime[randomNumber].an3, justOneTime[randomNumber].anc]
+	var selectedQuestion = [perguntasFromDB[randomNumber].question, perguntasFromDB[randomNumber].an1, perguntasFromDB[randomNumber].an2, perguntasFromDB[randomNumber].an3, perguntasFromDB[randomNumber].anc]
 #	justOneTime[randomNumber].an1, justOneTime[randomNumber].an2, justOneTime[randomNumber].an3
 
 #	print(selectedQuestion)
@@ -142,6 +162,7 @@ func loadInfos(): #Carrega as informações que o arquivo .JSON possui
 		file.close()
 		if typeof(data) == TYPE_DICTIONARY:
 			player = data
+			return data
 		else:
 			printerr("Corrupted data!")
 	else:
@@ -152,10 +173,14 @@ func _ready():
 	loadInfos() #Carrega as infos
 	qntVidas = player.vidas #Atualiza a qntDeVidas quando o jogo inicia
 	setPoints(player.xp) #Atualiza os pontos quando o jogo inicia
-	pass # Replace with function body.
+#	savePerguntas()
+	var checkQntPerguntas = loadPerguntas()
+	if len(checkQntPerguntas) == 0:
+		perguntasFromDB = Perguntas
+		savePerguntas()
+	else:
+		pass
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	checkVidas()
 	if liberadoAbrir: #Verifica se o pesonagem está dentro da AREA de Pergunta
@@ -173,11 +198,15 @@ func _on_Area2D3_body_entered(body):
 
 
 func _perguntaEntered(body):
-	liberadoAbrir = true #Libera a tecla M para funcionar
-	MensagemPressM(true) #Torna o aviso de "Pressione M" visivel
-	var content = selectQuestion() #Gera uma pergunta de forma aleatória
-	setPopUpContent(content[0],content[1], content[2], content[3]) #Define o conteudo da pergunta
-	anc = content[4] #Define qual a resposta correta
+	var lenghtArray = float(len(perguntasFromDB))
+	if lenghtArray >= 1:
+		liberadoAbrir = true #Libera a tecla M para funcionar
+		MensagemPressM(true) #Torna o aviso de "Pressione M" visivel
+		var content = selectQuestion() #Gera uma pergunta de forma aleatória
+		setPopUpContent(content[0],content[1], content[2], content[3]) #Define o conteudo da pergunta
+		anc = content[4] #Define qual a resposta correta
+	else:
+		print('Acabou as perguntas!')
 	pass
 
 
@@ -193,7 +222,8 @@ func _onFirstOptionSelected():
 		get_tree().paused = false
 		messageFinal('Acertou') #Define a mensagem de acerto ou erro
 		addCoins(100) #Adiciona pontos
-		justOneTime.remove(randomNumberForDelete) #Deleto a pergunta que o player acertou
+		perguntasFromDB.remove(randomNumberForDelete) #Deleto a pergunta que o player acertou
+		savePerguntas() #Salva as perguntas após o remove
 		yield(get_tree().create_timer(3.0), "timeout") #Aguarda 3 segundo
 		$Personagem/Camera/CanvasLayer/Popups/Popup2.visible = false
 		liberadoAbrir = false
@@ -212,7 +242,8 @@ func _onSecondOptionSelected():
 		get_tree().paused = false #Despausa o jogo
 		messageFinal('Acertou') #Define a mensagem que o player receberá
 		addCoins(100) #Adiciona os pontos
-		justOneTime.remove(randomNumberForDelete) #Deleto a pergunta que o player acertou
+		perguntasFromDB.remove(randomNumberForDelete) #Deleto a pergunta que o player acertou
+		savePerguntas() #Salva as perguntas após o remove
 		yield(get_tree().create_timer(3.0), "timeout") #Aguarda 3 segundos
 		$Personagem/Camera/CanvasLayer/Popups/Popup2.visible = false
 		player.xp = getPoints() #Captura a quantidade atual de pontos
@@ -230,7 +261,8 @@ func _onThirdOptionSelected():
 		get_tree().paused = false
 		messageFinal('Acertou') #Define a mensagem final
 		addCoins(100) #Adiciona pontos
-		justOneTime.remove(randomNumberForDelete) #Deleto a pergunta que o player acertou
+		perguntasFromDB.remove(randomNumberForDelete) #Deleto a pergunta que o player acertou
+		savePerguntas() #Salva as perguntas após o remove
 		yield(get_tree().create_timer(3.0), "timeout") #Aguarda 3 segundos
 		$Personagem/Camera/CanvasLayer/Popups/Popup2.visible = false #Some a mensagem final
 		player.xp = getPoints() #Captura a quantidade atual de pontos

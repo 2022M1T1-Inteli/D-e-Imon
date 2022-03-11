@@ -745,7 +745,6 @@ __meta__ = {
 
 [node name="Popups" type="Popup" parent="Personagem/Camera/CanvasLayer"]
 pause_mode = 2
-visible = true
 margin_right = 40.0
 margin_bottom = 40.0
 __meta__ = {

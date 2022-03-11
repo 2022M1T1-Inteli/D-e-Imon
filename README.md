@@ -140,6 +140,12 @@ Coloque código do prompt de comnando se for necessário
 ```
 
 ## 🗃 Histórico de lançamentos
+* 0.1 - 11/03/2022
+  * Novo sistema de perguntas(refatorado) aplicado dentro da 1 Fase
+  * Adicionado base local de dados no sistema de perguntas
+  * Novos blocos de pixelart adicionados
+  * Mapa FASE-1 adicionado
+
 * 0.0.9 - 09/03/2022
   * Adicionado novo sistema de perguntas - Aleatório
   * Adicionado sistema de conversa com NPC
