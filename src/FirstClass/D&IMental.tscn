@@ -1,9 +1,9 @@
-[gd_scene load_steps=70 format=2]
+[gd_scene load_steps=72 format=2]
 
 [ext_resource path="res://Action RPG Resources/Tileset/scifi_platformTiles_16x16.png" type="Texture" id=1]
 [ext_resource path="res://Jelly Anika.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://Hey Comic.ttf" type="DynamicFontData" id=3]
-[ext_resource path="res://Pokemon Hollow.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://Fontes/ARCADEPI.TTF" type="DynamicFontData" id=4]
 [ext_resource path="res://Action RPG Resources/Player/Pixilart Sprite Sheet.png" type="Texture" id=5]
 [ext_resource path="res://Action RPG Resources/Player/RpgCharacterShadow.png" type="Texture" id=6]
 [ext_resource path="res://KinematicBody2D.gd" type="Script" id=7]
@@ -14,6 +14,8 @@
 [ext_resource path="res://D&IMental.gd" type="Script" id=12]
 [ext_resource path="res://portal texture.png" type="Texture" id=13]
 [ext_resource path="res://Action RPG Resources/Tileset/floating island big.png" type="Texture" id=14]
+[ext_resource path="res://Scripts/Color.gd" type="Script" id=15]
+[ext_resource path="res://Action RPG Resources/Texture/xp.png" type="Texture" id=16]
 
 [sub_resource type="StreamTexture" id=52]
 
@@ -449,8 +451,8 @@ func _ready():
 #	pass
 "
 
-[sub_resource type="DynamicFont" id=13]
-size = 25
+[sub_resource type="DynamicFont" id=56]
+size = 17
 font_data = ExtResource( 4 )
 
 [sub_resource type="DynamicFont" id=14]
@@ -713,33 +715,26 @@ zoom = Vector2( 1.6, 1.6 )
 limit_smoothed = true
 script = SubResource( 12 )
 
-[node name="EXP" type="Label" parent="Personagem/Camera"]
-pause_mode = 2
-margin_left = 140.0
-margin_top = -144.0
-margin_right = 188.0
-margin_bottom = -109.0
-custom_fonts/font = SubResource( 13 )
-text = "EXP"
-align = 2
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="Xp" type="Sprite" parent="Personagem/Camera"]
+position = Vector2( 201.455, -121.5 )
+scale = Vector2( 0.668187, 0.79 )
+texture = ExtResource( 16 )
 
 [node name="Pontos" type="Label" parent="Personagem/Camera"]
 pause_mode = 2
-margin_left = 177.0
-margin_top = -142.0
-margin_right = 254.0
-margin_bottom = -107.0
-custom_fonts/font = SubResource( 13 )
+margin_left = 172.0
+margin_top = -138.0
+margin_right = 249.0
+margin_bottom = -103.0
+custom_fonts/font = SubResource( 56 )
 text = "10000"
 align = 2
 valign = 1
+script = ExtResource( 15 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+text_color = Color( 0.298039, 0.988235, 0.956863, 1 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Personagem/Camera"]
 
