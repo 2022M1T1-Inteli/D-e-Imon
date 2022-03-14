@@ -1,4 +1,4 @@
-[gd_scene load_steps=96 format=2]
+[gd_scene load_steps=99 format=2]
 
 [ext_resource path="res://Action RPG Resources/World/Bush.png" type="Texture" id=1]
 [ext_resource path="res://Action RPG Resources/World/Grass.png" type="Texture" id=2]
@@ -24,6 +24,7 @@
 [ext_resource path="res://Action RPG Resources/Texture/ambev.png" type="Texture" id=22]
 [ext_resource path="res://Action RPG Resources/UI/HeartUIFull.png" type="Texture" id=23]
 [ext_resource path="res://Action RPG Resources/UI/HeartUIEmpty.png" type="Texture" id=24]
+[ext_resource path="res://Barco.tscn" type="PackedScene" id=25]
 
 [sub_resource type="TileSet" id=20]
 0/name = "TX Plant.png 0"
@@ -778,6 +779,37 @@ tracks/0/keys = {
 
 [sub_resource type="CapsuleShape2D" id=73]
 
+[sub_resource type="Animation" id=77]
+resource_name = "Nova Animação"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 706, -696 ), Vector2( 484, -698 ), Vector2( 295, -697 ), Vector2( 271, -726 ) ]
+}
+
+[sub_resource type="Animation" id=78]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 681, -697 ) ]
+}
+
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 3 )
 
@@ -1486,6 +1518,13 @@ shape = SubResource( 73 )
 [node name="Sprite" type="Sprite" parent="Area2D4"]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Area2D4/Sprite"]
+
+[node name="Barco" parent="." instance=ExtResource( 25 )]
+position = Vector2( 681, -697 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Barco"]
+"anims/Nova Animação" = SubResource( 77 )
+anims/RESET = SubResource( 78 )
 
 [connection signal="pressed" from="Personagem/Camera/CanvasLayer/Popups/Mercado/Button" to="." method="compraVida"]
 [connection signal="pressed" from="Personagem/Camera/CanvasLayer/Popups/Mercado/Button2" to="." method="comprarFase2"]

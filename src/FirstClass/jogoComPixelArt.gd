@@ -11,6 +11,7 @@ var qntVidas = 0
 var pontosToBuy
 var destination
 var destination2
+var cutsi = false
 
 var player = { #Local database
 	'xp': 0,
@@ -131,6 +132,7 @@ func messageMarket(message):
 	$Personagem/Camera/CanvasLayer/Popups/marketMessage.visible = false
 #
 func _ready():
+	$Barco/AnimationPlayer.play("Nova Animação")
 	destination = get_node("Portaldestination").get_global_position()
 	destination2 = get_node("Portaldestination2").get_global_position()
 	loadInfos() #Carrega as informações
@@ -139,9 +141,11 @@ func _ready():
 	print(player)
 	var dialog = Dialogic.start("Teste") #Roda o dialogo -- POR ENQUANTO SOMENTE TESTE --
 	add_child(dialog)
+	cutsi = true
 	pass
 
 func _process(delta):
+	
 	checkVidas() #Chama a função que verifica quantas sprites irão aparecer
 	pontosToBuy = float($Personagem/Camera/Pontos.text) #Verifica os pontos recorrentemente para que sejam usados no --MERCADO--
 	if liberadoAbrir: #Verifica se o pesonagem está dentro da AREA de Pergunta
@@ -368,3 +372,5 @@ func _on_Area2D3_body_entered(body): #Quando o personagem entra na PORTAL
 func _on_Area2D4_body_entered(body): #Quando o personagem entra no PORTAL
 	body.set_position(destination2)
 	pass
+
+
