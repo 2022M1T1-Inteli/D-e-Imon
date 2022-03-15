@@ -1553,19 +1553,21 @@ autoplay = "New Anim"
 "anims/New Anim" = SubResource( 51 )
 
 [node name="Pergunta1" type="Area2D" parent="."]
+position = Vector2( 36, -56 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pergunta1"]
 position = Vector2( 153.5, 296 )
 shape = SubResource( 53 )
 
 [node name="Pergunta2" type="Area2D" parent="."]
+position = Vector2( 620, 604 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pergunta2"]
 position = Vector2( 216, 376.75 )
 shape = SubResource( 54 )
 
 [node name="Pergunta3" type="Area2D" parent="."]
-position = Vector2( -2, 36 )
+position = Vector2( -617, 541 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pergunta3"]
 position = Vector2( 153, 432.5 )
