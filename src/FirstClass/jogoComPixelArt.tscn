@@ -1,4 +1,4 @@
-[gd_scene load_steps=104 format=2]
+[gd_scene load_steps=105 format=2]
 
 [ext_resource path="res://Action RPG Resources/World/Bush.png" type="Texture" id=1]
 [ext_resource path="res://Action RPG Resources/World/Grass.png" type="Texture" id=2]
@@ -29,6 +29,7 @@
 [ext_resource path="res://Scripts/Color.gd" type="Script" id=27]
 [ext_resource path="res://Action RPG Resources/Texture/xp.png" type="Texture" id=28]
 [ext_resource path="res://Action RPG Resources/NPC's/NPC1.png" type="Texture" id=29]
+[ext_resource path="res://audios/mixkit-games-worldbeat-466.mp3" type="AudioStream" id=30]
 
 [sub_resource type="TileSet" id=20]
 0/name = "TX Plant.png 0"
@@ -790,7 +791,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id=77]
 resource_name = "Nova Animação"
-length = 1.5
+length = 4.0
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:position")
 tracks/0/interp = 1
@@ -798,10 +799,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.5, 1, 1.5 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.5, 1, 1.5, 2, 2.5, 3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 706, -696 ), Vector2( 484, -698 ), Vector2( 295, -697 ), Vector2( 271, -726 ) ]
+"values": [ Vector2( 1353, -654 ), Vector2( 1122, -655 ), Vector2( 948, -672 ), Vector2( 729, -676 ), Vector2( 557, -664 ), Vector2( 357, -652 ), Vector2( 279, -690 ) ]
 }
 
 [sub_resource type="Animation" id=78]
@@ -992,7 +993,6 @@ anims/correndo_para_esquerda = SubResource( 8 )
 
 [node name="Camera" type="Camera2D" parent="Personagem"]
 position = Vector2( 36, 37 )
-current = true
 zoom = Vector2( 1.6, 1.6 )
 limit_smoothed = true
 script = SubResource( 17 )
@@ -1478,6 +1478,11 @@ __meta__ = {
 }
 text_color = Color( 0.290196, 1, 1, 1 )
 
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Personagem/Camera"]
+position = Vector2( -1, -16 )
+stream = ExtResource( 30 )
+autoplay = true
+
 [node name="Area2D" type="Area2D" parent="."]
 position = Vector2( -450, -12 )
 
@@ -1555,6 +1560,11 @@ position = Vector2( 681, -697 )
 "anims/Nova Animação" = SubResource( 77 )
 anims/RESET = SubResource( 78 )
 
+[node name="Camera2D" type="Camera2D" parent="Barco"]
+position = Vector2( -4, 2 )
+current = true
+zoom = Vector2( 1.6, 1.6 )
+
 [connection signal="pressed" from="Personagem/Camera/CanvasLayer/Popups/Mercado/Button" to="." method="compraVida"]
 [connection signal="pressed" from="Personagem/Camera/CanvasLayer/Popups/Mercado/Button2" to="." method="comprarFase2"]
 [connection signal="pressed" from="Personagem/Camera/CanvasLayer/Popups/Mercado/Button3" to="." method="comprarFase3"]
@@ -1576,3 +1586,4 @@ anims/RESET = SubResource( 78 )
 [connection signal="body_exited" from="Market" to="." method="marketExited"]
 [connection signal="body_entered" from="Area2D3" to="." method="_on_Area2D3_body_entered"]
 [connection signal="body_entered" from="Area2D4" to="." method="_on_Area2D4_body_entered"]
+[connection signal="animation_finished" from="Barco/AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

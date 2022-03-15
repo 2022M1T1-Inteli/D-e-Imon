@@ -139,9 +139,11 @@ func _ready():
 	qntVidas = player.vidas #Atualiza a qntDeVidas quando o jogo inicia
 	setPoints(player.xp) #Atualiza os pontos quando o jogo inicia
 	print(player)
-	var dialog = Dialogic.start("Teste") #Roda o dialogo -- POR ENQUANTO SOMENTE TESTE --
-	add_child(dialog)
-	cutsi = true
+	$Personagem.visible = false
+	
+#	var dialog = Dialogic.start("Teste") #Roda o dialogo -- POR ENQUANTO SOMENTE TESTE --
+#	add_child(dialog)
+#	cutsi = true
 	pass
 
 func _process(delta):
@@ -374,3 +376,10 @@ func _on_Area2D4_body_entered(body): #Quando o personagem entra no PORTAL
 	pass
 
 
+
+
+func _on_AnimationPlayer_animation_finished(anim_name):
+	$Personagem/Camera.current = true
+	$Personagem.visible = true
+	
+	pass # Replace with function body.

@@ -20,8 +20,8 @@ animations = [ {
 [node name="Barco" type="Node2D"]
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-position = Vector2( 57.5, 44 )
-scale = Vector2( 1.76563, 1.40625 )
+position = Vector2( -12.4999, -15.5 )
+scale = Vector2( 3.95313, 3.26563 )
 frames = SubResource( 1 )
-frame = 6
+frame = 2
 playing = true
