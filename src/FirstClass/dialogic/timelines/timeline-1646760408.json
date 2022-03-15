@@ -17,6 +17,14 @@
 			"event_id": "dialogic_001",
 			"portrait": "",
 			"text": "Oiiiii3"
+		},
+		{
+			"event_id": "dialogic_022",
+			"transition_duration": 1
+		},
+		{
+			"emit_signal": "dialogFinished",
+			"event_id": "dialogic_040"
 		}
 	],
 	"metadata": {

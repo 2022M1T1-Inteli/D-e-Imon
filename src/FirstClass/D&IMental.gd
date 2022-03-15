@@ -4,14 +4,18 @@ var qntVidas = 0
 var FILE_NAME = "user://infos.json"
 var FILE_PERGUNTAS = "res://Perguntas/Fase1/Perguntas.json"
 var randomNumberForDelete = 0
+var timeline = ''
 const Perguntas = [
-	{'question': 'Quem descobrio o Brasil?', 'an1': 'teste', 'an2': 'teste2', 'an3': 'teste3', 'anc': 1,}, 
-	{'question': 'Quem descobrio o Brasilsdasdsa?', 'an1': 'testedasdas', 'an2': 'teste2dasasd', 'an3': 'teste3dasdas', 'anc': 1,}, 
-	{'question': 'Quem descobrio o silsdasa?', 'an1': 'tes', 'an2': 'te', 'an3': 'ts', 'anc': 1,}, 
-	{'question': 'Quem desc o Brasilsdasdsa?', 'an1': 'tesasdas', 'an2': 'teste2asd', 'an3': 'tee3dasdas', 'anc': 1,},
-	{'question': 'Pergunta 5', 'an1': 'Resposta51', 'an2': 'Resposta52', 'an3': 'Resposta53', 'anc': 1,},
-	{'question': 'Pergunta 6', 'an1': 'Resposta61', 'an2': 'Resposta62', 'an3': 'Resposta63', 'anc': 1,},
-	{'question': 'Pergunta 7', 'an1': 'Resposta71', 'an2': 'Resposta72', 'an3': 'Resposta73', 'anc': 1,},
+	{'question': 'Qual o nome dado ao preconceito contra vítimas de transtornos mentais? ', 'an1': 'Psicofobia', 'an2': 'Capacitismo', 'an3': 'Mentalismo', 'anc': 1,},
+	{'question': 'Qual a campanha mais famosa de prevenção ao suicídio?', 'an1': 'Dia Mundial da Saúde Mental', 'an2': 'Janeiro Branco', 'an3': 'Setembro Amarelo', 'anc': 3,},
+	{'question': 'Qual a difença entre um psiquiatra e um psicólogo?', 'an1': 'O psicólogo costuma olhar para os problemas psicológicos pela perspectiva filosófica, social e comportamental, já o psiquiatra traz uma visão médica do problema.', 'an2': 'O psicólogo faz faculdade de medicina e o psiquiatra não.', 'an3': 'O psicólogo pode recomendar remédios, diferente do psiquiatra.', 'anc': 1,},
+	{'question': 'A psicofobia é enquadrada no código penal como:', 'an1': 'Difamação', 'an2': 'Injúria', 'an3': 'Calúnia', 'anc': 2,},
+	{'question': 'Qual o tamanho da pena para quem comete psicofobia?', 'an1': '2 a 4 anos', 'an2': '8 anos', 'an3': 'Apenas multa', 'anc': 1,},
+	{'question': 'Em qual hospital ocorreu o "holocausto brasileiro"?', 'an1': 'Hospital de Barbacena', 'an2': 'Hospital Primavera', 'an3': 'Hospital Albert Einstein', 'anc': 1,},
+	{'question': 'Quais as principais razões pelas quais os doentes mentais sofriam tanto no Hospital de Barbacena?', 'an1': 'Por conta da sua origem', 'an2': 'Por preconceito racial', 'an3': 'Discriminação em relação a sua adversidade mental', 'anc': 3,},
+	{'question': 'Quais os dois transtornos mentais mais comuns no Brasil?', 'an1': 'Depressão e ansiedade', 'an2': 'TDAH e transtorno de personalidade', 'an3': 'Bipolaridade e esquizofrenia', 'anc': 1,},
+	{'question': 'O que não fazer quando alguem tem uma crise de ansidade?', 'an1': 'Ajudar a pessoa a controlar a respiração', 'an2': 'Levar a pessoa ao relaxamento, muscular ou outros', 'an3': 'Fazer piada com a situação', 'anc': 3,},
+	{'question': 'O que não fazer quando alguém apresenta sintomas de depressão?', 'an1': 'Ouvir com atenção o que a pessoa tem a dizer', 'an2': 'Minimizar o problema, dizendo que vai passar logo', 'an3': 'Recomendar que ela procure ajuda profissional', 'anc': 2,},
 ]
 
 var perguntasFromDB = []
@@ -35,6 +39,7 @@ func loadPerguntas():
 
 var anc = 1
 var liberadoAbrir = false
+var liberadoAbrirG = false
 
 var justOneTime = Perguntas
 
@@ -43,6 +48,9 @@ func beVisible(visible):
 
 func MensagemPressM(visible):
 	$Personagem/Camera/CanvasLayer/Popups/Popup3.visible = visible # Aparece para apertar M.
+
+func MensagemPressG(visible):
+	$Personagem/Camera/CanvasLayer/Popups/Popup5.visible = visible # Aparece para apertar M.
 
 func messageFinal(text):
 	$Personagem/Camera/CanvasLayer/Popups/Popup2.visible = true
@@ -133,6 +141,9 @@ var player = {
 func setPoints(points): #Colca os pontos na HUD do jogo.
 	$Personagem/Camera/Pontos.text = str(points) 
 
+func unpause(timeline_Teste):
+	get_tree().change_scene("res://pong.tscn")
+
 func addCoins(qnt):
 	var pontosAtual = int($Personagem/Camera/Pontos.text) #Pega os pontos atuais e tranforma em Número
 	var pontosAdicionados = pontosAtual ++ qnt #Adiciona o incremento passado pelo parametro da função
@@ -187,6 +198,11 @@ func _process(delta):
 		if Input.is_action_pressed('ui_m'):
 			beVisible(true) #Torna vísivel o quiz
 			get_tree().paused = true
+	if liberadoAbrirG:
+		if Input.is_action_pressed("ui_g"):
+			var dialog = Dialogic.start(timeline)
+			add_child(dialog)
+			dialog.connect('timeline_end', self, "unpause")
 	pass
 
 
@@ -215,6 +231,8 @@ func _perguntaExited(body):
 		liberadoAbrir = false #Bloqueia a tecla M para funcionar
 		MensagemPressM(false) #Torna o aviso de "Pressione M" invisivel
 	pass 
+	
+
 
 func _onFirstOptionSelected():
 	if (anc == 1): #Resposta correta
@@ -278,3 +296,18 @@ func _onThirdOptionSelected():
 func _onClosePressed():
 	beVisible(false) #Torna tudo referente as perguntas invisível
 	get_tree().paused = false #Pausa o jogo
+
+func _onMinigame1Entered(body):
+	liberadoAbrirG = true
+	MensagemPressG(true)
+	timeline = 'Teste'
+	pass
+
+func dialogFinished():
+	get_tree().change_scene("res://pong.tscn")
+
+
+func _onMinigameExited(body):
+	liberadoAbrirG = false
+	MensagemPressG(false)
+	pass
