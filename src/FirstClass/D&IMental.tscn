@@ -6,7 +6,7 @@
 [ext_resource path="res://Fontes/ARCADEPI.TTF" type="DynamicFontData" id=4]
 [ext_resource path="res://Action RPG Resources/Player/Pixilart Sprite Sheet.png" type="Texture" id=5]
 [ext_resource path="res://Action RPG Resources/Player/RpgCharacterShadow.png" type="Texture" id=6]
-[ext_resource path="res://KinematicBody2D.gd" type="Script" id=7]
+[ext_resource path="res://Scripts/D&IMental/personagemForD&IMental.gd" type="Script" id=7]
 [ext_resource path="res://Action RPG Resources/UI/HeartUIEmpty.png" type="Texture" id=8]
 [ext_resource path="res://fundoMarket.png" type="Texture" id=9]
 [ext_resource path="res://Action RPG Resources/Texture/ambev.png" type="Texture" id=10]
@@ -925,7 +925,7 @@ corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
 [sub_resource type="DynamicFont" id=40]
-size = 13
+size = 10
 font_data = ExtResource( 3 )
 
 [sub_resource type="DynamicFont" id=41]
@@ -947,7 +947,7 @@ corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
 [sub_resource type="DynamicFont" id=44]
-size = 13
+size = 10
 font_data = ExtResource( 3 )
 
 [sub_resource type="DynamicFont" id=45]
@@ -969,7 +969,7 @@ corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
 [sub_resource type="DynamicFont" id=48]
-size = 13
+size = 10
 font_data = ExtResource( 3 )
 
 [sub_resource type="DynamicFont" id=49]
@@ -1022,10 +1022,10 @@ extents = Vector2( 24, 18.75 )
 extents = Vector2( 24, 15.5 )
 
 [sub_resource type="RectangleShape2D" id=57]
-extents = Vector2( 357.75, 43.75 )
+extents = Vector2( 654, 43.75 )
 
 [sub_resource type="RectangleShape2D" id=58]
-extents = Vector2( 328.25, 37 )
+extents = Vector2( 657.75, 37 )
 
 [sub_resource type="RectangleShape2D" id=60]
 extents = Vector2( 16, 10.5 )
@@ -1370,6 +1370,7 @@ __meta__ = {
 
 [node name="Popup" type="Popup" parent="Personagem/Camera/CanvasLayer/Popups"]
 pause_mode = 2
+visible = true
 margin_right = 40.0
 margin_bottom = 40.0
 __meta__ = {
@@ -1382,16 +1383,16 @@ scale = Vector2( 0.354348, 0.309091 )
 texture = ExtResource( 9 )
 
 [node name="Ambev" type="Sprite" parent="Personagem/Camera/CanvasLayer/Popups/Popup"]
-position = Vector2( 30, 14 )
+position = Vector2( 278, 44 )
 scale = Vector2( 0.125672, 0.114163 )
 texture = ExtResource( 10 )
 
 [node name="Label" type="Label" parent="Personagem/Camera/CanvasLayer/Popups/Popup"]
 pause_mode = 2
-margin_left = 2.0
-margin_top = 19.0
-margin_right = 243.0
-margin_bottom = 82.0
+margin_left = -4.0
+margin_top = -1.0
+margin_right = 237.0
+margin_bottom = 62.0
 custom_fonts/font = SubResource( 33 )
 text = "'Quais as principais razões pelas quais os doentes mentais sofriam tanto no Hospital de Barbacena?'"
 align = 1
@@ -1419,10 +1420,10 @@ __meta__ = {
 
 [node name="Button2" type="Button" parent="Personagem/Camera/CanvasLayer/Popups/Popup"]
 pause_mode = 2
-margin_left = 6.0
-margin_top = 86.0
-margin_right = 27.0
-margin_bottom = 105.0
+margin_left = 1.0
+margin_top = 67.0
+margin_right = 22.0
+margin_bottom = 86.0
 custom_fonts/font = SubResource( 37 )
 custom_styles/hover = SubResource( 38 )
 custom_styles/pressed = SubResource( 38 )
@@ -1436,19 +1437,19 @@ __meta__ = {
 [node name="Label" type="Label" parent="Personagem/Camera/CanvasLayer/Popups/Popup/Button2"]
 pause_mode = 2
 margin_left = 24.0
-margin_top = -7.0
+margin_top = -3.0
 margin_right = 306.0
-margin_bottom = 32.0
+margin_bottom = 36.0
 custom_fonts/font = SubResource( 40 )
 text = "Discriminação em relação a sua adversidade mental'"
 autowrap = true
 
 [node name="Button3" type="Button" parent="Personagem/Camera/CanvasLayer/Popups/Popup"]
 pause_mode = 2
-margin_left = 5.0
-margin_top = 117.0
-margin_right = 26.0
-margin_bottom = 137.0
+margin_left = 2.0
+margin_top = 108.0
+margin_right = 23.0
+margin_bottom = 128.0
 custom_fonts/font = SubResource( 41 )
 custom_styles/hover = SubResource( 42 )
 custom_styles/pressed = SubResource( 42 )
@@ -1462,9 +1463,9 @@ __meta__ = {
 [node name="Label" type="Label" parent="Personagem/Camera/CanvasLayer/Popups/Popup/Button3"]
 pause_mode = 2
 margin_left = 24.0
-margin_top = -5.0
+margin_top = -2.0
 margin_right = 307.0
-margin_bottom = 34.0
+margin_bottom = 37.0
 custom_fonts/font = SubResource( 44 )
 text = "Discriminação em relação a sua adversidade mental'"
 autowrap = true
@@ -1474,10 +1475,10 @@ __meta__ = {
 
 [node name="Button4" type="Button" parent="Personagem/Camera/CanvasLayer/Popups/Popup"]
 pause_mode = 2
-margin_left = 5.0
-margin_top = 145.0
-margin_right = 26.0
-margin_bottom = 166.0
+margin_left = 1.0
+margin_top = 146.0
+margin_right = 22.0
+margin_bottom = 167.0
 custom_fonts/font = SubResource( 45 )
 custom_styles/hover = SubResource( 46 )
 custom_styles/pressed = SubResource( 46 )
@@ -1491,9 +1492,8 @@ __meta__ = {
 [node name="Label" type="Label" parent="Personagem/Camera/CanvasLayer/Popups/Popup/Button4"]
 pause_mode = 2
 margin_left = 24.0
-margin_top = -1.0
 margin_right = 305.0
-margin_bottom = 38.0
+margin_bottom = 39.0
 custom_fonts/font = SubResource( 48 )
 text = "Discriminação em relação a sua adversidade mental'"
 autowrap = true
@@ -1592,11 +1592,11 @@ shape = SubResource( 55 )
 position = Vector2( 0, -2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2( -231.75, 902 )
+position = Vector2( -528, 902 )
 shape = SubResource( 57 )
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2( 576.75, 901 )
+position = Vector2( 906.25, 901 )
 shape = SubResource( 58 )
 
 [node name="Minigame1" type="Area2D" parent="."]

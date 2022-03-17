@@ -15,7 +15,8 @@ var cutsi = false
 
 var player = { #Local database
 	'xp': 0,
-	'vidas': 0
+	'vidas': 0,
+	'mercadoAlreadyOpen': false
 } 
 
 func setPoints(points): #Coloca os pontos na HUD do jogo.
@@ -132,14 +133,21 @@ func messageMarket(message):
 	$Personagem/Camera/CanvasLayer/Popups/marketMessage.visible = false
 #
 func _ready():
-	$Barco/AnimationPlayer.play("Nova Animação")
+	if (Global.cutscene == true):
+		$Barco/AnimationPlayer.play("Nova Animação")
+		$Personagem.visible = false
+		Global.cutscene = false
+	else:
+		$Personagem/Camera.current = true
 	destination = get_node("Portaldestination").get_global_position()
 	destination2 = get_node("Portaldestination2").get_global_position()
 	loadInfos() #Carrega as informações
 	qntVidas = player.vidas #Atualiza a qntDeVidas quando o jogo inicia
 	setPoints(player.xp) #Atualiza os pontos quando o jogo inicia
 	print(player)
-	$Personagem.visible = false
+	save()
+	
+	$Personagem.set_position(Global.position)
 	
 #	var dialog = Dialogic.start("Teste") #Roda o dialogo -- POR ENQUANTO SOMENTE TESTE --
 #	add_child(dialog)
@@ -147,7 +155,6 @@ func _ready():
 	pass
 
 func _process(delta):
-	
 	checkVidas() #Chama a função que verifica quantas sprites irão aparecer
 	pontosToBuy = float($Personagem/Camera/Pontos.text) #Verifica os pontos recorrentemente para que sejam usados no --MERCADO--
 	if liberadoAbrir: #Verifica se o pesonagem está dentro da AREA de Pergunta
@@ -166,6 +173,8 @@ func _process(delta):
 			beVisibleMarket(true) #Torna o mercado vísivel
 			get_tree().paused = true
 			MensagemPressG(false) #Fecha a mensagem 'Pressione G'
+			player.mercadoAlreadyOpen = true
+			save()
 	else:
 		pass
 
@@ -296,10 +305,22 @@ func _on_Pergunta3_body_exited(body):
 
 func marketOpenMessage(body):
 	if body.name == 'Personagem': # Aparece somente com a colisao DO PERSONAGEM
-		liberadoAbrirG = true #Libera a tecla G para funcionar 
-		MensagemPressG(true) #Torna o aviso de "Pressione G" visivel
+		if (player.mercadoAlreadyOpen == true):
+			print('Já abriu')
+			liberadoAbrirG = true #Libera a tecla G para funcionar 
+			MensagemPressG(true) #Torna o aviso de "Pressione G" visivel
+		else:
+			print('Nunca Abriu')
+			get_tree().paused = true
+			var dialog = Dialogic.start("Teste")
+			add_child(dialog)
+			dialog.connect('timeline_end', self, "unpause")
+			liberadoAbrirG = true #Libera a tecla G para funcionar 
+			MensagemPressG(true) #Torna o aviso de "Pressione G" visivel
 	pass 
 
+func unpause(timeline_Teste):
+	get_tree().paused = false
 
 func marketExited(body):
 	if body.name == 'Personagem': 
@@ -368,6 +389,7 @@ func comprarFase3(): #Quando a opção de FASE2 é selecionada
 func _on_Area2D3_body_entered(body): #Quando o personagem entra na PORTAL
 	if body.name == "Personagem":
 		get_tree().change_scene('res://D&IMental.tscn')
+		Global.position = Vector2(1179, -1874)
 	pass 
 
 

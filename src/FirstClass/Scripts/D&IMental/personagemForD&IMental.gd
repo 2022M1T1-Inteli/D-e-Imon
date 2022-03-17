@@ -17,11 +17,6 @@ func cima():
 	animacaoJogador.play("correndo_para_cima") #Começa a animação para cima -- AnimationPlayer
 
 func _physics_process(_delta):
-	
-#	var actualPosition = get_position()
-#	Global.position = actualPosition
-#	print(Global.position)
-	
 	var resultante = Vector2.ZERO
 	#Captura em vetor se ele está indo para esquerda ou direita (x) (-1 ou 1)
 	resultante.x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
@@ -68,5 +63,9 @@ func _physics_process(_delta):
 		else: return
 	#Move o personagem com a velocity (atrelando resultante com a rapidez)
 	move_and_slide(velocity)
+	for i in get_slide_count():
+		var collision = get_slide_collision(i)
+		print(collision.collider.name)
+	
 func _ready():
 	pass # Replace with function body.	
