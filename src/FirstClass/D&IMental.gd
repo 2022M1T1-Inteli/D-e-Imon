@@ -184,6 +184,7 @@ func _ready():
 	loadInfos() #Carrega as infos
 	qntVidas = player.vidas #Atualiza a qntDeVidas quando o jogo inicia
 	setPoints(player.xp) #Atualiza os pontos quando o jogo inicia
+	$Personagem.position = Global.positionForMapa1
 #	savePerguntas()
 	var checkQntPerguntas = loadPerguntas()
 	if len(checkQntPerguntas) == 0:
@@ -301,6 +302,7 @@ func _onMinigame1Entered(body):
 	liberadoAbrirG = true
 	MensagemPressG(true)
 	timeline = 'Teste'
+	Global.positionForMapa1 = Vector2(337, 925)
 	pass
 
 func dialogFinished():
