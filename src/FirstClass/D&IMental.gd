@@ -5,10 +5,10 @@ var FILE_NAME = "user://infos.json"
 var FILE_PERGUNTAS = "res://Perguntas/Fase1/Perguntas.JSON"
 var randomNumberForDelete = 0
 var timeline = ''
+var cenaDestination = "res://D&IMental.tscn"
 const Perguntas = [
 	{'question': 'Qual o nome dado ao preconceito contra vítimas de transtornos mentais? ', 'an1': 'Psicofobia', 'an2': 'Capacitismo', 'an3': 'Mentalismo', 'anc': 1,},
 	{'question': 'Qual a campanha mais famosa de prevenção ao suicídio?', 'an1': 'Dia Mundial da Saúde Mental', 'an2': 'Janeiro Branco', 'an3': 'Setembro Amarelo', 'anc': 3,},
-	{'question': 'Qual a difença entre um psiquiatra e um psicólogo?', 'an1': 'O psicólogo costuma olhar para os problemas psicológicos pela perspectiva filosófica, social e comportamental, já o psiquiatra traz uma visão médica do problema.', 'an2': 'O psicólogo faz faculdade de medicina e o psiquiatra não.', 'an3': 'O psicólogo pode recomendar remédios, diferente do psiquiatra.', 'anc': 1,},
 	{'question': 'A psicofobia é enquadrada no código penal como:', 'an1': 'Difamação', 'an2': 'Injúria', 'an3': 'Calúnia', 'anc': 2,},
 	{'question': 'Qual o tamanho da pena para quem comete psicofobia?', 'an1': '2 a 4 anos', 'an2': '8 anos', 'an3': 'Apenas multa', 'anc': 1,},
 	{'question': 'Em qual hospital ocorreu o "holocausto brasileiro"?', 'an1': 'Hospital de Barbacena', 'an2': 'Hospital Primavera', 'an3': 'Hospital Albert Einstein', 'anc': 1,},
@@ -142,7 +142,7 @@ func setPoints(points): #Colca os pontos na HUD do jogo.
 	$Personagem/Camera/Pontos.text = str(points) 
 
 func unpause(timeline_Teste):
-	get_tree().change_scene("res://pong.tscn")
+	get_tree().change_scene(cenaDestination)
 
 func addCoins(qnt):
 	var pontosAtual = int($Personagem/Camera/Pontos.text) #Pega os pontos atuais e tranforma em Número
@@ -303,13 +303,23 @@ func _onMinigame1Entered(body):
 	MensagemPressG(true)
 	timeline = 'Teste'
 	Global.positionForMapa1 = Vector2(337, 925)
+	cenaDestination = "res://Pong.tscn"
 	pass
 
 func dialogFinished():
-	get_tree().change_scene("res://pong.tscn")
+	get_tree().change_scene(cenaDestination)
 
 
 func _onMinigameExited(body):
 	liberadoAbrirG = false
 	MensagemPressG(false)
 	pass
+
+
+func _onMinigame2Entered(body):
+	liberadoAbrirG = true
+	MensagemPressG(true)
+	timeline = 'Teste'
+	cenaDestination = "res://Main.tscn"
+	Global.positionForMapa1 = Vector2(563, 932)
+	pass # Replace with function body.

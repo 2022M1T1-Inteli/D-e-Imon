@@ -80,3 +80,8 @@ func _on_columns_body_shape_exited(body_id, body, body_shape, local_shape):
 		$score.set_text(str(vscore)) # atualiza o painel
 		
 
+##Retornar para a cena principal quando o ESC e apertado
+func _unhandled_input(event):
+	if event is InputEventKey:
+		if event.pressed and event.scancode == KEY_ESCAPE:
+			get_tree().change_scene("res://D&IMental.tscn")
