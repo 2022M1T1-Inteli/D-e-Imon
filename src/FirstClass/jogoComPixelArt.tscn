@@ -761,9 +761,6 @@ extents = Vector2( 17, 12.5 )
 [sub_resource type="RectangleShape2D" id=19]
 extents = Vector2( 13.5, 14 )
 
-[sub_resource type="RectangleShape2D" id=49]
-extents = Vector2( 103.5, 33 )
-
 [sub_resource type="RectangleShape2D" id=55]
 extents = Vector2( 48, 29 )
 
@@ -786,6 +783,9 @@ tracks/0/keys = {
 "update": 0,
 "values": [ Vector2( 0, 0 ), Vector2( 1, 0 ), Vector2( 2, 0 ), Vector2( 3, 0 ) ]
 }
+
+[sub_resource type="RectangleShape2D" id=80]
+extents = Vector2( 110.5, 18.5 )
 
 [sub_resource type="CapsuleShape2D" id=73]
 
@@ -1504,13 +1504,6 @@ position = Vector2( 820, 491 )
 position = Vector2( 1.5, 4 )
 shape = SubResource( 19 )
 
-[node name="Pergunta3" type="Area2D" parent="."]
-position = Vector2( 240, -797 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Pergunta3"]
-position = Vector2( 61.5, -154 )
-shape = SubResource( 49 )
-
 [node name="Market" type="Area2D" parent="."]
 position = Vector2( 274, -1830 )
 
@@ -1535,6 +1528,13 @@ frame = 1
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Area2D3/Sprite"]
 autoplay = "New Anim"
 "anims/New Anim" = SubResource( 72 )
+
+[node name="verifyIsPlayed" type="Area2D" parent="."]
+position = Vector2( 305, -821 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="verifyIsPlayed"]
+position = Vector2( -1.5, -8.5 )
+shape = SubResource( 80 )
 
 [node name="Portaldestination" parent="." instance=ExtResource( 20 )]
 position = Vector2( 143, 17 )
@@ -1580,10 +1580,9 @@ zoom = Vector2( 1.6, 1.6 )
 [connection signal="body_exited" from="Area2D2" to="." method="_on_Area2D2_body_exited"]
 [connection signal="body_entered" from="Pergunta2" to="." method="_pergunta2Enter"]
 [connection signal="body_exited" from="Pergunta2" to="." method="_exitedPergunta2"]
-[connection signal="body_entered" from="Pergunta3" to="." method="_on_Pergunta3_body_entered"]
-[connection signal="body_exited" from="Pergunta3" to="." method="_on_Pergunta3_body_exited"]
 [connection signal="body_entered" from="Market" to="." method="marketOpenMessage"]
 [connection signal="body_exited" from="Market" to="." method="marketExited"]
 [connection signal="body_entered" from="Area2D3" to="." method="_on_Area2D3_body_entered"]
+[connection signal="body_entered" from="verifyIsPlayed" to="." method="_verifyPlayed"]
 [connection signal="body_entered" from="Area2D4" to="." method="_on_Area2D4_body_entered"]
 [connection signal="animation_finished" from="Barco/AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
