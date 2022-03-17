@@ -146,7 +146,6 @@ func _ready():
 	qntVidas = player.vidas #Atualiza a qntDeVidas quando o jogo inicia
 	setPoints(player.xp) #Atualiza os pontos quando o jogo inicia
 	print(player)
-	yield(get_tree().create_timer(3.0), "timeout") #Aguarda 3 segundos
 	if(player.alreadyPlayed == false):
 		var dialogWelcome = Dialogic.start("Welcome")
 		add_child(dialogWelcome)

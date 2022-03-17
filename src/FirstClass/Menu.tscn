@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://Action RPG Resources/World/tilescreen.png" type="Texture" id=1]
+[ext_resource path="res://Action RPG Resources/World/backgroungMenu.png" type="Texture" id=1]
 [ext_resource path="res://Menu.gd" type="Script" id=2]
 [ext_resource path="res://Jelly Anika.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://audios/gentle-ocean-waves-birdsong-and-gull-7109.mp3" type="AudioStream" id=4]

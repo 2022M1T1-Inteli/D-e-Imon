@@ -14,6 +14,10 @@ func _ready():
 # executa essa função a cada frame (60 FPS)
 func _process(delta):
 	
+	if(vscore == 10):
+		print('Venceu')
+		yield(get_tree().create_timer(3.0), "timeout") #Aguarda 3 segundo
+		get_tree().change_scene("res://D&IMental.tscn")
 	if status == 1: # jogando
 		
 		# movimenta o cenário do fundo
