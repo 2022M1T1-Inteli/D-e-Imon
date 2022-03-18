@@ -36,6 +36,7 @@ func loadPerguntas():
 		return data
 	else:
 		printerr("No saved data!")
+		savePerguntas()
 
 var anc = 1
 var liberadoAbrir = false
@@ -176,8 +177,10 @@ func loadInfos(): #Carrega as informações que o arquivo .JSON possui
 			return data
 		else:
 			printerr("Corrupted data!")
+			save()
 	else:
 		printerr("No saved data!")
+		save()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
