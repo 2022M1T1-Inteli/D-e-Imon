@@ -315,7 +315,6 @@ func marketOpenMessage(body):
 			MensagemPressG(true) #Torna o aviso de "Pressione G" visivel
 		else:
 			print('Nunca Abriu')
-			get_tree().paused = true
 			var dialog = Dialogic.start("Teste")
 			add_child(dialog)
 			dialog.connect('timeline_end', self, "unpause")

@@ -2,7 +2,7 @@ extends Node2D
 
 var qntVidas = 0 
 var FILE_NAME = "user://infos.json"
-var FILE_PERGUNTAS = "res://Perguntas/Fase1/Perguntas.JSON"
+var FILE_PERGUNTAS = "user://PerguntasFase1.JSON"
 var randomNumberForDelete = 0
 var timeline = ''
 var cenaDestination = "res://D&IMental.tscn"
@@ -303,7 +303,7 @@ func _onMinigame1Entered(body):
 	MensagemPressG(true)
 	timeline = 'Teste'
 	Global.positionForMapa1 = Vector2(337, 925)
-	cenaDestination = "res://Pong.tscn"
+	cenaDestination = "res://pong.tscn"
 	pass
 
 func dialogFinished():
