@@ -1,0 +1,31 @@
+{
+	"events": [
+		{
+			"event_id": "dialogic_024",
+			"set_theme": "theme-1647575140.cfg"
+		},
+		{
+			"character": "character-1647574447.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Oiiiii1"
+		},
+		{
+			"character": "character-1647574470.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Oiiiiii2"
+		},
+		{
+			"character": "character-1647574447.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Oiiiiiiii3"
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.4",
+		"file": "timeline-1647574437.json",
+		"name": "Teste"
+	}
+}
