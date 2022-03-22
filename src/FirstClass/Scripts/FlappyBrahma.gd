@@ -8,7 +8,7 @@ var gravity = 3.5 # gravidade, aumente esse valor para deixar o jogo mais difíc
 # executa essa função ao carregar o jogo
 func _ready():
 	# oculta o "gameover"
-	$gameover.hide()
+	$perdeu.hide()
 
 
 # executa essa função a cada frame (60 FPS)
@@ -48,13 +48,13 @@ func _process(delta):
 			$dragon.position.y += 6
 
 		# se apertou seta para cima, diminui o valor de y (posição vertical) do dragão
-		if Input.is_action_pressed("ui_up"):
+		if Input.is_action_pressed("ui_space"):
 			$dragon.position.y -= 10
 			
 	elif status == 0: # parado
 		
 		$dragon/dragonImages.playing = false # faz dragão parar de bater as asas
-		$gameover.show() # exibe imagem gameover
+		$perdeu.show() # exibe imagem gameover
 
 		# se apertou enter ou space, recomeça o jogo
 		if Input.is_action_pressed("ui_accept"):
@@ -64,7 +64,7 @@ func _process(delta):
 			$dragon/dragonImages.playing = true # faz dragão voltar a bater as asas
 			$dragon.position.y = 0 # volta o dragão para a posição original
 			$columns.position.x = 400 # muda a posição das colunas
-			$gameover.hide() # oculta o gameover
+			$perdeu.hide() # oculta o gameover
 
 			
 

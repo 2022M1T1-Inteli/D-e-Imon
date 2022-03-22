@@ -1193,6 +1193,10 @@ text = "Mensagem AQUI"
 align = 1
 valign = 1
 
+[node name="TIP" type="Popup" parent="Personagem/Camera/CanvasLayer/Popups"]
+margin_right = 40.0
+margin_bottom = 40.0
+
 [node name="Vidas" type="Sprite" parent="Personagem/Camera"]
 
 [node name="Vida1" type="Sprite" parent="Personagem/Camera/Vidas"]

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/backgroundDIVEMON.png-4e8c6400a5b03d76f5dc67a2b1f11e1a.stex"
+path="res://.import/background.png-2a9f476045a05344ec1852904ff85b3e.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://backgroundDIVEMON.png"
-dest_files=[ "res://.import/backgroundDIVEMON.png-4e8c6400a5b03d76f5dc67a2b1f11e1a.stex" ]
+source_file="res://Action RPG Resources/Texture/background.png"
+dest_files=[ "res://.import/background.png-2a9f476045a05344ec1852904ff85b3e.stex" ]
 
 [params]
 

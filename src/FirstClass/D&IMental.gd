@@ -7,15 +7,15 @@ var randomNumberForDelete = 0
 var timeline = ''
 var cenaDestination = "res://D&IMental.tscn"
 const Perguntas = [
-	{'question': 'Qual o nome dado ao preconceito contra vítimas de transtornos mentais? ', 'an1': 'Psicofobia', 'an2': 'Capacitismo', 'an3': 'Mentalismo', 'anc': 1,},
-	{'question': 'Qual a campanha mais famosa de prevenção ao suicídio?', 'an1': 'Dia Mundial da Saúde Mental', 'an2': 'Janeiro Branco', 'an3': 'Setembro Amarelo', 'anc': 3,},
-	{'question': 'A psicofobia é enquadrada no código penal como:', 'an1': 'Difamação', 'an2': 'Injúria', 'an3': 'Calúnia', 'anc': 2,},
-	{'question': 'Qual o tamanho da pena para quem comete psicofobia?', 'an1': '2 a 4 anos', 'an2': '8 anos', 'an3': 'Apenas multa', 'anc': 1,},
-	{'question': 'Em qual hospital ocorreu o "holocausto brasileiro"?', 'an1': 'Hospital de Barbacena', 'an2': 'Hospital Primavera', 'an3': 'Hospital Albert Einstein', 'anc': 1,},
-	{'question': 'Quais as principais razões pelas quais os doentes mentais sofriam tanto no Hospital de Barbacena?', 'an1': 'Por conta da sua origem', 'an2': 'Por preconceito racial', 'an3': 'Discriminação em relação a sua adversidade mental', 'anc': 3,},
-	{'question': 'Quais os dois transtornos mentais mais comuns no Brasil?', 'an1': 'Depressão e ansiedade', 'an2': 'TDAH e transtorno de personalidade', 'an3': 'Bipolaridade e esquizofrenia', 'anc': 1,},
-	{'question': 'O que não fazer quando alguem tem uma crise de ansidade?', 'an1': 'Ajudar a pessoa a controlar a respiração', 'an2': 'Levar a pessoa ao relaxamento, muscular ou outros', 'an3': 'Fazer piada com a situação', 'anc': 3,},
-	{'question': 'O que não fazer quando alguém apresenta sintomas de depressão?', 'an1': 'Ouvir com atenção o que a pessoa tem a dizer', 'an2': 'Minimizar o problema, dizendo que vai passar logo', 'an3': 'Recomendar que ela procure ajuda profissional', 'anc': 2,},
+	{'question': 'Qual o nome dado ao preconceito contra vítimas de transtornos mentais? ', 'an1': 'Psicofobia', 'an2': 'Capacitismo', 'an3': 'Mentalismo', 'anc': 1, "tip": "Esse é um teste de dica, segue-se dessa forma nesse naipaaoooooo, yep bros, i am just writen a long text because I need a lot of space in the page, to test if my apllication test is well, thanks very much for paying attention at my text good lucky for everyone and THANKKSSSS A LOOTTTTT",},
+	{'question': 'Qual a campanha mais famosa de prevenção ao suicídio?', 'an1': 'Dia Mundial da Saúde Mental', 'an2': 'Janeiro Branco', 'an3': 'Setembro Amarelo', 'anc': 3, "tip": "Esse é um teste de dica, segue-se dessa forma nesse naipaaoooooo, yep bros, i am just writen a long text because I need a lot of space in the page, to test if my apllication test is well, thanks very much for paying attention at my text good lucky for everyone and THANKKSSSS A LOOTTTTT",},
+	{'question': 'A psicofobia é enquadrada no código penal como:', 'an1': 'Difamação', 'an2': 'Injúria', 'an3': 'Calúnia', 'anc': 2, "tip": "Esse é um teste de dica, segue-se dessa forma nesse naipaaoooooo, yep bros, i am just writen a long text because I need a lot of space in the page, to test if my apllication test is well, thanks very much for paying attention at my text good lucky for everyone and THANKKSSSS A LOOTTTTT",},
+	{'question': 'Qual o tamanho da pena para quem comete psicofobia?', 'an1': '2 a 4 anos', 'an2': '8 anos', 'an3': 'Apenas multa', 'anc': 1, "tip": "Esse é um teste de dica, segue-se dessa forma nesse naipaaoooooo, yep bros, i am just writen a long text because I need a lot of space in the page, to test if my apllication test is well, thanks very much for paying attention at my text good lucky for everyone and THANKKSSSS A LOOTTTTT",},
+	{'question': 'Em qual hospital ocorreu o "holocausto brasileiro"?', 'an1': 'Hospital de Barbacena', 'an2': 'Hospital Primavera', 'an3': 'Hospital Albert Einstein', 'anc': 1, "tip": "Esse é um teste de dica, segue-se dessa forma nesse naipaaoooooo, yep bros, i am just writen a long text because I need a lot of space in the page, to test if my apllication test is well, thanks very much for paying attention at my text good lucky for everyone and THANKKSSSS A LOOTTTTT",},
+	{'question': 'Quais as principais razões pelas quais os doentes mentais sofriam tanto no Hospital de Barbacena?', 'an1': 'Por conta da sua origem', 'an2': 'Por preconceito racial', 'an3': 'Discriminação em relação a sua adversidade mental', 'anc': 3, "tip": "Esse é um teste de dica, segue-se dessa forma nesse naipaaoooooo, yep bros, i am just writen a long text because I need a lot of space in the page, to test if my apllication test is well, thanks very much for paying attention at my text good lucky for everyone and THANKKSSSS A LOOTTTTT",},
+	{'question': 'Quais os dois transtornos mentais mais comuns no Brasil?', 'an1': 'Depressão e ansiedade', 'an2': 'TDAH e transtorno de personalidade', 'an3': 'Bipolaridade e esquizofrenia', 'anc': 1, "tip": "Esse é um teste de dica, segue-se dessa forma nesse naipaaoooooo, yep bros, i am just writen a long text because I need a lot of space in the page, to test if my apllication test is well, thanks very much for paying attention at my text good lucky for everyone and THANKKSSSS A LOOTTTTT",},
+	{'question': 'O que não fazer quando alguem tem uma crise de ansidade?', 'an1': 'Ajudar a pessoa a controlar a respiração', 'an2': 'Levar a pessoa ao relaxamento, muscular ou outros', 'an3': 'Fazer piada com a situação', 'anc': 3, "tip": "Esse é um teste de dica, segue-se dessa forma nesse naipaaoooooo, yep bros, i am just writen a long text because I need a lot of space in the page, to test if my apllication test is well, thanks very much for paying attention at my text good lucky for everyone and THANKKSSSS A LOOTTTTT",},
+	{'question': 'O que não fazer quando alguém apresenta sintomas de depressão?', 'an1': 'Ouvir com atenção o que a pessoa tem a dizer', 'an2': 'Minimizar o problema, dizendo que vai passar logo', 'an3': 'Recomendar que ela procure ajuda profissional', 'anc': 2, "tip": "Esse é um teste de dica, segue-se dessa forma nesse naipaaoooooo, yep bros, i am just writen a long text because I need a lot of space in the page, to test if my apllication test is well, thanks very much for paying attention at my text good lucky for everyone and THANKKSSSS A LOOTTTTT",},
 ]
 
 var perguntasFromDB = []
@@ -47,6 +47,12 @@ var justOneTime = Perguntas
 func beVisible(visible): 
 	$Personagem/Camera/CanvasLayer/Popups/Popup.visible = visible  #Abre o PopUp do quiz
 
+func beVisibleTip(visible): 
+	$Personagem/Camera/CanvasLayer/Popups/Popup6.visible = visible  #Abre o PopUp do quiz
+
+func setTipContent(content):
+	$Personagem/Camera/CanvasLayer/Popups/Popup6/Label.text = content
+
 func MensagemPressM(visible):
 	$Personagem/Camera/CanvasLayer/Popups/Popup3.visible = visible # Aparece para apertar M.
 
@@ -76,7 +82,7 @@ func selectQuestion():
 
 #	print(randomNumber)
 
-	var selectedQuestion = [perguntasFromDB[randomNumber].question, perguntasFromDB[randomNumber].an1, perguntasFromDB[randomNumber].an2, perguntasFromDB[randomNumber].an3, perguntasFromDB[randomNumber].anc]
+	var selectedQuestion = [perguntasFromDB[randomNumber].question, perguntasFromDB[randomNumber].an1, perguntasFromDB[randomNumber].an2, perguntasFromDB[randomNumber].an3, perguntasFromDB[randomNumber].anc, perguntasFromDB[randomNumber].tip]
 #	justOneTime[randomNumber].an1, justOneTime[randomNumber].an2, justOneTime[randomNumber].an3
 
 #	print(selectedQuestion)
@@ -200,7 +206,7 @@ func _process(delta):
 	checkVidas()
 	if liberadoAbrir: #Verifica se o pesonagem está dentro da AREA de Pergunta
 		if Input.is_action_pressed('ui_m'):
-			beVisible(true) #Torna vísivel o quiz
+			beVisibleTip(true) #Torna vísivel o quiz
 			get_tree().paused = true
 	if liberadoAbrirG:
 		if Input.is_action_pressed("ui_g"):
@@ -225,6 +231,7 @@ func _perguntaEntered(body):
 		var content = selectQuestion() #Gera uma pergunta de forma aleatória
 		setPopUpContent(content[0],content[1], content[2], content[3]) #Define o conteudo da pergunta
 		anc = content[4] #Define qual a resposta correta
+		setTipContent(content[5])
 	else:
 		print('Acabou as perguntas!')
 	pass
@@ -323,6 +330,12 @@ func _onMinigame2Entered(body):
 	liberadoAbrirG = true
 	MensagemPressG(true)
 	timeline = 'Teste'
-	cenaDestination = "res://Main.tscn"
+	cenaDestination = "res://FlappyBrahma.tscn"
 	Global.positionForMapa1 = Vector2(563, 932)
 	pass # Replace with function body.
+
+
+func _onButtonSeguirPressed():
+	beVisibleTip(false)
+	beVisible(true)
+	pass
