@@ -156,6 +156,11 @@ func addCoins(qnt):
 	var pontosAdicionados = pontosAtual ++ qnt #Adiciona o incremento passado pelo parametro da função
 	var pontosInString = str(pontosAdicionados) #Retorna a soma para o formato String
 	$Personagem/Camera/Pontos.text = pontosInString #Substitui o valor dos pontos pelo valor adicionado
+	$Personagem/Camera/moneyChange.text = str("+" + str(qnt)) #Define o valor do moneyChange
+	$Personagem/Camera/moneyChange.text_color = Color.green #define a cor 
+	$Personagem/Camera/moneyChange.visible = true #Torna o popup de moneychange vísivel
+	yield(get_tree().create_timer(6.0), "timeout") #Aguarda 3 segundos
+	$Personagem/Camera/moneyChange.visible = false #Torna o popup de moneychange invísivel
 	
 func deleteCoins(qnt):
 	var pontosAtualRed = int($Personagem/Camera/Pontos.text) #Pega os pontos atuais e tranforma em Número
