@@ -1,4 +1,4 @@
-[gd_scene load_steps=105 format=2]
+[gd_scene load_steps=110 format=2]
 
 [ext_resource path="res://Action RPG Resources/World/Bush.png" type="Texture" id=1]
 [ext_resource path="res://Action RPG Resources/World/Grass.png" type="Texture" id=2]
@@ -30,6 +30,7 @@
 [ext_resource path="res://Action RPG Resources/Texture/xp.png" type="Texture" id=28]
 [ext_resource path="res://Action RPG Resources/NPC's/NPC1.png" type="Texture" id=29]
 [ext_resource path="res://audios/mixkit-games-worldbeat-466.mp3" type="AudioStream" id=30]
+[ext_resource path="res://mercadinhoAbner.png" type="Texture" id=31]
 
 [sub_resource type="TileSet" id=20]
 0/name = "TX Plant.png 0"
@@ -571,6 +572,7 @@ size = 14
 font_data = ExtResource( 6 )
 
 [sub_resource type="DynamicFont" id=52]
+size = 12
 font_data = ExtResource( 6 )
 
 [sub_resource type="StyleBoxFlat" id=68]
@@ -593,7 +595,7 @@ size = 12
 font_data = ExtResource( 17 )
 
 [sub_resource type="DynamicFont" id=56]
-size = 10
+size = 7
 font_data = ExtResource( 17 )
 
 [sub_resource type="DynamicFont" id=57]
@@ -608,12 +610,44 @@ corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
 [sub_resource type="DynamicFont" id=58]
-size = 10
+size = 7
 font_data = ExtResource( 17 )
 
 [sub_resource type="DynamicFont" id=59]
 size = 12
 font_data = ExtResource( 17 )
+
+[sub_resource type="Animation" id=81]
+resource_name = "Nova Animação"
+length = 1.5
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3 ]
+}
+
+[sub_resource type="Animation" id=82]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 1 ]
+}
 
 [sub_resource type="StyleBoxFlat" id=67]
 bg_color = Color( 1, 0, 0, 1 )
@@ -634,12 +668,44 @@ size = 12
 font_data = ExtResource( 17 )
 
 [sub_resource type="DynamicFont" id=62]
-size = 10
+size = 8
 font_data = ExtResource( 17 )
 
 [sub_resource type="DynamicFont" id=63]
 size = 12
 font_data = ExtResource( 17 )
+
+[sub_resource type="Animation" id=83]
+resource_name = "Nova Animação"
+length = 1.5
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3 ]
+}
+
+[sub_resource type="Animation" id=84]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 1 ]
+}
 
 [sub_resource type="DynamicFont" id=64]
 size = 18
@@ -1107,9 +1173,9 @@ __meta__ = {
 }
 
 [node name="FundoMarket" type="Sprite" parent="Personagem/Camera/CanvasLayer/Popups/Mercado"]
-position = Vector2( 156, 82 )
-scale = Vector2( 0.352174, 0.304132 )
-texture = ExtResource( 18 )
+position = Vector2( 156.5, 82.5 )
+scale = Vector2( 0.501563, 0.464103 )
+texture = ExtResource( 31 )
 
 [node name="Ambev" type="Sprite" parent="Personagem/Camera/CanvasLayer/Popups/Mercado"]
 position = Vector2( 24, 7 )
@@ -1117,10 +1183,10 @@ scale = Vector2( 0.125672, 0.114163 )
 texture = ExtResource( 22 )
 
 [node name="Label" type="Label" parent="Personagem/Camera/CanvasLayer/Popups/Mercado"]
-margin_left = 36.0
-margin_top = 20.0
-margin_right = 287.0
-margin_bottom = 42.0
+margin_left = 25.0
+margin_top = -4.0
+margin_right = 276.0
+margin_bottom = 18.0
 custom_fonts/font = SubResource( 52 )
 text = "Seja bem-vindo(a) ao Mercado!"
 align = 1
@@ -1131,9 +1197,9 @@ __meta__ = {
 
 [node name="Button" type="Button" parent="Personagem/Camera/CanvasLayer/Popups/Mercado"]
 margin_left = 7.0
-margin_top = 53.0
-margin_right = 94.0
-margin_bottom = 145.0
+margin_top = 21.0
+margin_right = 93.0
+margin_bottom = 90.0
 custom_styles/hover = SubResource( 68 )
 custom_styles/pressed = SubResource( 68 )
 custom_styles/focus = SubResource( 68 )
@@ -1143,12 +1209,12 @@ __meta__ = {
 }
 
 [node name="Label2" type="Label" parent="Personagem/Camera/CanvasLayer/Popups/Mercado/Button"]
-margin_left = 7.0
-margin_top = 2.0
-margin_right = 82.0
-margin_bottom = 20.0
+margin_left = 63.0
+margin_top = 1.0
+margin_right = 138.0
+margin_bottom = 19.0
 custom_fonts/font = SubResource( 54 )
-text = "Nome: +Vida"
+text = "Vida"
 valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1156,29 +1222,38 @@ __meta__ = {
 
 [node name="Label" type="Label" parent="Personagem/Camera/CanvasLayer/Popups/Mercado/Button"]
 margin_left = 7.0
-margin_top = 19.0
+margin_top = 25.0
 margin_right = 77.0
-margin_bottom = 72.0
+margin_bottom = 78.0
 custom_fonts/font = SubResource( 56 )
-text = "Descrição: Vidas são utilizadas para conversar com os NPCs"
+text = "Vidas são utilizadas para conversar com os NPCs"
+align = 1
 autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Label3" type="Label" parent="Personagem/Camera/CanvasLayer/Popups/Mercado/Button"]
-margin_left = 7.0
-margin_top = 74.0
-margin_right = 47.0
-margin_bottom = 88.0
+margin_left = 11.0
+margin_top = 51.0
+margin_right = 74.0
+margin_bottom = 65.0
 custom_fonts/font = SubResource( 57 )
-text = "Preço: 1000XP"
+text = "1000XP"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="Personagem/Camera/CanvasLayer/Popups/Mercado/Button"]
+position = Vector2( 15, 9 )
+texture = ExtResource( 23 )
 
 [node name="Button2" type="Button" parent="Personagem/Camera/CanvasLayer/Popups/Mercado"]
-margin_left = 111.0
-margin_top = 55.0
-margin_right = 198.0
-margin_bottom = 147.0
+margin_left = 113.0
+margin_top = 22.0
+margin_right = 200.0
+margin_bottom = 93.0
 custom_styles/hover = SubResource( 66 )
 custom_styles/pressed = SubResource( 66 )
 custom_styles/focus = SubResource( 66 )
@@ -1188,39 +1263,60 @@ __meta__ = {
 }
 
 [node name="Label3" type="Label" parent="Personagem/Camera/CanvasLayer/Popups/Mercado/Button2"]
-margin_left = 6.0
-margin_top = 5.0
-margin_right = 59.0
-margin_bottom = 18.0
+margin_left = 28.0
+margin_top = 3.0
+margin_right = 81.0
+margin_bottom = 16.0
 custom_fonts/font = SubResource( 54 )
-text = "Nome: Fase1"
+text = "Fase1"
+align = 2
 autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Label" type="Label" parent="Personagem/Camera/CanvasLayer/Popups/Mercado/Button2"]
-margin_left = 6.0
-margin_top = 20.0
-margin_right = 85.0
-margin_bottom = 59.0
+margin_left = 3.0
+margin_top = 23.0
+margin_right = 82.0
+margin_bottom = 62.0
 custom_fonts/font = SubResource( 58 )
-text = "Descrição: Utilizado para comprar o acesso a fase 2"
+text = "Utilizado para comprar o acesso a fase 2"
+align = 1
 autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Label2" type="Label" parent="Personagem/Camera/CanvasLayer/Popups/Mercado/Button2"]
-margin_left = 6.0
-margin_top = 62.0
-margin_right = 46.0
-margin_bottom = 76.0
+margin_left = 25.0
+margin_top = 51.0
+margin_right = 65.0
+margin_bottom = 65.0
 custom_fonts/font = SubResource( 59 )
-text = "Preço: 1000XP"
+text = "1000XP"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="Personagem/Camera/CanvasLayer/Popups/Mercado/Button2"]
+position = Vector2( 13, 11 )
+scale = Vector2( 0.08875, 0.034838 )
+texture = ExtResource( 19 )
+hframes = 4
+frame = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Personagem/Camera/CanvasLayer/Popups/Mercado/Button2/Sprite"]
+autoplay = "Nova Animação"
+"anims/Nova Animação" = SubResource( 81 )
+anims/RESET = SubResource( 82 )
 
 [node name="Button3" type="Button" parent="Personagem/Camera/CanvasLayer/Popups/Mercado"]
-margin_left = 215.0
-margin_top = 54.0
-margin_right = 302.0
-margin_bottom = 146.0
+margin_left = 216.0
+margin_top = 22.0
+margin_right = 309.0
+margin_bottom = 95.0
 custom_styles/hover = SubResource( 67 )
 custom_styles/pressed = SubResource( 67 )
 custom_styles/focus = SubResource( 67 )
@@ -1231,34 +1327,59 @@ __meta__ = {
 
 [node name="Label" type="Label" parent="Personagem/Camera/CanvasLayer/Popups/Mercado/Button3"]
 margin_left = 5.0
-margin_top = 6.0
+margin_top = 5.0
 margin_right = 89.0
-margin_bottom = 20.0
+margin_bottom = 19.0
 custom_fonts/font = SubResource( 61 )
-text = "Nome: Fase2"
+text = "Fase2"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Label2" type="Label" parent="Personagem/Camera/CanvasLayer/Popups/Mercado/Button3"]
-margin_left = 5.0
-margin_top = 21.0
-margin_right = 85.0
-margin_bottom = 60.0
+margin_left = 6.0
+margin_top = 25.0
+margin_right = 86.0
+margin_bottom = 64.0
 custom_fonts/font = SubResource( 62 )
-text = "Descrição: Utilizado para comprar o acesso a fase 3"
+text = "Utilizado para comprar o acesso a fase 3"
+align = 1
 autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Label3" type="Label" parent="Personagem/Camera/CanvasLayer/Popups/Mercado/Button3"]
-margin_left = 5.0
-margin_top = 62.0
-margin_right = 70.0
-margin_bottom = 76.0
+margin_left = 16.0
+margin_top = 53.0
+margin_right = 81.0
+margin_bottom = 67.0
 custom_fonts/font = SubResource( 63 )
-text = "Preço: 2000XP"
+text = "2000XP"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="Personagem/Camera/CanvasLayer/Popups/Mercado/Button3"]
+modulate = Color( 0.682353, 0.337255, 0.941176, 1 )
+position = Vector2( 12.0078, 11 )
+scale = Vector2( 0.0799305, 0.034838 )
+texture = ExtResource( 19 )
+hframes = 4
+frame = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Personagem/Camera/CanvasLayer/Popups/Mercado/Button3/Sprite"]
+autoplay = "Nova Animação"
+"anims/Nova Animação" = SubResource( 83 )
+anims/RESET = SubResource( 84 )
 
 [node name="Fechar" type="Button" parent="Personagem/Camera/CanvasLayer/Popups/Mercado"]
-margin_left = 256.0
-margin_top = -4.0
-margin_right = 310.0
-margin_bottom = 21.0
+margin_left = 255.0
+margin_top = -6.0
+margin_right = 305.0
+margin_bottom = 17.0
 custom_fonts/font = SubResource( 64 )
 custom_styles/hover = SubResource( 65 )
 custom_styles/pressed = SubResource( 65 )
