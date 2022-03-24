@@ -2054,6 +2054,44 @@ custom_styles/focus = SubResource( 73 )
 custom_styles/normal = SubResource( 74 )
 text = "Seguir"
 
+[node name="Popup7" type="Popup" parent="Personagem/Camera/CanvasLayer/Popups"]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background" type="Sprite" parent="Personagem/Camera/CanvasLayer/Popups/Popup7"]
+position = Vector2( 160, 90 )
+scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 30 )
+
+[node name="Label" type="Label" parent="Personagem/Camera/CanvasLayer/Popups/Popup7"]
+margin_left = 9.0
+margin_top = 5.0
+margin_right = 314.0
+margin_bottom = 152.0
+custom_fonts/font = SubResource( 71 )
+text = "\"Esse é um teste de dica, segue-se dessa forma nesse naipaaoooooo, yep bros, i am just writen a long text because I need a lot of space in the page, to test if my apllication test is well, thanks very much for paying attention at my text good lucky for everyone and THANKKSSSS A LOOTTTTT\","
+autowrap = true
+script = ExtResource( 15 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+text_color = Color( 0.298039, 0.988235, 0.956863, 1 )
+
+[node name="Button" type="Button" parent="Personagem/Camera/CanvasLayer/Popups/Popup7"]
+margin_left = 18.0
+margin_top = 153.0
+margin_right = 84.0
+margin_bottom = 173.0
+custom_fonts/font = SubResource( 72 )
+custom_styles/hover = SubResource( 73 )
+custom_styles/pressed = SubResource( 73 )
+custom_styles/focus = SubResource( 73 )
+custom_styles/normal = SubResource( 74 )
+text = "Fechar"
+
 [node name="Vidas" type="Sprite" parent="Personagem/Camera"]
 
 [node name="Vida1" type="Sprite" parent="Personagem/Camera/Vidas"]
@@ -2203,6 +2241,7 @@ shape = SubResource( 70 )
 [connection signal="pressed" from="Personagem/Camera/CanvasLayer/Popups/Popup/Button3" to="." method="_onSecondOptionSelected"]
 [connection signal="pressed" from="Personagem/Camera/CanvasLayer/Popups/Popup/Button4" to="." method="_onThirdOptionSelected"]
 [connection signal="pressed" from="Personagem/Camera/CanvasLayer/Popups/Popup6/Button" to="." method="_onButtonSeguirPressed"]
+[connection signal="pressed" from="Personagem/Camera/CanvasLayer/Popups/Popup7/Button" to="." method="_onErrouPressed"]
 [connection signal="body_entered" from="Area2D3" to="." method="_on_Area2D3_body_entered"]
 [connection signal="body_entered" from="Pergunta1" to="." method="_perguntaEntered"]
 [connection signal="body_exited" from="Pergunta1" to="." method="_perguntaExited"]

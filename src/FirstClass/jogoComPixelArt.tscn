@@ -298,6 +298,9 @@ extents = Vector2( 16.7436, 4.64078 )
 [sub_resource type="RectangleShape2D" id=76]
 extents = Vector2( 0.843081, 2.83414 )
 
+[sub_resource type="RectangleShape2D" id=15]
+extents = Vector2( 28.25, 16.5 )
+
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 5.5, 12.5 )
 
@@ -818,9 +821,6 @@ font_data = ExtResource( 17 )
 size = 20
 font_data = ExtResource( 17 )
 
-[sub_resource type="RectangleShape2D" id=15]
-extents = Vector2( 28.25, 16.5 )
-
 [sub_resource type="RectangleShape2D" id=18]
 extents = Vector2( 17, 12.5 )
 
@@ -1026,8 +1026,16 @@ shape = SubResource( 76 )
 [node name="CollisionPolygon2D18" type="CollisionPolygon2D" parent="Collisions"]
 polygon = PoolVector2Array( 3.83687, 642.616, 2.44157, 642.616, 2.40281, 651.279, 1.27882, 651.279, 1.27882, 660.871, 0.0773065, 661.799, 0.0773039, 669.534, -1.04669, 670.771, -1.24048, 680.672, -2.51951, 681.291, -2.40324, 691.501, -3.72102, 690.573, -3.75984, 887.658, -4.69004, 887.039, -4.92259, 897.249, -6.31789, 897.559, -6.20162, 909.006, -7.36437, 909.625, -7.44189, 918.598, -8.52713, 918.598, -8.75967, 909.625, -9.80615, 909.625, -9.92242, 898.796, -10.8914, 898.487, -10.9689, 889.205, -12.4805, 888.895, -12.4029, 702.02, -13.4881, 701.711, -13.5269, 889.824, -7.94576, 929.736, -2.32578, 885.183, -2.40324, 699.854 )
 
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2( -450, -12 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( 85, 29 )
+shape = SubResource( 15 )
+
 [node name="Personagem" type="KinematicBody2D" parent="."]
 position = Vector2( 267, -806 )
+scale = Vector2( 1, 1 )
 script = ExtResource( 5 )
 
 [node name="Sombra" type="Sprite" parent="Personagem"]
@@ -1604,13 +1612,6 @@ position = Vector2( -1, -16 )
 stream = ExtResource( 30 )
 autoplay = true
 
-[node name="Area2D" type="Area2D" parent="."]
-position = Vector2( -450, -12 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2( 85, 29 )
-shape = SubResource( 15 )
-
 [node name="Area2D2" type="Area2D" parent="."]
 position = Vector2( -345, 493 )
 
@@ -1686,6 +1687,8 @@ position = Vector2( -4, 2 )
 current = true
 zoom = Vector2( 1.6, 1.6 )
 
+[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_Area2D_body_exited"]
 [connection signal="pressed" from="Personagem/Camera/CanvasLayer/Popups/Mercado/Button" to="." method="compraVida"]
 [connection signal="pressed" from="Personagem/Camera/CanvasLayer/Popups/Mercado/Button2" to="." method="comprarFase2"]
 [connection signal="pressed" from="Personagem/Camera/CanvasLayer/Popups/Mercado/Button3" to="." method="comprarFase3"]
@@ -1694,8 +1697,6 @@ zoom = Vector2( 1.6, 1.6 )
 [connection signal="pressed" from="Personagem/Camera/CanvasLayer/Popups/Popup/Button2" to="." method="_on_Button2_pressed"]
 [connection signal="pressed" from="Personagem/Camera/CanvasLayer/Popups/Popup/Button3" to="." method="_on_Button3_pressed"]
 [connection signal="pressed" from="Personagem/Camera/CanvasLayer/Popups/Popup/Button4" to="." method="_on_Button4_pressed"]
-[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
-[connection signal="body_exited" from="Area2D" to="." method="_on_Area2D_body_exited"]
 [connection signal="area_entered" from="Area2D2" to="." method="_on_Area2D2_area_entered"]
 [connection signal="body_entered" from="Area2D2" to="." method="_on_Area2D2_body_entered"]
 [connection signal="body_exited" from="Area2D2" to="." method="_on_Area2D2_body_exited"]

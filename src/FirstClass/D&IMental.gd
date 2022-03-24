@@ -7,15 +7,15 @@ var randomNumberForDelete = 0
 var timeline = ''
 var cenaDestination = "res://D&IMental.tscn"
 const Perguntas = [
-	{'question': 'Qual o nome dado ao preconceito contra vítimas de transtornos mentais? ', 'an1': 'Psicofobia', 'an2': 'Capacitismo', 'an3': 'Mentalismo', 'anc': 1, "tip": "Esse é um teste de dica, segue-se dessa forma nesse naipaaoooooo, yep bros, i am just writen a long text because I need a lot of space in the page, to test if my apllication test is well, thanks very much for paying attention at my text good lucky for everyone and THANKKSSSS A LOOTTTTT",},
-	{'question': 'Qual a campanha mais famosa de prevenção ao suicídio?', 'an1': 'Dia Mundial da Saúde Mental', 'an2': 'Janeiro Branco', 'an3': 'Setembro Amarelo', 'anc': 3, "tip": "Esse é um teste de dica, segue-se dessa forma nesse naipaaoooooo, yep bros, i am just writen a long text because I need a lot of space in the page, to test if my apllication test is well, thanks very much for paying attention at my text good lucky for everyone and THANKKSSSS A LOOTTTTT",},
-	{'question': 'A psicofobia é enquadrada no código penal como:', 'an1': 'Difamação', 'an2': 'Injúria', 'an3': 'Calúnia', 'anc': 2, "tip": "Esse é um teste de dica, segue-se dessa forma nesse naipaaoooooo, yep bros, i am just writen a long text because I need a lot of space in the page, to test if my apllication test is well, thanks very much for paying attention at my text good lucky for everyone and THANKKSSSS A LOOTTTTT",},
-	{'question': 'Qual o tamanho da pena para quem comete psicofobia?', 'an1': '2 a 4 anos', 'an2': '8 anos', 'an3': 'Apenas multa', 'anc': 1, "tip": "Esse é um teste de dica, segue-se dessa forma nesse naipaaoooooo, yep bros, i am just writen a long text because I need a lot of space in the page, to test if my apllication test is well, thanks very much for paying attention at my text good lucky for everyone and THANKKSSSS A LOOTTTTT",},
-	{'question': 'Em qual hospital ocorreu o "holocausto brasileiro"?', 'an1': 'Hospital de Barbacena', 'an2': 'Hospital Primavera', 'an3': 'Hospital Albert Einstein', 'anc': 1, "tip": "Esse é um teste de dica, segue-se dessa forma nesse naipaaoooooo, yep bros, i am just writen a long text because I need a lot of space in the page, to test if my apllication test is well, thanks very much for paying attention at my text good lucky for everyone and THANKKSSSS A LOOTTTTT",},
-	{'question': 'Quais as principais razões pelas quais os doentes mentais sofriam tanto no Hospital de Barbacena?', 'an1': 'Por conta da sua origem', 'an2': 'Por preconceito racial', 'an3': 'Discriminação em relação a sua adversidade mental', 'anc': 3, "tip": "Esse é um teste de dica, segue-se dessa forma nesse naipaaoooooo, yep bros, i am just writen a long text because I need a lot of space in the page, to test if my apllication test is well, thanks very much for paying attention at my text good lucky for everyone and THANKKSSSS A LOOTTTTT",},
-	{'question': 'Quais os dois transtornos mentais mais comuns no Brasil?', 'an1': 'Depressão e ansiedade', 'an2': 'TDAH e transtorno de personalidade', 'an3': 'Bipolaridade e esquizofrenia', 'anc': 1, "tip": "Esse é um teste de dica, segue-se dessa forma nesse naipaaoooooo, yep bros, i am just writen a long text because I need a lot of space in the page, to test if my apllication test is well, thanks very much for paying attention at my text good lucky for everyone and THANKKSSSS A LOOTTTTT",},
-	{'question': 'O que não fazer quando alguem tem uma crise de ansidade?', 'an1': 'Ajudar a pessoa a controlar a respiração', 'an2': 'Levar a pessoa ao relaxamento, muscular ou outros', 'an3': 'Fazer piada com a situação', 'anc': 3, "tip": "Esse é um teste de dica, segue-se dessa forma nesse naipaaoooooo, yep bros, i am just writen a long text because I need a lot of space in the page, to test if my apllication test is well, thanks very much for paying attention at my text good lucky for everyone and THANKKSSSS A LOOTTTTT",},
-	{'question': 'O que não fazer quando alguém apresenta sintomas de depressão?', 'an1': 'Ouvir com atenção o que a pessoa tem a dizer', 'an2': 'Minimizar o problema, dizendo que vai passar logo', 'an3': 'Recomendar que ela procure ajuda profissional', 'anc': 2, "tip": "Esse é um teste de dica, segue-se dessa forma nesse naipaaoooooo, yep bros, i am just writen a long text because I need a lot of space in the page, to test if my apllication test is well, thanks very much for paying attention at my text good lucky for everyone and THANKKSSSS A LOOTTTTT",},
+	{'question': 'Qual o nome dado ao preconceito contra vítimas de transtornos mentais? ', 'an1': 'Psicofobia', 'an2': 'Capacitismo', 'an3': 'Mentalismo', 'anc': 1, "tip": "Esse é um teste de dica, segue-se dessa forma nesse naipaaoooooo, yep bros, i am just writen a long text because I need a lot of space in the page, to test if my apllication test is well, thanks very much for paying attention at my text good lucky for everyone and THANKKSSSS A LOOTTTTT", "feedback": "Teste"},
+	{'question': 'Qual a campanha mais famosa de prevenção ao suicídio?', 'an1': 'Dia Mundial da Saúde Mental', 'an2': 'Janeiro Branco', 'an3': 'Setembro Amarelo', 'anc': 3, "tip": "Esse é um teste de dica, segue-se dessa forma nesse naipaaoooooo, yep bros, i am just writen a long text because I need a lot of space in the page, to test if my apllication test is well, thanks very much for paying attention at my text good lucky for everyone and THANKKSSSS A LOOTTTTT", "feedback": "Teste"},
+	{'question': 'A psicofobia é enquadrada no código penal como:', 'an1': 'Difamação', 'an2': 'Injúria', 'an3': 'Calúnia', 'anc': 2, "tip": "Esse é um teste de dica, segue-se dessa forma nesse naipaaoooooo, yep bros, i am just writen a long text because I need a lot of space in the page, to test if my apllication test is well, thanks very much for paying attention at my text good lucky for everyone and THANKKSSSS A LOOTTTTT", "feedback": "Teste"},
+	{'question': 'Qual o tamanho da pena para quem comete psicofobia?', 'an1': '2 a 4 anos', 'an2': '8 anos', 'an3': 'Apenas multa', 'anc': 1, "tip": "Esse é um teste de dica, segue-se dessa forma nesse naipaaoooooo, yep bros, i am just writen a long text because I need a lot of space in the page, to test if my apllication test is well, thanks very much for paying attention at my text good lucky for everyone and THANKKSSSS A LOOTTTTT", "feedback": "Teste"},
+	{'question': 'Em qual hospital ocorreu o "holocausto brasileiro"?', 'an1': 'Hospital de Barbacena', 'an2': 'Hospital Primavera', 'an3': 'Hospital Albert Einstein', 'anc': 1, "tip": "Esse é um teste de dica, segue-se dessa forma nesse naipaaoooooo, yep bros, i am just writen a long text because I need a lot of space in the page, to test if my apllication test is well, thanks very much for paying attention at my text good lucky for everyone and THANKKSSSS A LOOTTTTT", "feedback": "Teste"},
+	{'question': 'Quais as principais razões pelas quais os doentes mentais sofriam tanto no Hospital de Barbacena?', 'an1': 'Por conta da sua origem', 'an2': 'Por preconceito racial', 'an3': 'Discriminação em relação a sua adversidade mental', 'anc': 3, "tip": "Esse é um teste de dica, segue-se dessa forma nesse naipaaoooooo, yep bros, i am just writen a long text because I need a lot of space in the page, to test if my apllication test is well, thanks very much for paying attention at my text good lucky for everyone and THANKKSSSS A LOOTTTTT", "feedback": "Teste"},
+	{'question': 'Quais os dois transtornos mentais mais comuns no Brasil?', 'an1': 'Depressão e ansiedade', 'an2': 'TDAH e transtorno de personalidade', 'an3': 'Bipolaridade e esquizofrenia', 'anc': 1, "tip": "Esse é um teste de dica, segue-se dessa forma nesse naipaaoooooo, yep bros, i am just writen a long text because I need a lot of space in the page, to test if my apllication test is well, thanks very much for paying attention at my text good lucky for everyone and THANKKSSSS A LOOTTTTT", "feedback": "Teste"},
+	{'question': 'O que não fazer quando alguem tem uma crise de ansidade?', 'an1': 'Ajudar a pessoa a controlar a respiração', 'an2': 'Levar a pessoa ao relaxamento, muscular ou outros', 'an3': 'Fazer piada com a situação', 'anc': 3, "tip": "Esse é um teste de dica, segue-se dessa forma nesse naipaaoooooo, yep bros, i am just writen a long text because I need a lot of space in the page, to test if my apllication test is well, thanks very much for paying attention at my text good lucky for everyone and THANKKSSSS A LOOTTTTT", "feedback": "Teste"},
+	{'question': 'O que não fazer quando alguém apresenta sintomas de depressão?', 'an1': 'Ouvir com atenção o que a pessoa tem a dizer', 'an2': 'Minimizar o problema, dizendo que vai passar logo', 'an3': 'Recomendar que ela procure ajuda profissional', 'anc': 2, "tip": "Esse é um teste de dica, segue-se dessa forma nesse naipaaoooooo, yep bros, i am just writen a long text because I need a lot of space in the page, to test if my apllication test is well, thanks very much for paying attention at my text good lucky for everyone and THANKKSSSS A LOOTTTTT", "feedback": "Teste"},
 ]
 
 var perguntasFromDB = []
@@ -50,8 +50,14 @@ func beVisible(visible):
 func beVisibleTip(visible): 
 	$Personagem/Camera/CanvasLayer/Popups/Popup6.visible = visible  #Abre o PopUp do quiz
 
+func beVisibleFeedback(visible): 
+	$Personagem/Camera/CanvasLayer/Popups/Popup7.visible = visible  #Abre o PopUp do quiz
+
 func setTipContent(content):
 	$Personagem/Camera/CanvasLayer/Popups/Popup6/Label.text = content
+
+func setFeedbackContent(content):
+	$Personagem/Camera/CanvasLayer/Popups/Popup7/Label.text = content
 
 func MensagemPressM(visible):
 	$Personagem/Camera/CanvasLayer/Popups/Popup3.visible = visible # Aparece para apertar M.
@@ -82,7 +88,7 @@ func selectQuestion():
 
 #	print(randomNumber)
 
-	var selectedQuestion = [perguntasFromDB[randomNumber].question, perguntasFromDB[randomNumber].an1, perguntasFromDB[randomNumber].an2, perguntasFromDB[randomNumber].an3, perguntasFromDB[randomNumber].anc, perguntasFromDB[randomNumber].tip]
+	var selectedQuestion = [perguntasFromDB[randomNumber].question, perguntasFromDB[randomNumber].an1, perguntasFromDB[randomNumber].an2, perguntasFromDB[randomNumber].an3, perguntasFromDB[randomNumber].anc, perguntasFromDB[randomNumber].tip, perguntasFromDB[randomNumber].feedback]
 #	justOneTime[randomNumber].an1, justOneTime[randomNumber].an2, justOneTime[randomNumber].an3
 
 #	print(selectedQuestion)
@@ -237,6 +243,7 @@ func _perguntaEntered(body):
 		setPopUpContent(content[0],content[1], content[2], content[3]) #Define o conteudo da pergunta
 		anc = content[4] #Define qual a resposta correta
 		setTipContent(content[5])
+		setFeedbackContent(content[6])
 	else:
 		print('Acabou as perguntas!')
 	pass
@@ -255,7 +262,7 @@ func _onFirstOptionSelected():
 		beVisible(false) #Torna o Quiz invisivel
 		get_tree().paused = false
 		messageFinal('Acertou') #Define a mensagem de acerto ou erro
-		addCoins(100) #Adiciona pontos
+		addCoins(500) #Adiciona pontos
 		perguntasFromDB.remove(randomNumberForDelete) #Deleto a pergunta que o player acertou
 		savePerguntas() #Salva as perguntas após o remove
 		yield(get_tree().create_timer(3.0), "timeout") #Aguarda 3 segundo
@@ -265,48 +272,56 @@ func _onFirstOptionSelected():
 		save() #Salva no arquivo local
 	else: #Resposta errada
 		beVisible(false) #Torna o quiz invisivel
+		liberadoAbrir = false
 		get_tree().paused = false 
 		messageFinal('Errou') #Define o conteudo da mensagem final
 		yield(get_tree().create_timer(3.0), "timeout") #Aguarda 3 segundos
 		$Personagem/Camera/CanvasLayer/Popups/Popup2.visible = false #Some a mensagem final
+		beVisibleFeedback(true)
 
 func _onSecondOptionSelected():
 	if (anc == 2): #Resposta está correta
 		beVisible(false) #Torna o quiz invisivel
 		get_tree().paused = false #Despausa o jogo
 		messageFinal('Acertou') #Define a mensagem que o player receberá
-		addCoins(100) #Adiciona os pontos
+		addCoins(500) #Adiciona os pontos
 		perguntasFromDB.remove(randomNumberForDelete) #Deleto a pergunta que o player acertou
 		savePerguntas() #Salva as perguntas após o remove
 		yield(get_tree().create_timer(3.0), "timeout") #Aguarda 3 segundos
 		$Personagem/Camera/CanvasLayer/Popups/Popup2.visible = false
+		liberadoAbrir = false
 		player.xp = getPoints() #Captura a quantidade atual de pontos
 		save() #Salva no arquivo local
 	else: #Resposta errada
 		beVisible(false) #Torna o quiz invisivel
+		liberadoAbrir = false
 		get_tree().paused = false #Despausa o jogo
 		messageFinal('Errou') #Define a mensagem que o player receberá
 		yield(get_tree().create_timer(3.0), "timeout")
 		$Personagem/Camera/CanvasLayer/Popups/Popup2.visible = false
+		beVisibleFeedback(true)
 
 func _onThirdOptionSelected():
 	if (anc == 3): #Resposta está correta
 		beVisible(false) #Torna o quiz invisivel
 		get_tree().paused = false
 		messageFinal('Acertou') #Define a mensagem final
-		addCoins(100) #Adiciona pontos
+		addCoins(500) #Adiciona pontos
 		perguntasFromDB.remove(randomNumberForDelete) #Deleto a pergunta que o player acertou
 		savePerguntas() #Salva as perguntas após o remove
 		yield(get_tree().create_timer(3.0), "timeout") #Aguarda 3 segundos
+		liberadoAbrir = false
 		$Personagem/Camera/CanvasLayer/Popups/Popup2.visible = false #Some a mensagem final
 		player.xp = getPoints() #Captura a quantidade atual de pontos
 		save() #Salva no arquivo local
 	else: #Resposta errada
 		beVisible(false) #Torna o quiz invisivel
+		liberadoAbrir = false
 		get_tree().paused = false
 		messageFinal('Errou') #Define a mensagem final
 		yield(get_tree().create_timer(3.0), "timeout") #Aguarda 3 segundos
 		$Personagem/Camera/CanvasLayer/Popups/Popup2.visible = false #Some a mensagem final
+		beVisibleFeedback(true)
 
 
 func _onClosePressed():
@@ -344,3 +359,8 @@ func _onButtonSeguirPressed():
 	beVisibleTip(false)
 	beVisible(true)
 	pass
+
+
+func _onErrouPressed():
+	beVisibleFeedback(false)
+	pass # Replace with function body.
