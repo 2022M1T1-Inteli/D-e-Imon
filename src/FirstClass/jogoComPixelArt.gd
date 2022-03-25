@@ -20,16 +20,19 @@ var player = { #Local database
 	'alreadyPlayed': false
 } 
 
-func setPoints(points): #Coloca os pontos na HUD do jogo.
+#Coloca os pontos na HUD do jogo
+func setPoints(points):
 	$Personagem/Camera/Pontos.text = str(points) 
 
-func save(): #Salva novas informações no arquivo .JSON
+#Salva novas informações no arquivo .JSON
+func save():
 	var file = File.new()
 	file.open(FILE_NAME, File.WRITE) #Acessa o arquivo local para escrita
 	file.store_string(to_json(player)) #Guarda a var Player em formato JSON dentro do arquivo local
 	file.close()
 
-func loadInfos(): #Carrega as informações que o arquivo .JSON possui
+#Carrega as informações que o arquivo .JSON possui.
+func loadInfos():
 	var file = File.new()
 	if file.file_exists(FILE_NAME): #Verifica se o arquivo já havia sido criado antes
 		file.open(FILE_NAME, File.READ) #Le o arquivo local, com infos de vida e XP
@@ -42,6 +45,7 @@ func loadInfos(): #Carrega as informações que o arquivo .JSON possui
 	else:
 		printerr("Não existe arquivo!")
 
+#Verifica quantas vidas o player possui no DB, assim faz com que essas aparecem de forma correta na HUD
 func checkVidas():
 	if (qntVidas == 1): #Se tiver somente uma vida
 		$Personagem/Camera/Vidas/Vida1.visible = true
@@ -86,53 +90,64 @@ func checkVidas():
 		$Personagem/Camera/Vidas/Vida5.visible = false
 		$Personagem/Camera/Vidas/VidaVazia.visible = true
 
+#Abre o PopUp do quiz
 func beVisible(visible): 
-	$Personagem/Camera/CanvasLayer/Popups/Popup.visible = visible  #Abre o PopUp do quiz
+	$Personagem/Camera/CanvasLayer/Popups/Popup.visible = visible
 	
+#Abre o PopUp do mercado
 func beVisibleMarket(visible):
-	$Personagem/Camera/CanvasLayer/Popups/Mercado.visible = visible #Abre o PopUp do mercado
+	$Personagem/Camera/CanvasLayer/Popups/Mercado.visible = visible
 	
+# Aparece para apertar M.
 func MensagemPressM(visible):
-	$Personagem/Camera/CanvasLayer/Popups/Popup3.visible = visible # Aparece para apertar M.
+	$Personagem/Camera/CanvasLayer/Popups/Popup3.visible = visible
 
+# Aparece para apertar E.
 func MensagemPressE(visible):
-	$Personagem/Camera/CanvasLayer/Popups/Popup4.visible = visible # Aparece para apertar E.
+	$Personagem/Camera/CanvasLayer/Popups/Popup4.visible = visible
 
+# Aparece para apertar G.
 func MensagemPressG(visible):
-	$Personagem/Camera/CanvasLayer/Popups/Popup5.visible = visible # Aparece para apertar G.
+	$Personagem/Camera/CanvasLayer/Popups/Popup5.visible = visible
 
+#Abre o PopUp de resposta com "Acertou" ou "Errou"
 func messageFinal(text):
 	$Personagem/Camera/CanvasLayer/Popups/Popup2.visible = true
-																	 #Abre o PopUp de resposta com "Acertou" ou "Errou"
 	$Personagem/Camera/CanvasLayer/Popups/Popup2/Label.text = text
 	
+#Passa o conteúdo do Quiz para a tela do jogo.
 func setPopUpContent(question, an1, an2, an3):
 	$Personagem/Camera/CanvasLayer/Popups/Popup/Label.text = question
 	$Personagem/Camera/CanvasLayer/Popups/Popup/Button2/Label.text = an1
-	$Personagem/Camera/CanvasLayer/Popups/Popup/Button3/Label.text = an2    #Passa o conteudo do Quiz para a tela do jogo
+	$Personagem/Camera/CanvasLayer/Popups/Popup/Button3/Label.text = an2
 	$Personagem/Camera/CanvasLayer/Popups/Popup/Button4/Label.text = an3
-	
+
+#Adiciona uma quantidade selecionada de pontos ao player
 func addCoins(qnt):
 	var pontosAtual = int($Personagem/Camera/Pontos.text) #Pega os pontos atuais e tranforma em Número
 	var pontosAdicionados = pontosAtual ++ qnt #Adiciona o incremento passado pelo parametro da função
 	var pontosInString = str(pontosAdicionados) #Retorna a soma para o formato String
 	$Personagem/Camera/Pontos.text = pontosInString #Substitui o valor dos pontos pelo valor adicionado
-	
+
+#Remove uma quantidade selecionada de pontos do player
 func deleteCoins(qnt):
 	var pontosAtualRed = int($Personagem/Camera/Pontos.text) #Pega os pontos atuais e tranforma em Número
 	var pontosAdicionadosRed = pontosAtualRed - qnt #Retira o incremento passado pelo parametro da função
 	var pontosInStringRed = str(pontosAdicionadosRed) #Retorna o total para o formato String
 	$Personagem/Camera/Pontos.text = pontosInStringRed #Substitui o valor dos pontos pelo valor retirado
 
+#Verifica quantos pontos o player possui
 func getPoints():
 	return int($Personagem/Camera/Pontos.text) #Retorna em forma de número quantos pontos o player possui
 
+#Abre CONFIRMAÇÃO ou ERRO do MERCADO
 func messageMarket(message):
 	$Personagem/Camera/CanvasLayer/Popups/marketMessage/Label.text = message
 	$Personagem/Camera/CanvasLayer/Popups/marketMessage.visible = true
-	yield(get_tree().create_timer(3.0), "timeout")                           #Abre CONFIRMAÇÃO ou ERRO do MERCADO
+	yield(get_tree().create_timer(3.0), "timeout")
 	$Personagem/Camera/CanvasLayer/Popups/marketMessage.visible = false
-#
+
+#Chamada assim que o jogo inicia
 func _ready():
 	if (Global.cutscene == true):
 		$Barco/AnimationPlayer.play("Nova Animação")
@@ -152,12 +167,9 @@ func _ready():
 	save()
 	
 	$Personagem.set_position(Global.position)
-	
-#	var dialog = Dialogic.start("Teste") #Roda o dialogo -- POR ENQUANTO SOMENTE TESTE --
-#	add_child(dialog)
-#	cutsi = true
 	pass
 
+#Roda em looping o que está dentro dela
 func _process(delta):
 	checkVidas() #Chama a função que verifica quantas sprites irão aparecer
 	pontosToBuy = float($Personagem/Camera/Pontos.text) #Verifica os pontos recorrentemente para que sejam usados no --MERCADO--
@@ -182,11 +194,13 @@ func _process(delta):
 	else:
 		pass
 
-func _on_Button_pressed_close(): #Botão para fechar as perguntas
+#Botão para fechar as perguntas
+func _on_Button_pressed_close():
 	beVisible(false) #Torna tudo referente as perguntas invisível
 	get_tree().paused = false #Pausa o jogo
 	
-func _on_Button2_pressed(): #Quando a alternativa A é selecionada
+	#Quando a alternativa A é selecionada
+func _on_Button2_pressed():
 	if (anc == 1): #Resposta correta
 		beVisible(false) #Torna o Quiz invisivel
 		get_tree().paused = false
@@ -203,7 +217,8 @@ func _on_Button2_pressed(): #Quando a alternativa A é selecionada
 		yield(get_tree().create_timer(3.0), "timeout") #Aguarda 3 segundos
 		$Personagem/Camera/CanvasLayer/Popups/Popup2.visible = false #Some a mensagem final
 
-func _on_Button3_pressed(): #Quado a alternativa B é selecionada
+#Quado a alternativa B é selecionada
+func _on_Button3_pressed():
 	if (anc == 2): #Resposta está correta
 		beVisible(false) #Torna o quiz invisivel
 		get_tree().paused = false #Despausa o jogo
@@ -220,7 +235,8 @@ func _on_Button3_pressed(): #Quado a alternativa B é selecionada
 		yield(get_tree().create_timer(3.0), "timeout")
 		$Personagem/Camera/CanvasLayer/Popups/Popup2.visible = false
 
-func _on_Button4_pressed(): #Quando a alternativa C é selecionada
+#Quado a alternativa C é selecionada
+func _on_Button4_pressed():
 	if (anc == 3): #Resposta está correta
 		beVisible(false) #Torna o quiz invisivel
 		get_tree().paused = false
@@ -244,6 +260,7 @@ func _unhandled_input(event):
 		if event.pressed and event.scancode == KEY_ESCAPE:
 			get_tree().quit()
 
+#Quando um corpo entra na área 2D definida:
 func _on_Area2D_body_entered(body):
 	if body.name == "Personagem": # Aparece somente com a colisao DO PERSONAGEM
 		liberadoAbrir = true #Libera a tecla M para funcionar
@@ -253,26 +270,28 @@ func _on_Area2D_body_entered(body):
 	else:
 		get_tree().paused = false #Despausa o jogo
 
-
+# Quando um corpo sai da área 2D definida:
 func _on_Area2D_body_exited(body): 
 	if body.name == "Personagem": 
 		liberadoAbrir = false #Bloqueia a tecla M para funcionar
 		MensagemPressM(false) #Torna o aviso de "Pressione M" invisivel
 	pass
 
+#Quando entra na área da pergunta
 func _on_Area2D2_body_entered(body): 
 	if body.name == 'Personagem': # Aparece somente com a colisao DO PERSONAGEM
 		liberadoAbrirE = true #Libera a tecla E (NPC - História) para funcionar
 		MensagemPressE(true) #Torna o aviso de "Pressione E" visivel
 	pass
 
+#Quando sai da área da pergunta
 func _on_Area2D2_body_exited(body):
 	if body.name == 'Personagem': 
 		liberadoAbrirE = false #Bloqueia a tecla E (NPC - História) para funcionar
 		MensagemPressE(false) #Torna o aviso de "Pressione E" invisivel
 	pass
 
-
+#Quando entra na área da pergunta
 func _pergunta2Enter(body): 
 	if body.name == 'Personagem': # Aparece somente com a colisao DO PERSONAGEM
 		liberadoAbrir = true #Libera a tecla M (NPC - Pergunta) para funcionar
@@ -283,14 +302,14 @@ func _pergunta2Enter(body):
 		get_tree().paused = false
 	pass 
 
-
+#Quando sai da área da pergunta
 func _exitedPergunta2(body):
 	if body.name == 'Personagem': 
 		liberadoAbrir = false #Bloqueia a tecla M para funcionar
 		MensagemPressM(false) #Torna o aviso de "Pressione M" invisivel
 	pass 
 
-
+# Quando o personagem entra na area de pergunta
 func _on_Pergunta3_body_entered(body): 
 	if body.name == 'Personagem': # Aparece somente com a colisao DO PERSONAGEM
 		liberadoAbrir = true #Libera a tecla M para funcionar 
@@ -299,17 +318,17 @@ func _on_Pergunta3_body_entered(body):
 		anc = 1 #Define a resposta correta
 	pass 
 
-
+#Quando o personagem sai da área de pergunta
 func _on_Pergunta3_body_exited(body): 
 	if body.name == 'Personagem': 
 		liberadoAbrir = false #Bloqueia a tecla M para funcionar
 		MensagemPressM(false) #Torna o aviso de "Pressione M" invisivel
 	pass 
 
-
+#Quando o personagem entra na area do mercado
 func marketOpenMessage(body):
 	if body.name == 'Personagem': # Aparece somente com a colisao DO PERSONAGEM
-		if (player.mercadoAlreadyOpen == true):
+		if (player.mercadoAlreadyOpen == true): #Usuário já jogou ou não
 			print('Já abriu')
 			liberadoAbrirG = true #Libera a tecla G para funcionar 
 			MensagemPressG(true) #Torna o aviso de "Pressione G" visivel
@@ -322,22 +341,25 @@ func marketOpenMessage(body):
 			MensagemPressG(true) #Torna o aviso de "Pressione G" visivel
 	pass 
 
+#Quando o dialogo finiliza
 func unpause(timeline_Teste):
 	get_tree().paused = false
 
+#Quando o personagem sai da área do Mercado
 func marketExited(body):
 	if body.name == 'Personagem': 
 		liberadoAbrirG = false #Bloqueia a tecla G para funcionar
 		MensagemPressG(false) #Torna o aviso de "Pressione G" invisivel
 	pass
 
-
-func fecharMarket(): #Torna tudo do MERCADO invisivel para que esse seja "FECHADO"
+#Fecha o mercado(torna tudo invisivel para que ele seja "Fechado")
+func fecharMarket():
 	beVisibleMarket(false)
 	get_tree().paused = false #Sai do estado de pausa
 	pass
 
-func compraVida(): #Quando a opção de vida é selecionada
+#Quando uma vida é comprada dentro do mercado
+func compraVida():
 	if(pontosToBuy >= 1000): #Se os pontos forem maiores ou iguais a 1000
 		if (qntVidas < 5): #Se a quantidade de vidas for menor que 5
 			deleteCoins(1000) # Retira 1000 pontos do jogador
@@ -358,8 +380,8 @@ func compraVida(): #Quando a opção de vida é selecionada
 		messageMarket('Você não possui dinheiro suficiente') #Mostra a mensagem "Você não possui dinheiro surficiente"
 	pass 
 
-
-func comprarFase2(): #Quando a opção de FASE1 é selecionada
+#Quando a opção de comprar a Fase 2 é selecionada
+func comprarFase2():
 	if(pontosToBuy >= 2000): #Verifica se os pontos são suficientes
 		deleteCoins(2000) #Retira a quantidade de pontos do player
 		beVisibleMarket(false) #Torna o mercado invisivel
@@ -374,7 +396,8 @@ func comprarFase2(): #Quando a opção de FASE1 é selecionada
 	pass 
 
 
-func comprarFase3(): #Quando a opção de FASE2 é selecionada
+#Quando a FASE3 é comprada no mercado
+func comprarFase3():
 	if (pontosToBuy >= 3000): #Se os pontos forem maiores ou iguais a 3000
 		deleteCoins(3000) #Retira 3000 dos pontos atuais 
 		beVisibleMarket(false) #Mercado fica invisivel
@@ -388,29 +411,30 @@ func comprarFase3(): #Quando a opção de FASE2 é selecionada
 		messageMarket('Você não possui dinheiro suficiente') #Mostra a seguinte mensagem "Você não possui dinheiro suficiente"
 	pass 
 
-
-func _on_Area2D3_body_entered(body): #Quando o personagem entra na PORTAL
+#Quando o personagem entra no portal
+func _on_Area2D3_body_entered(body):
 	if body.name == "Personagem":
 		get_tree().change_scene('res://D&IMental.tscn')
 		Global.position = Vector2(1179, -1874)
 	pass 
 
-
-func _on_Area2D4_body_entered(body): #Quando o personagem entra no PORTAL
+#Quando o personagem entra no outro portal
+func _on_Area2D4_body_entered(body):
 	body.set_position(destination2)
 	pass
 
 
 
-
+#Quando a animação do barco inicial finaliza.
 func _on_AnimationPlayer_animation_finished(anim_name):
 	$Personagem/Camera.current = true
 	$Personagem.visible = true
 	
-	pass # Replace with function body.
+	pass
 
 
+#Checkpoint de que o personagem já jogou o jogo.
 func _verifyPlayed(body):
 	player.alreadyPlayed = true
 	save()
-	pass # Replace with function body.
+	pass

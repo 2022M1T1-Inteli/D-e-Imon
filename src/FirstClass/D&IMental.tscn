@@ -1599,20 +1599,30 @@ __meta__ = {
 [node name="Popup3" type="Popup" parent="Personagem/Camera/CanvasLayer/Popups"]
 margin_right = 40.0
 margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="Personagem/Camera/CanvasLayer/Popups/Popup3"]
+position = Vector2( 162, 162.5 )
+scale = Vector2( 0.33, 0.33 )
+texture = ExtResource( 31 )
 
 [node name="Label" type="Label" parent="Personagem/Camera/CanvasLayer/Popups/Popup3"]
-margin_left = 115.0
-margin_top = 157.0
-margin_right = 207.0
-margin_bottom = 198.0
+margin_left = 116.0
+margin_top = 152.0
+margin_right = 208.0
+margin_bottom = 193.0
 custom_fonts/font = SubResource( 14 )
 text = "Pressione M
 "
 align = 1
 valign = 1
+script = ExtResource( 15 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+text_color = Color( 0.298039, 0.988235, 0.956863, 1 )
 
 [node name="Popup2" type="Popup" parent="Personagem/Camera/CanvasLayer/Popups"]
 pause_mode = 2

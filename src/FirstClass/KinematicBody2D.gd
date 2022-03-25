@@ -4,24 +4,24 @@ var velocity = Vector2.ZERO
 var rapidez = 180
 onready var animacaoJogador = $AnimationPlayer
 
+#Começa a animação de correr para a direita
 func direita():
 	animacaoJogador.play("correndo_para_esquerda") #Começa a animação para direita -- AnimationPlayer
 	
+#Começa a animação de correr para a esquerda
 func esquerda():
 	animacaoJogador.play("correndo_para_direita") #Começa a animação para esquerda -- AnimationPlayer
 
+#Começa a animação de correr para baixo
 func baixo():
 	animacaoJogador.play("correndo_para_baixo") #Começa a animação para baixo -- AnimationPlayer
 
+#Começa a animação de correr para cima
 func cima():
 	animacaoJogador.play("correndo_para_cima") #Começa a animação para cima -- AnimationPlayer
 
+#Captura os vetores do personagem para descobrir sua direção e velocidade
 func _physics_process(_delta):
-	
-#	var actualPosition = get_position()
-#	Global.position = actualPosition
-#	print(Global.position)
-	
 	var resultante = Vector2.ZERO
 	#Captura em vetor se ele está indo para esquerda ou direita (x) (-1 ou 1)
 	resultante.x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
@@ -45,6 +45,7 @@ func _physics_process(_delta):
 #		animacaoJogador.seek(0, true)
 		return
 	
+	#Verificar a velocidade e dá-la se for necessário.
 	if resultante != Vector2.ZERO:
 		#Serve para dar velocidade ao personagem, independentemente para que lado ele esteja andando
 		velocity = resultante * rapidez
@@ -69,4 +70,4 @@ func _physics_process(_delta):
 	#Move o personagem com a velocity (atrelando resultante com a rapidez)
 	move_and_slide(velocity)
 func _ready():
-	pass # Replace with function body.	
+	pass
