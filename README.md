@@ -140,6 +140,20 @@ Coloque código do prompt de comnando se for necessário
 ```
 
 ## 🗃 Histórico de lançamentos
+* 0.1.2 - 25/03/2022
+  * Novo design do mercado
+  * Sistema de perguntas refatorado com dicas e feedback
+  * Novas Pixelart adicionadas do personagem
+  * Adicionada novo minigame - FlappyBrahma
+  * Adicionada novo minigame - Labirinto
+  
+
+
+* 0.1.1 - 18/03/2022
+  * Sistema para voltar o jogador proximo ao portal
+  * Cutscene adicionada no começo do jogo
+  * Dialogos de "Bem vindo" e Tuor no mercado
+
 * 0.1 - 11/03/2022
   * Novo sistema de perguntas(refatorado) aplicado dentro da 1 Fase
   * Adicionado base local de dados no sistema de perguntas
