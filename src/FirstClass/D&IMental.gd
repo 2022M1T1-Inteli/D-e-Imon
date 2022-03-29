@@ -55,6 +55,7 @@ func loadPerguntas():
 var anc = 1 #Resposta correta
 var liberadoAbrir = false #Libera a abertura do QUIZ
 var liberadoAbrirG = false #Libera a abertura do Minigame
+var liberadoAbrirCientista = false #Libera a abertura do Cientista
 
 var justOneTime = Perguntas
 
@@ -97,7 +98,6 @@ func setFeedbackContent(content):
 # Aparece para apertar M.
 func MensagemPressM(visible):
 	$Personagem/Camera/CanvasLayer/Popups/Popup3.visible = visible
-	print('IXIX')
 
 # Aparece para apertar G.
 func MensagemPressG(visible):
@@ -189,6 +189,8 @@ func setPoints(points):
 func unpause(timeline_Teste):
 	get_tree().change_scene(cenaDestination)
 
+func finaliza_cientista(timeline_Cientista):
+	get_tree().paused = false
 
 #Add uma quantidade específica de pontos do player
 func addCoins(qnt): # Uma função que adiciona coinds "Dinheiro" para o personagem como forma de "Xp"
@@ -268,6 +270,11 @@ func _process(delta):
 			var dialog = Dialogic.start(timeline)
 			add_child(dialog)
 			dialog.connect('timeline_end', self, "unpause")
+	if liberadoAbrirCientista:
+		if Input.is_action_pressed("ui_g"):
+			var dialogScientist = Dialogic.start("Cientista")
+			add_child(dialogScientist)
+			dialogScientist.connect('timeline_end', self, "finaliza_cientista")
 	pass
 
 #Quando o personagem entra no portal
@@ -612,3 +619,10 @@ func _pergunta10Entered(body):
 				print('Acabou as perguntas!')
 	else:
 		pass
+
+
+func _onScientistEntered(body):
+	if (body.name == 'Personagem'):
+		MensagemPressG(true)
+		liberadoAbrirCientista = true
+		timeline = 'Cientista'

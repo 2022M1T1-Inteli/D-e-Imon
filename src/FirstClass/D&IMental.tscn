@@ -1467,7 +1467,7 @@ extents = Vector2( 1382.5, 57.5 )
 extents = Vector2( 16, 10.5 )
 
 [sub_resource type="RectangleShape2D" id=70]
-extents = Vector2( 25.5, 10 )
+extents = Vector2( 25.5, 16 )
 
 [node name="D&IMental" type="Node2D"]
 script = ExtResource( 12 )
@@ -2299,6 +2299,13 @@ position = Vector2( 10, 958 )
 position = Vector2( -4, -6 )
 shape = SubResource( 70 )
 
+[node name="Scientist" type="Area2D" parent="."]
+position = Vector2( 196, 224 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Scientist"]
+position = Vector2( -13, 4 )
+shape = SubResource( 70 )
+
 [connection signal="pressed" from="Personagem/Camera/CanvasLayer/Popups/Popup/Button" to="." method="_onClosePressed"]
 [connection signal="pressed" from="Personagem/Camera/CanvasLayer/Popups/Popup/Button2" to="." method="_onFirstOptionSelected"]
 [connection signal="pressed" from="Personagem/Camera/CanvasLayer/Popups/Popup/Button3" to="." method="_onSecondOptionSelected"]
@@ -2330,3 +2337,5 @@ shape = SubResource( 70 )
 [connection signal="body_exited" from="Minigame1" to="." method="_onMinigameExited"]
 [connection signal="body_entered" from="Minigame2" to="." method="_onMinigame2Entered"]
 [connection signal="body_exited" from="Minigame2" to="." method="_onMinigameExited"]
+[connection signal="body_entered" from="Scientist" to="." method="_onScientistEntered"]
+[connection signal="body_exited" from="Scientist" to="." method="_onMinigameExited"]
