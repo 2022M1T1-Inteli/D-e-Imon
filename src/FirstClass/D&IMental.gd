@@ -6,6 +6,17 @@ var FILE_PERGUNTAS = "user://PerguntasFase1.JSON"
 var randomNumberForDelete = 0
 var timeline = ''
 var cenaDestination = "res://D&IMental.tscn"
+var pergunta1Blocked = false
+var pergunta2Blocked = false
+var pergunta3Blocked = false
+var pergunta4Blocked = false
+var pergunta5Blocked = false
+var pergunta6Blocked = false
+var pergunta7Blocked = false
+var pergunta8Blocked = false
+var pergunta9Blocked = false
+var pergunta10Blocked = false
+var toBlock
 #Define as perguntas padrões
 const Perguntas = [
 	{'question': 'Qual o nome dado ao preconceito contra vítimas de transtornos mentais? ', 'an1': 'Psicofobia', 'an2': 'Capacitismo', 'an3': 'Mentalismo', 'anc': 1, "tip": "Esse é um teste de dica, segue-se dessa forma nesse naipaaoooooo, yep bros, i am just writen a long text because I need a lot of space in the page, to test if my apllication test is well, thanks very much for paying attention at my text good lucky for everyone and THANKKSSSS A LOOTTTTT", "feedback": "Teste"},
@@ -47,6 +58,22 @@ var liberadoAbrirG = false #Libera a abertura do Minigame
 
 var justOneTime = Perguntas
 
+#Trava o NPC que o usuário interagiu
+func blockQuestion():
+	print(toBlock)
+	if(toBlock == 'Pergunta1'):
+		pergunta1Blocked = true
+	elif(toBlock == 'Pergunta2'):
+		pergunta2Blocked = true
+	elif(toBlock == 'Pergunta3'):
+		pergunta3Blocked = true
+	elif(toBlock == 'Pergunta4'):
+		pergunta4Blocked = true
+	elif(toBlock == 'Pergunta5'):
+		pergunta5Blocked = true
+	elif(toBlock == 'Pergunta6'):
+		pergunta5Blocked = true
+
 #Torna o quiz vísivel
 func beVisible(visible): 
 	$Personagem/Camera/CanvasLayer/Popups/Popup.visible = visible
@@ -70,6 +97,7 @@ func setFeedbackContent(content):
 # Aparece para apertar M.
 func MensagemPressM(visible):
 	$Personagem/Camera/CanvasLayer/Popups/Popup3.visible = visible
+	print('IXIX')
 
 # Aparece para apertar G.
 func MensagemPressG(visible):
@@ -158,7 +186,7 @@ func setPoints(points):
 	$Personagem/Camera/Pontos.text = str(points) 
 
 # Executa quando o dialogo é finilazado
-func unpause(timeline_Teste): #
+func unpause(timeline_Teste):
 	get_tree().change_scene(cenaDestination)
 
 
@@ -251,18 +279,24 @@ func _on_Area2D3_body_entered(body):
 
 #Quando você entra dentro de uma área destinada a pergunta
 func _perguntaEntered(body):
-	var lenghtArray = float(len(perguntasFromDB))
-	if lenghtArray >= 1:
-		liberadoAbrir = true #Libera a tecla M para funcionar
-		MensagemPressM(true) #Torna o aviso de "Pressione M" visivel
-		var content = selectQuestion() #Gera uma pergunta de forma aleatória
-		setPopUpContent(content[0],content[1], content[2], content[3]) #Define o conteudo da pergunta
-		anc = content[4] #Define qual a resposta correta
-		setTipContent(content[5])
-		setFeedbackContent(content[6])
+	if (body.name == 'Personagem'):
+		if pergunta1Blocked == true:
+			pass
+		else:
+			var lenghtArray = float(len(perguntasFromDB))
+			if lenghtArray >= 1:
+				liberadoAbrir = true #Libera a tecla M para funcionar
+				MensagemPressM(true) #Torna o aviso de "Pressione M" visivel
+				var content = selectQuestion() #Gera uma pergunta de forma aleatória
+				setPopUpContent(content[0],content[1], content[2], content[3]) #Define o conteudo da pergunta
+				anc = content[4] #Define qual a resposta correta
+				setTipContent(content[5])
+				setFeedbackContent(content[6])
+				toBlock = 'Pergunta1'
+			else:
+				print('Acabou as perguntas!')
 	else:
-		print('Acabou as perguntas!')
-	pass
+		pass
 
 #Quando você sai dentro de uma área destinada a pergunta
 func _perguntaExited(body):
@@ -281,6 +315,7 @@ func _onFirstOptionSelected():
 		addCoins(500) #Adiciona pontos
 		perguntasFromDB.remove(randomNumberForDelete) #Deleto a pergunta que o player acertou
 		savePerguntas() #Salva as perguntas após o remove
+		blockQuestion()
 		yield(get_tree().create_timer(3.0), "timeout") #Aguarda 3 segundo
 		$Personagem/Camera/CanvasLayer/Popups/Popup2.visible = false
 		liberadoAbrir = false
@@ -304,6 +339,7 @@ func _onSecondOptionSelected():
 		addCoins(500) #Adiciona os pontos
 		perguntasFromDB.remove(randomNumberForDelete) #Deleto a pergunta que o player acertou
 		savePerguntas() #Salva as perguntas após o remove
+		blockQuestion()
 		yield(get_tree().create_timer(3.0), "timeout") #Aguarda 3 segundos
 		$Personagem/Camera/CanvasLayer/Popups/Popup2.visible = false
 		liberadoAbrir = false
@@ -328,6 +364,7 @@ func _onThirdOptionSelected():
 		addCoins(500) #Adiciona pontos
 		perguntasFromDB.remove(randomNumberForDelete) #Deleto a pergunta que o player acertou
 		savePerguntas() #Salva as perguntas após o remove
+		blockQuestion()
 		yield(get_tree().create_timer(3.0), "timeout") #Aguarda 3 segundos
 		liberadoAbrir = false
 		$Personagem/Camera/CanvasLayer/Popups/Popup2.visible = false #Some a mensagem final
@@ -350,12 +387,13 @@ func _onClosePressed():
 
 #Quando entra na área de MINIGAME
 func _onMinigame1Entered(body):
-	liberadoAbrirG = true
-	MensagemPressG(true)
-	timeline = 'Teste'
-	Global.positionForMapa1 = Vector2(337, 925)
-	cenaDestination = "res://pong.tscn"
-	pass
+	if (body.name == 'Personagem'):
+		liberadoAbrirG = true
+		MensagemPressG(true)
+		timeline = 'Teste'
+		Global.positionForMapa1 = Vector2(337, 925)
+		cenaDestination = "res://pong.tscn"
+		pass
 
 #Quando o dialogo referente ao minigame é finalizado
 func dialogFinished():
@@ -369,12 +407,13 @@ func _onMinigameExited(body):
 
 #Quando entra na área do segundo minigame
 func _onMinigame2Entered(body):
-	liberadoAbrirG = true
-	MensagemPressG(true)
-	timeline = 'Teste'
-	cenaDestination = "res://FlappyBrahma.tscn"
-	Global.positionForMapa1 = Vector2(563, 932)
-	pass # Replace with function body.
+	if (body.name == 'Personagem'):
+		liberadoAbrirG = true
+		MensagemPressG(true)
+		timeline = 'Teste'
+		cenaDestination = "res://FlappyBrahma.tscn"
+		Global.positionForMapa1 = Vector2(563, 932)
+		pass # Replace with function body.
 
 #Quando o botão de seguir é pressionado no TIP do QUIZ
 func _onButtonSeguirPressed():
@@ -386,3 +425,190 @@ func _onButtonSeguirPressed():
 func _onErrouPressed():
 	beVisibleFeedback(false)
 	pass
+
+
+func _pergunta2Entered(body):
+	if (body.name == 'Personagem'):
+		if pergunta2Blocked == true:
+			pass
+		else:
+			var lenghtArray = float(len(perguntasFromDB))
+			if lenghtArray >= 1:
+				liberadoAbrir = true #Libera a tecla M para funcionar
+				MensagemPressM(true) #Torna o aviso de "Pressione M" visivel
+				var content = selectQuestion() #Gera uma pergunta de forma aleatória
+				setPopUpContent(content[0],content[1], content[2], content[3]) #Define o conteudo da pergunta
+				anc = content[4] #Define qual a resposta correta
+				setTipContent(content[5])
+				setFeedbackContent(content[6])
+				toBlock = 'Pergunta2'
+			else:
+				print('Acabou as perguntas!')
+	else:
+		pass
+
+func _pergunta3Entered(body):
+	if (body.name == 'Personagem'):
+		if pergunta3Blocked == true:
+			pass
+		else:
+			var lenghtArray = float(len(perguntasFromDB))
+			if lenghtArray >= 1:
+				liberadoAbrir = true #Libera a tecla M para funcionar
+				MensagemPressM(true) #Torna o aviso de "Pressione M" visivel
+				var content = selectQuestion() #Gera uma pergunta de forma aleatória
+				setPopUpContent(content[0],content[1], content[2], content[3]) #Define o conteudo da pergunta
+				anc = content[4] #Define qual a resposta correta
+				setTipContent(content[5])
+				setFeedbackContent(content[6])
+				toBlock = 'Pergunta3'
+			else:
+				print('Acabou as perguntas!')
+	else:
+		pass
+
+func _pergunta4Entered(body):
+	if (body.name == 'Personagem'):
+		if pergunta4Blocked == true:
+			pass
+		else:
+			var lenghtArray = float(len(perguntasFromDB))
+			if lenghtArray >= 1:
+				liberadoAbrir = true #Libera a tecla M para funcionar
+				MensagemPressM(true) #Torna o aviso de "Pressione M" visivel
+				var content = selectQuestion() #Gera uma pergunta de forma aleatória
+				setPopUpContent(content[0],content[1], content[2], content[3]) #Define o conteudo da pergunta
+				anc = content[4] #Define qual a resposta correta
+				setTipContent(content[5])
+				setFeedbackContent(content[6])
+				toBlock = 'Pergunta4'
+			else:
+				print('Acabou as perguntas!')
+	else:
+		pass
+
+
+func _pergunta5Entered(body):
+	if (body.name == 'Personagem'):
+		if pergunta5Blocked == true:
+			pass
+		else:
+			var lenghtArray = float(len(perguntasFromDB))
+			if lenghtArray >= 1:
+				liberadoAbrir = true #Libera a tecla M para funcionar
+				MensagemPressM(true) #Torna o aviso de "Pressione M" visivel
+				var content = selectQuestion() #Gera uma pergunta de forma aleatória
+				setPopUpContent(content[0],content[1], content[2], content[3]) #Define o conteudo da pergunta
+				anc = content[4] #Define qual a resposta correta
+				setTipContent(content[5])
+				setFeedbackContent(content[6])
+				toBlock = 'Pergunta5'
+			else:
+				print('Acabou as perguntas!')
+	else:
+		pass
+
+
+func _pergunta6Entered(body):
+	if (body.name == 'Personagem'):
+		if pergunta6Blocked == true:
+			pass
+		else:
+			var lenghtArray = float(len(perguntasFromDB))
+			if lenghtArray >= 1:
+				liberadoAbrir = true #Libera a tecla M para funcionar
+				MensagemPressM(true) #Torna o aviso de "Pressione M" visivel
+				var content = selectQuestion() #Gera uma pergunta de forma aleatória
+				setPopUpContent(content[0],content[1], content[2], content[3]) #Define o conteudo da pergunta
+				anc = content[4] #Define qual a resposta correta
+				setTipContent(content[5])
+				setFeedbackContent(content[6])
+				toBlock = 'Pergunta6'
+			else:
+				print('Acabou as perguntas!')
+	else:
+		pass
+
+
+func _pergunta7Entered(body):
+	if (body.name == 'Personagem'):
+		if pergunta7Blocked == true:
+			pass
+		else:
+			var lenghtArray = float(len(perguntasFromDB))
+			if lenghtArray >= 1:
+				liberadoAbrir = true #Libera a tecla M para funcionar
+				MensagemPressM(true) #Torna o aviso de "Pressione M" visivel
+				var content = selectQuestion() #Gera uma pergunta de forma aleatória
+				setPopUpContent(content[0],content[1], content[2], content[3]) #Define o conteudo da pergunta
+				anc = content[4] #Define qual a resposta correta
+				setTipContent(content[5])
+				setFeedbackContent(content[6])
+				toBlock = 'Pergunta7'
+			else:
+				print('Acabou as perguntas!')
+	else:
+		pass
+
+
+func _pergunta8Entered(body):
+	if (body.name == 'Personagem'):
+		if pergunta8Blocked == true:
+			pass
+		else:
+			var lenghtArray = float(len(perguntasFromDB))
+			if lenghtArray >= 1:
+				liberadoAbrir = true #Libera a tecla M para funcionar
+				MensagemPressM(true) #Torna o aviso de "Pressione M" visivel
+				var content = selectQuestion() #Gera uma pergunta de forma aleatória
+				setPopUpContent(content[0],content[1], content[2], content[3]) #Define o conteudo da pergunta
+				anc = content[4] #Define qual a resposta correta
+				setTipContent(content[5])
+				setFeedbackContent(content[6])
+				toBlock = 'Pergunta8'
+			else:
+				print('Acabou as perguntas!')
+	else:
+		pass
+
+
+func _pergunta9Entered(body):
+	if (body.name == 'Personagem'):
+		if pergunta9Blocked == true:
+			pass
+		else:
+			var lenghtArray = float(len(perguntasFromDB))
+			if lenghtArray >= 1:
+				liberadoAbrir = true #Libera a tecla M para funcionar
+				MensagemPressM(true) #Torna o aviso de "Pressione M" visivel
+				var content = selectQuestion() #Gera uma pergunta de forma aleatória
+				setPopUpContent(content[0],content[1], content[2], content[3]) #Define o conteudo da pergunta
+				anc = content[4] #Define qual a resposta correta
+				setTipContent(content[5])
+				setFeedbackContent(content[6])
+				toBlock = 'Pergunta9'
+			else:
+				print('Acabou as perguntas!')
+	else:
+		pass
+
+
+func _pergunta10Entered(body):
+	if (body.name == 'Personagem'):
+		if pergunta10Blocked == true:
+			pass
+		else:
+			var lenghtArray = float(len(perguntasFromDB))
+			if lenghtArray >= 1:
+				liberadoAbrir = true #Libera a tecla M para funcionar
+				MensagemPressM(true) #Torna o aviso de "Pressione M" visivel
+				var content = selectQuestion() #Gera uma pergunta de forma aleatória
+				setPopUpContent(content[0],content[1], content[2], content[3]) #Define o conteudo da pergunta
+				anc = content[4] #Define qual a resposta correta
+				setTipContent(content[5])
+				setFeedbackContent(content[6])
+				toBlock = 'Pergunta10'
+			else:
+				print('Acabou as perguntas!')
+	else:
+		pass
