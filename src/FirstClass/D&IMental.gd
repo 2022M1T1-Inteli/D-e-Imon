@@ -78,6 +78,19 @@ func blockQuestion():
 	elif(toBlock == 'Pergunta6'):
 		pergunta5Blocked = true
 
+#Verifica se já foi completado o banco de questões
+func verifyQuestions():
+	var quantityQuestions = loadPerguntas()
+	
+	if quantityQuestions != null:
+		if len(quantityQuestions) >= 1:
+			return true
+		else:
+			return false
+	else:
+		printerr('Sem Arquivo de Perguntas!')
+		pass
+
 #Torna o quiz vísivel
 func beVisible(visible): 
 	$Personagem/Camera/CanvasLayer/Popups/Popup.visible = visible
@@ -181,7 +194,8 @@ func checkVidas():
 # Variaveis que quarda experiencia "Xp" e vidas do jogador
 var player = { 
 	'xp': 0,
-	'vidas': 0
+	'vidas': 0,
+	'mentalAlreadyCompleted': false,
 }
 
 #Colca os pontos na HUD do jogo.
@@ -224,6 +238,8 @@ func defineQuestion():
 		setFeedbackContent(content[6])
 	else:
 		print('Acabou as perguntas!')
+		player.mentalAlreadyCompleted = true
+		save()
 		$Personagem/Camera/CanvasLayer/Popups/Popup4.visible = true #Torna vísivel aviso de perguntas acabaram
 		yield(get_tree().create_timer(3.0), "timeout") #Aguarda 3 segundo
 		$Personagem/Camera/CanvasLayer/Popups/Popup4.visible = true #Torna invísivel aviso de perguntas acabaram
@@ -231,6 +247,13 @@ func defineQuestion():
 #Load quantos pontos o player possui atualmente
 func getPoints():
 	return int($Personagem/Camera/Pontos.text) #Retorna em forma de número quantos pontos o player possui
+
+#Verifica se o mapa já foi concluido alguma vez
+func alreadyCompleted():
+	if (player.mentalAlreadyCompleted == false):
+		$TileMap2.visible = true
+	else:
+		$TileMap2.visible = false
 
 #Salva novas informações no arquivo .JSON
 func save():
@@ -275,7 +298,8 @@ func _ready():
 
 #Roda em looping
 func _process(delta):
-	checkVidas()
+	checkVidas() #Chama a função que verifica quantidade de vidas
+	alreadyCompleted() #Verifica se o mapa já foi completado alguma vez ou não
 	#Verifica se o pesonagem está dentro da AREA de Pergunta
 	if liberadoAbrir:
 		if Input.is_action_pressed('ui_m'):
@@ -303,11 +327,23 @@ func _on_Area2D3_body_entered(body):
 		
 	pass
 
+#Verifica as questões e o que será mostrado
+func checkQuestoes():
+	var questionExist = verifyQuestions()
+	if questionExist == true:
+		pass
+	else:
+		$Personagem/Camera/CanvasLayer/Popups/Popup4.visible = true
+		yield(get_tree().create_timer(3.0), "timeout") #Aguarda 3 segundo
+		$Personagem/Camera/CanvasLayer/Popups/Popup4.visible = false
+		player.mentalAlreadyCompleted = true
+		save()
+
 #Quando você entra dentro de uma área destinada a pergunta
 func _perguntaEntered(body):
 	if (body.name == 'Personagem'):
 		if pergunta1Blocked == true:
-			pass
+			checkQuestoes()
 		else:
 			toBlock = 'Pergunta1'
 			defineQuestion()
@@ -448,7 +484,7 @@ func _onErrouPressed():
 func _pergunta2Entered(body):
 	if (body.name == 'Personagem'):
 		if pergunta2Blocked == true:
-			pass
+			checkQuestoes()
 		else:
 			toBlock = 'Pergunta2'
 			defineQuestion()
@@ -459,7 +495,7 @@ func _pergunta2Entered(body):
 func _pergunta3Entered(body):
 	if (body.name == 'Personagem'):
 		if pergunta3Blocked == true:
-			pass
+			checkQuestoes()
 		else:
 			toBlock = 'Pergunta3'
 			defineQuestion()
@@ -470,7 +506,7 @@ func _pergunta3Entered(body):
 func _pergunta4Entered(body):
 	if (body.name == 'Personagem'):
 		if pergunta4Blocked == true:
-			pass
+			checkQuestoes()
 		else:
 			toBlock = 'Pergunta4'
 			defineQuestion()
@@ -481,7 +517,7 @@ func _pergunta4Entered(body):
 func _pergunta5Entered(body):
 	if (body.name == 'Personagem'):
 		if pergunta5Blocked == true:
-			pass
+			checkQuestoes()
 		else:
 			toBlock = 'Pergunta5'
 			defineQuestion()
@@ -492,7 +528,7 @@ func _pergunta5Entered(body):
 func _pergunta6Entered(body):
 	if (body.name == 'Personagem'):
 		if pergunta6Blocked == true:
-			pass
+			checkQuestoes()
 		else:
 			toBlock = 'Pergunta6'
 			defineQuestion()
@@ -503,7 +539,7 @@ func _pergunta6Entered(body):
 func _pergunta7Entered(body):
 	if (body.name == 'Personagem'):
 		if pergunta7Blocked == true:
-			pass
+			checkQuestoes()
 		else:
 			toBlock = 'Pergunta7'
 			defineQuestion()
@@ -514,7 +550,7 @@ func _pergunta7Entered(body):
 func _pergunta8Entered(body):
 	if (body.name == 'Personagem'):
 		if pergunta8Blocked == true:
-			pass
+			checkQuestoes()
 		else:
 			toBlock = 'Pergunta8'
 			defineQuestion()
@@ -525,7 +561,7 @@ func _pergunta8Entered(body):
 func _pergunta9Entered(body):
 	if (body.name == 'Personagem'):
 		if pergunta9Blocked == true:
-			pass
+			checkQuestoes()
 		else:
 			toBlock = 'Pergunta9'
 			defineQuestion()
@@ -536,7 +572,7 @@ func _pergunta9Entered(body):
 func _pergunta10Entered(body):
 	if (body.name == 'Personagem'):
 		if pergunta10Blocked == true:
-			pass
+			checkQuestoes()
 		else:
 			toBlock = 'Pergunta10'
 			defineQuestion()
