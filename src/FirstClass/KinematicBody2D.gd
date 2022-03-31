@@ -4,6 +4,9 @@ var velocity = Vector2.ZERO
 var rapidez = 180
 onready var animacaoJogador = $AnimationPlayer
 
+var somePressed = false
+var buttonPressed
+
 #Começa a animação de correr para a direita
 func direita():
 	animacaoJogador.play("correndo_para_esquerda") #Começa a animação para direita -- AnimationPlayer
@@ -23,27 +26,41 @@ func cima():
 #Captura os vetores do personagem para descobrir sua direção e velocidade
 func _physics_process(_delta):
 	var resultante = Vector2.ZERO
-	#Captura em vetor se ele está indo para esquerda ou direita (x) (-1 ou 1)
-	resultante.x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
-	#Captura em vetor se ele está indo para cima ou baixo (y) (-1 ou 1)
-	resultante.y = Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")
-	#Retira o bug de vetores quando se somam vetor nos sentidos x e y
-	resultante = resultante.normalized()
 	
+	if (somePressed == false):
+		#Captura em vetor se ele está indo para esquerda ou direita (x) (-1 ou 1)
+		resultante.x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
+		#Captura em vetor se ele está indo para cima ou baixo (y) (-1 ou 1)
+		resultante.y = Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")
+		#Retira o bug de vetores quando se somam vetor nos sentidos x e y
+		resultante = resultante.normalized()
+		
 
-	
-	#Chama a animação correta, referente ao lado que o personagem está se deslocando
-	if Input.get_action_strength("ui_right"):
-		direita()
-	elif Input.get_action_strength("ui_left"):
-		esquerda()
-	elif Input.get_action_strength("ui_up"):
-		cima()
-	elif Input.get_action_strength("ui_down"):
-		baixo()
+		#Chama a animação correta, referente ao lado que o personagem está se deslocando
+		if Input.get_action_strength("ui_right"):
+			direita()
+		elif Input.get_action_strength("ui_left"):
+			esquerda()
+		elif Input.get_action_strength("ui_up"):
+			cima()
+		elif Input.get_action_strength("ui_down"):
+			baixo()
+		else:
+	#		animacaoJogador.seek(0, true)
+			return
 	else:
-#		animacaoJogador.seek(0, true)
-		return
+		if (buttonPressed == 'Cima'):
+			resultante.y = -1
+			cima()
+		elif (buttonPressed == 'Baixo'):
+			resultante.y = 1
+			baixo()
+		elif (buttonPressed == 'Esquerda'):
+			resultante.x = -1
+			esquerda()
+		elif (buttonPressed == 'Direita'):
+			resultante.x = 1
+			direita()
 	
 	#Verificar a velocidade e dá-la se for necessário.
 	if resultante != Vector2.ZERO:
@@ -71,3 +88,24 @@ func _physics_process(_delta):
 	move_and_slide(velocity)
 func _ready():
 	pass
+
+
+func _CimaJoystick():
+	somePressed = true
+	buttonPressed = 'Cima'
+	
+func _baixoJoystick():
+	somePressed = true
+	buttonPressed = 'Baixo'
+	
+func _esquerdaJoystick():
+	somePressed = true
+	buttonPressed = 'Esquerda'
+
+func _direitaJoystick():
+	somePressed = true
+	buttonPressed = 'Direita'
+
+func _joystickExited():
+	somePressed = false
+	buttonPressed = 'Idle'

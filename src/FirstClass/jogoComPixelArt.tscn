@@ -1121,6 +1121,42 @@ __meta__ = {
 }
 text_color = Color( 0.298039, 0.988235, 0.956863, 1 )
 
+[node name="Cima" type="Button" parent="Personagem/Camera"]
+margin_left = 178.0
+margin_top = 35.0
+margin_right = 207.0
+margin_bottom = 64.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Baixo" type="Button" parent="Personagem/Camera"]
+margin_left = 177.0
+margin_top = 111.0
+margin_right = 207.0
+margin_bottom = 139.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Esquerda" type="Button" parent="Personagem/Camera"]
+margin_left = 141.0
+margin_top = 74.0
+margin_right = 169.0
+margin_bottom = 100.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Direita" type="Button" parent="Personagem/Camera"]
+margin_left = 214.0
+margin_top = 73.0
+margin_right = 243.0
+margin_bottom = 100.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="CanvasLayer" type="CanvasLayer" parent="Personagem/Camera"]
 
 [node name="Popups" type="Popup" parent="Personagem/Camera/CanvasLayer"]
@@ -1733,6 +1769,11 @@ shape = SubResource( 87 )
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_Area2D_body_exited"]
+[connection signal="mouse_entered" from="Personagem/Camera/Cima" to="Personagem" method="_CimaJoystick"]
+[connection signal="mouse_exited" from="Personagem/Camera/Cima" to="Personagem" method="_joystickExited"]
+[connection signal="mouse_entered" from="Personagem/Camera/Baixo" to="Personagem" method="_baixoJoystick"]
+[connection signal="mouse_entered" from="Personagem/Camera/Esquerda" to="Personagem" method="_esquerdaJoystick"]
+[connection signal="mouse_entered" from="Personagem/Camera/Direita" to="Personagem" method="_direitaJoystick"]
 [connection signal="pressed" from="Personagem/Camera/CanvasLayer/Popups/Mercado/Button" to="." method="compraVida"]
 [connection signal="pressed" from="Personagem/Camera/CanvasLayer/Popups/Mercado/Button2" to="." method="comprarFase2"]
 [connection signal="pressed" from="Personagem/Camera/CanvasLayer/Popups/Mercado/Button3" to="." method="comprarFase3"]

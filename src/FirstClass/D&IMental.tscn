@@ -2242,28 +2242,28 @@ position = Vector2( -0.375, -2 )
 shape = SubResource( 55 )
 
 [node name="Pergunta6" type="Area2D" parent="."]
-position = Vector2( -815, 1165 )
+position = Vector2( -816, 1166 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pergunta6"]
 position = Vector2( -0.375, -2 )
 shape = SubResource( 55 )
 
 [node name="Pergunta7" type="Area2D" parent="."]
-position = Vector2( -815, 1165 )
+position = Vector2( -551, 1164 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pergunta7"]
 position = Vector2( -0.375, -2 )
 shape = SubResource( 55 )
 
 [node name="Pergunta8" type="Area2D" parent="."]
-position = Vector2( -815, 1165 )
+position = Vector2( -632, 1165 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pergunta8"]
 position = Vector2( -0.375, -2 )
 shape = SubResource( 55 )
 
 [node name="Pergunta9" type="Area2D" parent="."]
-position = Vector2( -815, 1165 )
+position = Vector2( -907, 1163 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pergunta9"]
 position = Vector2( -0.375, -2 )
@@ -2273,7 +2273,7 @@ shape = SubResource( 55 )
 position = Vector2( -815, 1165 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pergunta10"]
-position = Vector2( -0.375, -2 )
+position = Vector2( 99, -3 )
 shape = SubResource( 55 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
