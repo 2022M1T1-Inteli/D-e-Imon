@@ -1,7 +1,7 @@
 extends Node2D
 
 func goToGame():
-		get_tree().change_scene("res://jogoComPixelArt.tscn") #Altera a cena para a principal
+		get_tree().change_scene("res://Tutorial.tscn") #Altera a cena para a principal
 func quitGame(): 
 		get_tree().quit() #Faz o quit do jogo.
 # Called when the node enters the scene tree for the first time.

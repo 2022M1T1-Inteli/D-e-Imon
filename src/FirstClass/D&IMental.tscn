@@ -1,4 +1,4 @@
-[gd_scene load_steps=108 format=2]
+[gd_scene load_steps=110 format=2]
 
 [ext_resource path="res://Action RPG Resources/Tileset/scifi_platformTiles_16x16.png" type="Texture" id=1]
 [ext_resource path="res://Jelly Anika.ttf" type="DynamicFontData" id=2]
@@ -27,11 +27,13 @@
 [ext_resource path="res://Action RPG Resources/Tileset/estrada2start.png" type="Texture" id=25]
 [ext_resource path="res://Action RPG Resources/Tileset/estradastart.png" type="Texture" id=26]
 [ext_resource path="res://Action RPG Resources/NPC's/pixil-frame-0 (1).png" type="Texture" id=27]
-[ext_resource path="res://Action RPG Resources/NPC's/pixil-frame-1 (2).png" type="Texture" id=28]
+[ext_resource path="res://Action RPG Resources/NPC's/NPC1.png" type="Texture" id=28]
 [ext_resource path="res://Action RPG Resources/Tileset/Black.png" type="Texture" id=29]
 [ext_resource path="res://Action RPG Resources/Texture/background.png" type="Texture" id=30]
 [ext_resource path="res://Action RPG Resources/Texture/text.png" type="Texture" id=31]
 [ext_resource path="res://Action RPG Resources/NPC's/Cientista.png" type="Texture" id=32]
+[ext_resource path="res://Action RPG Resources/NPC's/pixil-frame-1 (1).png" type="Texture" id=33]
+[ext_resource path="res://Action RPG Resources/NPC's/pixil-layer-Background (1).png" type="Texture" id=34]
 
 [sub_resource type="StreamTexture" id=52]
 
@@ -1497,7 +1499,7 @@ tile_data = PoolIntArray( 1966018, 7, 0, 1966028, 7, 0, 1900627, 7, 0, 2293686, 
 
 [node name="Pixil-frame-0(1)6" type="Sprite" parent="."]
 position = Vector2( -202, 933 )
-texture = ExtResource( 27 )
+texture = ExtResource( 28 )
 
 [node name="Pixil-frame-0(1)4" type="Sprite" parent="."]
 position = Vector2( 5, 933 )
@@ -1509,23 +1511,23 @@ texture = ExtResource( 27 )
 
 [node name="Pixil-frame-1(2)" type="Sprite" parent="."]
 position = Vector2( -464, 941 )
-texture = ExtResource( 28 )
+texture = ExtResource( 33 )
 
 [node name="Pixil-frame-0(1)5" type="Sprite" parent="."]
 position = Vector2( 1057, 1147 )
-texture = ExtResource( 27 )
+texture = ExtResource( 33 )
 
 [node name="Pixil-frame-0(1)2" type="Sprite" parent="."]
 position = Vector2( 841, 936 )
-texture = ExtResource( 27 )
+texture = ExtResource( 34 )
 
 [node name="Pixil-frame-0(1)7" type="Sprite" parent="."]
 position = Vector2( -799, 1148 )
-texture = ExtResource( 27 )
+texture = ExtResource( 33 )
 
 [node name="Pixil-frame-0(1)3" type="Sprite" parent="."]
 position = Vector2( -868, 938 )
-texture = ExtResource( 27 )
+texture = ExtResource( 33 )
 
 [node name="Personagem" type="KinematicBody2D" parent="."]
 position = Vector2( 147, 22 )
