@@ -19,15 +19,17 @@ var pergunta10Blocked = false
 var toBlock
 #Define as perguntas padrões
 const Perguntas = [
-	{'question': 'Qual o nome dado ao preconceito contra vítimas de transtornos mentais? ', 'an1': 'Psicofobia', 'an2': 'Capacitismo', 'an3': 'Mentalismo', 'anc': 1, "tip": "Esse é um teste de dica, segue-se dessa forma nesse naipaaoooooo, yep bros, i am just writen a long text because I need a lot of space in the page, to test if my apllication test is well, thanks very much for paying attention at my text good lucky for everyone and THANKKSSSS A LOOTTTTT", "feedback": "Teste"},
-	{'question': 'Qual a campanha mais famosa de prevenção ao suicídio?', 'an1': 'Dia Mundial da Saúde Mental', 'an2': 'Janeiro Branco', 'an3': 'Setembro Amarelo', 'anc': 3, "tip": "Esse é um teste de dica, segue-se dessa forma nesse naipaaoooooo, yep bros, i am just writen a long text because I need a lot of space in the page, to test if my apllication test is well, thanks very much for paying attention at my text good lucky for everyone and THANKKSSSS A LOOTTTTT", "feedback": "Teste"},
-	{'question': 'A psicofobia é enquadrada no código penal como:', 'an1': 'Difamação', 'an2': 'Injúria', 'an3': 'Calúnia', 'anc': 2, "tip": "Esse é um teste de dica, segue-se dessa forma nesse naipaaoooooo, yep bros, i am just writen a long text because I need a lot of space in the page, to test if my apllication test is well, thanks very much for paying attention at my text good lucky for everyone and THANKKSSSS A LOOTTTTT", "feedback": "Teste"},
-	{'question': 'Qual o tamanho da pena para quem comete psicofobia?', 'an1': '2 a 4 anos', 'an2': '8 anos', 'an3': 'Apenas multa', 'anc': 1, "tip": "Esse é um teste de dica, segue-se dessa forma nesse naipaaoooooo, yep bros, i am just writen a long text because I need a lot of space in the page, to test if my apllication test is well, thanks very much for paying attention at my text good lucky for everyone and THANKKSSSS A LOOTTTTT", "feedback": "Teste"},
-	{'question': 'Em qual hospital ocorreu o "holocausto brasileiro"?', 'an1': 'Hospital de Barbacena', 'an2': 'Hospital Primavera', 'an3': 'Hospital Albert Einstein', 'anc': 1, "tip": "Esse é um teste de dica, segue-se dessa forma nesse naipaaoooooo, yep bros, i am just writen a long text because I need a lot of space in the page, to test if my apllication test is well, thanks very much for paying attention at my text good lucky for everyone and THANKKSSSS A LOOTTTTT", "feedback": "Teste"},
-	{'question': 'Quais as principais razões pelas quais os doentes mentais sofriam tanto no Hospital de Barbacena?', 'an1': 'Por conta da sua origem', 'an2': 'Por preconceito racial', 'an3': 'Discriminação em relação a sua adversidade mental', 'anc': 3, "tip": "Esse é um teste de dica, segue-se dessa forma nesse naipaaoooooo, yep bros, i am just writen a long text because I need a lot of space in the page, to test if my apllication test is well, thanks very much for paying attention at my text good lucky for everyone and THANKKSSSS A LOOTTTTT", "feedback": "Teste"},
-	{'question': 'Quais os dois transtornos mentais mais comuns no Brasil?', 'an1': 'Depressão e ansiedade', 'an2': 'TDAH e transtorno de personalidade', 'an3': 'Bipolaridade e esquizofrenia', 'anc': 1, "tip": "Esse é um teste de dica, segue-se dessa forma nesse naipaaoooooo, yep bros, i am just writen a long text because I need a lot of space in the page, to test if my apllication test is well, thanks very much for paying attention at my text good lucky for everyone and THANKKSSSS A LOOTTTTT", "feedback": "Teste"},
-	{'question': 'O que não fazer quando alguem tem uma crise de ansidade?', 'an1': 'Ajudar a pessoa a controlar a respiração', 'an2': 'Levar a pessoa ao relaxamento, muscular ou outros', 'an3': 'Fazer piada com a situação', 'anc': 3, "tip": "Esse é um teste de dica, segue-se dessa forma nesse naipaaoooooo, yep bros, i am just writen a long text because I need a lot of space in the page, to test if my apllication test is well, thanks very much for paying attention at my text good lucky for everyone and THANKKSSSS A LOOTTTTT", "feedback": "Teste"},
-	{'question': 'O que não fazer quando alguém apresenta sintomas de depressão?', 'an1': 'Ouvir com atenção o que a pessoa tem a dizer', 'an2': 'Minimizar o problema, dizendo que vai passar logo', 'an3': 'Recomendar que ela procure ajuda profissional', 'anc': 2, "tip": "Esse é um teste de dica, segue-se dessa forma nesse naipaaoooooo, yep bros, i am just writen a long text because I need a lot of space in the page, to test if my apllication test is well, thanks very much for paying attention at my text good lucky for everyone and THANKKSSSS A LOOTTTTT", "feedback": "Teste"},
+	{'question': 'Qual o nome dado ao preconceito contra vítimas de transtornos mentais?', 'an1': 'Psicofobia', 'an2': 'Capacitismo', 'an3': 'Mentalismo', 'anc': 1, "tip": "Algumas pessoas possuem transtornos mentais e, normalmente, além de ter que conviver com esse peso, são negligenciadas em diversos contextos. Isso impede que elas vivam uma vida tranquila, visto que precisam aprender a conviver também com o preconceito.", "feedback": "O nome dado ao preconceito contra vítimas de transtornos mentais é psicofobia."},
+	{'question': 'Qual a campanha mais famosa de prevenção ao suicídio?', 'an1': 'Setembro Amarelo', 'an2': 'Dia Mundial da Saúde Mental', 'an3': 'Janeiro Branco', 'anc': 1, "tip": "O suicídio é a segunda principal causa de morte entre jovens com idade entre 15 e 29 anos. Esse dado preocupante evidencia a negligência com a qual são tratados aqueles que enfrentam problemas psicológicos.", "feedback": "Embora todas as opções apresentadas sejam iniciativas em prol da saúde mental, aquela que se destaca enquanto campanha de prevenção ao suicídio é o Setembro Amarelo."},
+	{'question': 'Qual a diferença entre um psiquiatra e um psicólogo?', 'an1': 'O psicólogo faz faculdade de medicina, e o psiquiatra não.', 'an2': 'O psicólogo costuma olhar para os problemas psicológicos pela perspectiva filosófica, social e comportamental, enquanto o psiquiatra traz uma visão médica do problema.', 'an3': 'O psicólogo pode recomendar remédios para o tratamento de um transtorno, diferentemente do psiquiatra.', 'anc': 2, "tip": "Existem profissionais da saúde capazes de auxiliar e tratar transtornos psicológicos. Esses profissionais são a fonte de apoio mais confiável quando se trata de procurar ajuda.", "feedback": "Tanto o psicólogo quanto o psiquiatra devem ser capacitados: o psicólogo deve ter formação em psicologia, enquanto o psiquiatra deve ser um médico especializado na área. Assim, entende-se que a psicologia estuda os fenômenos psíquicos e o comportamento dos indivíduos. Já a psiquiatria é a especialidade médica dedicada ao diagnóstico, prevenção e tratamento de transtornos mentais."},
+	{'question': 'A psicofobia é enquadrada no código penal como:', 'an1': 'Difamação', 'an2': 'Injúria', 'an3': 'Calúnia', 'anc': 2, "tip": "É chamada de “psicofobia” a discriminação contra um traço ou condição mental que uma pessoa tem ou julga ter. Esse tipo de opressão é considerado crime no Brasil.", "feedback": "O código penal brasileiro reconhece a psicofobia como um crime de injúria. Injúria, por definição, consiste na ação de ofender a honra e a dignidade de alguém. Portanto, fique ligado! Ofender pessoas que lidam com doenças mentais não se trata de liberdade de expressão. É um crime, que deve ser levado a sério."},
+	{'question': 'Qual o tamanho da pena para quem comete psicofobia?', 'an1': '2 a 4 anos', 'an2': '8 anos', 'an3': 'Apenas multa', 'anc': 1, "tip": "É chamada de “psicofobia” a discriminação contra um traço ou condição mental que uma pessoa tem ou julga ter. Esse tipo de opressão é considerado crime no Brasil.", "feedback": "A legislação brasileira determina pena de 2 a 4 anos para o indivíduo que comete psicofobia."},
+	{'question': 'Em qual hospital ocorreu o "holocausto brasileiro"?', 'an1': 'Hospital Colônia de Barbacena', 'an2': 'Hospital Primavera', 'an3': 'Hospital Albert Einstein', 'anc': 1, "tip": "Um dos mais chocantes episódios de discriminação contra doente mentais ocorridos no Brasil foi o “holocausto brasileiro”. Comparado a um campo de concentração, torturava seus pacientes sob o pretexto de tratar doenças mentais.", "feedback": "O episódio conhecido como “holocausto brasileiro” ocorreu no Hospital Colônia, localizado na cidade de Barbacena."},
+	{'question': 'Quais as principais razões pelas quais os doentes mentais sofriam tanto no Hospital de Barbacena?', 'an1': 'Por conta da sua origem', 'an2': 'Por preconceito racial', 'an3': 'Discriminação em relação a sua adversidade mental', 'anc': 3, "tip": "Um dos mais chocantes episódios de discriminação contra doente mentais ocorridos no Brasil foi o “holocausto brasileiro”. Comparado a um campo de concentração, torturava seus pacientes sob o pretexto de tratar doenças mentais.", "feedback": "A principal razão pela qual os doentes mentais sofriam tamanha crueldade no Hospital de Barbacena era a discriminação relacionada a suas adversidades mentais."},
+	{'question': 'Quais os dois transtornos mentais mais comuns no Brasil?', 'an1': 'Depressão e ansiedade', 'an2': 'TDAH e transtorno de personalidade', 'an3': 'Bipolaridade e esquizofrenia', 'anc': 1, "tip": "O Brasil, atualmente, se destaca entre os países com maiores índices de transtornos mentais. Conhecer esse cenário é o primeiro passo para lutar contra a prevalência das adversidades psicológicas no país.", "feedback": "Os transtornos mentais mais comuns no Brasil são a depressão e a ansiedade. O Brasil figura no topo entre os países com maiores índices dessas duas condições."},
+	{'question': 'O que não fazer quando alguém tem uma crise de ansidade?', 'an1': 'Ajudar a pessoa a controlar a respiração', 'an2': 'Levar a pessoa ao relaxamento, muscular ou outros', 'an3': 'Fazer com que a pessoa mude de assunto', 'anc': 3, "tip": "Crises de ansiedade são eventos recorrentes em pessoas que possuem Transtorno de Ansiedade Generalizada. Consistem em momentos nos quais os sintomas da ansiedade se manifestam de forma abrupta e intensa.", "feedback": "Quando alguém tem uma crise de ansiedade, o recomendável é ajudá-la a controlar sua respiração e buscar levá-la ao relaxamento, muscular ou outros. Fazer com que a pessoa mude de assunto não irá afastar os sintomas da crise, configurando um cenário ainda mais prejudicial para ela."},
+	{'question': 'O que não fazer quando alguém apresenta sintomas de depressão?', 'an1': 'Ouvir com atenção o que a pessoa tem a dizer', 'an2': 'Minimizar o problema, dizendo que vai passar logo', 'an3': 'Recomendar que ela procure ajuda profissional', 'anc': 2, "tip": "O número de pessoas que vivem com depressão, segundo a OMS, está aumentando – 18% entre 2005 e 2015. A estimativa é que, atualmente, mais de 300 milhões de pessoas de todas as idades sofram com a doença em todo o mundo. O órgão alertou ainda que a depressão figura como a principal causa de incapacidade laboral no planeta.", "feedback": "Para ajudar uma pessoa que está com depressão, é recomendável indicá-la ajuda profissional e ouvir com atenção o que ela tem a dizer. Minimizar o problema pode atenuar o problema e fazer com que a pessoa se torne ainda mais insegura para falar sobre o assunto."},
+	{'question': 'Qual o nome da instituição responsável pelo abrigo e tratamento de pacientes diagnosticados com doenças mentais?', 'an1': 'Hospital Psiquiátrico', 'an2': 'Casa de repouso', 'an3': 'Hospício', 'anc': 2, "tip": "Quando se é diagnosticado com uma doença mental antissocial ou em estágio antissocial, o paciente deve ser internado e tratado em uma instituição apropriada, no qual deve receber auxílio de médicos, enfermeiras, psicólogos e outros profissionais da saúde especializados.", "feedback": "Hospício é uma forma pejorativa que remete aos tempos em que o chamado Holocausto Brasileiro aconteceu no Hospital Colônia. A nomenclatura correta é Hospital Psiquiátrico."},
 ]
 
 var perguntasFromDB = []
@@ -51,6 +53,7 @@ func loadPerguntas():
 	else:
 		printerr("No saved data!")
 		savePerguntas()
+		get_tree().change_scene("res://D&IMental.tscn")
 
 var anc = 1 #Resposta correta
 var liberadoAbrir = false #Libera a abertura do QUIZ
@@ -185,12 +188,9 @@ var player = {
 func setPoints(points):
 	$Personagem/Camera/Pontos.text = str(points) 
 
-# Executa quando o dialogo é finilazado
-func unpause(timeline_Teste):
-	get_tree().change_scene(cenaDestination)
-
-func finaliza_cientista(timeline_Cientista):
-	get_tree().paused = false
+## Executa quando o dialogo é finilazado
+#func unpause(timeline_Cientista):
+#	get_tree().change_scene("res://D&IMental.tscn")
 
 #Add uma quantidade específica de pontos do player
 func addCoins(qnt): # Uma função que adiciona coinds "Dinheiro" para o personagem como forma de "Xp"
@@ -211,6 +211,23 @@ func deleteCoins(qnt):
 	var pontosInStringRed = str(pontosAdicionadosRed) #Retorna o total para o formato String
 	$Personagem/Camera/Pontos.text = pontosInStringRed #Substitui o valor dos pontos pelo valor retirado
 
+#Faz a pergunta aparcer na tela do usuário
+func defineQuestion():
+	var lenghtArray = float(len(perguntasFromDB))
+	if lenghtArray >= 1:
+		liberadoAbrir = true #Libera a tecla M para funcionar
+		MensagemPressM(true) #Torna o aviso de "Pressione M" visivel
+		var content = selectQuestion() #Gera uma pergunta de forma aleatória
+		setPopUpContent(content[0],content[1], content[2], content[3]) #Define o conteudo da pergunta
+		anc = content[4] #Define qual a resposta correta
+		setTipContent(content[5])
+		setFeedbackContent(content[6])
+	else:
+		print('Acabou as perguntas!')
+		$Personagem/Camera/CanvasLayer/Popups/Popup4.visible = true #Torna vísivel aviso de perguntas acabaram
+		yield(get_tree().create_timer(3.0), "timeout") #Aguarda 3 segundo
+		$Personagem/Camera/CanvasLayer/Popups/Popup4.visible = true #Torna invísivel aviso de perguntas acabaram
+		
 #Load quantos pontos o player possui atualmente
 func getPoints():
 	return int($Personagem/Camera/Pontos.text) #Retorna em forma de número quantos pontos o player possui
@@ -267,14 +284,16 @@ func _process(delta):
 	#Verifica se o personagem está dentro de AREA de minigame
 	if liberadoAbrirG:
 		if Input.is_action_pressed("ui_g"):
-			var dialog = Dialogic.start(timeline)
-			add_child(dialog)
-			dialog.connect('timeline_end', self, "unpause")
+			if(timeline == "Minigame1"):
+				var dialogMinigame = Dialogic.start("Minigame1")
+				add_child(dialogMinigame)
+			elif (timeline == 'Minigame2'):
+				var dialogMinigame2 = Dialogic.start("Minigame2")
+				add_child(dialogMinigame2)
 	if liberadoAbrirCientista:
 		if Input.is_action_pressed("ui_g"):
 			var dialogScientist = Dialogic.start("Cientista")
 			add_child(dialogScientist)
-			dialogScientist.connect('timeline_end', self, "finaliza_cientista")
 	pass
 
 #Quando o personagem entra no portal
@@ -290,18 +309,8 @@ func _perguntaEntered(body):
 		if pergunta1Blocked == true:
 			pass
 		else:
-			var lenghtArray = float(len(perguntasFromDB))
-			if lenghtArray >= 1:
-				liberadoAbrir = true #Libera a tecla M para funcionar
-				MensagemPressM(true) #Torna o aviso de "Pressione M" visivel
-				var content = selectQuestion() #Gera uma pergunta de forma aleatória
-				setPopUpContent(content[0],content[1], content[2], content[3]) #Define o conteudo da pergunta
-				anc = content[4] #Define qual a resposta correta
-				setTipContent(content[5])
-				setFeedbackContent(content[6])
-				toBlock = 'Pergunta1'
-			else:
-				print('Acabou as perguntas!')
+			toBlock = 'Pergunta1'
+			defineQuestion()
 	else:
 		pass
 
@@ -317,7 +326,6 @@ func _perguntaExited(body):
 func _onFirstOptionSelected():
 	if (anc == 1): #Resposta correta
 		beVisible(false) #Torna o Quiz invisivel
-		get_tree().paused = false
 		messageFinal('Acertou') #Define a mensagem de acerto ou erro
 		addCoins(500) #Adiciona pontos
 		perguntasFromDB.remove(randomNumberForDelete) #Deleto a pergunta que o player acertou
@@ -325,13 +333,13 @@ func _onFirstOptionSelected():
 		blockQuestion()
 		yield(get_tree().create_timer(3.0), "timeout") #Aguarda 3 segundo
 		$Personagem/Camera/CanvasLayer/Popups/Popup2.visible = false
+		get_tree().paused = false
 		liberadoAbrir = false
 		player.xp = getPoints() #Captura a quantidade atual de pontos
 		save() #Salva no arquivo local
 	else: #Resposta errada
 		beVisible(false) #Torna o quiz invisivel
 		liberadoAbrir = false
-		get_tree().paused = false 
 		messageFinal('Errou') #Define o conteudo da mensagem final
 		yield(get_tree().create_timer(3.0), "timeout") #Aguarda 3 segundos
 		$Personagem/Camera/CanvasLayer/Popups/Popup2.visible = false #Some a mensagem final
@@ -397,7 +405,7 @@ func _onMinigame1Entered(body):
 	if (body.name == 'Personagem'):
 		liberadoAbrirG = true
 		MensagemPressG(true)
-		timeline = 'Teste'
+		timeline = 'Minigame2'
 		Global.positionForMapa1 = Vector2(337, 925)
 		cenaDestination = "res://pong.tscn"
 		pass
@@ -409,7 +417,9 @@ func dialogFinished():
 #Quando você sai da área de minigame
 func _onMinigameExited(body):
 	liberadoAbrirG = false
+	liberadoAbrirCientista = false
 	MensagemPressG(false)
+	timeline = ""
 	pass
 
 #Quando entra na área do segundo minigame
@@ -417,7 +427,7 @@ func _onMinigame2Entered(body):
 	if (body.name == 'Personagem'):
 		liberadoAbrirG = true
 		MensagemPressG(true)
-		timeline = 'Teste'
+		timeline = 'Minigame1'
 		cenaDestination = "res://FlappyBrahma.tscn"
 		Global.positionForMapa1 = Vector2(563, 932)
 		pass # Replace with function body.
@@ -431,198 +441,110 @@ func _onButtonSeguirPressed():
 #Quando a resposta selecionado for incorreta
 func _onErrouPressed():
 	beVisibleFeedback(false)
+	get_tree().paused = false
 	pass
 
-
+#Quando entra dentro da área de pergunta
 func _pergunta2Entered(body):
 	if (body.name == 'Personagem'):
 		if pergunta2Blocked == true:
 			pass
 		else:
-			var lenghtArray = float(len(perguntasFromDB))
-			if lenghtArray >= 1:
-				liberadoAbrir = true #Libera a tecla M para funcionar
-				MensagemPressM(true) #Torna o aviso de "Pressione M" visivel
-				var content = selectQuestion() #Gera uma pergunta de forma aleatória
-				setPopUpContent(content[0],content[1], content[2], content[3]) #Define o conteudo da pergunta
-				anc = content[4] #Define qual a resposta correta
-				setTipContent(content[5])
-				setFeedbackContent(content[6])
-				toBlock = 'Pergunta2'
-			else:
-				print('Acabou as perguntas!')
+			toBlock = 'Pergunta2'
+			defineQuestion()
 	else:
 		pass
 
+#Quando entra dentro da área de pergunta
 func _pergunta3Entered(body):
 	if (body.name == 'Personagem'):
 		if pergunta3Blocked == true:
 			pass
 		else:
-			var lenghtArray = float(len(perguntasFromDB))
-			if lenghtArray >= 1:
-				liberadoAbrir = true #Libera a tecla M para funcionar
-				MensagemPressM(true) #Torna o aviso de "Pressione M" visivel
-				var content = selectQuestion() #Gera uma pergunta de forma aleatória
-				setPopUpContent(content[0],content[1], content[2], content[3]) #Define o conteudo da pergunta
-				anc = content[4] #Define qual a resposta correta
-				setTipContent(content[5])
-				setFeedbackContent(content[6])
-				toBlock = 'Pergunta3'
-			else:
-				print('Acabou as perguntas!')
+			toBlock = 'Pergunta3'
+			defineQuestion()
 	else:
 		pass
 
+#Quando entra dentro da área de pergunta
 func _pergunta4Entered(body):
 	if (body.name == 'Personagem'):
 		if pergunta4Blocked == true:
 			pass
 		else:
-			var lenghtArray = float(len(perguntasFromDB))
-			if lenghtArray >= 1:
-				liberadoAbrir = true #Libera a tecla M para funcionar
-				MensagemPressM(true) #Torna o aviso de "Pressione M" visivel
-				var content = selectQuestion() #Gera uma pergunta de forma aleatória
-				setPopUpContent(content[0],content[1], content[2], content[3]) #Define o conteudo da pergunta
-				anc = content[4] #Define qual a resposta correta
-				setTipContent(content[5])
-				setFeedbackContent(content[6])
-				toBlock = 'Pergunta4'
-			else:
-				print('Acabou as perguntas!')
+			toBlock = 'Pergunta4'
+			defineQuestion()
 	else:
 		pass
 
-
+#Quando entra dentro da área de pergunta
 func _pergunta5Entered(body):
 	if (body.name == 'Personagem'):
 		if pergunta5Blocked == true:
 			pass
 		else:
-			var lenghtArray = float(len(perguntasFromDB))
-			if lenghtArray >= 1:
-				liberadoAbrir = true #Libera a tecla M para funcionar
-				MensagemPressM(true) #Torna o aviso de "Pressione M" visivel
-				var content = selectQuestion() #Gera uma pergunta de forma aleatória
-				setPopUpContent(content[0],content[1], content[2], content[3]) #Define o conteudo da pergunta
-				anc = content[4] #Define qual a resposta correta
-				setTipContent(content[5])
-				setFeedbackContent(content[6])
-				toBlock = 'Pergunta5'
-			else:
-				print('Acabou as perguntas!')
+			toBlock = 'Pergunta5'
+			defineQuestion()
 	else:
 		pass
 
-
+#Quando entra dentro da área de pergunta
 func _pergunta6Entered(body):
 	if (body.name == 'Personagem'):
 		if pergunta6Blocked == true:
 			pass
 		else:
-			var lenghtArray = float(len(perguntasFromDB))
-			if lenghtArray >= 1:
-				liberadoAbrir = true #Libera a tecla M para funcionar
-				MensagemPressM(true) #Torna o aviso de "Pressione M" visivel
-				var content = selectQuestion() #Gera uma pergunta de forma aleatória
-				setPopUpContent(content[0],content[1], content[2], content[3]) #Define o conteudo da pergunta
-				anc = content[4] #Define qual a resposta correta
-				setTipContent(content[5])
-				setFeedbackContent(content[6])
-				toBlock = 'Pergunta6'
-			else:
-				print('Acabou as perguntas!')
+			toBlock = 'Pergunta6'
+			defineQuestion()
 	else:
 		pass
 
-
+#Quando entra dentro da área de pergunta
 func _pergunta7Entered(body):
 	if (body.name == 'Personagem'):
 		if pergunta7Blocked == true:
 			pass
 		else:
-			var lenghtArray = float(len(perguntasFromDB))
-			if lenghtArray >= 1:
-				liberadoAbrir = true #Libera a tecla M para funcionar
-				MensagemPressM(true) #Torna o aviso de "Pressione M" visivel
-				var content = selectQuestion() #Gera uma pergunta de forma aleatória
-				setPopUpContent(content[0],content[1], content[2], content[3]) #Define o conteudo da pergunta
-				anc = content[4] #Define qual a resposta correta
-				setTipContent(content[5])
-				setFeedbackContent(content[6])
-				toBlock = 'Pergunta7'
-			else:
-				print('Acabou as perguntas!')
+			toBlock = 'Pergunta7'
+			defineQuestion()
 	else:
 		pass
 
-
+#Quando entra dentro da área de pergunta
 func _pergunta8Entered(body):
 	if (body.name == 'Personagem'):
 		if pergunta8Blocked == true:
 			pass
 		else:
-			var lenghtArray = float(len(perguntasFromDB))
-			if lenghtArray >= 1:
-				liberadoAbrir = true #Libera a tecla M para funcionar
-				MensagemPressM(true) #Torna o aviso de "Pressione M" visivel
-				var content = selectQuestion() #Gera uma pergunta de forma aleatória
-				setPopUpContent(content[0],content[1], content[2], content[3]) #Define o conteudo da pergunta
-				anc = content[4] #Define qual a resposta correta
-				setTipContent(content[5])
-				setFeedbackContent(content[6])
-				toBlock = 'Pergunta8'
-			else:
-				print('Acabou as perguntas!')
+			toBlock = 'Pergunta8'
+			defineQuestion()
 	else:
 		pass
 
-
+#Quando entra dentro da área de pergunta
 func _pergunta9Entered(body):
 	if (body.name == 'Personagem'):
 		if pergunta9Blocked == true:
 			pass
 		else:
-			var lenghtArray = float(len(perguntasFromDB))
-			if lenghtArray >= 1:
-				liberadoAbrir = true #Libera a tecla M para funcionar
-				MensagemPressM(true) #Torna o aviso de "Pressione M" visivel
-				var content = selectQuestion() #Gera uma pergunta de forma aleatória
-				setPopUpContent(content[0],content[1], content[2], content[3]) #Define o conteudo da pergunta
-				anc = content[4] #Define qual a resposta correta
-				setTipContent(content[5])
-				setFeedbackContent(content[6])
-				toBlock = 'Pergunta9'
-			else:
-				print('Acabou as perguntas!')
+			toBlock = 'Pergunta9'
+			defineQuestion()
 	else:
 		pass
 
-
+#Quando entra dentro da área de pergunta
 func _pergunta10Entered(body):
 	if (body.name == 'Personagem'):
 		if pergunta10Blocked == true:
 			pass
 		else:
-			var lenghtArray = float(len(perguntasFromDB))
-			if lenghtArray >= 1:
-				liberadoAbrir = true #Libera a tecla M para funcionar
-				MensagemPressM(true) #Torna o aviso de "Pressione M" visivel
-				var content = selectQuestion() #Gera uma pergunta de forma aleatória
-				setPopUpContent(content[0],content[1], content[2], content[3]) #Define o conteudo da pergunta
-				anc = content[4] #Define qual a resposta correta
-				setTipContent(content[5])
-				setFeedbackContent(content[6])
-				toBlock = 'Pergunta10'
-			else:
-				print('Acabou as perguntas!')
+			toBlock = 'Pergunta10'
+			defineQuestion()
 	else:
 		pass
 
-
+#Quando o personagem entra na área do cientista 
 func _onScientistEntered(body):
 	if (body.name == 'Personagem'):
-		MensagemPressG(true)
-		liberadoAbrirCientista = true
-		timeline = 'Cientista'
+		MensagemPressG(true) #Aparece a mensagem de pressione G
+		liberadoAbrirCientista = true #Libera que o dialógo seja aberto

@@ -1,13 +1,13 @@
 [gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Fontes/Futura Extra Bold.ttf" type="DynamicFontData" id=1]
-[ext_resource path="res://img/dragon3.png" type="Texture" id=2]
-[ext_resource path="res://img/backGroundEdit1.png" type="Texture" id=3]
-[ext_resource path="res://img/gameover.png" type="Texture" id=4]
-[ext_resource path="res://img/dragon2.png" type="Texture" id=5]
-[ext_resource path="res://img/column2.png" type="Texture" id=6]
-[ext_resource path="res://img/column1.png" type="Texture" id=7]
-[ext_resource path="res://img/dragon1.png" type="Texture" id=8]
+[ext_resource path="res://Action RPG Resources/FlappyBrahma/Brahma2.png" type="Texture" id=2]
+[ext_resource path="res://Action RPG Resources/FlappyBrahma/backGroundEdit1.png" type="Texture" id=3]
+[ext_resource path="res://Action RPG Resources/FlappyBrahma/perdeu.png" type="Texture" id=4]
+[ext_resource path="res://Action RPG Resources/FlappyBrahma/Brahma1.png" type="Texture" id=5]
+[ext_resource path="res://Action RPG Resources/FlappyBrahma/Barril1.png" type="Texture" id=6]
+[ext_resource path="res://Action RPG Resources/FlappyBrahma/Barril.png" type="Texture" id=7]
+[ext_resource path="res://Action RPG Resources/FlappyBrahma/Brahma.png" type="Texture" id=8]
 [ext_resource path="res://Scripts/FlappyBrahma.gd" type="Script" id=9]
 
 [sub_resource type="SpriteFrames" id=1]
@@ -22,14 +22,14 @@ animations = [ {
 radius = 17.0798
 height = 73.989
 
-[sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 24, 297.4 )
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 23, 72.4787 )
 
 [sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 25, 292.2 )
 
-[sub_resource type="RectangleShape2D" id=5]
-extents = Vector2( 23, 72.4787 )
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 24, 297.4 )
 
 [sub_resource type="DynamicFont" id=6]
 size = 24
@@ -44,47 +44,51 @@ scale = Vector2( 1.6575, 2.45898 )
 current = true
 zoom = Vector2( 4.8, 4.2 )
 
-[node name="background" type="Sprite" parent="."]
+[node name="Fundo" type="Sprite" parent="."]
 position = Vector2( 1829, 239 )
 scale = Vector2( 1.6575, 2.45898 )
 texture = ExtResource( 3 )
 
-[node name="dragon" type="KinematicBody2D" parent="."]
+[node name="BrahmaVoadora" type="KinematicBody2D" parent="."]
 
-[node name="dragonImages" type="AnimatedSprite" parent="dragon"]
+[node name="bhramaImagens" type="AnimatedSprite" parent="BrahmaVoadora"]
 position = Vector2( 81, 71 )
 scale = Vector2( 0.7, 0.7 )
 frames = SubResource( 1 )
-frame = 2
+frame = 1
 playing = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="dragon"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BrahmaVoadora"]
 position = Vector2( 79, 83 )
 rotation = 1.26583
 shape = SubResource( 7 )
 
-[node name="columns" type="Area2D" parent="."]
+[node name="Barrius" type="Area2D" parent="."]
 position = Vector2( 515, -197 )
 
-[node name="column1" type="Sprite" parent="columns"]
+[node name="column1" type="Sprite" parent="Barrius"]
 position = Vector2( 480, 698 )
 texture = ExtResource( 7 )
 
-[node name="column2" type="Sprite" parent="columns"]
+[node name="column2" type="Sprite" parent="Barrius"]
 position = Vector2( 480, -58 )
 texture = ExtResource( 6 )
 
-[node name="CollisionShape2D1" type="CollisionShape2D" parent="columns"]
-position = Vector2( 480, 700 )
-shape = SubResource( 3 )
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Barrius"]
+position = Vector2( 480.95, 320.248 )
+shape = SubResource( 5 )
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="columns"]
+[node name="Cima" type="Area2D" parent="Barrius"]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Barrius/Cima"]
 position = Vector2( 480, -53 )
 shape = SubResource( 4 )
 
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="columns"]
-position = Vector2( 480.95, 320.248 )
-shape = SubResource( 5 )
+[node name="Baixo" type="Area2D" parent="Barrius"]
+
+[node name="CollisionShape2D1" type="CollisionShape2D" parent="Barrius/Baixo"]
+position = Vector2( 480, 700 )
+shape = SubResource( 3 )
 
 [node name="perdeu" type="Sprite" parent="."]
 position = Vector2( 751, 254 )
@@ -104,5 +108,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[connection signal="body_shape_entered" from="columns" to="." method="_on_columns_body_shape_entered"]
-[connection signal="body_shape_exited" from="columns" to="." method="_on_columns_body_shape_exited"]
+[connection signal="body_exited" from="Barrius" to="." method="_passouBarril"]
+[connection signal="body_entered" from="Barrius/Cima" to="." method="_bateuBarril"]
+[connection signal="body_entered" from="Barrius/Baixo" to="." method="_bateuBarril"]

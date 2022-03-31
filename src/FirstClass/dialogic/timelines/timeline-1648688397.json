@@ -1,0 +1,35 @@
+{
+	"events": [
+		{
+			"event_id": "dialogic_024",
+			"set_theme": "theme-1647575140.cfg"
+		},
+		{
+			"character": "character-1648644473.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Teste de diálogo"
+		},
+		{
+			"character": "character-1648644541.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Laíza eu vou arruma, não tira minha nota plsss"
+		},
+		{
+			"character": "character-1648644473.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Gostei da ideia"
+		},
+		{
+			"change_scene": "res://pong.tscn",
+			"event_id": "dialogic_041"
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.4",
+		"file": "timeline-1648688397.json",
+		"name": "Minigame2"
+	}
+}

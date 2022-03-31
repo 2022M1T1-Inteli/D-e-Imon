@@ -1,4 +1,4 @@
-[gd_scene load_steps=110 format=2]
+[gd_scene load_steps=115 format=2]
 
 [ext_resource path="res://Action RPG Resources/World/Bush.png" type="Texture" id=1]
 [ext_resource path="res://Action RPG Resources/World/Grass.png" type="Texture" id=2]
@@ -31,6 +31,9 @@
 [ext_resource path="res://Action RPG Resources/NPC's/NPC1.png" type="Texture" id=29]
 [ext_resource path="res://audios/mixkit-games-worldbeat-466.mp3" type="AudioStream" id=30]
 [ext_resource path="res://mercadinhoAbner.png" type="Texture" id=31]
+[ext_resource path="res://Action RPG Resources/Texture/seta.png" type="Texture" id=32]
+[ext_resource path="res://Action RPG Resources/Texture/seta02.png" type="Texture" id=33]
+[ext_resource path="res://Action RPG Resources/Texture/text.png" type="Texture" id=34]
 
 [sub_resource type="TileSet" id=20]
 0/name = "TX Plant.png 0"
@@ -297,6 +300,12 @@ extents = Vector2( 16.7436, 4.64078 )
 
 [sub_resource type="RectangleShape2D" id=76]
 extents = Vector2( 0.843081, 2.83414 )
+
+[sub_resource type="RectangleShape2D" id=85]
+extents = Vector2( 0.4651, 2.67937 )
+
+[sub_resource type="RectangleShape2D" id=86]
+extents = Vector2( 0.416741, 2.32053 )
 
 [sub_resource type="RectangleShape2D" id=15]
 extents = Vector2( 28.25, 16.5 )
@@ -567,8 +576,8 @@ size = 17
 font_data = ExtResource( 15 )
 
 [sub_resource type="DynamicFont" id=37]
-size = 14
-font_data = ExtResource( 6 )
+size = 20
+font_data = ExtResource( 17 )
 
 [sub_resource type="DynamicFont" id=38]
 size = 14
@@ -903,6 +912,16 @@ tile_data = PoolIntArray( -6225968, 12, 0, -6225967, 12, 0, -6225966, 12, 0, -62
 position = Vector2( 304, -1759 )
 texture = ExtResource( 29 )
 
+[node name="Seta" type="Sprite" parent="."]
+position = Vector2( 366, -1789 )
+scale = Vector2( 1.76563, 1.76563 )
+texture = ExtResource( 32 )
+
+[node name="Seta02" type="Sprite" parent="Seta"]
+position = Vector2( -69.0974, -3.05176e-05 )
+scale = Vector2( 1.0327, 1.0327 )
+texture = ExtResource( 33 )
+
 [node name="Collisions" type="StaticBody2D" parent="."]
 position = Vector2( 97, 88 )
 rotation = 3.14159
@@ -1026,6 +1045,14 @@ shape = SubResource( 76 )
 [node name="CollisionPolygon2D18" type="CollisionPolygon2D" parent="Collisions"]
 polygon = PoolVector2Array( 3.83687, 642.616, 2.44157, 642.616, 2.40281, 651.279, 1.27882, 651.279, 1.27882, 660.871, 0.0773065, 661.799, 0.0773039, 669.534, -1.04669, 670.771, -1.24048, 680.672, -2.51951, 681.291, -2.40324, 691.501, -3.72102, 690.573, -3.75984, 887.658, -4.69004, 887.039, -4.92259, 897.249, -6.31789, 897.559, -6.20162, 909.006, -7.36437, 909.625, -7.44189, 918.598, -8.52713, 918.598, -8.75967, 909.625, -9.80615, 909.625, -9.92242, 898.796, -10.8914, 898.487, -10.9689, 889.205, -12.4805, 888.895, -12.4029, 702.02, -13.4881, 701.711, -13.5269, 889.824, -7.94576, 929.736, -2.32578, 885.183, -2.40324, 699.854 )
 
+[node name="CollisionShape2D15" type="CollisionShape2D" parent="Collisions"]
+position = Vector2( -5.6589, 575.372 )
+shape = SubResource( 85 )
+
+[node name="CollisionShape2D16" type="CollisionShape2D" parent="Collisions"]
+position = Vector2( -10.397, 575.322 )
+shape = SubResource( 86 )
+
 [node name="Area2D" type="Area2D" parent="."]
 position = Vector2( -450, -12 )
 
@@ -1035,7 +1062,6 @@ shape = SubResource( 15 )
 
 [node name="Personagem" type="KinematicBody2D" parent="."]
 position = Vector2( 267, -806 )
-scale = Vector2( 1, 1 )
 script = ExtResource( 5 )
 
 [node name="Sombra" type="Sprite" parent="Personagem"]
@@ -1404,18 +1430,26 @@ margin_top = 158.0
 margin_right = 183.0
 margin_bottom = 177.0
 
+[node name="Sprite" type="Sprite" parent="Personagem/Camera/CanvasLayer/Popups/Popup5"]
+position = Vector2( 63, 6 )
+scale = Vector2( 0.35, 0.35 )
+texture = ExtResource( 34 )
+
 [node name="Label" type="Label" parent="Personagem/Camera/CanvasLayer/Popups/Popup5"]
 margin_left = 19.0
 margin_right = 111.0
 margin_bottom = 41.0
+rect_scale = Vector2( 1, 0.686656 )
 custom_fonts/font = SubResource( 37 )
 text = "Pressione G
 "
 align = 1
 valign = 1
+script = ExtResource( 27 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+text_color = Color( 0.298039, 0.988235, 0.956863, 1 )
 
 [node name="Popup" type="Popup" parent="Personagem/Camera/CanvasLayer/Popups"]
 pause_mode = 2

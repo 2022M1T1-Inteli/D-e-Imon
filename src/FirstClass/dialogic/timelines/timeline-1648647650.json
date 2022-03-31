@@ -1,0 +1,65 @@
+{
+	"events": [
+		{
+			"event_id": "dialogic_024",
+			"set_theme": "theme-1647575140.cfg"
+		},
+		{
+			"character": "character-1648644473.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Olá, ainda bem que você chegou, estou muito precisando de ajuda"
+		},
+		{
+			"character": "character-1648644473.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Não me respeitam mais de jeito algum, somente pelo fato de eu ouvir vozes em minha mente"
+		},
+		{
+			"character": "character-1648644541.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Tudo bem, como eu posso te ajudar então?"
+		},
+		{
+			"character": "character-1648644473.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Irei te levar até um outro local, e lá você irá jogar o \"FlappyBrhama\""
+		},
+		{
+			"character": "character-1648644473.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Para joga-lo, você precisa utilizar as setas para cima e para baixo, e não poderá bater nos barris."
+		},
+		{
+			"character": "character-1648644473.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Você ganhará ao atingir 10 pontos, e fique tranquilo caso não esteja conseguindo pode pressionar \"ESC\" e eu irei te buscar"
+		},
+		{
+			"character": "character-1648644473.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Boa Sorte!! Pois até hoje ninguém conseguio!"
+		},
+		{
+			"character": "character-1648644541.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Tudo bem, vamos lá."
+		},
+		{
+			"change_scene": "res://FlappyBrahma.tscn",
+			"event_id": "dialogic_041"
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.4",
+		"file": "timeline-1648647650.json",
+		"name": "Minigame1"
+	}
+}
