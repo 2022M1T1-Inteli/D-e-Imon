@@ -344,7 +344,8 @@ func marketOpenMessage(body):
 #Quando o dialogo finiliza
 func unpause(timeline_Teste):
 	get_tree().paused = false
-
+	player.mercadoAlreadyOpen = true
+	save()
 #Quando o personagem sai da área do Mercado
 func marketExited(body):
 	if body.name == 'Personagem': 
@@ -438,3 +439,8 @@ func _verifyPlayed(body):
 	player.alreadyPlayed = true
 	save()
 	pass
+
+
+func _onNPCEntered(body):
+	var dialogNPCHistoria = Dialogic.start("EronHistoria")
+	add_child(dialogNPCHistoria)

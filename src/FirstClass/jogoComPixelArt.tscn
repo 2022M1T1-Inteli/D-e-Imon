@@ -1,4 +1,4 @@
-[gd_scene load_steps=115 format=2]
+[gd_scene load_steps=116 format=2]
 
 [ext_resource path="res://Action RPG Resources/World/Bush.png" type="Texture" id=1]
 [ext_resource path="res://Action RPG Resources/World/Grass.png" type="Texture" id=2]
@@ -895,6 +895,9 @@ tracks/0/keys = {
 "values": [ Vector2( 681, -697 ) ]
 }
 
+[sub_resource type="RectangleShape2D" id=87]
+extents = Vector2( 42, 34.5 )
+
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 3 )
 
@@ -1721,6 +1724,13 @@ position = Vector2( -4, 2 )
 current = true
 zoom = Vector2( 1.6, 1.6 )
 
+[node name="Area2D5" type="Area2D" parent="."]
+position = Vector2( 204, -1376 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D5"]
+position = Vector2( 32, 24.5 )
+shape = SubResource( 87 )
+
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_Area2D_body_exited"]
 [connection signal="pressed" from="Personagem/Camera/CanvasLayer/Popups/Mercado/Button" to="." method="compraVida"]
@@ -1742,3 +1752,4 @@ zoom = Vector2( 1.6, 1.6 )
 [connection signal="body_entered" from="verifyIsPlayed" to="." method="_verifyPlayed"]
 [connection signal="body_entered" from="Area2D4" to="." method="_on_Area2D4_body_entered"]
 [connection signal="animation_finished" from="Barco/AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
+[connection signal="body_entered" from="Area2D5" to="." method="_onNPCEntered"]

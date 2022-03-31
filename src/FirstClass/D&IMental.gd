@@ -489,7 +489,7 @@ func _onMinigame2Entered(body):
 		MensagemPressG(true)
 		timeline = 'Minigame1'
 		cenaDestination = "res://FlappyBrahma.tscn"
-		Global.positionForMapa1 = Vector2(563, 932)
+		Global.positionForMapa1 = Vector2(-30, 925)
 		pass # Replace with function body.
 
 #Quando o botão de seguir é pressionado no TIP do QUIZ

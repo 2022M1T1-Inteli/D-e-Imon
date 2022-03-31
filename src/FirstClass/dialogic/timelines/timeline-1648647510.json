@@ -122,7 +122,19 @@
 			"character": "character-1648647596.json",
 			"event_id": "dialogic_001",
 			"portrait": "",
-			"text": "Há muito tempo, vivi num mundo completamente conturbado: sofri discriminações por conta da minha condição. Espero que não se assuste, mas tenho esquizofrenia, então as pessoas me julgavam muito, me descredibilizando bastante. Por isso, decidi estudar profundamente as ciências naturais e tentar quebrar os preconceitos que me rodeavam. Infelizmente, ainda não alcancei esse feito..."
+			"text": "Há muito tempo, vivi num mundo completamente conturbado: sofri discriminações por conta da minha condição."
+		},
+		{
+			"character": "character-1648647596.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Espero que não se assuste, mas tenho esquizofrenia, então as pessoas me julgavam muito, me descredibilizando bastante."
+		},
+		{
+			"character": "character-1648647596.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Por isso, decidi estudar profundamente as ciências naturais e tentar quebrar os preconceitos que me rodeavam. Infelizmente, ainda não alcancei esse feito..."
 		},
 		{
 			"character": "character-1648647596.json",
