@@ -1603,10 +1603,10 @@ __meta__ = {
 text_color = Color( 0, 0.976471, 1, 1 )
 
 [node name="contador" type="Label" parent="Personagem/Camera"]
-margin_left = -238.0
-margin_top = -134.0
-margin_right = -183.0
-margin_bottom = -113.0
+margin_left = -254.0
+margin_top = -142.0
+margin_right = -199.0
+margin_bottom = -121.0
 custom_fonts/font = SubResource( 76 )
 text = "0/10"
 __meta__ = {
@@ -2306,7 +2306,7 @@ position = Vector2( -98, 272.25 )
 shape = SubResource( 63 )
 
 [node name="CollisionShape2D6" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2( 177, -46 )
+position = Vector2( 177, -57 )
 shape = SubResource( 65 )
 
 [node name="CollisionShape2D7" type="CollisionShape2D" parent="StaticBody2D"]

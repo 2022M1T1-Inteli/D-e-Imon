@@ -28,7 +28,7 @@ const Perguntas = [
 	{'question': 'Quais os dois transtornos mentais mais comuns no Brasil?', 'an1': 'Depressão e ansiedade', 'an2': 'TDAH e transtorno de personalidade', 'an3': 'Bipolaridade e esquizofrenia', 'anc': 1, "tip": "O Brasil, atualmente, se destaca entre os países com maiores índices de transtornos mentais. Conhecer esse cenário é o primeiro passo para lutar contra a prevalência das adversidades psicológicas no país.", "feedback": "Os transtornos mentais mais comuns no Brasil são a depressão e a ansiedade. O Brasil figura no topo entre os países com maiores índices dessas duas condições."},
 	{'question': 'O que não fazer quando alguém tem uma crise de ansidade?', 'an1': 'Ajudar a pessoa a controlar a respiração', 'an2': 'Levar a pessoa ao relaxamento, muscular ou outros', 'an3': 'Fazer com que a pessoa mude de assunto', 'anc': 3, "tip": "Crises de ansiedade são eventos recorrentes em pessoas que possuem Transtorno de Ansiedade Generalizada. Consistem em momentos nos quais os sintomas da ansiedade se manifestam de forma abrupta e intensa.", "feedback": "Quando alguém tem uma crise de ansiedade, o recomendável é ajudá-la a controlar sua respiração e buscar levá-la ao relaxamento, muscular ou outros. Fazer com que a pessoa mude de assunto não irá afastar os sintomas da crise, configurando um cenário ainda mais prejudicial para ela."},
 	{'question': 'O que não fazer quando alguém apresenta sintomas de depressão?', 'an1': 'Ouvir com atenção o que a pessoa tem a dizer', 'an2': 'Minimizar o problema, dizendo que vai passar logo', 'an3': 'Recomendar que ela procure ajuda profissional', 'anc': 2, "tip": "O número de pessoas que vivem com depressão, segundo a OMS, está aumentando – 18% entre 2005 e 2015. A estimativa é que, atualmente, mais de 300 milhões de pessoas de todas as idades sofram com a doença em todo o mundo. O órgão alertou ainda que a depressão figura como a principal causa de incapacidade laboral no planeta.", "feedback": "Para ajudar uma pessoa que está com depressão, é recomendável indicá-la ajuda profissional e ouvir com atenção o que ela tem a dizer. Minimizar o problema pode atenuar o problema e fazer com que a pessoa se torne ainda mais insegura para falar sobre o assunto."},
-	{'question': 'Qual o nome da instituição responsável pelo abrigo e tratamento de pacientes diagnosticados com doenças mentais?', 'an1': 'Hospital Psiquiátrico', 'an2': 'Casa de repouso', 'an3': 'Hospício', 'anc': 2, "tip": "Quando se é diagnosticado com uma doença mental antissocial ou em estágio antissocial, o paciente deve ser internado e tratado em uma instituição apropriada, no qual deve receber auxílio de médicos, enfermeiras, psicólogos e outros profissionais da saúde especializados.", "feedback": "Hospício é uma forma pejorativa que remete aos tempos em que o chamado Holocausto Brasileiro aconteceu no Hospital Colônia. A nomenclatura correta é Hospital Psiquiátrico."},
+	{'question': 'Qual o nome da instituição responsável pelo abrigo e tratamento de pacientes diagnosticados com doenças mentais?', 'an1': 'Hospital Psiquiátrico', 'an2': 'Casa de repouso', 'an3': 'Hospício', 'anc': 1, "tip": "Quando se é diagnosticado com uma doença mental antissocial ou em estágio antissocial, o paciente deve ser internado e tratado em uma instituição apropriada, no qual deve receber auxílio de médicos, enfermeiras, psicólogos e outros profissionais da saúde especializados.", "feedback": "Hospício é uma forma pejorativa que remete aos tempos em que o chamado Holocausto Brasileiro aconteceu no Hospital Colônia. A nomenclatura correta é Hospital Psiquiátrico."},
 ]
 
 var perguntasFromDB = []
@@ -75,7 +75,15 @@ func blockQuestion():
 	elif(toBlock == 'Pergunta5'):
 		pergunta5Blocked = true
 	elif(toBlock == 'Pergunta6'):
-		pergunta5Blocked = true
+		pergunta6Blocked = true
+	elif(toBlock == 'Pergunta7'):
+		pergunta7Blocked = true
+	elif(toBlock == 'Pergunta8'):
+		pergunta8Blocked = true
+	elif(toBlock == 'Pergunta9'):
+		pergunta9Blocked = true
+	elif(toBlock == 'Pergunta10'):
+		pergunta10Blocked = true
 
 func contador():
 	var qntQuestions = loadPerguntas()
@@ -249,7 +257,7 @@ func defineQuestion():
 		save()
 		$Personagem/Camera/CanvasLayer/Popups/Popup4.visible = true #Torna vísivel aviso de perguntas acabaram
 		yield(get_tree().create_timer(3.0), "timeout") #Aguarda 3 segundo
-		$Personagem/Camera/CanvasLayer/Popups/Popup4.visible = true #Torna invísivel aviso de perguntas acabaram
+		$Personagem/Camera/CanvasLayer/Popups/Popup4.visible = false #Torna invísivel aviso de perguntas acabaram
 		
 #Load quantos pontos o player possui atualmente
 func getPoints():
@@ -403,49 +411,46 @@ func _onFirstOptionSelected():
 #Quando a opção B é selecionada
 func _onSecondOptionSelected():
 	if (anc == 2): #Resposta está correta
-		beVisible(false) #Torna o quiz invisivel
-		get_tree().paused = false #Despausa o jogo
-		messageFinal('Acertou') #Define a mensagem que o player receberá
-		addCoins(500) #Adiciona os pontos
+		beVisible(false) #Torna o Quiz invisivel
+		messageFinal('Acertou') #Define a mensagem de acerto ou erro
+		addCoins(500) #Adiciona pontos
 		perguntasFromDB.remove(randomNumberForDelete) #Deleto a pergunta que o player acertou
 		savePerguntas() #Salva as perguntas após o remove
 		blockQuestion()
-		yield(get_tree().create_timer(3.0), "timeout") #Aguarda 3 segundos
+		yield(get_tree().create_timer(3.0), "timeout") #Aguarda 3 segundo
 		$Personagem/Camera/CanvasLayer/Popups/Popup2.visible = false
+		get_tree().paused = false
 		liberadoAbrir = false
 		player.xp = getPoints() #Captura a quantidade atual de pontos
 		save() #Salva no arquivo local
 	else: #Resposta errada
 		beVisible(false) #Torna o quiz invisivel
 		liberadoAbrir = false
-		get_tree().paused = false #Despausa o jogo
-		messageFinal('Errou') #Define a mensagem que o player receberá
-		yield(get_tree().create_timer(3.0), "timeout")
-		$Personagem/Camera/CanvasLayer/Popups/Popup2.visible = false
+		messageFinal('Errou') #Define o conteudo da mensagem final
+		yield(get_tree().create_timer(3.0), "timeout") #Aguarda 3 segundos
+		$Personagem/Camera/CanvasLayer/Popups/Popup2.visible = false #Some a mensagem final
 		beVisibleFeedback(true)
 
 #Quando a opção C é selecionada
 func _onThirdOptionSelected():
 #Resposta está correta:
 	if (anc == 3):
-		beVisible(false) #Torna o quiz invisivel
-		get_tree().paused = false
-		messageFinal('Acertou') #Define a mensagem final
+		beVisible(false) #Torna o Quiz invisivel
+		messageFinal('Acertou') #Define a mensagem de acerto ou erro
 		addCoins(500) #Adiciona pontos
 		perguntasFromDB.remove(randomNumberForDelete) #Deleto a pergunta que o player acertou
 		savePerguntas() #Salva as perguntas após o remove
 		blockQuestion()
-		yield(get_tree().create_timer(3.0), "timeout") #Aguarda 3 segundos
+		yield(get_tree().create_timer(3.0), "timeout") #Aguarda 3 segundo
+		$Personagem/Camera/CanvasLayer/Popups/Popup2.visible = false
+		get_tree().paused = false
 		liberadoAbrir = false
-		$Personagem/Camera/CanvasLayer/Popups/Popup2.visible = false #Some a mensagem final
 		player.xp = getPoints() #Captura a quantidade atual de pontos
 		save() #Salva no arquivo local
-		#Resposta está errada:
-	else:
+	else: #Resposta errada
 		beVisible(false) #Torna o quiz invisivel
 		liberadoAbrir = false
-		get_tree().paused = false
-		messageFinal('Errou') #Define a mensagem final
+		messageFinal('Errou') #Define o conteudo da mensagem final
 		yield(get_tree().create_timer(3.0), "timeout") #Aguarda 3 segundos
 		$Personagem/Camera/CanvasLayer/Popups/Popup2.visible = false #Some a mensagem final
 		beVisibleFeedback(true)
