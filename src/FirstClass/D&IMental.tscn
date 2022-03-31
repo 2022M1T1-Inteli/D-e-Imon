@@ -1529,6 +1529,14 @@ texture = ExtResource( 33 )
 position = Vector2( -868, 938 )
 texture = ExtResource( 33 )
 
+[node name="Pixil-frame-1(1)" type="Sprite" parent="."]
+position = Vector2( 187, 1014 )
+texture = ExtResource( 33 )
+
+[node name="Pixil-layer-Background(1)" type="Sprite" parent="."]
+position = Vector2( 1509, 1108 )
+texture = ExtResource( 34 )
+
 [node name="Personagem" type="KinematicBody2D" parent="."]
 position = Vector2( 147, 22 )
 script = ExtResource( 7 )
@@ -2200,7 +2208,6 @@ position = Vector2( 1503, -1820 )
 scale = Vector2( 0.842222, 0.310185 )
 texture = ExtResource( 13 )
 hframes = 4
-frame = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Area2D3/Sprite"]
 autoplay = "New Anim"
@@ -2249,28 +2256,28 @@ position = Vector2( -0.375, -2 )
 shape = SubResource( 55 )
 
 [node name="Pergunta7" type="Area2D" parent="."]
-position = Vector2( -551, 1164 )
+position = Vector2( -1051, 949 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pergunta7"]
 position = Vector2( -0.375, -2 )
 shape = SubResource( 55 )
 
 [node name="Pergunta8" type="Area2D" parent="."]
-position = Vector2( -632, 1165 )
+position = Vector2( 1153, 962 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pergunta8"]
 position = Vector2( -0.375, -2 )
 shape = SubResource( 55 )
 
 [node name="Pergunta9" type="Area2D" parent="."]
-position = Vector2( -907, 1163 )
+position = Vector2( 1509, 1119 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pergunta9"]
 position = Vector2( -0.375, -2 )
 shape = SubResource( 55 )
 
 [node name="Pergunta10" type="Area2D" parent="."]
-position = Vector2( -815, 1165 )
+position = Vector2( 87, 1031 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pergunta10"]
 position = Vector2( 99, -3 )
@@ -2336,6 +2343,14 @@ position = Vector2( 10, 958 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Minigame2"]
 position = Vector2( -4, -6 )
 shape = SubResource( 70 )
+
+[node name="Npc1" type="Sprite" parent="."]
+position = Vector2( 1155, 943 )
+texture = ExtResource( 28 )
+
+[node name="Npc3" type="Sprite" parent="."]
+position = Vector2( -1048, 939 )
+texture = ExtResource( 28 )
 
 [connection signal="pressed" from="Personagem/Camera/CanvasLayer/Popups/Popup/Button" to="." method="_onClosePressed"]
 [connection signal="pressed" from="Personagem/Camera/CanvasLayer/Popups/Popup/Button2" to="." method="_onFirstOptionSelected"]
