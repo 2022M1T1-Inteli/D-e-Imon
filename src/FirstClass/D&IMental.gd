@@ -21,7 +21,6 @@ var toBlock
 const Perguntas = [
 	{'question': 'Qual o nome dado ao preconceito contra vítimas de transtornos mentais?', 'an1': 'Psicofobia', 'an2': 'Capacitismo', 'an3': 'Mentalismo', 'anc': 1, "tip": "Algumas pessoas possuem transtornos mentais e, normalmente, além de ter que conviver com esse peso, são negligenciadas em diversos contextos. Isso impede que elas vivam uma vida tranquila, visto que precisam aprender a conviver também com o preconceito.", "feedback": "O nome dado ao preconceito contra vítimas de transtornos mentais é psicofobia."},
 	{'question': 'Qual a campanha mais famosa de prevenção ao suicídio?', 'an1': 'Setembro Amarelo', 'an2': 'Dia Mundial da Saúde Mental', 'an3': 'Janeiro Branco', 'anc': 1, "tip": "O suicídio é a segunda principal causa de morte entre jovens com idade entre 15 e 29 anos. Esse dado preocupante evidencia a negligência com a qual são tratados aqueles que enfrentam problemas psicológicos.", "feedback": "Embora todas as opções apresentadas sejam iniciativas em prol da saúde mental, aquela que se destaca enquanto campanha de prevenção ao suicídio é o Setembro Amarelo."},
-	{'question': 'Qual a diferença entre um psiquiatra e um psicólogo?', 'an1': 'O psicólogo faz faculdade de medicina, e o psiquiatra não.', 'an2': 'O psicólogo costuma olhar para os problemas psicológicos pela perspectiva filosófica, social e comportamental, enquanto o psiquiatra traz uma visão médica do problema.', 'an3': 'O psicólogo pode recomendar remédios para o tratamento de um transtorno, diferentemente do psiquiatra.', 'anc': 2, "tip": "Existem profissionais da saúde capazes de auxiliar e tratar transtornos psicológicos. Esses profissionais são a fonte de apoio mais confiável quando se trata de procurar ajuda.", "feedback": "Tanto o psicólogo quanto o psiquiatra devem ser capacitados: o psicólogo deve ter formação em psicologia, enquanto o psiquiatra deve ser um médico especializado na área. Assim, entende-se que a psicologia estuda os fenômenos psíquicos e o comportamento dos indivíduos. Já a psiquiatria é a especialidade médica dedicada ao diagnóstico, prevenção e tratamento de transtornos mentais."},
 	{'question': 'A psicofobia é enquadrada no código penal como:', 'an1': 'Difamação', 'an2': 'Injúria', 'an3': 'Calúnia', 'anc': 2, "tip": "É chamada de “psicofobia” a discriminação contra um traço ou condição mental que uma pessoa tem ou julga ter. Esse tipo de opressão é considerado crime no Brasil.", "feedback": "O código penal brasileiro reconhece a psicofobia como um crime de injúria. Injúria, por definição, consiste na ação de ofender a honra e a dignidade de alguém. Portanto, fique ligado! Ofender pessoas que lidam com doenças mentais não se trata de liberdade de expressão. É um crime, que deve ser levado a sério."},
 	{'question': 'Qual o tamanho da pena para quem comete psicofobia?', 'an1': '2 a 4 anos', 'an2': '8 anos', 'an3': 'Apenas multa', 'anc': 1, "tip": "É chamada de “psicofobia” a discriminação contra um traço ou condição mental que uma pessoa tem ou julga ter. Esse tipo de opressão é considerado crime no Brasil.", "feedback": "A legislação brasileira determina pena de 2 a 4 anos para o indivíduo que comete psicofobia."},
 	{'question': 'Em qual hospital ocorreu o "holocausto brasileiro"?', 'an1': 'Hospital Colônia de Barbacena', 'an2': 'Hospital Primavera', 'an3': 'Hospital Albert Einstein', 'anc': 1, "tip": "Um dos mais chocantes episódios de discriminação contra doente mentais ocorridos no Brasil foi o “holocausto brasileiro”. Comparado a um campo de concentração, torturava seus pacientes sob o pretexto de tratar doenças mentais.", "feedback": "O episódio conhecido como “holocausto brasileiro” ocorreu no Hospital Colônia, localizado na cidade de Barbacena."},
@@ -78,6 +77,14 @@ func blockQuestion():
 	elif(toBlock == 'Pergunta6'):
 		pergunta5Blocked = true
 
+func contador():
+	var qntQuestions = loadPerguntas()
+	if qntQuestions != null:
+		return len(qntQuestions)
+	else:
+		printerr("arquivos de perguntas não existentes")
+		pass
+	
 #Verifica se já foi completado o banco de questões
 func verifyQuestions():
 	var quantityQuestions = loadPerguntas()
@@ -295,11 +302,23 @@ func _ready():
 			pass
 	else:
 		savePerguntas()
+		
+func attQnt(valor1,valor2):
+	$Personagem/Camera/contador.text = "Perguntas: " + String(valor1) + "/" + String(valor2)
 
 #Roda em looping
 func _process(delta):
+	
 	checkVidas() #Chama a função que verifica quantidade de vidas
 	alreadyCompleted() #Verifica se o mapa já foi completado alguma vez ou não
+	var cont = contador()
+
+	var cauntMax = len(Perguntas)
+	
+	attQnt(cont,cauntMax)
+
+	
+	
 	#Verifica se o pesonagem está dentro da AREA de Pergunta
 	if liberadoAbrir:
 		if Input.is_action_pressed('ui_m'):
