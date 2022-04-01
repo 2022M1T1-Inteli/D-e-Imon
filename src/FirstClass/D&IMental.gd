@@ -351,7 +351,7 @@ func _process(delta):
 func _on_Area2D3_body_entered(body):
 	if body.name == "Personagem":
 		get_tree().change_scene("res://jogoComPixelArt.tscn")
-		
+		Global.positionForMapa1 = Vector2(147,22)
 	pass
 
 #Verifica as questões e o que será mostrado

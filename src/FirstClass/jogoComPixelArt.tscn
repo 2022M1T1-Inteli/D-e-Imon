@@ -1,4 +1,4 @@
-[gd_scene load_steps=116 format=2]
+[gd_scene load_steps=118 format=2]
 
 [ext_resource path="res://Action RPG Resources/World/Bush.png" type="Texture" id=1]
 [ext_resource path="res://Action RPG Resources/World/Grass.png" type="Texture" id=2]
@@ -34,6 +34,7 @@
 [ext_resource path="res://Action RPG Resources/Texture/seta.png" type="Texture" id=32]
 [ext_resource path="res://Action RPG Resources/Texture/seta02.png" type="Texture" id=33]
 [ext_resource path="res://Action RPG Resources/Texture/text.png" type="Texture" id=34]
+[ext_resource path="res://Action RPG Resources/NPC's/NPCroxo.png" type="Texture" id=35]
 
 [sub_resource type="TileSet" id=20]
 0/name = "TX Plant.png 0"
@@ -306,6 +307,9 @@ extents = Vector2( 0.4651, 2.67937 )
 
 [sub_resource type="RectangleShape2D" id=86]
 extents = Vector2( 0.416741, 2.32053 )
+
+[sub_resource type="RectangleShape2D" id=88]
+extents = Vector2( 0.542617, 2.98891 )
 
 [sub_resource type="RectangleShape2D" id=15]
 extents = Vector2( 28.25, 16.5 )
@@ -896,7 +900,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="RectangleShape2D" id=87]
-extents = Vector2( 42, 34.5 )
+extents = Vector2( 27, 17.5 )
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 3 )
@@ -924,6 +928,10 @@ texture = ExtResource( 32 )
 position = Vector2( -69.0974, -3.05176e-05 )
 scale = Vector2( 1.0327, 1.0327 )
 texture = ExtResource( 33 )
+
+[node name="NpCroxo" type="Sprite" parent="."]
+position = Vector2( 208, -1355 )
+texture = ExtResource( 35 )
 
 [node name="Collisions" type="StaticBody2D" parent="."]
 position = Vector2( 97, 88 )
@@ -1055,6 +1063,11 @@ shape = SubResource( 85 )
 [node name="CollisionShape2D16" type="CollisionShape2D" parent="Collisions"]
 position = Vector2( -10.397, 575.322 )
 shape = SubResource( 86 )
+
+[node name="CollisionShape2D17" type="CollisionShape2D" parent="Collisions"]
+position = Vector2( -4.26356, 439.962 )
+scale = Vector2( 1, 1 )
+shape = SubResource( 88 )
 
 [node name="Area2D" type="Area2D" parent="."]
 position = Vector2( -450, -12 )
@@ -1764,7 +1777,7 @@ zoom = Vector2( 1.6, 1.6 )
 position = Vector2( 204, -1376 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D5"]
-position = Vector2( 32, 24.5 )
+position = Vector2( 48, 34.5 )
 shape = SubResource( 87 )
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
