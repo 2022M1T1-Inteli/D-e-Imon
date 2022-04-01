@@ -17,7 +17,8 @@ var player = { #Local database
 	'xp': 0,
 	'vidas': 0,
 	'mercadoAlreadyOpen': false,
-	'alreadyPlayed': false
+	'alreadyPlayed': false,
+	'isMobile': false
 } 
 
 #Coloca os pontos na HUD do jogo
@@ -172,6 +173,13 @@ func _ready():
 #Roda em looping o que está dentro dela
 func _process(delta):
 	checkVidas() #Chama a função que verifica quantas sprites irão aparecer
+	
+	if (player.isMobile == false):
+		$Personagem/Camera/Cima.visible = false
+		$Personagem/Camera/Baixo.visible = false
+		$Personagem/Camera/Esquerda.visible = false
+		$Personagem/Camera/Direita.visible = false
+
 	pontosToBuy = float($Personagem/Camera/Pontos.text) #Verifica os pontos recorrentemente para que sejam usados no --MERCADO--
 	if liberadoAbrir: #Verifica se o pesonagem está dentro da AREA de Pergunta
 		if Input.is_action_pressed('ui_m'):
