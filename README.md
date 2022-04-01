@@ -140,6 +140,17 @@ Coloque código do prompt de comnando se for necessário
 ```
 
 ## 🗃 Histórico de lançamentos
+* 0.1.3 - 01/04/2022
+  * Adicionado novos diálogos
+  * Adicionado Tutorial
+  * Adicionado versão mobile
+  * Adicionados guias que indicam os caminhos
+  * Adicionado sistema de troca de cor do primeiro mapa
+  * Corrigido bugs de .JSON
+  * Corrigido bug de guardar a informação de que o mercado já havia sido aberto
+  * Corrigido bugs nos dialógos (um se sobrepondo a outro)
+  * Corrigido bug de poder responder uma questão mais de uma vez
+
 * 0.1.2 - 25/03/2022
   * Novo design do mercado
   * Sistema de perguntas refatorado com dicas e feedback
