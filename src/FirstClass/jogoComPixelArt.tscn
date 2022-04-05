@@ -1,4 +1,4 @@
-[gd_scene load_steps=118 format=2]
+[gd_scene load_steps=119 format=2]
 
 [ext_resource path="res://Action RPG Resources/World/Bush.png" type="Texture" id=1]
 [ext_resource path="res://Action RPG Resources/World/Grass.png" type="Texture" id=2]
@@ -35,6 +35,7 @@
 [ext_resource path="res://Action RPG Resources/Texture/seta02.png" type="Texture" id=33]
 [ext_resource path="res://Action RPG Resources/Texture/text.png" type="Texture" id=34]
 [ext_resource path="res://Action RPG Resources/NPC's/NPCroxo.png" type="Texture" id=35]
+[ext_resource path="res://Action RPG Resources/Texture/setaCima.png" type="Texture" id=36]
 
 [sub_resource type="TileSet" id=20]
 0/name = "TX Plant.png 0"
@@ -1133,41 +1134,36 @@ __meta__ = {
 }
 text_color = Color( 0.298039, 0.988235, 0.956863, 1 )
 
-[node name="Cima" type="Button" parent="Personagem/Camera"]
-margin_left = 178.0
-margin_top = 35.0
-margin_right = 207.0
-margin_bottom = 64.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="passDialog" type="TouchScreenButton" parent="Personagem/Camera"]
+visible = false
+position = Vector2( 207, -47 )
+scale = Vector2( 0.583334, 0.583334 )
+normal = ExtResource( 36 )
+pressed = ExtResource( 36 )
 
-[node name="Baixo" type="Button" parent="Personagem/Camera"]
-margin_left = 177.0
-margin_top = 111.0
-margin_right = 207.0
-margin_bottom = 139.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="Cima" type="TouchScreenButton" parent="Personagem/Camera"]
+position = Vector2( 175, 36 )
+scale = Vector2( 0.458333, 0.458333 )
+normal = ExtResource( 36 )
+pressed = ExtResource( 36 )
 
-[node name="Esquerda" type="Button" parent="Personagem/Camera"]
-margin_left = 141.0
-margin_top = 74.0
-margin_right = 169.0
-margin_bottom = 100.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="Baixo" type="TouchScreenButton" parent="Personagem/Camera"]
+position = Vector2( 175, 100 )
+scale = Vector2( 0.458333, 0.458333 )
+normal = ExtResource( 36 )
+pressed = ExtResource( 36 )
 
-[node name="Direita" type="Button" parent="Personagem/Camera"]
-margin_left = 214.0
-margin_top = 73.0
-margin_right = 243.0
-margin_bottom = 100.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="Esquerda" type="TouchScreenButton" parent="Personagem/Camera"]
+position = Vector2( 141, 69 )
+scale = Vector2( 0.472222, 0.472222 )
+normal = ExtResource( 36 )
+pressed = ExtResource( 36 )
+
+[node name="Direita" type="TouchScreenButton" parent="Personagem/Camera"]
+position = Vector2( 208, 70 )
+scale = Vector2( 0.458334, 0.458334 )
+normal = ExtResource( 36 )
+pressed = ExtResource( 36 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Personagem/Camera"]
 
@@ -1781,14 +1777,15 @@ shape = SubResource( 87 )
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_Area2D_body_exited"]
-[connection signal="mouse_entered" from="Personagem/Camera/Cima" to="Personagem" method="_CimaJoystick"]
-[connection signal="mouse_exited" from="Personagem/Camera/Cima" to="Personagem" method="_joystickExited"]
-[connection signal="mouse_entered" from="Personagem/Camera/Baixo" to="Personagem" method="_baixoJoystick"]
-[connection signal="mouse_exited" from="Personagem/Camera/Baixo" to="Personagem" method="_joystickExited"]
-[connection signal="mouse_entered" from="Personagem/Camera/Esquerda" to="Personagem" method="_esquerdaJoystick"]
-[connection signal="mouse_exited" from="Personagem/Camera/Esquerda" to="Personagem" method="_joystickExited"]
-[connection signal="mouse_entered" from="Personagem/Camera/Direita" to="Personagem" method="_direitaJoystick"]
-[connection signal="mouse_exited" from="Personagem/Camera/Direita" to="Personagem" method="_joystickExited"]
+[connection signal="pressed" from="Personagem/Camera/passDialog" to="." method="_apertaEnterNoTouch"]
+[connection signal="pressed" from="Personagem/Camera/Cima" to="Personagem" method="_CimaJoystick"]
+[connection signal="released" from="Personagem/Camera/Cima" to="Personagem" method="_joystickExited"]
+[connection signal="pressed" from="Personagem/Camera/Baixo" to="Personagem" method="_baixoJoystick"]
+[connection signal="released" from="Personagem/Camera/Baixo" to="Personagem" method="_joystickExited"]
+[connection signal="pressed" from="Personagem/Camera/Esquerda" to="Personagem" method="_esquerdaJoystick"]
+[connection signal="released" from="Personagem/Camera/Esquerda" to="Personagem" method="_joystickExited"]
+[connection signal="pressed" from="Personagem/Camera/Direita" to="Personagem" method="_direitaJoystick"]
+[connection signal="released" from="Personagem/Camera/Direita" to="Personagem" method="_joystickExited"]
 [connection signal="pressed" from="Personagem/Camera/CanvasLayer/Popups/Mercado/Button" to="." method="compraVida"]
 [connection signal="pressed" from="Personagem/Camera/CanvasLayer/Popups/Mercado/Button2" to="." method="comprarFase2"]
 [connection signal="pressed" from="Personagem/Camera/CanvasLayer/Popups/Mercado/Button3" to="." method="comprarFase3"]

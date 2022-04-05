@@ -165,6 +165,9 @@ func _ready():
 	if(player.alreadyPlayed == false):
 		var dialogWelcome = Dialogic.start("Welcome")
 		add_child(dialogWelcome)
+		if (player.isMobile == true):
+				$Personagem/Camera/passDialog.visible = true
+		dialogWelcome.connect('timeline_end', self, "welcomeUnpause")
 	save()
 	
 	$Personagem.set_position(Global.position)
@@ -174,11 +177,14 @@ func _ready():
 func _process(delta):
 	checkVidas() #Chama a função que verifica quantas sprites irão aparecer
 	
+	
+	
 	if (player.isMobile == false):
 		$Personagem/Camera/Cima.visible = false
 		$Personagem/Camera/Baixo.visible = false
 		$Personagem/Camera/Esquerda.visible = false
 		$Personagem/Camera/Direita.visible = false
+		$Personagem/Camera/passDialog.visible = false
 
 	pontosToBuy = float($Personagem/Camera/Pontos.text) #Verifica os pontos recorrentemente para que sejam usados no --MERCADO--
 	if liberadoAbrir: #Verifica se o pesonagem está dentro da AREA de Pergunta
@@ -344,6 +350,8 @@ func marketOpenMessage(body):
 			print('Nunca Abriu')
 			var dialog = Dialogic.start("Mercado")
 			add_child(dialog)
+			if (player.isMobile == true):
+				$Personagem/Camera/passDialog.visible = true
 			dialog.connect('timeline_end', self, "unpause")
 			liberadoAbrirG = true #Libera a tecla G para funcionar 
 			MensagemPressG(true) #Torna o aviso de "Pressione G" visivel
@@ -352,8 +360,19 @@ func marketOpenMessage(body):
 #Quando o dialogo finiliza
 func unpause(timeline_Teste):
 	get_tree().paused = false
+	$Personagem/Camera/passDialog.visible = false
 	player.mercadoAlreadyOpen = true
 	save()
+	
+#Quando o dialogo finiliza
+func welcomeUnpause(timeline_Welcome):
+	get_tree().paused = false
+	$Personagem/Camera/passDialog.visible = false
+	
+func historiaNpcUnpause(timeline_EronHistoria):
+	get_tree().paused = false
+	$Personagem/Camera/passDialog.visible = false
+
 #Quando o personagem sai da área do Mercado
 func marketExited(body):
 	if body.name == 'Personagem': 
@@ -452,3 +471,11 @@ func _verifyPlayed(body):
 func _onNPCEntered(body):
 	var dialogNPCHistoria = Dialogic.start("EronHistoria")
 	add_child(dialogNPCHistoria)
+	if (player.isMobile == true):
+		$Personagem/Camera/passDialog.visible = true
+	dialogNPCHistoria.connect('timeline_end', self, "historiaNpcUnpause")
+
+
+func _apertaEnterNoTouch():
+	Input.action_press("ui_accept")
+	pass

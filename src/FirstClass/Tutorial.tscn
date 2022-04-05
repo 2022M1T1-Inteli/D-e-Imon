@@ -1,4 +1,4 @@
-[gd_scene load_steps=100 format=2]
+[gd_scene load_steps=101 format=2]
 
 [ext_resource path="res://Hey Comic.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Fontes/ARCADEPI.TTF" type="DynamicFontData" id=2]
@@ -34,6 +34,7 @@
 [ext_resource path="res://BarcoSprite/pixil-frame-11.png" type="Texture" id=32]
 [ext_resource path="res://BarcoSprite/pixil-frame-10.png" type="Texture" id=33]
 [ext_resource path="res://BarcoSprite/pixil-frame-9.png" type="Texture" id=34]
+[ext_resource path="res://setaCima.png" type="Texture" id=35]
 
 [sub_resource type="TileSet" id=1]
 0/name = "GrassBackground.png 0"
@@ -860,7 +861,6 @@ __meta__ = {
 position = Vector2( 687, 127 )
 scale = Vector2( 2.78125, 2.44531 )
 frames = SubResource( 65 )
-frame = 1
 playing = true
 
 [node name="AnimaçãoTutorial" type="Area2D" parent="."]
@@ -931,46 +931,31 @@ text = "10000"
 align = 2
 valign = 1
 script = ExtResource( 5 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 text_color = Color( 0.298039, 0.988235, 0.956863, 1 )
 
-[node name="Cima" type="Button" parent="Personagem/Camera"]
-margin_left = 145.0
-margin_top = 13.0
-margin_right = 174.0
-margin_bottom = 42.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="Cima" type="TouchScreenButton" parent="Personagem/Camera"]
+position = Vector2( 168, 43 )
+scale = Vector2( 0.347222, 0.347222 )
+normal = ExtResource( 35 )
+pressed = ExtResource( 35 )
 
-[node name="Baixo" type="Button" parent="Personagem/Camera"]
-margin_left = 144.0
-margin_top = 89.0
-margin_right = 174.0
-margin_bottom = 117.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="Baixo" type="TouchScreenButton" parent="Personagem/Camera"]
+position = Vector2( 192, 67 )
+scale = Vector2( 0.361111, 0.361111 )
+normal = ExtResource( 35 )
+pressed = ExtResource( 35 )
 
-[node name="Esquerda" type="Button" parent="Personagem/Camera"]
-margin_left = 108.0
-margin_top = 52.0
-margin_right = 136.0
-margin_bottom = 78.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="Esquerda" type="TouchScreenButton" parent="Personagem/Camera"]
+position = Vector2( 168, 89 )
+scale = Vector2( 0.347222, 0.347222 )
+normal = ExtResource( 35 )
+pressed = ExtResource( 35 )
 
-[node name="Direita" type="Button" parent="Personagem/Camera"]
-margin_left = 181.0
-margin_top = 51.0
-margin_right = 210.0
-margin_bottom = 78.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="Direita" type="TouchScreenButton" parent="Personagem/Camera"]
+position = Vector2( 144, 67 )
+scale = Vector2( 0.347222, 0.347222 )
+normal = ExtResource( 35 )
+pressed = ExtResource( 35 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Personagem/Camera"]
 
@@ -1509,11 +1494,10 @@ tile_data = PoolIntArray( -589829, 0, 0, -589826, 0, 0, -655357, 0, 0, -655348, 
 [connection signal="animation_started" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_started"]
 [connection signal="body_entered" from="AnimaçãoTutorial" to="." method="_on_AnimaoTutorial_body_entered"]
 [connection signal="animation_finished" from="AnimationPlayer2" to="." method="_on_AnimationPlayer2_animation_finished"]
-[connection signal="mouse_entered" from="Personagem/Camera/Cima" to="Personagem" method="_CimaJoystick"]
-[connection signal="mouse_exited" from="Personagem/Camera/Cima" to="Personagem" method="_joystickExited"]
-[connection signal="mouse_entered" from="Personagem/Camera/Baixo" to="Personagem" method="_baixoJoystick"]
-[connection signal="mouse_exited" from="Personagem/Camera/Baixo" to="Personagem" method="_joystickExited"]
-[connection signal="mouse_entered" from="Personagem/Camera/Esquerda" to="Personagem" method="_esquerdaJoystick"]
-[connection signal="mouse_exited" from="Personagem/Camera/Esquerda" to="Personagem" method="_joystickExited"]
-[connection signal="mouse_entered" from="Personagem/Camera/Direita" to="Personagem" method="_direitaJoystick"]
-[connection signal="mouse_exited" from="Personagem/Camera/Direita" to="Personagem" method="_joystickExited"]
+[connection signal="pressed" from="Personagem/Camera/Cima" to="Personagem" method="_CimaJoystick"]
+[connection signal="released" from="Personagem/Camera/Cima" to="Personagem" method="_joystickExited"]
+[connection signal="pressed" from="Personagem/Camera/Baixo" to="Personagem" method="_baixoJoystick"]
+[connection signal="released" from="Personagem/Camera/Baixo" to="Personagem" method="_joystickExited"]
+[connection signal="pressed" from="Personagem/Camera/Esquerda" to="Personagem" method="_esquerdaJoystick"]
+[connection signal="released" from="Personagem/Camera/Esquerda" to="Personagem" method="_joystickExited"]
+[connection signal="pressed" from="Personagem/Camera/Direita" to="Personagem" method="_direitaJoystick"]
