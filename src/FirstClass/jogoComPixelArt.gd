@@ -474,8 +474,3 @@ func _onNPCEntered(body):
 	if (player.isMobile == true):
 		$Personagem/Camera/passDialog.visible = true
 	dialogNPCHistoria.connect('timeline_end', self, "historiaNpcUnpause")
-
-
-func _apertaEnterNoTouch():
-	Input.action_press("ui_accept")
-	pass

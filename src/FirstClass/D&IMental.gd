@@ -130,6 +130,14 @@ func setFeedbackContent(content):
 func MensagemPressM(visible):
 	$Personagem/Camera/CanvasLayer/Popups/Popup3.visible = visible
 
+# Aparece o Touch do M
+func TouchPressM(visible):
+	$Personagem/Camera/openMTouch.visible = visible
+
+# Aparece o Touch do G
+func TouchPressG(visible):
+	$Personagem/Camera/openGTouch.visible = visible
+
 # Aparece para apertar G.
 func MensagemPressG(visible):
 	$Personagem/Camera/CanvasLayer/Popups/Popup5.visible = visible
@@ -245,7 +253,10 @@ func defineQuestion():
 	var lenghtArray = float(len(perguntasFromDB))
 	if lenghtArray >= 1:
 		liberadoAbrir = true #Libera a tecla M para funcionar
-		MensagemPressM(true) #Torna o aviso de "Pressione M" visivel
+		if (player.isMobile == true):
+			TouchPressM(true) #Torna o botão touch para abrir M vísivel
+		else:
+			MensagemPressM(true) #Torna o aviso de "Pressione M" visivel
 		var content = selectQuestion() #Gera uma pergunta de forma aleatória
 		setPopUpContent(content[0],content[1], content[2], content[3]) #Define o conteudo da pergunta
 		anc = content[4] #Define qual a resposta correta
@@ -382,6 +393,7 @@ func _perguntaExited(body):
 	if body.name == "Personagem": 
 		liberadoAbrir = false #Bloqueia a tecla M para funcionar
 		MensagemPressM(false) #Torna o aviso de "Pressione M" invisivel
+		TouchPressM(false)
 	pass 
 	
 
@@ -464,7 +476,10 @@ func _onClosePressed():
 func _onMinigame1Entered(body):
 	if (body.name == 'Personagem'):
 		liberadoAbrirG = true
-		MensagemPressG(true)
+		if (player.isMobile == true):
+			TouchPressG(true)
+		else:
+			MensagemPressG(true)
 		timeline = 'Minigame2'
 		Global.positionForMapa1 = Vector2(337, 925)
 		cenaDestination = "res://pong.tscn"
@@ -479,6 +494,7 @@ func _onMinigameExited(body):
 	liberadoAbrirG = false
 	liberadoAbrirCientista = false
 	MensagemPressG(false)
+	TouchPressG(false)
 	timeline = ""
 	pass
 

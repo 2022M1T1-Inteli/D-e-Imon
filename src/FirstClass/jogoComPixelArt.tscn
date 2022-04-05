@@ -1134,13 +1134,6 @@ __meta__ = {
 }
 text_color = Color( 0.298039, 0.988235, 0.956863, 1 )
 
-[node name="passDialog" type="TouchScreenButton" parent="Personagem/Camera"]
-visible = false
-position = Vector2( 207, -47 )
-scale = Vector2( 0.583334, 0.583334 )
-normal = ExtResource( 36 )
-pressed = ExtResource( 36 )
-
 [node name="Cima" type="TouchScreenButton" parent="Personagem/Camera"]
 position = Vector2( 175, 36 )
 scale = Vector2( 0.458333, 0.458333 )
@@ -1777,7 +1770,6 @@ shape = SubResource( 87 )
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_Area2D_body_exited"]
-[connection signal="pressed" from="Personagem/Camera/passDialog" to="." method="_apertaEnterNoTouch"]
 [connection signal="pressed" from="Personagem/Camera/Cima" to="Personagem" method="_CimaJoystick"]
 [connection signal="released" from="Personagem/Camera/Cima" to="Personagem" method="_joystickExited"]
 [connection signal="pressed" from="Personagem/Camera/Baixo" to="Personagem" method="_baixoJoystick"]
