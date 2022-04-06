@@ -1,4 +1,4 @@
-[gd_scene load_steps=101 format=2]
+[gd_scene load_steps=108 format=2]
 
 [ext_resource path="res://Hey Comic.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Fontes/ARCADEPI.TTF" type="DynamicFontData" id=2]
@@ -34,7 +34,14 @@
 [ext_resource path="res://BarcoSprite/pixil-frame-11.png" type="Texture" id=32]
 [ext_resource path="res://BarcoSprite/pixil-frame-10.png" type="Texture" id=33]
 [ext_resource path="res://BarcoSprite/pixil-frame-9.png" type="Texture" id=34]
-[ext_resource path="res://setaCima.png" type="Texture" id=35]
+[ext_resource path="res://Action RPG Resources/Texture/setabaixo.png" type="Texture" id=35]
+[ext_resource path="res://Action RPG Resources/Texture/setadireitaON.png" type="Texture" id=36]
+[ext_resource path="res://Action RPG Resources/Texture/setaesquerda.png" type="Texture" id=37]
+[ext_resource path="res://Action RPG Resources/Texture/setadireita.png" type="Texture" id=38]
+[ext_resource path="res://Action RPG Resources/Texture/setabaixoON.png" type="Texture" id=39]
+[ext_resource path="res://Action RPG Resources/Texture/setaesquerdaON.png" type="Texture" id=40]
+[ext_resource path="res://Action RPG Resources/Texture/setacimaON.png" type="Texture" id=41]
+[ext_resource path="res://Action RPG Resources/Texture/setacima.png" type="Texture" id=42]
 
 [sub_resource type="TileSet" id=1]
 0/name = "GrassBackground.png 0"
@@ -861,6 +868,7 @@ __meta__ = {
 position = Vector2( 687, 127 )
 scale = Vector2( 2.78125, 2.44531 )
 frames = SubResource( 65 )
+frame = 2
 playing = true
 
 [node name="AnimaçãoTutorial" type="Area2D" parent="."]
@@ -934,28 +942,28 @@ script = ExtResource( 5 )
 text_color = Color( 0.298039, 0.988235, 0.956863, 1 )
 
 [node name="Cima" type="TouchScreenButton" parent="Personagem/Camera"]
-position = Vector2( 168, 43 )
-scale = Vector2( 0.347222, 0.347222 )
-normal = ExtResource( 35 )
-pressed = ExtResource( 35 )
+position = Vector2( 166, 40 )
+scale = Vector2( 0.3, 0.3 )
+normal = ExtResource( 42 )
+pressed = ExtResource( 41 )
 
 [node name="Baixo" type="TouchScreenButton" parent="Personagem/Camera"]
-position = Vector2( 192, 67 )
-scale = Vector2( 0.361111, 0.361111 )
+position = Vector2( 166, 94 )
+scale = Vector2( 0.29, 0.29 )
 normal = ExtResource( 35 )
-pressed = ExtResource( 35 )
+pressed = ExtResource( 39 )
 
 [node name="Esquerda" type="TouchScreenButton" parent="Personagem/Camera"]
-position = Vector2( 168, 89 )
-scale = Vector2( 0.347222, 0.347222 )
-normal = ExtResource( 35 )
-pressed = ExtResource( 35 )
+position = Vector2( 193, 69 )
+scale = Vector2( 0.28, 0.28 )
+normal = ExtResource( 38 )
+pressed = ExtResource( 36 )
 
 [node name="Direita" type="TouchScreenButton" parent="Personagem/Camera"]
-position = Vector2( 144, 67 )
-scale = Vector2( 0.347222, 0.347222 )
-normal = ExtResource( 35 )
-pressed = ExtResource( 35 )
+position = Vector2( 137, 69 )
+scale = Vector2( 0.29, 0.29 )
+normal = ExtResource( 37 )
+pressed = ExtResource( 40 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Personagem/Camera"]
 

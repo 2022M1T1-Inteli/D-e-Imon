@@ -327,8 +327,14 @@ func attQnt(valor1,valor2):
 
 #Roda em looping
 func _process(delta):
-	
 	checkVidas() #Chama a função que verifica quantidade de vidas
+	
+	if (player.isMobile == false):
+		$Personagem/Camera/Cima.visible = false
+		$Personagem/Camera/Baixo.visible = false
+		$Personagem/Camera/Esquerda.visible = false
+		$Personagem/Camera/Direita.visible = false
+	
 	alreadyCompleted() #Verifica se o mapa já foi completado alguma vez ou não
 	var cont = contador()
 
@@ -502,11 +508,15 @@ func _onMinigameExited(body):
 func _onMinigame2Entered(body):
 	if (body.name == 'Personagem'):
 		liberadoAbrirG = true
-		MensagemPressG(true)
+		print(player)
+		if (player.isMobile == true):
+			TouchPressG(true)
+		else:
+			MensagemPressG(true)
 		timeline = 'Minigame1'
 		cenaDestination = "res://FlappyBrahma.tscn"
 		Global.positionForMapa1 = Vector2(-30, 925)
-		pass # Replace with function body.
+		pass
 
 #Quando o botão de seguir é pressionado no TIP do QUIZ
 func _onButtonSeguirPressed():
@@ -624,3 +634,11 @@ func _onScientistEntered(body):
 	if (body.name == 'Personagem'):
 		MensagemPressG(true) #Aparece a mensagem de pressione G
 		liberadoAbrirCientista = true #Libera que o dialógo seja aberto
+
+
+func _pressedTouchG():
+	Input.action_press("ui_g")
+
+
+func _pressedTouchM():
+	Input.action_press("ui_m")
