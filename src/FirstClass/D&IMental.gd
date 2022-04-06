@@ -225,10 +225,6 @@ var player = {
 func setPoints(points):
 	$Personagem/Camera/Pontos.text = str(points) 
 
-## Executa quando o dialogo é finilazado
-#func unpause(timeline_Cientista):
-#	get_tree().change_scene("res://D&IMental.tscn")
-
 #Add uma quantidade específica de pontos do player
 func addCoins(qnt): # Uma função que adiciona coinds "Dinheiro" para o personagem como forma de "Xp"
 	var pontosAtual = int($Personagem/Camera/Pontos.text) #Pega os pontos atuais e tranforma em Número

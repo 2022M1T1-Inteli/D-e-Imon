@@ -18,7 +18,9 @@ var player = { #Local database
 	'vidas': 0,
 	'mercadoAlreadyOpen': false,
 	'alreadyPlayed': false,
-	'isMobile': false
+	'isMobile': false,
+	'mentalAlreadyCompleted': false,
+	'fobiaAlreadyCompleted': false
 } 
 
 #Coloca os pontos na HUD do jogo

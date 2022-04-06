@@ -1,4 +1,4 @@
-[gd_scene load_steps=87 format=2]
+[gd_scene load_steps=98 format=2]
 
 [ext_resource path="res://Fontes/ARCADEPI.TTF" type="DynamicFontData" id=1]
 [ext_resource path="res://Jelly Anika.ttf" type="DynamicFontData" id=2]
@@ -25,6 +25,14 @@
 [ext_resource path="res://Action RPG Resources/Tileset/aguaAnimada.tres" type="Texture" id=23]
 [ext_resource path="res://Action RPG Resources/NPC's/pixil-frame-1 (1).png" type="Texture" id=24]
 [ext_resource path="res://Action RPG Resources/NPC's/pixil-frame-0 (1).png" type="Texture" id=25]
+[ext_resource path="res://Action RPG Resources/Texture/setaesquerda.png" type="Texture" id=26]
+[ext_resource path="res://Action RPG Resources/Texture/setadireita.png" type="Texture" id=27]
+[ext_resource path="res://Action RPG Resources/Texture/setacimaON.png" type="Texture" id=28]
+[ext_resource path="res://Action RPG Resources/Texture/setacima.png" type="Texture" id=29]
+[ext_resource path="res://Action RPG Resources/Texture/setadireitaON.png" type="Texture" id=30]
+[ext_resource path="res://Action RPG Resources/Texture/setaesquerdaON.png" type="Texture" id=31]
+[ext_resource path="res://Action RPG Resources/Texture/setabaixo.png" type="Texture" id=32]
+[ext_resource path="res://Action RPG Resources/Texture/setabaixoON.png" type="Texture" id=33]
 
 [sub_resource type="TileSet" id=55]
 0/name = "new_animatedtexture.tres 0"
@@ -501,6 +509,10 @@ font_data = ExtResource( 1 )
 size = 18
 font_data = ExtResource( 2 )
 
+[sub_resource type="DynamicFont" id=63]
+size = 18
+font_data = ExtResource( 2 )
+
 [sub_resource type="DynamicFont" id=15]
 size = 14
 font_data = ExtResource( 3 )
@@ -847,6 +859,12 @@ tracks/4/keys = {
 "values": [ true ]
 }
 
+[sub_resource type="RectangleShape2D" id=62]
+extents = Vector2( 41, 36 )
+
+[sub_resource type="RectangleShape2D" id=64]
+extents = Vector2( 44.5, 39 )
+
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 6 )
 
@@ -919,6 +937,44 @@ position = Vector2( 201.455, -121.5 )
 scale = Vector2( 0.668187, 0.79 )
 texture = ExtResource( 8 )
 
+[node name="openGTouch" type="TouchScreenButton" parent="Personagem/Camera"]
+visible = false
+position = Vector2( -246, 45 )
+scale = Vector2( 0.513889, 0.513889 )
+normal = ExtResource( 28 )
+pressed = ExtResource( 28 )
+
+[node name="openMTouch" type="TouchScreenButton" parent="Personagem/Camera"]
+visible = false
+position = Vector2( -246, 45 )
+scale = Vector2( 0.513889, 0.513889 )
+normal = ExtResource( 28 )
+pressed = ExtResource( 28 )
+
+[node name="Cima" type="TouchScreenButton" parent="Personagem/Camera"]
+position = Vector2( 175, 36 )
+scale = Vector2( 0.35, 0.35 )
+normal = ExtResource( 29 )
+pressed = ExtResource( 28 )
+
+[node name="Baixo" type="TouchScreenButton" parent="Personagem/Camera"]
+position = Vector2( 174, 100 )
+scale = Vector2( 0.35, 0.35 )
+normal = ExtResource( 32 )
+pressed = ExtResource( 33 )
+
+[node name="Esquerda" type="TouchScreenButton" parent="Personagem/Camera"]
+position = Vector2( 207, 70 )
+scale = Vector2( 0.34, 0.34 )
+normal = ExtResource( 27 )
+pressed = ExtResource( 30 )
+
+[node name="Direita" type="TouchScreenButton" parent="Personagem/Camera"]
+position = Vector2( 140, 70 )
+scale = Vector2( 0.36, 0.36 )
+normal = ExtResource( 26 )
+pressed = ExtResource( 31 )
+
 [node name="Pontos" type="Label" parent="Personagem/Camera"]
 pause_mode = 2
 margin_left = 172.0
@@ -950,6 +1006,18 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 text_color = Color( 0, 0.976471, 1, 1 )
+
+[node name="contador" type="Label" parent="Personagem/Camera"]
+margin_left = -252.0
+margin_top = -138.0
+margin_right = -146.0
+margin_bottom = -116.0
+custom_fonts/font = SubResource( 63 )
+text = "0/10"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Personagem/Camera"]
 
@@ -1589,4 +1657,120 @@ position = Vector2( 136, 24 )
 position = Vector2( 187, 44 )
 zoom = Vector2( 10, 10 )
 
+[node name="Pergunta1" type="Area2D" parent="."]
+position = Vector2( -438, 44 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pergunta1"]
+position = Vector2( 5, -2 )
+shape = SubResource( 62 )
+
+[node name="Pergunta2" type="Area2D" parent="."]
+position = Vector2( -253, 218 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pergunta2"]
+position = Vector2( 5, -2 )
+shape = SubResource( 62 )
+
+[node name="Pergunta3" type="Area2D" parent="."]
+position = Vector2( -262, -149 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pergunta3"]
+position = Vector2( 5, -2 )
+shape = SubResource( 62 )
+
+[node name="Pergunta4" type="Area2D" parent="."]
+position = Vector2( -102, 440 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pergunta4"]
+position = Vector2( 5, -2 )
+shape = SubResource( 62 )
+
+[node name="Pergunta5" type="Area2D" parent="."]
+position = Vector2( 446, 443 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pergunta5"]
+position = Vector2( 5, -2 )
+shape = SubResource( 62 )
+
+[node name="Pergunta6" type="Area2D" parent="."]
+position = Vector2( 173, 672 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pergunta6"]
+position = Vector2( 5, -2 )
+shape = SubResource( 62 )
+
+[node name="Pergunta7" type="Area2D" parent="."]
+position = Vector2( 166, -533 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pergunta7"]
+position = Vector2( 5, -2 )
+shape = SubResource( 62 )
+
+[node name="Pergunta8" type="Area2D" parent="."]
+position = Vector2( -88, -372 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pergunta8"]
+position = Vector2( 5, -2 )
+shape = SubResource( 62 )
+
+[node name="Pergunta9" type="Area2D" parent="."]
+position = Vector2( 450, -364 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pergunta9"]
+position = Vector2( 5, -2 )
+shape = SubResource( 62 )
+
+[node name="Pergunta10" type="Area2D" parent="."]
+position = Vector2( 825, 51 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pergunta10"]
+position = Vector2( 5, -2 )
+shape = SubResource( 62 )
+
+[node name="Minigame1" type="Area2D" parent="."]
+position = Vector2( 706, 356 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Minigame1"]
+position = Vector2( 19, -3 )
+shape = SubResource( 64 )
+
+[node name="Minigame2" type="Area2D" parent="."]
+position = Vector2( 744, -211 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Minigame2"]
+position = Vector2( 19, -3 )
+shape = SubResource( 64 )
+
+[connection signal="pressed" from="Personagem/Camera/openGTouch" to="." method="_pressedTouchG"]
+[connection signal="pressed" from="Personagem/Camera/openMTouch" to="." method="_pressedTouchM"]
+[connection signal="pressed" from="Personagem/Camera/CanvasLayer/Popups/Popup/Button" to="." method="_onClosePressed"]
+[connection signal="pressed" from="Personagem/Camera/CanvasLayer/Popups/Popup/Button2" to="." method="_onFirstOptionSelected"]
+[connection signal="pressed" from="Personagem/Camera/CanvasLayer/Popups/Popup/Button3" to="." method="_onSecondOptionSelected"]
+[connection signal="pressed" from="Personagem/Camera/CanvasLayer/Popups/Popup/Button4" to="." method="_onThirdOptionSelected"]
+[connection signal="pressed" from="Personagem/Camera/CanvasLayer/Popups/Popup6/Button" to="." method="_onButtonSeguirPressed"]
+[connection signal="pressed" from="Personagem/Camera/CanvasLayer/Popups/Popup7/Button" to="." method="_onErrouPressed"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
+[connection signal="body_entered" from="Pergunta1" to="." method="_perguntaEntered"]
+[connection signal="body_exited" from="Pergunta1" to="." method="_perguntaExited"]
+[connection signal="body_entered" from="Pergunta2" to="." method="_pergunta2Entered"]
+[connection signal="body_exited" from="Pergunta2" to="." method="_perguntaExited"]
+[connection signal="body_entered" from="Pergunta3" to="." method="_pergunta3Entered"]
+[connection signal="body_exited" from="Pergunta3" to="." method="_perguntaExited"]
+[connection signal="body_entered" from="Pergunta4" to="." method="_pergunta4Entered"]
+[connection signal="body_exited" from="Pergunta4" to="." method="_perguntaExited"]
+[connection signal="body_entered" from="Pergunta5" to="." method="_pergunta5Entered"]
+[connection signal="body_exited" from="Pergunta5" to="." method="_perguntaExited"]
+[connection signal="body_entered" from="Pergunta6" to="." method="_pergunta6Entered"]
+[connection signal="body_exited" from="Pergunta6" to="." method="_perguntaExited"]
+[connection signal="body_entered" from="Pergunta7" to="." method="_pergunta7Entered"]
+[connection signal="body_exited" from="Pergunta7" to="." method="_perguntaExited"]
+[connection signal="body_entered" from="Pergunta8" to="." method="_pergunta8Entered"]
+[connection signal="body_exited" from="Pergunta8" to="." method="_perguntaExited"]
+[connection signal="body_entered" from="Pergunta9" to="." method="_pergunta9Entered"]
+[connection signal="body_exited" from="Pergunta9" to="." method="_perguntaExited"]
+[connection signal="body_entered" from="Pergunta10" to="." method="_pergunta10Entered"]
+[connection signal="body_exited" from="Pergunta10" to="." method="_perguntaExited"]
+[connection signal="body_entered" from="Minigame1" to="." method="_onMinigame1Entered"]
+[connection signal="body_exited" from="Minigame1" to="." method="_onMinigameExited"]
+[connection signal="body_entered" from="Minigame2" to="." method="_onMinigame2Entered"]
+[connection signal="body_exited" from="Minigame2" to="." method="_onMinigameExited"]
