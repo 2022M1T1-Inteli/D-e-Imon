@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/setaCima.png-cde83c93012dbfb8ba3747a1c97fc88f.stex"
+path="res://.import/Serene Village - Outside_blackpng.png-a9b9469dd90494f62fec5f4ee0a3db74.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Action RPG Resources/Texture/setaCima.png"
-dest_files=[ "res://.import/setaCima.png-cde83c93012dbfb8ba3747a1c97fc88f.stex" ]
+source_file="res://Action RPG Resources/Tileset/Serene Village - Outside_blackpng.png"
+dest_files=[ "res://.import/Serene Village - Outside_blackpng.png-a9b9469dd90494f62fec5f4ee0a3db74.stex" ]
 
 [params]
 

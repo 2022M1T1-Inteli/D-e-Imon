@@ -868,7 +868,7 @@ __meta__ = {
 position = Vector2( 687, 127 )
 scale = Vector2( 2.78125, 2.44531 )
 frames = SubResource( 65 )
-frame = 2
+frame = 1
 playing = true
 
 [node name="AnimaçãoTutorial" type="Area2D" parent="."]
@@ -1509,3 +1509,4 @@ tile_data = PoolIntArray( -589829, 0, 0, -589826, 0, 0, -655357, 0, 0, -655348, 
 [connection signal="pressed" from="Personagem/Camera/Esquerda" to="Personagem" method="_esquerdaJoystick"]
 [connection signal="released" from="Personagem/Camera/Esquerda" to="Personagem" method="_joystickExited"]
 [connection signal="pressed" from="Personagem/Camera/Direita" to="Personagem" method="_direitaJoystick"]
+[connection signal="released" from="Personagem/Camera/Direita" to="Personagem" method="_joystickExited"]

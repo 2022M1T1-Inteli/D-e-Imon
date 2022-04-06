@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/setaCima.png-cde83c93012dbfb8ba3747a1c97fc88f.stex"
+path="res://.import/trovao3.png-efd538736a34f7fe8d9de17bf20bfd14.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Action RPG Resources/Texture/setaCima.png"
-dest_files=[ "res://.import/setaCima.png-cde83c93012dbfb8ba3747a1c97fc88f.stex" ]
+source_file="res://trovao3.png"
+dest_files=[ "res://.import/trovao3.png-efd538736a34f7fe8d9de17bf20bfd14.stex" ]
 
 [params]
 

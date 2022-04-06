@@ -100,11 +100,11 @@ func _baixoJoystick():
 	
 func _esquerdaJoystick():
 	somePressed = true
-	buttonPressed = 'Esquerda'
+	buttonPressed = 'Direita'
 
 func _direitaJoystick():
 	somePressed = true
-	buttonPressed = 'Direita'
+	buttonPressed = 'Esquerda'
 
 func _joystickExited():
 	somePressed = false

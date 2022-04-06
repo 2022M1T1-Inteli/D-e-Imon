@@ -1615,16 +1615,16 @@ normal = ExtResource( 36 )
 pressed = ExtResource( 40 )
 
 [node name="Esquerda" type="TouchScreenButton" parent="Personagem/Camera"]
-position = Vector2( 141, 70 )
+position = Vector2( 207, 70 )
 scale = Vector2( 0.34, 0.34 )
-normal = ExtResource( 38 )
-pressed = ExtResource( 41 )
-
-[node name="Direita" type="TouchScreenButton" parent="Personagem/Camera"]
-position = Vector2( 208, 70 )
-scale = Vector2( 0.36, 0.36 )
 normal = ExtResource( 39 )
 pressed = ExtResource( 37 )
+
+[node name="Direita" type="TouchScreenButton" parent="Personagem/Camera"]
+position = Vector2( 140, 70 )
+scale = Vector2( 0.36, 0.36 )
+normal = ExtResource( 38 )
+pressed = ExtResource( 41 )
 
 [node name="Pontos" type="Label" parent="Personagem/Camera"]
 pause_mode = 2

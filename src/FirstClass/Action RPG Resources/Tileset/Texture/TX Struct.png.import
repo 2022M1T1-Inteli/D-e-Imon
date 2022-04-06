@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/setaCima.png-cde83c93012dbfb8ba3747a1c97fc88f.stex"
+path="res://.import/TX Struct.png-6b2f8d3b1ffc8facafdb9599b2dc1443.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Action RPG Resources/Texture/setaCima.png"
-dest_files=[ "res://.import/setaCima.png-cde83c93012dbfb8ba3747a1c97fc88f.stex" ]
+source_file="res://Action RPG Resources/Tileset/Texture/TX Struct.png"
+dest_files=[ "res://.import/TX Struct.png-6b2f8d3b1ffc8facafdb9599b2dc1443.stex" ]
 
 [params]
 
