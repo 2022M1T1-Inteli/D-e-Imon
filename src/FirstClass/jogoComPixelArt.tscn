@@ -1,4 +1,4 @@
-[gd_scene load_steps=129 format=2]
+[gd_scene load_steps=133 format=2]
 
 [ext_resource path="res://Action RPG Resources/World/Bush.png" type="Texture" id=1]
 [ext_resource path="res://Action RPG Resources/World/Grass.png" type="Texture" id=2]
@@ -43,6 +43,8 @@
 [ext_resource path="res://Action RPG Resources/Texture/setaesquerdaON.png" type="Texture" id=41]
 [ext_resource path="res://Action RPG Resources/Texture/setacimaON.png" type="Texture" id=42]
 [ext_resource path="res://Action RPG Resources/Texture/setacima.png" type="Texture" id=43]
+[ext_resource path="res://Action RPG Resources/Texture/musica.png" type="Texture" id=44]
+[ext_resource path="res://Action RPG Resources/Texture/musicaOFF.png" type="Texture" id=45]
 
 [sub_resource type="TileSet" id=20]
 0/name = "TX Plant.png 0"
@@ -841,6 +843,12 @@ font_data = ExtResource( 17 )
 [sub_resource type="DynamicFont" id=79]
 size = 20
 font_data = ExtResource( 17 )
+
+[sub_resource type="StyleBoxFlat" id=92]
+bg_color = Color( 0, 0, 0, 0 )
+
+[sub_resource type="StyleBoxFlat" id=93]
+bg_color = Color( 0, 0, 0, 0 )
 
 [sub_resource type="RectangleShape2D" id=18]
 extents = Vector2( 17, 12.5 )
@@ -1737,22 +1745,32 @@ stream = ExtResource( 30 )
 autoplay = true
 
 [node name="Button" type="Button" parent="Personagem/Camera"]
-margin_left = -251.0
-margin_top = -111.0
-margin_right = -181.0
-margin_bottom = -91.0
-text = "Music on"
+margin_left = -250.0
+margin_top = -118.0
+margin_right = -208.0
+margin_bottom = -76.0
+custom_styles/hover = SubResource( 92 )
+custom_styles/pressed = SubResource( 92 )
+custom_styles/focus = SubResource( 92 )
+custom_styles/normal = SubResource( 92 )
+icon = ExtResource( 45 )
+expand_icon = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Button2" type="Button" parent="Personagem/Camera"]
 visible = false
-margin_left = -250.0
-margin_top = -112.0
-margin_right = -180.0
-margin_bottom = -92.0
-text = "Music off"
+margin_left = -249.0
+margin_top = -116.0
+margin_right = -207.0
+margin_bottom = -78.0
+custom_styles/hover = SubResource( 93 )
+custom_styles/pressed = SubResource( 93 )
+custom_styles/focus = SubResource( 93 )
+custom_styles/normal = SubResource( 93 )
+icon = ExtResource( 44 )
+expand_icon = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
