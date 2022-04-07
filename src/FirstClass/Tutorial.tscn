@@ -1,4 +1,4 @@
-[gd_scene load_steps=108 format=2]
+[gd_scene load_steps=109 format=2]
 
 [ext_resource path="res://Hey Comic.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Fontes/ARCADEPI.TTF" type="DynamicFontData" id=2]
@@ -42,6 +42,7 @@
 [ext_resource path="res://Action RPG Resources/Texture/setaesquerdaON.png" type="Texture" id=40]
 [ext_resource path="res://Action RPG Resources/Texture/setacimaON.png" type="Texture" id=41]
 [ext_resource path="res://Action RPG Resources/Texture/setacima.png" type="Texture" id=42]
+[ext_resource path="res://Action RPG Resources/UI/abrir.png" type="Texture" id=43]
 
 [sub_resource type="TileSet" id=1]
 0/name = "GrassBackground.png 0"
@@ -845,11 +846,11 @@ position = Vector2( 40, 53 )
 texture = ExtResource( 26 )
 
 [node name="Pixil-frame-0(9)" type="Sprite" parent="."]
-position = Vector2( 194, 40 )
+position = Vector2( 172, 40 )
 texture = ExtResource( 29 )
 
 [node name="Pixil-frame-1(6)" type="Sprite" parent="."]
-position = Vector2( 252, 39 )
+position = Vector2( 211, 39 )
 texture = ExtResource( 30 )
 
 [node name="Label" type="Label" parent="."]
@@ -868,7 +869,7 @@ __meta__ = {
 position = Vector2( 687, 127 )
 scale = Vector2( 2.78125, 2.44531 )
 frames = SubResource( 65 )
-frame = 3
+frame = 2
 playing = true
 
 [node name="AnimaçãoTutorial" type="Area2D" parent="."]
@@ -1497,6 +1498,11 @@ tile_set = SubResource( 56 )
 cell_size = Vector2( 16, 16 )
 format = 1
 tile_data = PoolIntArray( -589829, 0, 0, -589826, 0, 0, -655357, 0, 0, -655348, 0, 0, -589824, 0, 0, -589819, 0, 0, -589815, 0, 0, -589809, 0, 0, -589806, 0, 0, -589804, 0, 0, -589801, 0, 0, -262158, 0, 0, -262153, 0, 0, -131090, 0, 0, 65523, 0, 0, 65527, 0, 0, 196590, 0, 0, 327666, 0, 0, 327671, 0, 0, 458743, 0, 0, 524270, 0, 0, 589810, 0, 0, 589815, 0, 0, 786423, 0, 0, 720918, 0, 0, 917526, 0, 0, 1048567, 0, 0, 1114134, 0, 0, 1245174, 0, 0, 1245179, 0, 0, 1179648, 0, 0, 1179652, 0, 0, 1179657, 0, 0, 1179661, 0, 0, 1179665, 0, 0, 1179668, 0, 0 )
+
+[node name="Abrir" type="Sprite" parent="."]
+position = Vector2( 276, 39 )
+scale = Vector2( 0.44, 0.41 )
+texture = ExtResource( 43 )
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 [connection signal="animation_started" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_started"]
