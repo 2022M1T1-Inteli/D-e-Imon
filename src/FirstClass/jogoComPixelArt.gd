@@ -158,7 +158,8 @@ func _ready():
 		Global.cutscene = false
 	else:
 		$Personagem/Camera.current = true
-	
+	destination = get_node("Portaldestination").get_global_position()
+	destination2 = get_node("Portaldestination2").get_global_position()
 	loadInfos() #Carrega as informações
 	qntVidas = player.vidas #Atualiza a qntDeVidas quando o jogo inicia
 	setPoints(player.xp) #Atualiza os pontos quando o jogo inicia
