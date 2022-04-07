@@ -351,9 +351,15 @@ func _process(delta):
 			if(timeline == "Minigame1"):
 				var dialogMinigame = Dialogic.start("Minigame1")
 				add_child(dialogMinigame)
+				qntVidas = 1
+				player.vidas = 1
+				save()
 			elif (timeline == 'Minigame2'):
 				var dialogMinigame2 = Dialogic.start("Minigame2")
 				add_child(dialogMinigame2)
+				qntVidas = 1
+				player.vidas = 1
+				save()
 	if liberadoAbrirCientista:
 		if Input.is_action_pressed("ui_g"):
 			var dialogScientist = Dialogic.start("Cientista")
@@ -373,11 +379,12 @@ func checkQuestoes():
 	if questionExist == true:
 		pass
 	else:
+		player.mentalAlreadyCompleted = true
+		save()
 		$Personagem/Camera/CanvasLayer/Popups/Popup4.visible = true
 		yield(get_tree().create_timer(3.0), "timeout") #Aguarda 3 segundo
 		$Personagem/Camera/CanvasLayer/Popups/Popup4.visible = false
-		player.mentalAlreadyCompleted = true
-		save()
+		
 
 #Quando você entra dentro de uma área destinada a pergunta
 func _perguntaEntered(body):
@@ -477,15 +484,20 @@ func _onClosePressed():
 #Quando entra na área de MINIGAME
 func _onMinigame1Entered(body):
 	if (body.name == 'Personagem'):
-		liberadoAbrirG = true
-		if (player.isMobile == true):
-			TouchPressG(true)
+		if (qntVidas < 5):
+			$Personagem/Camera/CanvasLayer/Popups/Popup8.visible = true
+			yield(get_tree().create_timer(3.0), "timeout") #Aguarda 3 segundos
+			$Personagem/Camera/CanvasLayer/Popups/Popup8.visible = false
 		else:
-			MensagemPressG(true)
-		timeline = 'Minigame2'
-		Global.positionForMapa1 = Vector2(337, 925)
-		cenaDestination = "res://pong.tscn"
-		pass
+			liberadoAbrirG = true
+			if (player.isMobile == true):
+				TouchPressG(true)
+			else:
+				MensagemPressG(true)
+			timeline = 'Minigame2'
+			Global.positionForMapa1 = Vector2(337, 925)
+			cenaDestination = "res://pong.tscn"
+			pass
 
 #Quando o dialogo referente ao minigame é finalizado
 func dialogFinished():
@@ -503,16 +515,21 @@ func _onMinigameExited(body):
 #Quando entra na área do segundo minigame
 func _onMinigame2Entered(body):
 	if (body.name == 'Personagem'):
-		liberadoAbrirG = true
-		print(player)
-		if (player.isMobile == true):
-			TouchPressG(true)
+		if (qntVidas < 5):
+			$Personagem/Camera/CanvasLayer/Popups/Popup8.visible = true
+			yield(get_tree().create_timer(3.0), "timeout") #Aguarda 3 segundos
+			$Personagem/Camera/CanvasLayer/Popups/Popup8.visible = false
 		else:
-			MensagemPressG(true)
-		timeline = 'Minigame1'
-		cenaDestination = "res://FlappyBrahma.tscn"
-		Global.positionForMapa1 = Vector2(-30, 925)
-		pass
+			liberadoAbrirG = true
+			print(player)
+			if (player.isMobile == true):
+				TouchPressG(true)
+			else:
+				MensagemPressG(true)
+			timeline = 'Minigame1'
+			cenaDestination = "res://FlappyBrahma.tscn"
+			Global.positionForMapa1 = Vector2(-30, 925)
+			pass
 
 #Quando o botão de seguir é pressionado no TIP do QUIZ
 func _onButtonSeguirPressed():

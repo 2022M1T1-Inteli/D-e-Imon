@@ -7,6 +7,7 @@ var levelPassed = false
 var liberadoAbrir = false
 var liberadoAbrirE = false
 var liberadoAbrirG = false
+var touchClicked = false
 var qntVidas = 0
 var pontosToBuy
 var destination
@@ -20,7 +21,8 @@ var player = { #Local database
 	'alreadyPlayed': false,
 	'isMobile': false,
 	'mentalAlreadyCompleted': false,
-	'fobiaAlreadyCompleted': false
+	'fobiaAlreadyCompleted': false,
+	'compraFase2': false
 } 
 
 #Coloca os pontos na HUD do jogo
@@ -111,7 +113,10 @@ func MensagemPressE(visible):
 
 # Aparece para apertar G.
 func MensagemPressG(visible):
-	$Personagem/Camera/CanvasLayer/Popups/Popup5.visible = visible
+	if (player.isMobile == true):
+		$Personagem/Camera/abrirMercadoTouch.visible = visible
+	else:
+		$Personagem/Camera/CanvasLayer/Popups/Popup5.visible = visible
 
 #Abre o PopUp de resposta com "Acertou" ou "Errou"
 func messageFinal(text):
@@ -177,6 +182,10 @@ func _ready():
 func _process(delta):
 	checkVidas() #Chama a função que verifica quantas sprites irão aparecer
 	
+	if(player.compraFase2 == true):
+		$Collisions/Fase2.disabled = true
+	else:
+		$Collisions/Fase2.disabled = false
 	
 	
 	if (player.isMobile == false):
@@ -198,12 +207,12 @@ func _process(delta):
 		if Input.is_action_pressed("ui_e"):
 			get_tree().change_scene("res://pong.tscn") #Envia para o Minigame
 	elif liberadoAbrirG:
-		if Input.is_action_pressed("ui_g"): #Verifica se o pesonagem está dentro da AREA de Mercado
-			beVisibleMarket(true) #Torna o mercado vísivel
-			get_tree().paused = true
-			MensagemPressG(false) #Fecha a mensagem 'Pressione G'
-			player.mercadoAlreadyOpen = true
-			save()
+			if Input.is_action_pressed("ui_g"): #Verifica se o pesonagem está dentro da AREA de Mercado
+				beVisibleMarket(true) #Torna o mercado vísivel
+				get_tree().paused = true
+				MensagemPressG(false) #Fecha a mensagem 'Pressione G'
+				player.mercadoAlreadyOpen = true
+				save()
 	else:
 		pass
 
@@ -409,6 +418,7 @@ func comprarFase2():
 		beVisibleMarket(false) #Torna o mercado invisivel
 		get_tree().paused = false
 		messageMarket('Item comprado com sucesso') #Define a mensagem final do mercado
+		player.compraFase2 = true
 		player.xp = getPoints() #Captura os pontos atuais do player
 		save() #Salva as informações em arquivo local
 	else: #Pontos não suficientes
@@ -472,19 +482,19 @@ func _on_Area2D6_body_entered(body):
 	if body.name == "Personagem":
 		get_tree().change_scene("res://D&IFobia.tscn")
 		Global.position = Vector2(-734, -1879)
-	pass # Replace with function body.
 
 
 func _Sound():
 	$Personagem/Camera/AudioStreamPlayer2D.stream_paused = true
 	$Personagem/Camera/Button2.visible = true
 	$Personagem/Camera/Button.visible = false
-	pass # Replace with function body.
 
 
 func _SoundOn():
 	$Personagem/Camera/AudioStreamPlayer2D.stream_paused = false
 	$Personagem/Camera/Button2.visible = false
 	$Personagem/Camera/Button.visible = true
-	
-	pass # Replace with function body.
+
+
+func _mercadoTouchClicked():
+	Input.action_press("ui_g")

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/abrir.png-8e0dfb3d02fb04511a5f3ba0d5b1d13a.stex"
+path="res://.import/abrirON.png-4a2a85f029f2a5fc00f0d28c9bdc6888.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Action RPG Resources/UI/abrir.png"
-dest_files=[ "res://.import/abrir.png-8e0dfb3d02fb04511a5f3ba0d5b1d13a.stex" ]
+source_file="res://Action RPG Resources/Texture/abrirON.png"
+dest_files=[ "res://.import/abrirON.png-4a2a85f029f2a5fc00f0d28c9bdc6888.stex" ]
 
 [params]
 
