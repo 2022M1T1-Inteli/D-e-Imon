@@ -1,4 +1,4 @@
-[gd_scene load_steps=108 format=2]
+[gd_scene load_steps=105 format=2]
 
 [ext_resource path="res://Hey Comic.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Fontes/ARCADEPI.TTF" type="DynamicFontData" id=2]
@@ -27,13 +27,10 @@
 [ext_resource path="res://pixil-frame-1.png" type="Texture" id=25]
 [ext_resource path="res://pixil-frame-3.png" type="Texture" id=26]
 [ext_resource path="res://pixil-frame-2.png" type="Texture" id=27]
-[ext_resource path="res://BarcoSprite/pixil-frame-12.png" type="Texture" id=28]
+[ext_resource path="res://Action RPG Resources/Texture/pixil-frame-1 (3).png" type="Texture" id=28]
 [ext_resource path="res://pixil-frame-0 (9).png" type="Texture" id=29]
 [ext_resource path="res://pixil-frame-1 (6).png" type="Texture" id=30]
-[ext_resource path="res://BarcoSprite/pixil-frame-8.png" type="Texture" id=31]
-[ext_resource path="res://BarcoSprite/pixil-frame-11.png" type="Texture" id=32]
-[ext_resource path="res://BarcoSprite/pixil-frame-10.png" type="Texture" id=33]
-[ext_resource path="res://BarcoSprite/pixil-frame-9.png" type="Texture" id=34]
+[ext_resource path="res://Action RPG Resources/Texture/pixil-frame-1 (2).png" type="Texture" id=31]
 [ext_resource path="res://Action RPG Resources/Texture/setabaixo.png" type="Texture" id=35]
 [ext_resource path="res://Action RPG Resources/Texture/setadireitaON.png" type="Texture" id=36]
 [ext_resource path="res://Action RPG Resources/Texture/setaesquerda.png" type="Texture" id=37]
@@ -198,10 +195,15 @@ font_data = ExtResource( 3 )
 
 [sub_resource type="SpriteFrames" id=65]
 animations = [ {
-"frames": [ ExtResource( 31 ), ExtResource( 34 ), ExtResource( 33 ), ExtResource( 32 ), ExtResource( 28 ) ],
+"frames": [ ExtResource( 28 ) ],
 "loop": true,
 "name": "default",
 "speed": 10.0
+}, {
+"frames": [ ExtResource( 31 ) ],
+"loop": true,
+"name": "New Anim",
+"speed": 5.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=62]
@@ -259,6 +261,18 @@ tracks/2/keys = {
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
 "values": [ Vector2( 592, 131 ), Vector2( 687, 127 ), Vector2( 872, 127 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("AnimatedSprite:animation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "New Anim" ]
 }
 
 [sub_resource type="RectangleShape2D" id=2]
@@ -866,9 +880,8 @@ __meta__ = {
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 687, 127 )
-scale = Vector2( 2.78125, 2.44531 )
+scale = Vector2( 1.53125, 1.24609 )
 frames = SubResource( 65 )
-frame = 3
 playing = true
 
 [node name="AnimaçãoTutorial" type="Area2D" parent="."]
