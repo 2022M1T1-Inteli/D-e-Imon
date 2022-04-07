@@ -858,7 +858,7 @@ margin_top = 60.0
 margin_right = 274.0
 margin_bottom = 76.0
 custom_fonts/font = SubResource( 61 )
-text = "Abrir dealogo"
+text = "Abrir diálogo"
 align = 1
 __meta__ = {
 "_edit_use_anchors_": false
@@ -868,7 +868,7 @@ __meta__ = {
 position = Vector2( 687, 127 )
 scale = Vector2( 2.78125, 2.44531 )
 frames = SubResource( 65 )
-frame = 1
+frame = 3
 playing = true
 
 [node name="AnimaçãoTutorial" type="Area2D" parent="."]

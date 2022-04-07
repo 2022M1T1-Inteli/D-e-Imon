@@ -2,7 +2,7 @@ extends Node2D
 
 var qntVidas = 0 
 var FILE_NAME = "user://infos.json"
-var FILE_PERGUNTAS = "user://PerguntasFase1.JSON"
+var FILE_PERGUNTAS = "user://PerguntasFase1.json"
 var randomNumberForDelete = 0
 var timeline = ''
 var cenaDestination = "res://D&IMental.tscn"

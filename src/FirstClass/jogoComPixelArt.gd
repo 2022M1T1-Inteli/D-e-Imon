@@ -466,3 +466,25 @@ func _onNPCEntered(body):
 	var dialogNPCHistoria = Dialogic.start("EronHistoria")
 	add_child(dialogNPCHistoria)
 	dialogNPCHistoria.connect('timeline_end', self, "historiaNpcUnpause")
+
+
+func _on_Area2D6_body_entered(body):
+	if body.name == "Personagem":
+		get_tree().change_scene("res://D&IFobia.tscn")
+		Global.position = Vector2(-734, -1879)
+	pass # Replace with function body.
+
+
+func _Sound():
+	$Personagem/Camera/AudioStreamPlayer2D.stream_paused = true
+	$Personagem/Camera/Button2.visible = true
+	$Personagem/Camera/Button.visible = false
+	pass # Replace with function body.
+
+
+func _SoundOn():
+	$Personagem/Camera/AudioStreamPlayer2D.stream_paused = false
+	$Personagem/Camera/Button2.visible = false
+	$Personagem/Camera/Button.visible = true
+	
+	pass # Replace with function body.

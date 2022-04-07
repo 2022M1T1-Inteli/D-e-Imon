@@ -1,6 +1,7 @@
 extends Node2D
 
 var spritePersonagem = preload("res://teste1.png")
+var spritePersonagemCompleted = preload("res://Action RPG Resources/Player/Pixilart Sprite Sheet.png")
 var qntVidas = 0 
 var FILE_NAME = "user://infos.json"
 var FILE_PERGUNTAS = "user://PerguntasFase2.JSON"
@@ -281,6 +282,9 @@ func alreadyCompleted():
 	else:
 		$TileMap3.visible = true
 		$TileMap4.visible = true
+		$Personagem/Sprite.texture = spritePersonagemCompleted
+		$Personagem/Particles2D.emitting = false
+		$Personagem/Light2D.enabled = false
 
 #Salva novas informações no arquivo .JSON
 func save():
@@ -653,3 +657,10 @@ func _pressedTouchG():
 
 func _pressedTouchM():
 	Input.action_press("ui_m")
+
+
+func _on_Area2D_body_entered(body):
+	if body.name == "Personagem":
+		get_tree().change_scene("res://jogoComPixelArt.tscn")
+		Global.positionForMapa2 = Vector2(30,-51)
+	pass # Replace with function body.

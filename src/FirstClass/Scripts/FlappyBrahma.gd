@@ -32,10 +32,10 @@ func _ready():
 
 
 func bhramaUp():
-	$BrahmaVoadora.position.y -= 30
+	$BrahmaVoadora.position.y -= 70
 	
 func bhramaDown():
-	$BrahmaVoadora.position.y += 16
+	$BrahmaVoadora.position.y += 56
 	
 func restartGame():
 	$score.set_text("0") # zera o score
@@ -46,6 +46,8 @@ func restartGame():
 	$Barrius.position.x = 400 #Altera o local do Barril
 	$perdeu.hide() #Torna invísivel a imagem de perdeu
 	$restartTouch.visible = false
+	$bhramaBaixo.visible = true
+	$bhramaCima.visible = true
 	
 func _process(delta):
 	
@@ -53,7 +55,7 @@ func _process(delta):
 		$bhramaBaixo.visible = true
 		$bhramaCima.visible = true
 	
-	if(vscore == 10):
+	if(vscore == 6):
 		print('Venceu')
 		yield(get_tree().create_timer(3.0), "timeout") #Aguarda 3 segundo
 		get_tree().change_scene("res://D&IMental.tscn")
@@ -97,6 +99,8 @@ func _process(delta):
 		$BrahmaVoadora/bhramaImagens.playing = false # faz dragão parar de bater as asas
 		$perdeu.show() #Mostra a imagem de perdeu
 		$restartTouch.visible = true
+		$bhramaBaixo.visible = false
+		$bhramaCima.visible = false
 
 		if Input.is_action_pressed("ui_accept"):
 			restartGame()
