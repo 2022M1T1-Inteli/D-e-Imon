@@ -22,7 +22,8 @@ var player = { #Local database
 	'isMobile': false,
 	'mentalAlreadyCompleted': false,
 	'fobiaAlreadyCompleted': false,
-	'compraFase2': false
+	'compraFase2': false,
+	'alreadyFinalScene': false
 } 
 
 #Coloca os pontos na HUD do jogo
@@ -184,8 +185,10 @@ func _process(delta):
 	
 	if(player.compraFase2 == true):
 		$Collisions/Fase2.disabled = true
+		$Bloqueado.visible = false
 	else:
 		$Collisions/Fase2.disabled = false
+		$Bloqueado.visible = true
 	
 	
 	if (player.isMobile == false):

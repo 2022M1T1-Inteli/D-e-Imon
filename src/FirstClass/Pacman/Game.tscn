@@ -1,4 +1,4 @@
-[gd_scene load_steps=62 format=2]
+[gd_scene load_steps=70 format=2]
 
 [ext_resource path="res://Pacman/images/Tileset 1.png" type="Texture" id=1]
 [ext_resource path="res://Pacman/images/endery tileset.png" type="Texture" id=2]
@@ -21,6 +21,7 @@
 [ext_resource path="res://Pacman/images/tile3.png" type="Texture" id=19]
 [ext_resource path="res://Pacman/images/tile4.png" type="Texture" id=20]
 [ext_resource path="res://Pacman/images/tile5.png" type="Texture" id=21]
+[ext_resource path="res://Action RPG Resources/Texture/setacimavermelho.png" type="Texture" id=22]
 [ext_resource path="res://Pacman/images/tile6.png" type="Texture" id=23]
 [ext_resource path="res://Pacman/images/tile8.png" type="Texture" id=24]
 [ext_resource path="res://Pacman/images/tile9.png" type="Texture" id=25]
@@ -32,6 +33,13 @@
 [ext_resource path="res://Pacman/sounds/fruit.wav" type="AudioStream" id=31]
 [ext_resource path="res://Pacman/sounds/death.wav" type="AudioStream" id=32]
 [ext_resource path="res://Pacman/sounds/intro.wav" type="AudioStream" id=33]
+[ext_resource path="res://Action RPG Resources/Texture/setabaixoONvermelho.png" type="Texture" id=34]
+[ext_resource path="res://Action RPG Resources/Texture/setaesquerdavermelho.png" type="Texture" id=35]
+[ext_resource path="res://Action RPG Resources/Texture/setadireitavermelho.png" type="Texture" id=36]
+[ext_resource path="res://Action RPG Resources/Texture/setadireitaONvermelho.png" type="Texture" id=37]
+[ext_resource path="res://Action RPG Resources/Texture/setaesquerdaONvermelho.png" type="Texture" id=38]
+[ext_resource path="res://Action RPG Resources/Texture/setabaixovermelho.png" type="Texture" id=39]
+[ext_resource path="res://Action RPG Resources/Texture/setacimaONvermelho.png" type="Texture" id=40]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
@@ -521,7 +529,7 @@ script = ExtResource( 9 )
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 367.25, 370.643 )
 current = true
-zoom = Vector2( 2.4, 4.5 )
+zoom = Vector2( 3.5, 4.5 )
 
 [node name="Area2D" type="Area2D" parent="."]
 position = Vector2( 368, 336 )
@@ -545,6 +553,7 @@ script = ExtResource( 4 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Player"]
 self_modulate = Color( 1, 0.937255, 0, 1 )
 frames = SubResource( 21 )
+frame = 3
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
@@ -1344,6 +1353,34 @@ stream = ExtResource( 32 )
 [node name="introSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 33 )
 
+[node name="Cima" type="TouchScreenButton" parent="."]
+visible = false
+position = Vector2( 637, 363 )
+scale = Vector2( 0.35, 0.35 )
+normal = ExtResource( 22 )
+pressed = ExtResource( 40 )
+
+[node name="Baixo" type="TouchScreenButton" parent="."]
+visible = false
+position = Vector2( 635, 430 )
+scale = Vector2( 0.381002, 0.381002 )
+normal = ExtResource( 39 )
+pressed = ExtResource( 34 )
+
+[node name="Esquerda" type="TouchScreenButton" parent="."]
+visible = false
+position = Vector2( 600, 394 )
+scale = Vector2( 0.35, 0.35 )
+normal = ExtResource( 35 )
+pressed = ExtResource( 38 )
+
+[node name="Direita" type="TouchScreenButton" parent="."]
+visible = false
+position = Vector2( 675, 394 )
+scale = Vector2( 0.381002, 0.381002 )
+normal = ExtResource( 36 )
+pressed = ExtResource( 37 )
+
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
 [connection signal="body_entered" from="GhostCage" to="." method="_on_GhostCage_body_entered"]
 [connection signal="body_exited" from="GhostCage" to="." method="_on_GhostCage_body_exited"]
@@ -1352,3 +1389,11 @@ stream = ExtResource( 33 )
 [connection signal="pressed" from="GameOverText/ReplayButton" to="." method="_on_ReplayButton_pressed"]
 [connection signal="timeout" from="PickupTimer" to="." method="_on_PickupTimer_timeout"]
 [connection signal="timeout" from="PowerupTimer" to="." method="_on_PowerupTimer_timeout"]
+[connection signal="pressed" from="Cima" to="Player" method="_cimaJoystick"]
+[connection signal="released" from="Cima" to="Player" method="_releaseJoystick"]
+[connection signal="pressed" from="Baixo" to="Player" method="_baixoJoystick"]
+[connection signal="released" from="Baixo" to="Player" method="_releaseJoystick"]
+[connection signal="pressed" from="Esquerda" to="Player" method="_esquerdaJoystick"]
+[connection signal="released" from="Esquerda" to="Player" method="_releaseJoystick"]
+[connection signal="pressed" from="Direita" to="Player" method="_direitaJoystick"]
+[connection signal="released" from="Direita" to="Player" method="_releaseJoystick"]

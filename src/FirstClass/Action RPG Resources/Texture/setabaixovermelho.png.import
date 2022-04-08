@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/setaCima.png-3d51f01fce3e10716f8c3cfa214e6ce0.stex"
+path="res://.import/setabaixovermelho.png-473aed9094b17cb962870de5e1a427d8.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://setaCima.png"
-dest_files=[ "res://.import/setaCima.png-3d51f01fce3e10716f8c3cfa214e6ce0.stex" ]
+source_file="res://Action RPG Resources/Texture/setabaixovermelho.png"
+dest_files=[ "res://.import/setabaixovermelho.png-473aed9094b17cb962870de5e1a427d8.stex" ]
 
 [params]
 

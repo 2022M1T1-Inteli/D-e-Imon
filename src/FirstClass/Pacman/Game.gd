@@ -8,10 +8,27 @@ var storedScore
 
 const FILE_NAME = "user://game-data.json"
 
+var FILE_NAME_MOBILE = 'user://infos.json'
+var playerMobile = {
+	'isMobile': false
+}
+
 var player = {
 	"hscore": 0,
 }
 
+func loadInfos():
+	var file = File.new()
+	if file.file_exists(FILE_NAME_MOBILE): #Verifica se o arquivo já havia sido criado antes
+		file.open(FILE_NAME_MOBILE, File.READ) #Le o arquivo local, com infos de vida e XP
+		var data = parse_json(file.get_as_text()) #Torna o JSON em objeto para o GODOT
+		file.close()
+		if typeof(data) == TYPE_DICTIONARY:
+			playerMobile = data #Define player com as informações do arquivo local
+		else:
+			printerr("Arquivo Corrompido!")
+	else:
+		printerr("Não existe arquivo!")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -266,6 +283,14 @@ var extralifeReward2 = 0
 var extralifeReward3 = 0
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	
+	if (playerMobile.isMobile == true):
+		$Cima.visible = true
+		$Baixo.visible = true
+		$Esquerda.visible = true
+		$Direita.visible = true
+		$Direita.visible = true
+	
 	if(MyGlobals.score >= 10000 && MyGlobals.score < 15000 && extralifeReward1 == 0):
 		extralifeReward1 = 1
 		var tempLife = MyGlobals.lifes + 1

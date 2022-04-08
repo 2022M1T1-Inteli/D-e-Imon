@@ -1506,6 +1506,7 @@ autoplay = "Nova Animação"
 anims/RESET = SubResource( 82 )
 
 [node name="Button3" type="Button" parent="Personagem/Camera/CanvasLayer/Popups/Mercado"]
+visible = false
 margin_left = 216.0
 margin_top = 22.0
 margin_right = 309.0
@@ -1944,13 +1945,13 @@ scale = Vector2( 1.1875, 1.11719 )
 texture = ExtResource( 48 )
 
 [node name="Embreve" type="Sprite" parent="."]
-position = Vector2( 317, -2260 )
+position = Vector2( 317, -2230 )
 scale = Vector2( 5.35156, 5.35156 )
 texture = ExtResource( 50 )
 
 [node name="Bloqueado" type="Sprite" parent="."]
-position = Vector2( -83, -1825 )
-scale = Vector2( 4.39063, 4.39063 )
+position = Vector2( -28.2499, -1823.25 )
+scale = Vector2( 4.30469, 4.30469 )
 texture = ExtResource( 51 )
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]

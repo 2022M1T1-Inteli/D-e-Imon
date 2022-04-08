@@ -343,6 +343,10 @@ func _process(delta):
 		$Personagem/Camera/Baixo.visible = false
 		$Personagem/Camera/Esquerda.visible = false
 		$Personagem/Camera/Direita.visible = false
+		
+	
+#	if (player.fobiaAlreadyCompleted == true) and (player.mentalAlreadyCompleted == true) and (player.alreadyFinalScene == false):
+#		get_tree().change_scene()
 	
 	alreadyCompleted() #Verifica se o mapa já foi completado alguma vez ou não
 	var cont = contador()
