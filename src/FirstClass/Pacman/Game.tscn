@@ -553,7 +553,7 @@ script = ExtResource( 4 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Player"]
 self_modulate = Color( 1, 0.937255, 0, 1 )
 frames = SubResource( 21 )
-frame = 3
+frame = 2
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
@@ -1355,29 +1355,29 @@ stream = ExtResource( 33 )
 
 [node name="Cima" type="TouchScreenButton" parent="."]
 visible = false
-position = Vector2( 637, 363 )
-scale = Vector2( 0.35, 0.35 )
+position = Vector2( 783, 543 )
+scale = Vector2( 0.67, 0.67 )
 normal = ExtResource( 22 )
 pressed = ExtResource( 40 )
 
 [node name="Baixo" type="TouchScreenButton" parent="."]
 visible = false
-position = Vector2( 635, 430 )
-scale = Vector2( 0.381002, 0.381002 )
+position = Vector2( 782, 662 )
+scale = Vector2( 0.69, 0.69 )
 normal = ExtResource( 39 )
 pressed = ExtResource( 34 )
 
 [node name="Esquerda" type="TouchScreenButton" parent="."]
 visible = false
-position = Vector2( 600, 394 )
-scale = Vector2( 0.35, 0.35 )
+position = Vector2( 723, 603 )
+scale = Vector2( 0.68, 0.68 )
 normal = ExtResource( 35 )
 pressed = ExtResource( 38 )
 
 [node name="Direita" type="TouchScreenButton" parent="."]
 visible = false
-position = Vector2( 675, 394 )
-scale = Vector2( 0.381002, 0.381002 )
+position = Vector2( 842, 602 )
+scale = Vector2( 0.71, 0.71 )
 normal = ExtResource( 36 )
 pressed = ExtResource( 37 )
 
