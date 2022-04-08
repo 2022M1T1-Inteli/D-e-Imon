@@ -500,4 +500,8 @@ func _SoundOn():
 
 
 func _mercadoTouchClicked():
-	Input.action_press("ui_g")
+	beVisibleMarket(true) #Torna o mercado vísivel
+	get_tree().paused = true
+	MensagemPressG(false) #Fecha a mensagem 'Pressione G'
+	player.mercadoAlreadyOpen = true
+	save()

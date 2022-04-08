@@ -650,7 +650,10 @@ func _onScientistEntered(body):
 
 
 func _pressedTouchG():
-	Input.action_press("ui_g")
+	get_tree().change_scene(cenaDestination)
+	qntVidas = 1
+	player.vidas = 1
+	save()
 
 
 func _pressedTouchM():

@@ -314,7 +314,7 @@ func _process(delta):
 		MyGlobals.pickupCount = 0
 		spawnFruit()
 	get_node("Score/ScoreNumber").text = str(MyGlobals.score)
-	if (MyGlobals.score >= 200):
+	if (MyGlobals.score >= 2000):
 		get_tree().paused = true
 		yield(get_tree().create_timer(3.0), "timeout") #Aguarda 3 segundo
 		get_tree().paused = false
