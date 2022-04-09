@@ -10,10 +10,11 @@
 [ext_resource path="res://Action RPG Resources/FlappyBrahma/Brahma.png" type="Texture" id=8]
 [ext_resource path="res://Scripts/FlappyBrahma.gd" type="Script" id=9]
 [ext_resource path="res://Action RPG Resources/Texture/voltar.png" type="Texture" id=10]
-[ext_resource path="res://Action RPG Resources/Texture/setabaixo.png" type="Texture" id=11]
-[ext_resource path="res://Action RPG Resources/Texture/setabaixoON.png" type="Texture" id=12]
-[ext_resource path="res://Action RPG Resources/Texture/setacimaON.png" type="Texture" id=13]
-[ext_resource path="res://Action RPG Resources/Texture/setacima.png" type="Texture" id=14]
+[ext_resource path="res://Action RPG Resources/Texture/Baixo.png" type="Texture" id=11]
+[ext_resource path="res://Action RPG Resources/Texture/baixoON.png" type="Texture" id=12]
+[ext_resource path="res://Action RPG Resources/Texture/cimaON.png" type="Texture" id=13]
+[ext_resource path="res://Action RPG Resources/Texture/Cima.png" type="Texture" id=14]
+
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
