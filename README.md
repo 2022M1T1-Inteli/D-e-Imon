@@ -33,18 +33,31 @@
 <p align="center">
 
  
-<p>https://user-images.githubusercontent.com/99296562/155750079-15aacbca-947a-4fcb-9dd8-ea883e1019e2.mp4</p>
+<p>https://user-images.githubusercontent.com/99296562/162761262-68384391-dfc5-4682-b54d-3746133913e6.mp4</p>
 
 
 <p align="center">
  
- <p>https://user-images.githubusercontent.com/99296562/155750808-e459742e-1190-4394-86fd-92968a9c3fef.mp4</p>
+ <p>https://user-images.githubusercontent.com/99296562/162761291-cb26f205-0d79-4e0c-bcb7-d6334c273087.mp4</p>
 </p>
 
 
 <p align="center">
  
- <p>https://user-images.githubusercontent.com/99296562/155751368-23460ed6-3b73-423c-9f26-282ae60c1bc8.mp4</p>
+ <p>https://user-images.githubusercontent.com/99296562/162761400-b1eab636-4431-411c-8a81-a8e356b2d128.mp4</p>
+ 
+ <p align="center">
+
+ 
+<p>https://user-images.githubusercontent.com/99296562/162761989-71938a38-751f-4a9a-ad0c-9ca6bdeab1ad.mp4</p>
+
+
+<p align="center">
+ 
+ <p>https://user-images.githubusercontent.com/99296562/162762966-7de0a041-83d6-4c75-bd39-7f0514be1f78.mp4</p>
+</p>
+
+
  
 
 💡 Nosso projeto se trata de um jogo que consiste na existência de 3 mundos, possuindo um mundo principal que dá acesso aos outros dois. Desse modo, tendo em vista que o jogo a ser desenvolvido trata-se de Diversidade e Inclusão, os dois mundos subsequentes ao oficial estarão relacionados, cada um, a uma diversidade social. Tendo a ideia exposta em mente, analisa-se que a melhor maneira de fazer um jogo de perguntas e respostas — como foi solicitado pelo cliente — é efetuar diversos minigames com o mesmo formato (contendo uma pergunta e, logo em seguida, 5 alternativas de resposta), sendo que em cada mundo os minigames serão relacionados à diversidade apresentada no mesmo. Além disso, é proposta a ideia de incluir no jogo um sistema de pontuação, no qual a cada minigame com resposta correta irá incrementar pontuação a conta do usuário. Assim, caso o cliente aceite um sistema de recompensas, o maior meio de atrair um maior número de usuários será através da troca de pontos por produtos fornecidos pelo cliente.
