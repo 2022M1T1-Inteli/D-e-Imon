@@ -183,6 +183,11 @@ func _ready():
 func _process(delta):
 	checkVidas() #Chama a função que verifica quantas sprites irão aparecer
 	
+	if(player.mentalAlreadyCompleted == true) and (player.fobiaAlreadyCompleted == false):
+		$Personagem/Sprite.texture = neutro
+	elif(player.fobiaAlreadyCompleted == true) and (player.mentalAlreadyCompleted == true):
+		$Personagem/Sprite.texture = feliz
+
 	if(player.compraFase2 == true):
 		$Collisions/Fase2.disabled = true
 		$Bloqueado.visible = false
