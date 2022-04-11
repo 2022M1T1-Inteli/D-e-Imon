@@ -10,17 +10,17 @@
 
 ## Integrantes: 
 
-  * Abner
-  * Amanda
-  * Felipe Campos
-  * João Carazzato
-  * Livia Coutinho
-  * Pedro
-  * Yves
+  * Abner Silva Barbosa
+  * Amanda Ribeiro Fontes
+  * Felipe Pereira Campos
+  * João Pedro Gonçalves Carazzato
+  * Livia Lopes Coutinho
+  * Pedro Hagge Baptista
+  * Yves Levi Paixão Lapa
 
 ## Descrição
 
-📜Nosso projeto consiste em uma forma divertida sobre ensinar diversidade e inclusão aos funcionarios da <a href="https://www.ambev.com.br/">AMBEV</a>.
+📜Nosso projeto consiste em uma forma divertida sobre ensinar diversidade e inclusão aos funcionários da <a href="https://www.ambev.com.br/">AMBEV</a>.
 <p align="center">
 <img src="https://adalove.inteli.edu.br/newada-img/groups/fc232015-a2d2-4aa8-8491-0dc98cd4419f.jpeg" alt="NOME DO JOGO AQUI" border="0"></p>
  
