@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://logic/paddle.gd" type="Script" id=1]
 [ext_resource path="res://paddle.png" type="Texture" id=2]
@@ -11,6 +11,8 @@
 [ext_resource path="res://LeftWall.gd" type="Script" id=9]
 [ext_resource path="res://Hey Comic.ttf" type="DynamicFontData" id=10]
 [ext_resource path="res://Action RPG Resources/Texture/setaCima.png" type="Texture" id=11]
+[ext_resource path="res://Action RPG Resources/Texture/fecharIcon.png" type="Texture" id=12]
+[ext_resource path="res://Action RPG Resources/Texture/fecharIconPressed.png" type="Texture" id=13]
 
 [sub_resource type="GDScript" id=5]
 script/source = "extends Node2D
@@ -49,6 +51,7 @@ func _process(delta):
 	if (player.isMobile == true):
 		$PongBaixo.visible = true
 		$PongCima.visible = true
+		$fecharTouch.visible = true
 	
 	if $Pontos.text == '5':
 		$Parabens.visible = true
@@ -64,6 +67,10 @@ func _unhandled_input(event):
 	if event is InputEventKey:
 		if event.pressed and event.scancode == KEY_ESCAPE:
 			get_tree().change_scene(\"res://D&IMental.tscn\")
+
+
+func _fecharTouch():
+	get_tree().change_scene(\"res://D&IMental.tscn\")
 "
 
 [sub_resource type="RectangleShape2D" id=1]
@@ -206,6 +213,13 @@ scale = Vector2( 0.333333, 0.333333 )
 normal = ExtResource( 11 )
 pressed = ExtResource( 11 )
 
+[node name="fecharTouch" type="TouchScreenButton" parent="."]
+visible = false
+position = Vector2( 288, -5 )
+scale = Vector2( 0.19, 0.19 )
+normal = ExtResource( 12 )
+pressed = ExtResource( 13 )
+
 [connection signal="area_entered" from="Left" to="Left" method="_on_area_entered"]
 [connection signal="area_entered" from="Right" to="Right" method="_on_area_entered"]
 [connection signal="area_entered" from="LeftWall" to="LeftWall" method="_on_wall_area_entered"]
@@ -216,3 +230,4 @@ pressed = ExtResource( 11 )
 [connection signal="area_entered" from="Floor" to="Floor" method="_on_area_entered"]
 [connection signal="pressed" from="PongCima" to="Right" method="_touchUpPong"]
 [connection signal="pressed" from="PongBaixo" to="Right" method="_touchDownPong"]
+[connection signal="pressed" from="fecharTouch" to="." method="_fecharTouch"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=103 format=2]
+[gd_scene load_steps=102 format=2]
 
 [ext_resource path="res://Fontes/ARCADEPI.TTF" type="DynamicFontData" id=1]
 [ext_resource path="res://Jelly Anika.ttf" type="DynamicFontData" id=2]
@@ -25,14 +25,14 @@
 [ext_resource path="res://Action RPG Resources/Tileset/aguaAnimada.tres" type="Texture" id=23]
 [ext_resource path="res://Action RPG Resources/NPC's/pixil-frame-1 (1).png" type="Texture" id=24]
 [ext_resource path="res://Action RPG Resources/NPC's/pixil-frame-0 (1).png" type="Texture" id=25]
-[ext_resource path="res://Action RPG Resources/Texture/Esquerda.png" type="Texture" id=26]
-[ext_resource path="res://Action RPG Resources/Texture/Direita.png" type="Texture" id=27]
-[ext_resource path="res://Action RPG Resources/Texture/cimaON.png" type="Texture" id=28]
-[ext_resource path="res://Action RPG Resources/Texture/Cima.png" type="Texture" id=29]
-[ext_resource path="res://Action RPG Resources/Texture/DireitaON.png" type="Texture" id=30]
-[ext_resource path="res://Action RPG Resources/Texture/esquerdaON.png" type="Texture" id=31]
-[ext_resource path="res://Action RPG Resources/Texture/Baixo.png" type="Texture" id=32]
-[ext_resource path="res://Action RPG Resources/Texture/baixoON.png" type="Texture" id=33]
+[ext_resource path="res://Action RPG Resources/Texture/setaesquerda.png" type="Texture" id=26]
+[ext_resource path="res://Action RPG Resources/Texture/setadireita.png" type="Texture" id=27]
+[ext_resource path="res://Action RPG Resources/Texture/setacimaON.png" type="Texture" id=28]
+[ext_resource path="res://Action RPG Resources/Texture/setacima.png" type="Texture" id=29]
+[ext_resource path="res://Action RPG Resources/Texture/setadireitaON.png" type="Texture" id=30]
+[ext_resource path="res://Action RPG Resources/Texture/setaesquerdaON.png" type="Texture" id=31]
+[ext_resource path="res://Action RPG Resources/Texture/setabaixo.png" type="Texture" id=32]
+[ext_resource path="res://Action RPG Resources/Texture/setabaixoON.png" type="Texture" id=33]
 [ext_resource path="res://portal texture.png" type="Texture" id=34]
 
 [sub_resource type="TileSet" id=55]
@@ -724,10 +724,6 @@ corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
-[sub_resource type="DynamicFont" id=68]
-size = 14
-font_data = ExtResource( 3 )
-
 [sub_resource type="ParticlesMaterial" id=59]
 emission_shape = 2
 emission_box_extents = Vector3( 400, 400, 200 )
@@ -1121,6 +1117,25 @@ margin_right = 98.0
 margin_bottom = 45.0
 custom_fonts/font = SubResource( 16 )
 text = "Errou"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Popup4" type="Popup" parent="Personagem/Camera/CanvasLayer/Popups"]
+margin_left = 94.0
+margin_top = 158.0
+margin_right = 183.0
+margin_bottom = 177.0
+
+[node name="Label" type="Label" parent="Personagem/Camera/CanvasLayer/Popups/Popup4"]
+margin_left = 19.0
+margin_right = 111.0
+margin_bottom = 41.0
+custom_fonts/font = SubResource( 15 )
+text = "Pressione E
+"
 align = 1
 valign = 1
 __meta__ = {
@@ -1553,35 +1568,6 @@ custom_styles/pressed = SubResource( 53 )
 custom_styles/focus = SubResource( 53 )
 custom_styles/normal = SubResource( 54 )
 text = "Fechar"
-
-[node name="Popup4" type="Popup" parent="Personagem/Camera/CanvasLayer/Popups"]
-margin_left = 65.0
-margin_top = 145.0
-margin_right = 154.0
-margin_bottom = 164.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Sprite" type="Sprite" parent="Personagem/Camera/CanvasLayer/Popups/Popup4"]
-position = Vector2( 96, 17 )
-scale = Vector2( 0.678571, 0.422143 )
-texture = ExtResource( 13 )
-
-[node name="Label" type="Label" parent="Personagem/Camera/CanvasLayer/Popups/Popup4"]
-margin_left = 19.0
-margin_top = -4.0
-margin_right = 177.0
-margin_bottom = 37.0
-custom_fonts/font = SubResource( 68 )
-text = "Acabaram as perguntas"
-align = 1
-valign = 1
-script = ExtResource( 4 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-text_color = Color( 0.298039, 0.988235, 0.956863, 1 )
 
 [node name="Vidas" type="Sprite" parent="Personagem/Camera"]
 

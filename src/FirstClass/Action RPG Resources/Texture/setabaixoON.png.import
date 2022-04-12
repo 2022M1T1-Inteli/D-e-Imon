@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/cimaON.png-b5ae3c9f03148ee956159b0ba354a14e.stex"
+path="res://.import/setabaixoON.png-e4876d4758ca552b3d9ec6206190aeae.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Action RPG Resources/Texture/cimaON.png"
-dest_files=[ "res://.import/cimaON.png-b5ae3c9f03148ee956159b0ba354a14e.stex" ]
+source_file="res://Action RPG Resources/Texture/setabaixoON.png"
+dest_files=[ "res://.import/setabaixoON.png-e4876d4758ca552b3d9ec6206190aeae.stex" ]
 
 [params]
 

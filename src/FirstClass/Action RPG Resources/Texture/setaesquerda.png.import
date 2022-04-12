@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Baixo.png-d4881e915242f2cfbdd6f8ac3589d325.stex"
+path="res://.import/setaesquerda.png-de031d8d0738a88ae0a55f71ece1b9c7.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Action RPG Resources/Texture/Baixo.png"
-dest_files=[ "res://.import/Baixo.png-d4881e915242f2cfbdd6f8ac3589d325.stex" ]
+source_file="res://Action RPG Resources/Texture/setaesquerda.png"
+dest_files=[ "res://.import/setaesquerda.png-de031d8d0738a88ae0a55f71ece1b9c7.stex" ]
 
 [params]
 

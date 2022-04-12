@@ -1,4 +1,4 @@
-[gd_scene load_steps=103 format=2]
+[gd_scene load_steps=105 format=2]
 
 [ext_resource path="res://Jelly Anika.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://KinematicBody2D.gd" type="Script" id=2]
@@ -16,16 +16,18 @@
 [ext_resource path="res://TileMap.tscn" type="PackedScene" id=14]
 [ext_resource path="res://Action RPG Resources/World/Bush.png" type="Texture" id=15]
 [ext_resource path="res://Scripts/Labirinto.gd" type="Script" id=16]
-[ext_resource path="res://Action RPG Resources/Texture/Cima.png" type="Texture" id=17]
-[ext_resource path="res://Action RPG Resources/Texture/Baixo.png" type="Texture" id=18]
-[ext_resource path="res://Action RPG Resources/Texture/DireitaON.png" type="Texture" id=19]
-[ext_resource path="res://Action RPG Resources/Texture/Esquerda.png" type="Texture" id=20]
-[ext_resource path="res://Action RPG Resources/Texture/baixoON.png" type="Texture" id=21]
-[ext_resource path="res://Action RPG Resources/Texture/cimaON.png" type="Texture" id=22]
-[ext_resource path="res://Action RPG Resources/Texture/Direita.png" type="Texture" id=23]
-[ext_resource path="res://Action RPG Resources/Texture/esquerdaON.png" type="Texture" id=24]
+[ext_resource path="res://Action RPG Resources/Texture/setacima.png" type="Texture" id=17]
+[ext_resource path="res://Action RPG Resources/Texture/setabaixo.png" type="Texture" id=18]
+[ext_resource path="res://Action RPG Resources/Texture/setadireitaON.png" type="Texture" id=19]
+[ext_resource path="res://Action RPG Resources/Texture/setaesquerda.png" type="Texture" id=20]
+[ext_resource path="res://Action RPG Resources/Texture/setabaixoON.png" type="Texture" id=21]
+[ext_resource path="res://Action RPG Resources/Texture/setacimaON.png" type="Texture" id=22]
+[ext_resource path="res://Action RPG Resources/Texture/setadireita.png" type="Texture" id=23]
+[ext_resource path="res://Action RPG Resources/Texture/setaesquerdaON.png" type="Texture" id=24]
 [ext_resource path="res://Action RPG Resources/Texture/estrela1.png" type="Texture" id=25]
 [ext_resource path="res://Action RPG Resources/Texture/estrela2.png" type="Texture" id=26]
+[ext_resource path="res://Action RPG Resources/Texture/fecharIcon.png" type="Texture" id=27]
+[ext_resource path="res://Action RPG Resources/Texture/fecharIconPressed.png" type="Texture" id=28]
 
 [sub_resource type="TileSet" id=50]
 0/name = "Bush.png 0"
@@ -1279,32 +1281,44 @@ shape = SubResource( 75 )
 position = Vector2( 6, -9 )
 scale = Vector2( 0.295, 0.295 )
 frames = SubResource( 76 )
+frame = 1
 speed_scale = 0.2
 playing = true
 
 [node name="Cima" type="TouchScreenButton" parent="."]
+visible = false
 position = Vector2( 198, 94 )
 scale = Vector2( 0.11, 0.11 )
 normal = ExtResource( 17 )
 pressed = ExtResource( 22 )
 
 [node name="Baixo" type="TouchScreenButton" parent="."]
+visible = false
 position = Vector2( 198, 112 )
 scale = Vector2( 0.11, 0.11 )
 normal = ExtResource( 18 )
 pressed = ExtResource( 21 )
 
 [node name="Esquerda" type="TouchScreenButton" parent="."]
+visible = false
 position = Vector2( 188, 103 )
 scale = Vector2( 0.11, 0.11 )
 normal = ExtResource( 20 )
 pressed = ExtResource( 24 )
 
 [node name="Direita" type="TouchScreenButton" parent="."]
+visible = false
 position = Vector2( 208, 103 )
 scale = Vector2( 0.11, 0.11 )
 normal = ExtResource( 23 )
 pressed = ExtResource( 19 )
+
+[node name="fecharTouch" type="TouchScreenButton" parent="."]
+visible = false
+position = Vector2( 209, 38 )
+scale = Vector2( 0.075, 0.075 )
+normal = ExtResource( 27 )
+pressed = ExtResource( 28 )
 
 [connection signal="body_entered" from="Area2D" to="." method="_estrelaArrived"]
 [connection signal="pressed" from="Cima" to="Personagem" method="_CimaJoystick"]
@@ -1315,3 +1329,4 @@ pressed = ExtResource( 19 )
 [connection signal="released" from="Esquerda" to="Personagem" method="_joystickExited"]
 [connection signal="pressed" from="Direita" to="Personagem" method="_direitaJoystick"]
 [connection signal="released" from="Direita" to="Personagem" method="_joystickExited"]
+[connection signal="pressed" from="fecharTouch" to="." method="_fecharTouch"]

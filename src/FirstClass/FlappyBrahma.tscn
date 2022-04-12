@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://Fontes/Futura Extra Bold.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Action RPG Resources/FlappyBrahma/Brahma2.png" type="Texture" id=2]
@@ -10,11 +10,12 @@
 [ext_resource path="res://Action RPG Resources/FlappyBrahma/Brahma.png" type="Texture" id=8]
 [ext_resource path="res://Scripts/FlappyBrahma.gd" type="Script" id=9]
 [ext_resource path="res://Action RPG Resources/Texture/voltar.png" type="Texture" id=10]
-[ext_resource path="res://Action RPG Resources/Texture/Baixo.png" type="Texture" id=11]
-[ext_resource path="res://Action RPG Resources/Texture/baixoON.png" type="Texture" id=12]
-[ext_resource path="res://Action RPG Resources/Texture/cimaON.png" type="Texture" id=13]
-[ext_resource path="res://Action RPG Resources/Texture/Cima.png" type="Texture" id=14]
-
+[ext_resource path="res://Action RPG Resources/Texture/setabaixo.png" type="Texture" id=11]
+[ext_resource path="res://Action RPG Resources/Texture/setabaixoON.png" type="Texture" id=12]
+[ext_resource path="res://Action RPG Resources/Texture/setacimaON.png" type="Texture" id=13]
+[ext_resource path="res://Action RPG Resources/Texture/setacima.png" type="Texture" id=14]
+[ext_resource path="res://Action RPG Resources/Texture/fecharIcon.png" type="Texture" id=15]
+[ext_resource path="res://Action RPG Resources/Texture/fecharIconPressed.png" type="Texture" id=16]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -61,7 +62,7 @@ texture = ExtResource( 3 )
 position = Vector2( 81, 71 )
 scale = Vector2( 0.7, 0.7 )
 frames = SubResource( 1 )
-frame = 1
+frame = 2
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BrahmaVoadora"]
@@ -132,9 +133,17 @@ scale = Vector2( 1.41667, 1.41667 )
 normal = ExtResource( 10 )
 pressed = ExtResource( 10 )
 
+[node name="fecharTouch" type="TouchScreenButton" parent="."]
+visible = false
+position = Vector2( -17, 705 )
+scale = Vector2( 0.545, 0.545 )
+normal = ExtResource( 15 )
+pressed = ExtResource( 16 )
+
 [connection signal="body_exited" from="Barrius" to="." method="_passouBarril"]
 [connection signal="body_entered" from="Barrius/Cima" to="." method="_bateuBarril"]
 [connection signal="body_entered" from="Barrius/Baixo" to="." method="_bateuBarril"]
 [connection signal="pressed" from="bhramaCima" to="." method="_bhramaCimaPressed"]
 [connection signal="pressed" from="bhramaBaixo" to="." method="_bhramaBaixoPressed"]
 [connection signal="pressed" from="restartTouch" to="." method="_restartGamePressed"]
+[connection signal="pressed" from="fecharTouch" to="." method="_fecharTouch"]

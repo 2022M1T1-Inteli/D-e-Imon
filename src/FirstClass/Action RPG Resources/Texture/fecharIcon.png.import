@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Direita.png-dca08878869452335b3d0616cbe5d9fb.stex"
+path="res://.import/fecharIcon.png-e127506b8ee357fe74c18a033efea0f1.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Action RPG Resources/Texture/Direita.png"
-dest_files=[ "res://.import/Direita.png-dca08878869452335b3d0616cbe5d9fb.stex" ]
+source_file="res://Action RPG Resources/Texture/fecharIcon.png"
+dest_files=[ "res://.import/fecharIcon.png-e127506b8ee357fe74c18a033efea0f1.stex" ]
 
 [params]
 

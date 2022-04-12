@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/baixoON.png-0d5dd5183a73b1ad857320c979d0b5a1.stex"
+path="res://.import/fecharIconPressed.png-c5ad07aa4293714d4d5f4350d82d0347.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Action RPG Resources/Texture/baixoON.png"
-dest_files=[ "res://.import/baixoON.png-0d5dd5183a73b1ad857320c979d0b5a1.stex" ]
+source_file="res://Action RPG Resources/Texture/fecharIconPressed.png"
+dest_files=[ "res://.import/fecharIconPressed.png-c5ad07aa4293714d4d5f4350d82d0347.stex" ]
 
 [params]
 

@@ -14,6 +14,9 @@ var destination
 var destination2
 var cutsi = false
 
+var neutro = preload("res://Action RPG Resources/Player/NeutroSpriteSheet.png")
+var feliz = preload("res://Action RPG Resources/Player/FelizSpriteSheet.png")
+
 var player = { #Local database
 	'xp': 0,
 	'vidas': 0,
@@ -187,7 +190,7 @@ func _process(delta):
 		$Personagem/Sprite.texture = neutro
 	elif(player.fobiaAlreadyCompleted == true) and (player.mentalAlreadyCompleted == true):
 		$Personagem/Sprite.texture = feliz
-
+	
 	if(player.compraFase2 == true):
 		$Collisions/Fase2.disabled = true
 		$Bloqueado.visible = false
@@ -505,8 +508,4 @@ func _SoundOn():
 
 
 func _mercadoTouchClicked():
-	beVisibleMarket(true) #Torna o mercado vísivel
-	get_tree().paused = true
-	MensagemPressG(false) #Fecha a mensagem 'Pressione G'
-	player.mercadoAlreadyOpen = true
-	save()
+	Input.action_press("ui_g")

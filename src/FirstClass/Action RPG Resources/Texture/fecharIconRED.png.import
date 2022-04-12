@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Esquerda.png-a682dcfc4235979d23efba82241ab3ba.stex"
+path="res://.import/fecharIconRED.png-ab047206bdd0b4deea2b12511867c011.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Action RPG Resources/Texture/Esquerda.png"
-dest_files=[ "res://.import/Esquerda.png-a682dcfc4235979d23efba82241ab3ba.stex" ]
+source_file="res://Action RPG Resources/Texture/fecharIconRED.png"
+dest_files=[ "res://.import/fecharIconRED.png-ab047206bdd0b4deea2b12511867c011.stex" ]
 
 [params]
 

@@ -289,7 +289,7 @@ func _process(delta):
 		$Baixo.visible = true
 		$Esquerda.visible = true
 		$Direita.visible = true
-		$Direita.visible = true
+		$fecharTouch.visible = true
 	
 	if(MyGlobals.score >= 10000 && MyGlobals.score < 15000 && extralifeReward1 == 0):
 		extralifeReward1 = 1
@@ -390,3 +390,7 @@ func _on_rightTeleport_body_entered(body):
 		var leftLoc = get_node("leftTeleportSpot").position
 		body.position = leftLoc
 	pass # Replace with function body.
+
+
+func _fecharTouch():
+	get_tree().change_scene("res://D&IFobia.tscn")

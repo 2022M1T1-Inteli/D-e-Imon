@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/esquerdaON.png-bf3ba796ac5dd1361896769339c87f99.stex"
+path="res://.import/setadireita.png-f46df9ef926fd5263095b54ae74f2306.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Action RPG Resources/Texture/esquerdaON.png"
-dest_files=[ "res://.import/esquerdaON.png-bf3ba796ac5dd1361896769339c87f99.stex" ]
+source_file="res://Action RPG Resources/Texture/setadireita.png"
+dest_files=[ "res://.import/setadireita.png-f46df9ef926fd5263095b54ae74f2306.stex" ]
 
 [params]
 

@@ -54,6 +54,7 @@ func _process(delta):
 	if (player.isMobile == true):
 		$bhramaBaixo.visible = true
 		$bhramaCima.visible = true
+		$fecharTouch.visible = true
 	
 	if(vscore == 6):
 		print('Venceu')
@@ -134,3 +135,7 @@ func _bhramaBaixoPressed():
 
 func _restartGamePressed():
 	restartGame()
+
+
+func _fecharTouch():
+	get_tree().change_scene("res://D&IMental.tscn")
