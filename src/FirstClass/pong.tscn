@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://logic/paddle.gd" type="Script" id=1]
 [ext_resource path="res://paddle.png" type="Texture" id=2]
@@ -11,6 +11,9 @@
 [ext_resource path="res://LeftWall.gd" type="Script" id=9]
 [ext_resource path="res://Hey Comic.ttf" type="DynamicFontData" id=10]
 [ext_resource path="res://Action RPG Resources/Texture/Cima.png" type="Texture" id=11]
+[ext_resource path="res://Action RPG Resources/Texture/Baixo.png" type="Texture" id=12]
+[ext_resource path="res://Action RPG Resources/Texture/cimaON.png" type="Texture" id=13]
+[ext_resource path="res://Action RPG Resources/Texture/baixoON.png" type="Texture" id=14]
 
 [sub_resource type="GDScript" id=5]
 script/source = "extends Node2D
@@ -193,18 +196,16 @@ __meta__ = {
 }
 
 [node name="PongCima" type="TouchScreenButton" parent="."]
-visible = false
-position = Vector2( 253, 117 )
+position = Vector2( 250, 107 )
 scale = Vector2( 0.333333, 0.333333 )
 normal = ExtResource( 11 )
-pressed = ExtResource( 11 )
+pressed = ExtResource( 13 )
 
 [node name="PongBaixo" type="TouchScreenButton" parent="."]
-visible = false
-position = Vector2( 253, 146 )
+position = Vector2( 250, 146 )
 scale = Vector2( 0.333333, 0.333333 )
-normal = ExtResource( 11 )
-pressed = ExtResource( 11 )
+normal = ExtResource( 12 )
+pressed = ExtResource( 14 )
 
 [connection signal="area_entered" from="Left" to="Left" method="_on_area_entered"]
 [connection signal="area_entered" from="Right" to="Right" method="_on_area_entered"]
