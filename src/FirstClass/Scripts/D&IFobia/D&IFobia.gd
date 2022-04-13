@@ -544,7 +544,7 @@ func _onMinigame2Entered(body):
 			MensagemPressG(true)
 		timeline = 'Minigame4'
 		cenaDestination = "res://Pacman/Game.tscn"
-		Global.positionForMapa1 = Vector2(662, 224)
+		Global.positionForMapa1 = Vector2(730, -212)
 		pass
 
 #Quando o botão de seguir é pressionado no TIP do QUIZ

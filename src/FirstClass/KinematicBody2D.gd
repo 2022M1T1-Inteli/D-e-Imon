@@ -57,10 +57,10 @@ func _physics_process(_delta):
 			baixo()
 		elif (buttonPressed == 'Esquerda'):
 			resultante.x = 1
-			esquerda()
+			direita()
 		elif (buttonPressed == 'Direita'):
 			resultante.x = -1
-			direita()
+			esquerda()
 	
 	#Verificar a velocidade e dá-la se for necessário.
 	if resultante != Vector2.ZERO:
@@ -100,11 +100,11 @@ func _baixoJoystick():
 	
 func _esquerdaJoystick():
 	somePressed = true
-	buttonPressed = 'Direita'
+	buttonPressed = 'Esquerda'
 
 func _direitaJoystick():
 	somePressed = true
-	buttonPressed = 'Esquerda'
+	buttonPressed = 'Direita'
 
 func _joystickExited():
 	somePressed = false
