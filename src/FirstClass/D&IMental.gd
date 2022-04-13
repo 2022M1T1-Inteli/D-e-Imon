@@ -401,10 +401,10 @@ func _perguntaEntered(body):
 func _perguntaExited(body):
 	if body.name == "Personagem": 
 		liberadoAbrir = false #Bloqueia a tecla M para funcionar
-		MensagemPressM(false) #Torna o aviso de "Pressione M" invisivel
-		TouchPressM(false)
-	pass 
-	
+		if (player.isMobile == true):
+			TouchPressM(false) #Torna o botão touch para abrir M invísivel
+		else:
+			MensagemPressM(false) #Torna o aviso de "Pressione M" invísivel
 
 #Quando o botão A é selecionado no QUIZ
 func _onFirstOptionSelected():
@@ -507,8 +507,10 @@ func dialogFinished():
 func _onMinigameExited(body):
 	liberadoAbrirG = false
 	liberadoAbrirCientista = false
-	MensagemPressG(false)
-	TouchPressG(false)
+	if (player.isMobile == true):
+		TouchPressM(false) #Torna o botão touch para abrir M invísivel
+	else:
+		MensagemPressM(false) #Torna o aviso de "Pressione M" invisivel
 	timeline = ""
 	pass
 
@@ -657,4 +659,5 @@ func _pressedTouchG():
 
 
 func _pressedTouchM():
-	Input.action_press("ui_m")
+	beVisibleTip(true) #Torna vísivel o quiz
+	get_tree().paused = true
