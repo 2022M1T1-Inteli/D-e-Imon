@@ -374,22 +374,43 @@ func _process(delta):
 	if liberadoAbrirG:
 		if Input.is_action_pressed("ui_g"):
 			if(timeline == "Minigame1"):
+				get_tree().paused = true
 				var dialogMinigame = Dialogic.start("Minigame1")
+				dialogMinigame.pause_mode = Node.PAUSE_MODE_PROCESS
 				add_child(dialogMinigame)
+				dialogMinigame.connect('timeline_end', self, "unpause")
 				qntVidas = 1
 				player.vidas = 1
 				save()
 			elif (timeline == 'Minigame2'):
+				get_tree().paused = true
 				var dialogMinigame2 = Dialogic.start("Minigame2")
+				dialogMinigame2.pause_mode = Node.PAUSE_MODE_PROCESS
 				add_child(dialogMinigame2)
+				dialogMinigame2.connect('timeline_end', self, "unpause2")
 				qntVidas = 1
 				player.vidas = 1
 				save()
 	if liberadoAbrirCientista:
 		if Input.is_action_pressed("ui_g"):
+			get_tree().paused = true
 			var dialogScientist = Dialogic.start("Cientista")
+			dialogScientist.pause_mode = Node.PAUSE_MODE_PROCESS
 			add_child(dialogScientist)
+			dialogScientist.connect('timeline_end', self, "unpauseCientista")
 	pass
+
+#Despausa o jogo após dialogo
+func unpauseCientista(timeline_Cientista):
+	get_tree().paused = false
+
+#Despausa o jogo após dialogo
+func unpause(timeline_Minigame1):
+	get_tree().paused = false
+
+#Despausa o jogo após dialogo
+func unpause2(timeline_Minigame2):
+	get_tree().paused = false
 
 #Quando o personagem entra no portal
 func _on_Area2D3_body_entered(body):
@@ -678,27 +699,31 @@ func _onScientistEntered(body):
 			MensagemPressG(true) #Aparece a mensagem de pressione G
 		
 
-
+#Quando o touch do G é clicado
 func _pressedTouchG():
 	get_tree().change_scene(cenaDestination)
 	qntVidas = 1
 	player.vidas = 1
 	save()
 
-
+#Quando o touch do M é clicado
 func _pressedTouchM():
 	beVisibleTip(true) #Torna vísivel o quiz
 	get_tree().paused = true
 
-
+#Quando o personagem sai da area do cientista
 func _onScientistExited(body):
-	liberadoAbrirCientista = false
-	if (player.isMobile == true):
-		TouchPressCientista(false) #Torna o botão touch para abrir M invísivel
-	else:
-		MensagemPressG(false) #Torna o aviso de "Pressione M" invisivel
+	if (body.name == 'Personagem'):
+		liberadoAbrirCientista = false
+		if (player.isMobile == true):
+			TouchPressCientista(false) #Torna o botão touch para abrir M invísivel
+		else:
+			MensagemPressG(false) #Torna o aviso de "Pressione M" invisivel
 
-
+#Qunado o touch do cientista é clicado
 func _pressedTouchCientista():
+	get_tree().paused = true
 	var dialogScientist = Dialogic.start("Cientista")
+	dialogScientist.pause_mode = Node.PAUSE_MODE_PROCESS
 	add_child(dialogScientist)
+	dialogScientist.connect('timeline_end', self, "unpauseCientista")

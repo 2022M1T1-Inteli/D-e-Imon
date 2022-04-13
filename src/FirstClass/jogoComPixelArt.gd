@@ -210,10 +210,6 @@ func _process(delta):
 		if Input.is_action_pressed('ui_m'):
 			beVisible(true) #Torna vísivel o quiz
 			get_tree().paused = true
-	##		if (levelPassed == true):
-	##			$Collisions/mecanicaTeste.disabled = true
-	##		else:                                           #Sistema para bloquear as fases
-	##			$Collisions/mecanicaTeste.disabled = false
 	elif liberadoAbrirE: #Verifica se o pesonagem está dentro da AREA de Minigame
 		if Input.is_action_pressed("ui_e"):
 			get_tree().change_scene("res://pong.tscn") #Envia para o Minigame
