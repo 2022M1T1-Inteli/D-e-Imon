@@ -138,6 +138,11 @@ func TouchPressM(visible):
 func TouchPressG(visible):
 	$Personagem/Camera/openGTouch.visible = visible
 
+# Aparece o Touch do G
+func TouchPressCientista(visible):
+	$Personagem/Camera/openCientista.visible = visible
+
+
 # Aparece para apertar G.
 func MensagemPressG(visible):
 	$Personagem/Camera/CanvasLayer/Popups/Popup5.visible = visible
@@ -274,9 +279,29 @@ func getPoints():
 func alreadyCompleted():
 	if (player.mentalAlreadyCompleted == false):
 		$TileMap2.visible = true
+		#Preto e Branco aqui
+		$Sprite.visible = true
+		$Sprite2.visible = true
+		$Sprite3.visible = true
+		$Sprite4.visible = true
+		$Sprite5.visible = true
+		$Sprite6.visible = true
+		$Sprite7.visible = true
+		$Sprite8.visible = true
+		$Sprite9.visible = true
 	else:
 		$TileMap2.visible = false
-
+		#Colorido aki
+		$PixilColorido1.visible = true
+		$PixilColorido2.visible = true
+		$PixilColorido3.visible = true
+		$PixilColorido4.visible = true
+		$PixilColorido5.visible = true
+		$PixilColorido6.visible = true
+		$PixilColorido7.visible = true
+		$PixilColorido8.visible = true
+		$PixilColorido9.visible = true
+		$PixilColorido10.visible = true
 #Salva novas informações no arquivo .JSON
 func save():
 	var file = File.new()
@@ -506,11 +531,10 @@ func dialogFinished():
 #Quando você sai da área de minigame
 func _onMinigameExited(body):
 	liberadoAbrirG = false
-	liberadoAbrirCientista = false
 	if (player.isMobile == true):
 		TouchPressM(false) #Torna o botão touch para abrir M invísivel
 	else:
-		MensagemPressM(false) #Torna o aviso de "Pressione M" invisivel
+		MensagemPressG(false) #Torna o aviso de "Pressione M" invisivel
 	timeline = ""
 	pass
 
@@ -647,8 +671,12 @@ func _pergunta10Entered(body):
 #Quando o personagem entra na área do cientista 
 func _onScientistEntered(body):
 	if (body.name == 'Personagem'):
-		MensagemPressG(true) #Aparece a mensagem de pressione G
-		liberadoAbrirCientista = true #Libera que o dialógo seja aberto
+		if (player.isMobile == true):
+			TouchPressCientista(true)
+		else:
+			liberadoAbrirCientista = true #Libera que o dialógo seja aberto
+			MensagemPressG(true) #Aparece a mensagem de pressione G
+		
 
 
 func _pressedTouchG():
@@ -661,3 +689,16 @@ func _pressedTouchG():
 func _pressedTouchM():
 	beVisibleTip(true) #Torna vísivel o quiz
 	get_tree().paused = true
+
+
+func _onScientistExited(body):
+	liberadoAbrirCientista = false
+	if (player.isMobile == true):
+		TouchPressCientista(false) #Torna o botão touch para abrir M invísivel
+	else:
+		MensagemPressG(false) #Torna o aviso de "Pressione M" invisivel
+
+
+func _pressedTouchCientista():
+	var dialogScientist = Dialogic.start("Cientista")
+	add_child(dialogScientist)

@@ -243,7 +243,7 @@ tile_data = PoolIntArray( 1114132, 0, 0, 1245192, 0, 0, 1310720, 0, 0, 1310723, 
 [node name="Sprite" type="AnimatedSprite" parent="."]
 position = Vector2( 190, -294 )
 frames = SubResource( 6 )
-frame = 6
+frame = 1
 playing = true
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
