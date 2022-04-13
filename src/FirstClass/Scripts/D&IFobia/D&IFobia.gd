@@ -281,12 +281,34 @@ func alreadyCompleted():
 	if (player.fobiaAlreadyCompleted == false):
 		$TileMap3.visible = false
 		$TileMap4.visible = false
+		#Preto e Branco
+		$Sprite.visible = true
+		$Sprite2.visible = true
+		$Sprite3.visible = true
+		$Sprite4.visible = true
+		$Sprite5.visible = true
+		$Sprite6.visible = true
+		$Sprite7.visible = true
+		$Sprite8.visible = true
+		$Sprite9.visible = true
+		$Sprite10.visible = true
 	else:
 		$TileMap3.visible = true
 		$TileMap4.visible = true
 		$Personagem/Sprite.texture = spritePersonagemCompleted
 		$Personagem/Particles2D.emitting = false
 		$Personagem/Light2D.enabled = false
+		#Colorido
+		$Pixil3.visible = true
+		$Pixil4.visible = true
+		$Pixil5.visible = true
+		$Pixil6.visible = true
+		$Pixil7.visible = true
+		$Pixil8.visible = true
+		$Pixil9.visible = true
+		$Pixil10.visible = true
+		$Pixil11.visible = true
+		$Pixil12.visible = true
 
 #Salva novas informações no arquivo .JSON
 func save():
