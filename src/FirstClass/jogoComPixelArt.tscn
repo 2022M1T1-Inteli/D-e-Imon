@@ -903,7 +903,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="RectangleShape2D" id=80]
-extents = Vector2( 110.5, 18.5 )
+extents = Vector2( 105, 18.5 )
 
 [sub_resource type="CapsuleShape2D" id=73]
 
@@ -1879,7 +1879,7 @@ autoplay = "New Anim"
 position = Vector2( 305, -821 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="verifyIsPlayed"]
-position = Vector2( -1.5, -8.5 )
+position = Vector2( -1, -643 )
 shape = SubResource( 80 )
 
 [node name="Portaldestination" parent="." instance=ExtResource( 20 )]

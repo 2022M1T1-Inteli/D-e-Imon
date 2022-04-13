@@ -367,7 +367,9 @@ func marketOpenMessage(body):
 			MensagemPressG(true) #Torna o aviso de "Pressione G" visivel
 		else:
 			print('Nunca Abriu')
+			get_tree().paused = true
 			var dialog = Dialogic.start("Mercado")
+			dialog.pause_mode = Node.PAUSE_MODE_PROCESS
 			add_child(dialog)
 			dialog.connect('timeline_end', self, "unpause")
 			liberadoAbrirG = true #Libera a tecla G para funcionar 
@@ -484,9 +486,14 @@ func _verifyPlayed(body):
 
 
 func _onNPCEntered(body):
-	var dialogNPCHistoria = Dialogic.start("EronHistoria")
-	add_child(dialogNPCHistoria)
-	dialogNPCHistoria.connect('timeline_end', self, "historiaNpcUnpause")
+	if(player.alreadyPlayed == true):
+		pass
+	else:
+		get_tree().paused = true
+		var dialogNPCHistoria = Dialogic.start("EronHistoria")
+		dialogNPCHistoria.pause_mode = Node.PAUSE_MODE_PROCESS
+		add_child(dialogNPCHistoria)
+		dialogNPCHistoria.connect('timeline_end', self, "historiaNpcUnpause")
 
 
 func _on_Area2D6_body_entered(body):
