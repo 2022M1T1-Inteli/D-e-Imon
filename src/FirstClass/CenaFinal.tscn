@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=2]
+[gd_scene load_steps=35 format=2]
 
 [ext_resource path="res://Action RPG Resources/Tileset/aguaAnimada.tres" type="Texture" id=1]
 [ext_resource path="res://Action RPG Resources/World/tijolos.png" type="Texture" id=2]
@@ -27,6 +27,7 @@
 [ext_resource path="res://SpriteFinal/pixil-frame-20.png" type="Texture" id=25]
 [ext_resource path="res://SpriteFinal/pixil-frame-16.png" type="Texture" id=26]
 [ext_resource path="res://SpriteFinal/pixil-frame-17.png" type="Texture" id=27]
+[ext_resource path="res://audios/fim do jogo.mp3" type="AudioStream" id=28]
 
 [sub_resource type="TileSet" id=1]
 0/name = "aguaAnimada.tres 0"
@@ -243,7 +244,11 @@ tile_data = PoolIntArray( 1114132, 0, 0, 1245192, 0, 0, 1310720, 0, 0, 1310723, 
 [node name="Sprite" type="AnimatedSprite" parent="."]
 position = Vector2( 190, -294 )
 frames = SubResource( 6 )
-frame = 1
+frame = 18
 playing = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 28 )
+autoplay = true
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

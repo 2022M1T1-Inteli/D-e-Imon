@@ -289,6 +289,7 @@ func alreadyCompleted():
 		$Sprite7.visible = true
 		$Sprite8.visible = true
 		$Sprite9.visible = true
+		$Sprite10.visible = true
 	else:
 		$TileMap2.visible = false
 		#Colorido aki
@@ -302,6 +303,17 @@ func alreadyCompleted():
 		$PixilColorido8.visible = true
 		$PixilColorido9.visible = true
 		$PixilColorido10.visible = true
+		
+		$Sprite.visible = false
+		$Sprite2.visible = false
+		$Sprite3.visible = false
+		$Sprite4.visible = false
+		$Sprite5.visible = false
+		$Sprite6.visible = false
+		$Sprite7.visible = false
+		$Sprite8.visible = false
+		$Sprite9.visible = false
+		$Sprite10.visible = false
 #Salva novas informações no arquivo .JSON
 func save():
 	var file = File.new()
@@ -407,10 +419,12 @@ func unpauseCientista(timeline_Cientista):
 #Despausa o jogo após dialogo
 func unpause(timeline_Minigame1):
 	get_tree().paused = false
+	get_tree().change_scene("res://FlappyBrahma.tscn")
 
 #Despausa o jogo após dialogo
 func unpause2(timeline_Minigame2):
 	get_tree().paused = false
+	get_tree().change_scene("res://pong.tscn")
 
 #Quando o personagem entra no portal
 func _on_Area2D3_body_entered(body):
@@ -727,3 +741,17 @@ func _pressedTouchCientista():
 	dialogScientist.pause_mode = Node.PAUSE_MODE_PROCESS
 	add_child(dialogScientist)
 	dialogScientist.connect('timeline_end', self, "unpauseCientista")
+
+
+func _on_Button_pressed():
+	$Personagem/Camera/AudioStreamPlayer2D.stream_paused = true
+	$Personagem/Button.visible = false
+	$Personagem/Button2.visible = true
+	pass # Replace with function body.
+
+
+func _on_Button2_pressed():
+	$Personagem/Camera/AudioStreamPlayer2D.stream_paused = false
+	$Personagem/Button.visible = true
+	$Personagem/Button2.visible = false
+	pass # Replace with function body.

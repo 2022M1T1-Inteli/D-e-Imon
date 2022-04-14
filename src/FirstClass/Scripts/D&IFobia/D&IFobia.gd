@@ -706,3 +706,17 @@ func _areaAlreadyPlayed(body):
 	if(body.name == 'Personagem'):
 		player.alreadyPlayedFobia = true
 		save()
+
+
+func _on_Button_pressed():
+	$Personagem/Camera/AudioStreamPlayer2D.stream_paused = true
+	$Personagem/Button.visible = false
+	$Personagem/Button2.visible = true
+	pass # Replace with function body.
+
+
+func _on_Button2_pressed():
+	$Personagem/Camera/AudioStreamPlayer2D.stream_paused = false
+	$Personagem/Button.visible = true
+	$Personagem/Button2.visible = false
+	pass # Replace with function body.
