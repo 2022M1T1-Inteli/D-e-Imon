@@ -18,6 +18,13 @@
   * Pedro Hagge Baptista
   * Yves Levi Paixão Lapa
 
+## Professores Orientadores: 
+<a href="http://lattes.cnpq.br/2716416791407528" target="_blank" rel="noopener noreferrer"> Flavio Marques Azevedo </a>, 
+<a href="http://lattes.cnpq.br/9324969584977927" target="_blank" rel="noopener noreferrer"> Laíza Ribeiro </a>, 
+<a href="http://lattes.cnpq.br/2951162577564329" target="_blank" rel="noopener noreferrer"> Pedro Teberga</a>, 
+<a href="http://lattes.cnpq.br/2327073767433655" target="_blank" rel="noopener noreferrer"> Ricardo Missori </a>,
+<a href="http://lattes.cnpq.br/3254174044411983" target="_blank" rel="noopener noreferrer"> Victor Bruno Alexander Rosetti de Quiroz </a>
+
 ## Descrição
 
 📜Nosso projeto consiste em uma forma divertida sobre ensinar diversidade e inclusão aos funcionários da <a href="https://www.ambev.com.br/">AMBEV</a>.
