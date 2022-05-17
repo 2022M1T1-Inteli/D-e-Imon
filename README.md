@@ -91,23 +91,27 @@
 📄readme.md<br>
 📜licença.txt <br>
 
-A pasta raiz contém um arquivo principal:<br>
-<br> readme.md , que consiste em um guia geral sobre o projeto.<br><br>
-E, também, 4 subpastas que se organizam da seguinte forma:
+A pasta raiz contem dois arquivos que devem ser alterados:
 
-- Onde encontram-se todos os documentos relacionados ao projeto, principalmente o Game Design Document (GDD), com uma subpasta antiga que coincide com os documentos anteriores.
+<b>README.MD</b>: Arquivo que serve como guia e explicação geral sobre seu projeto. O mesmo que você está lendo agora.
 
-- Onde encontram-se todos os executáveis ​​do jogo, executados para rodar, com 3 massas: uma para binários windows, uma para binários android e uma para a web.
+<b>license.txt</b>: Arquivo de licença do projeto, para que qualquer um possa entender até que ponto podem utilizar seu projeto. Aconselhável utilizar a licença Creative Commons Attribution 4.0 International.
 
-- As imagens, onde se encontram, encontram-se algumas imagens correspondentes, sistema e logotipos, para serem utilizados e visualizados.
+Há também 4 pastas que seguem da seguinte forma:
 
-- src , onde encontra-se todo o código fonte do jogo/sistema, pronto para ser baixado e modificado.
+<b>documentos</b>: Aqui estarão todos os documentos do projeto, mas principalmente o <b>GDD (Game Design Document)/Documentação do Sistema</b>. Há uma pasta <b>antigos</b> onde estarão todas as versões antigas da documentação.
+
+<b>executáveis</b>: Aqui estarão todos os executáveis do jogo, prontos para rodar, contendo três pastas: uma para binários <b>android</b>, uma para binários <b>windows</b> e uma para a <b>Web/HTML</b>
+
+<b>imagens</b>: Algumas imagens do jogo/sistema e logos prontos para serem utilizados e visualizados.
+
+<b>src</b>: Nesta pasta irá todo o código fonte do jogo/sistema, pronto para para ser baixado e modificado.
 
 ## 🛠 Instalação
 
 Android:
 
-Faça o download do arquivo "app.apk" disponível em https://github.com/2022M1T1/Projeto1/tree/main/executaveis/Androidno seu celular, execute o arquivo e siga as instruções de seu telefone.
+Faça o download do arquivo "app.apk" disponível em https://github.com/2022M1T1/Projeto1/tree/main/executaveis/Android no seu celular, execute o arquivo e siga as instruções de seu telefone.
 
 Windows:
 
@@ -117,18 +121,17 @@ Não há instalação, apenas executável. Baixe os arquivos disponíveis https:
 Observe que é necessário que o arquivo "D&Imon_0.1.7.pck" esteja no mesmo diretório que "D&Imon_0.1.7.exe" para que o jogo inicie corretamente.
 ```
 <b>HTML:</b>
-
-Não há instalação!
-Encontre o index.html na pasta executáveis e execute-o como uma página WEB (através de algum browser).
-
+Não há instalação! Baixe os arquivos disponíveis em https://github.com/2022M1T1/Projeto1/tree/main/executaveis/HTML/Gameweb e execute-o como uma página da web (através de algum navegador).
 ```sh
-Dependendo de suas configurações de firewall, talvez seja necessário instaurar um web service como xampp ou wampp para que o jogo rode localmente.
+Dependendo de suas configurações de firewall, talvez seja necessário
+instaurar um web service como xampp ou wampp para que o jogo rode lo-
+calmente.
 ```
 
 ## 📈 Exemplo de uso
 
-  Treinamentos de:
-    funcionários para terem um avanço de visão sobre Diversidade e inclusão
+  Treinamentos de
+    funcionários para terem um avanço de visão sobre diversidade e inclusão.
 
 ## 💻 Configuração para Desenvolvimento
 
