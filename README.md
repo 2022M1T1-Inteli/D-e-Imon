@@ -87,7 +87,6 @@
   &emsp;📁|-->HTML<br>
 📷imagens<br>
 💾src<br>
-&emsp;📎 FirstClass<br>
 📄readme.md<br>
 📜licença.txt <br>
 
