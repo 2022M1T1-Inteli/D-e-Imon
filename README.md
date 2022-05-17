@@ -75,89 +75,78 @@
 
 ## 🛠 Estrutura de pastas
 
--Raiz<br>
-|<br>
-|-->documentos<br>
-  &emsp;|-->antigos<br>
-  &emsp;|GDD.docx ou Documentação.docx<br>
-|-->executáveis<br>
-  &emsp;|-->windows<br>
-  &emsp;|-->android<br>
-  &emsp;|-->HTML<br>
-|-->imagens<br>
-|-->src<br>
-|readme.md<br>
-|license.txt<br>
+    📦Projeto 1
+<br>
+    📎 Documentos
+        <p>Aqui estará toda a documentação do projeto, contendo toda a contextualização do projeto<br>
+          &emsp;|-->antigos<br>
+          &emsp;DIVE INC _ Modelo GDD.docx (2).pdf<br>
+💻executáveis<br>
+  &emsp;📁|-->windows<br>
+  &emsp;📁|-->android<br>
+  &emsp;📁|-->HTML<br>
+📷imagens<br>
+💾src<br>
+&emsp;📎 FirstClass<br>
+📄readme.md<br>
+📜licença.txt <br>
 
-A pasta raiz contem dois arquivos que devem ser alterados:
+A pasta raiz contém um arquivo principal:<br>
+<br> readme.md , que consiste em um guia geral sobre o projeto.<br><br>
+E, também, 4 subpastas que se organizam da seguinte forma:
 
-<b>README.MD</b>: Arquivo que serve como guia e explicação geral sobre seu projeto. O mesmo que você está lendo agora.
+- Onde encontram-se todos os documentos relacionados ao projeto, principalmente o Game Design Document (GDD), com uma subpasta antiga que coincide com os documentos anteriores.
 
-<b>license.txt</b>: Arquivo de licença do projeto, para que qualquer um possa entender até que ponto podem utilizar seu projeto. Aconselhável utilizar a licença Creative Commons Attribution 4.0 International.
+- Onde encontram-se todos os executáveis ​​do jogo, executados para rodar, com 3 massas: uma para binários windows, uma para binários android e uma para a web.
 
-Há também 4 pastas que seguem da seguinte forma:
+- As imagens, onde se encontram, encontram-se algumas imagens correspondentes, sistema e logotipos, para serem utilizados e visualizados.
 
-<b>documentos</b>: Aqui estarão todos os documentos do projeto, mas principalmente o <b>GDD (Game Design Document)/Documentação do Sistema</b>. Há uma pasta <b>antigos</b> onde estarão todas as versões antigas da documentação.
-
-<b>executáveis</b>: Aqui estarão todos os executáveis do jogo, prontos para rodar. Há no mínimo 3 pastas, uma para binários <b>Windows</b>, uma para binários <b>android</b> e uma para a <b>Web/HTML</b>
-
-<b>imagens</b>: Algumas imagens do jogo/sistema e logos prontos para serem utilizados e visualizados.
-
-<b>src</b>: Nesta pasta irá todo o código fonte do jogo/sistema, pronto para para ser baixado e modificado.
+- src , onde encontra-se todo o código fonte do jogo/sistema, pronto para ser baixado e modificado.
 
 ## 🛠 Instalação
 
-<b>Android:</b>
+Android:
 
-Faça o Download do JOGO.apk no seu celular.
-Execute o APK e siga as instruções de seu telefone.
+Faça o download do arquivo "app.apk" disponível em https://github.com/2022M1T1/Projeto1/tree/main/executaveis/Androidno seu celular, execute o arquivo e siga as instruções de seu telefone.
 
-```sh
-Coloque código do prompt de comnando se for necessário
+Windows:
+
+Não há instalação, apenas executável. Baixe os arquivos disponíveis https://github.com/2022M1T1/Projeto1/tree/main/executaveis/Windows e execute "D&Imon_0.1.7.exe" como qualquer outro programa.
+
 ```
-
-<b>Windows:</b>
-
-Não há instalação! Apenas executável!
-Encontre o JOGO.exe na pasta executáveis e execute-o como qualquer outro programa.
-
-```sh
-Coloque código do prompt de comnando se for necessário
+Observe que é necessário que o arquivo "D&Imon_0.1.7.pck" esteja no mesmo diretório que "D&Imon_0.1.7.exe" para que o jogo inicie corretamente.
 ```
-
 <b>HTML:</b>
 
 Não há instalação!
 Encontre o index.html na pasta executáveis e execute-o como uma página WEB (através de algum browser).
 
+```sh
+Dependendo de suas configurações de firewall, talvez seja necessário instaurar um web service como xampp ou wampp para que o jogo rode localmente.
+```
+
 ## 📈 Exemplo de uso
 
   Treinamentos de:
-    funcionarios para terem um avanço de visão sobre Diversidade e inclusão
+    funcionários para terem um avanço de visão sobre Diversidade e inclusão
 
 ## 💻 Configuração para Desenvolvimento
 
-Descreva como instalar todas as dependências para desenvolvimento e como rodar um test-suite automatizado de algum tipo. Se necessário, faça isso para múltiplas plataformas.
-
 Para abrir este projeto você necessita das seguintes ferramentas:
 
-<div>
-  <a href="https://godotengine.org/">
-</div>
-<div style="display: inline_block"><br>
-  <img align="center" alt="Dive-Inc-Godot" height="60" width="70" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/godot/godot-original-wordmark.svg">
+-<a href="https://godotengine.org/download"> Godot</a>
 
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.12.0/devicon.min.css">
-</div></a>
+Instruções para a configuração do ambiente de desenvolvimento:
 
-&emsp;
-
-```sh
-make install
-npm test
-Coloque código do prompt de comnando se for necessário
 ```
+1) Clone o repositório.
+2) Abra a engine de desenvolvimento (godot).
+3) No gerenciador de projetos inicial, clique no botão "importar" e, em seguida, no botão "navegar".
+4) Navegue até o repositório clonado e abra a pasta "src".
+5) Selecione o arquivo "project.godot" e em seguida clique no botão "abrir".
+6) Pronto. O seu ambiente de desenvolvimento está configurado.
 
+```
 ## 🗃 Histórico de lançamentos
 * 0.1.3 - 01/04/2022
   * Adicionado novos diálogos
@@ -241,8 +230,7 @@ Coloque código do prompt de comnando se for necessário
     * Criação do GitHub
 
 ## 📋 Licença/License
-
-<p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/"><a property="dct:title" rel="cc:attributionURL" href="https://github.com/2022M1T1/Projeto1">DiveMon</a> by <a rel="cc:attributionURL dct:creator" property="cc:attributionName" href="https://www.linkmenu.com.br/DiveInc">Pedro Hagge Baptista, Abner Silva Barbosa, Yves Levi Paixão Lapa, João Pedro Gonçalves Carazzato, Amanda Ribeiro Fontes, Livia Coutinho, Felipe Campos</a> is licensed under <a href="http://creativecommons.org/licenses/by-sa/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">CC BY-SA 4.0<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/sa.svg?ref=chooser-v1"></a></p>
+<p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/"><a property="dct:title" rel="cc:attributionURL" href="https://github.com/2022M1T1/Projeto1">DiveMon</a> by <a rel="cc:attributionURL dct:creator" property="cc:attributionName" href="https://www.yggbrasil.com.br/vr">INTELI, VICTOR BRUNO ALEXANDER ROSETTI DE QUIROZ</a>, <a rel="cc:attributionURL dct:creator" property="cc:attributionName" href="https://www.linkmenu.com.br/DiveInc">Pedro Hagge Baptista, Abner Silva Barbosa, Yves Levi Paixão Lapa, João Pedro Gonçalves Carazzato, Amanda Ribeiro Fontes, Livia Coutinho, Felipe Campos</a> is licensed under <a href="http://creativecommons.org/licenses/by-sa/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">CC BY-SA 4.0<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/sa.svg?ref=chooser-v1"></a></p>
 
 ## 🎓 Referências
 
@@ -253,4 +241,3 @@ Aqui estão as referências usadas no projeto.
 3. <https://creativecommons.org/share-your-work/>
 4. https://docs.godotengine.org/en/2.1/learning/step_by_step/simple_2d_game.html
 5. https://www.youtube.com/c/uheartbeast
-
