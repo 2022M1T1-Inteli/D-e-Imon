@@ -75,20 +75,20 @@
 
 ## 🛠 Estrutura de pastas
 
-    📦Projeto 1
+    Projeto 1
 <br>
-    📎 Documentos
+    Documentos
         <p>Aqui estará toda a documentação do projeto, contendo toda a contextualização do projeto<br>
           &emsp;|-->antigos<br>
           &emsp;DIVE INC _ Modelo GDD.docx (2).pdf<br>
-💻executáveis<br>
-  &emsp;📁|-->windows<br>
-  &emsp;📁|-->android<br>
-  &emsp;📁|-->HTML<br>
-📷imagens<br>
-💾src<br>
-📄readme.md<br>
-📜licença.txt <br>
+executáveis<br>
+  &emsp;|--> windows<br>
+  &emsp;|-->android<br>
+  &emsp;|-->HTML<br>
+imagens<br>
+src<br>
+readme.md<br>
+licença.txt <br>
 
 A pasta raiz contem dois arquivos que devem ser alterados:
 
