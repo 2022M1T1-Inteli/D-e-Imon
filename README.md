@@ -78,7 +78,7 @@
     Projeto 1
 <br>
     Documentos
-        <p>Aqui estará toda a documentação do projeto, contendo toda a contextualização do projeto<br>
+        <p>
           &emsp;|-->antigos<br>
           &emsp;DIVE INC _ Modelo GDD.docx (2).pdf<br>
 executáveis<br>
